@@ -259,7 +259,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -1934,6 +1934,53 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <widget class="QWidget" name="">
           <property name="geometry">
            <rect>
+            <x>420</x>
+            <y>210</y>
+            <width>321</width>
+            <height>52</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="label_53">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color : #fff;
+font: 75 14pt &quot;Gill Sans MT&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>Set Sıcaklığı (°C)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="leSetTemperature1500h">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>135</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>135</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
             <x>30</x>
             <y>350</y>
             <width>306</width>
@@ -2122,53 +2169,6 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
          <widget class="QWidget" name="">
           <property name="geometry">
            <rect>
-            <x>420</x>
-            <y>210</y>
-            <width>321</width>
-            <height>52</height>
-           </rect>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_11">
-           <item>
-            <widget class="QLabel" name="label_53">
-             <property name="styleSheet">
-              <string notr="true">QLabel{
-color : #fff;
-font: 75 14pt &quot;Gill Sans MT&quot;;
-}</string>
-             </property>
-             <property name="text">
-              <string>Set Sıcaklığı (°C)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="leSetTemperature1500h">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>135</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>135</width>
-               <height>16777215</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="">
-          <property name="geometry">
-           <rect>
             <x>430</x>
             <y>350</y>
             <width>313</width>
@@ -2255,7 +2255,7 @@ radius: 2, stop: 0 rgb(30, 30, 30), stop: 1 rgb(80, 80, 80) );
          <widget class="QStackedWidget" name="detailsBottomPages">
           <property name="geometry">
            <rect>
-            <x>20</x>
+            <x>30</x>
             <y>160</y>
             <width>1101</width>
             <height>401</height>
@@ -2271,13 +2271,13 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
             <property name="geometry">
              <rect>
-              <x>220</x>
+              <x>240</x>
               <y>90</y>
               <width>591</width>
               <height>50</height>
@@ -2838,6 +2838,470 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
            </widget>
           </widget>
           <widget class="QWidget" name="detailsBottomHetar"/>
+          <widget class="QWidget" name="page_5">
+           <widget class="QLabel" name="laFault11">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>100</y>
+              <width>251</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>11 Acil Durum Basılı</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault12">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>40</y>
+              <width>281</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>12 Sıcaklık yüksek (°C&gt;150)</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault21">
+            <property name="geometry">
+             <rect>
+              <x>820</x>
+              <y>180</y>
+              <width>281</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>21--1.boru patladı</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault22">
+            <property name="geometry">
+             <rect>
+              <x>810</x>
+              <y>140</y>
+              <width>281</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>22--2.boru patladı</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault23">
+            <property name="geometry">
+             <rect>
+              <x>810</x>
+              <y>100</y>
+              <width>281</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>23--3.boru patladı</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault24">
+            <property name="geometry">
+             <rect>
+              <x>810</x>
+              <y>60</y>
+              <width>281</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>24--4.boru patladı</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault25">
+            <property name="geometry">
+             <rect>
+              <x>810</x>
+              <y>10</y>
+              <width>281</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>25--5.boru patladı</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault31">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>190</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>31 Temiz Tank Seviyesi Düşük</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault32">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>240</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>32 Kirli Tank Seviyesi Yüksek</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault33">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>270</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>33 Basınçi Tank Seviyesi Düşük</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault34">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>310</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>34 Basınçi Tank Seviyesi Yüksek</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault41">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>-20</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>41 Kapı Açık</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault42">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>20</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>42 Fan1 calışmıyor</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault43">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>60</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>43 Fan2 calışmıyor</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault44">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>100</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>44 Fan3 calışmıyor</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault45">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>130</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>45 Pompa calışmıyor</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault46">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>180</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>46 Isınma Arızası</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault47">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>210</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>47 Haberleşme Arızası</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault48">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>240</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>48 Pompa Hattı Tıkalı</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault49">
+            <property name="geometry">
+             <rect>
+              <x>620</x>
+              <y>230</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>49 Regülatör Yneiden Ayarlanmalı</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault4A">
+            <property name="geometry">
+             <rect>
+              <x>620</x>
+              <y>260</y>
+              <width>391</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>4A Sistem Basınclanmıyor</string>
+            </property>
+           </widget>
+          </widget>
          </widget>
          <widget class="QPushButton" name="btnDetailsInfo">
           <property name="geometry">

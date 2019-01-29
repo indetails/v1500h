@@ -1037,7 +1037,9 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 }
             }
         }
+        else if (data[0] == char(0x13)){
 
+        }
         if (myPLC.pressurePrepActive == (data[1] & 0b00001000) >> 3)
         {
 
