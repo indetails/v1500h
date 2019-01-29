@@ -259,7 +259,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -725,7 +725,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
        <widget class="QStackedWidget" name="mainPage">
         <property name="geometry">
          <rect>
-          <x>200</x>
+          <x>210</x>
           <y>60</y>
           <width>971</width>
           <height>641</height>
@@ -1803,53 +1803,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            <string>İptal</string>
           </property>
          </widget>
-         <widget class="QWidget" name="layoutWidget_2">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>270</y>
-            <width>291</width>
-            <height>52</height>
-           </rect>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_11">
-           <item>
-            <widget class="QLabel" name="label_52">
-             <property name="styleSheet">
-              <string notr="true">QLabel{
-color : #fff;
-font: 75 14pt &quot;Gill Sans MT&quot;;
-}</string>
-             </property>
-             <property name="text">
-              <string>Set Basıncı            </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="leSetPressure1500h">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>135</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>135</width>
-               <height>16777215</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
          <widget class="QPushButton" name="bStartTest1500h">
           <property name="enabled">
            <bool>false</bool>
@@ -1978,157 +1931,16 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </size>
           </property>
          </widget>
-         <widget class="QWidget" name="layoutWidget_3">
+         <widget class="QWidget" name="">
           <property name="geometry">
            <rect>
-            <x>310</x>
-            <y>270</y>
-            <width>283</width>
+            <x>30</x>
+            <y>350</y>
+            <width>306</width>
             <height>52</height>
            </rect>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_12">
-           <item>
-            <widget class="QLabel" name="label_53">
-             <property name="styleSheet">
-              <string notr="true">QLabel{
-color : #fff;
-font: 75 14pt &quot;Gill Sans MT&quot;;
-}</string>
-             </property>
-             <property name="text">
-              <string>Set Sıcaklığı          </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="leSetTemperature1500h">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>135</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>135</width>
-               <height>16777215</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="layoutWidget_4">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>340</y>
-            <width>291</width>
-            <height>52</height>
-           </rect>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_15">
-           <item>
-            <widget class="QLabel" name="label_54">
-             <property name="styleSheet">
-              <string notr="true">QLabel{
-color : #fff;
-font: 75 14pt &quot;Gill Sans MT&quot;;
-}</string>
-             </property>
-             <property name="text">
-              <string>Toplam Test Süresi</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="leTotalTestDuration1500h">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>135</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>135</width>
-               <height>16777215</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="layoutWidget_5">
-          <property name="geometry">
-           <rect>
-            <x>310</x>
-            <y>340</y>
-            <width>281</width>
-            <height>52</height>
-           </rect>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_16">
-           <item>
-            <widget class="QLabel" name="label_55">
-             <property name="styleSheet">
-              <string notr="true">QLabel{
-color : #fff;
-font: 75 14pt &quot;Gill Sans MT&quot;;
-}</string>
-             </property>
-             <property name="text">
-              <string>Değişim Periyodu</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="leLiquidChangePeriod1500h">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>134</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>135</width>
-               <height>16777215</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="layoutWidget_7">
-          <property name="geometry">
-           <rect>
-            <x>610</x>
-            <y>340</y>
-            <width>281</width>
-            <height>52</height>
-           </rect>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_17">
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
             <widget class="QLabel" name="label_56">
              <property name="styleSheet">
@@ -2138,7 +1950,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
 }</string>
              </property>
              <property name="text">
-              <string>Değişim Sıcaklığı</string>
+              <string>Değişim Sıcaklığı(°C)</string>
              </property>
             </widget>
            </item>
@@ -2166,16 +1978,204 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="layoutWidget_8">
+         <widget class="QWidget" name="">
           <property name="geometry">
            <rect>
-            <x>610</x>
-            <y>270</y>
-            <width>281</width>
+            <x>440</x>
+            <y>280</y>
+            <width>300</width>
             <height>52</height>
            </rect>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_18">
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_55">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color : #fff;
+font: 75 14pt &quot;Gill Sans MT&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>Değişim Periyodu(s)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="leLiquidChangePeriod1500h">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>134</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>135</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>280</y>
+            <width>304</width>
+            <height>52</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QLabel" name="label_54">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color : #fff;
+font: 75 14pt &quot;Gill Sans MT&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>Toplam Test Süresi(s)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="leTotalTestDuration1500h">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>135</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>135</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>210</y>
+            <width>267</width>
+            <height>52</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_52">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color : #fff;
+font: 75 14pt &quot;Gill Sans MT&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>Set Basıncı (bar)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="leSetPressure1500h">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>135</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>135</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
+            <x>420</x>
+            <y>210</y>
+            <width>321</width>
+            <height>52</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="label_53">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color : #fff;
+font: 75 14pt &quot;Gill Sans MT&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>Set Sıcaklığı (°C)          </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="leSetTemperature1500h">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>135</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>135</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
+            <x>430</x>
+            <y>350</y>
+            <width>313</width>
+            <height>52</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
            <item>
             <widget class="QLabel" name="label_57">
              <property name="styleSheet">
@@ -2185,7 +2185,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
 }</string>
              </property>
              <property name="text">
-              <string>Sirkülasyon Süresi</string>
+              <string>Sirkülasyon Süresi(dk)</string>
              </property>
             </widget>
            </item>
