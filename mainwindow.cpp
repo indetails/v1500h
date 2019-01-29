@@ -1477,8 +1477,9 @@ void MainWindow::on_bEditPro_clicked()
     ui->tabWidget->setTabEnabled(0, false);
     ui->tabWidget->setTabEnabled(1, false);
     ui->tabWidget->setTabEnabled(2, false);
-    ui->tabWidget->setTabEnabled(4, false);
+    ui->tabWidget->setTabEnabled(3, false);
     ui->tabWidget->setTabEnabled(5, false);
+    ui->tabWidget->setTabEnabled(6, false);
 
     ui->cbSelectProfile->setEnabled(false);
 
@@ -1554,10 +1555,11 @@ void MainWindow::on_bClearPro_clicked()
     ui->tabWidget->setTabEnabled(0, true);
     ui->tabWidget->setTabEnabled(1, true);
     ui->tabWidget->setTabEnabled(2, true);
-    ui->tabWidget->setTabEnabled(4, true);
+    ui->tabWidget->setTabEnabled(3, true);
     ui->tabWidget->setTabEnabled(5, true);
+    ui->tabWidget->setTabEnabled(6, true);
 
-    ui->tPreview_2->clearPlottables();
+    ui->tPreview_2->clearPlottables();   
     ui->tPreview_2->replot();
 
 }
