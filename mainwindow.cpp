@@ -4833,6 +4833,7 @@ void MainWindow::getCurrentDateTime()
 
 void MainWindow::updateTPlot()
 {
+    int tKeyHour;
     tKeyElapsed = tElapsedSeconds + (double(tempPeriod)/1000.0) ;
    // tKey = tElapsedSeconds + (double(tempPeriod)/1000.0) ;
     //tKey = QTime::currentTime().msecsSinceStartOfDay()/1000;
@@ -4844,6 +4845,9 @@ void MainWindow::updateTPlot()
     //  ui->tTestGraph->graph(0)->rescaleKeyAxis();
     // replot the graph with the added data
     ui->tTestGraph->replot();
+
+    tKeyHour= tElapsedSeconds / 3600;
+    ui->pb_testProgress->setValue(tKeyHour);
 
 #ifdef Q_OS_LINUX
     //linux code goes here
@@ -6552,6 +6556,11 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     cantTouchThis.clear();
 
     proc->setProfile();
+
+ui->pb_testProgress->setMaximum(totalDuration);
+ui->pb_testProgress->setMinimum(0);
+ui->pb_testProgress->setValue(0);
+
 
     return true;
 }

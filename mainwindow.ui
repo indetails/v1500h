@@ -2271,13 +2271,13 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
             <property name="geometry">
              <rect>
-              <x>120</x>
+              <x>220</x>
               <y>90</y>
               <width>591</width>
               <height>50</height>
@@ -2311,18 +2311,18 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
              <rect>
               <x>0</x>
               <y>40</y>
-              <width>101</width>
+              <width>241</width>
               <height>31</height>
              </rect>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>İşlenen Test Durumu</string>
             </property>
            </widget>
-           <widget class="QProgressBar" name="progressBar_8">
+           <widget class="QProgressBar" name="pb_testProgress">
             <property name="geometry">
              <rect>
-              <x>120</x>
+              <x>240</x>
               <y>30</y>
               <width>591</width>
               <height>50</height>
