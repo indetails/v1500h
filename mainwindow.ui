@@ -2138,7 +2138,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
 }</string>
              </property>
              <property name="text">
-              <string>Set Sıcaklığı (°C)          </string>
+              <string>Set Sıcaklığı (°C)</string>
              </property>
             </widget>
            </item>
