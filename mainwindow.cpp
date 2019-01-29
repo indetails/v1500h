@@ -6775,7 +6775,7 @@ void MainWindow::on_b_tum_tanklari_bosalt_clicked()
     {
         QByteArray cantTouchThis;
         cantTouchThis.clear();
-        cantTouchThis.append(0x01);
+        cantTouchThis.append(0x02);
         proc->insertCommandMessage(mySerial::makeMessage(0x9F,cantTouchThis));
     }
     else
