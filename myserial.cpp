@@ -68,7 +68,7 @@ void mySerial::startSerial()
     #endif
     #ifdef Q_OS_WIN
         // windows code goes here
-        serial->setPortName("COM51");
+        serial->setPortName("COM8");
     #endif
 
     serial->setBaudRate(QSerialPort::Baud57600);

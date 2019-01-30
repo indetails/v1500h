@@ -347,7 +347,7 @@ void MainWindow::setupTGraph()
     connect(ui->tTestGraph, SIGNAL(mouseWheel(QWheelEvent*)), this, SLOT(mouseWheel()));
  //   connect(ui->tTestGraph->xAxis, SIGNAL(rangeChanged(QCPRange)), ui->tTestGraph->xAxis2, SLOT(setRange(QCPRange)));
  //   connect(ui->tTestGraph->yAxis, SIGNAL(rangeChanged(QCPRange)), ui->tTestGraph->yAxis2, SLOT(setRange(QCPRange)));
-
+if (startFromRecords){
     QVector<double> x(180000), y(180000);
         #ifdef Q_OS_WIN
                 // windows code goes here
@@ -372,7 +372,7 @@ void MainWindow::setupTGraph()
 
 
            ui->tTestGraph->graph(0)->setData(x, y);
-
+}
 
 
 
@@ -4883,7 +4883,7 @@ void MainWindow::updateTPlot()
     ui->tTestGraph->graph(0)->addData(tKey, cabinAverageTemp);
     ui->tTestGraph->graph(1)->addData(tKey, pipe1Pressure);
     // rescale key (horizontal) axis to fit the current data:
-    //  ui->tTestGraph->graph(0)->rescaleKeyAxis();
+      ui->tTestGraph->graph(0)->rescaleKeyAxis();
     // replot the graph with the added data
     ui->tTestGraph->replot();
 
@@ -4896,7 +4896,13 @@ void MainWindow::updateTPlot()
 #endif
 #ifdef Q_OS_WIN
     // windows code goes here
-    QString filePath = "records\\" + testFolder + "\\" + "temperature.csv";
+    QString filePath;
+    if (startFromRecords){
+     filePath = dataFilePath;
+    }
+    else{
+    filePath = "records\\" + testFolder + "\\" + "temperature.csv";
+    }
     QString filePathLast ="lastTestName.txt";
 #endif
 
@@ -4905,7 +4911,7 @@ void MainWindow::updateTPlot()
     if (file.open(QFile::WriteOnly|QFile::Append))
     {
         QTextStream stream(&file);
-        stream << tKeyElapsed << "," << cabinTopTemperatureValue << "\n";
+        stream << tKeyElapsed << "," << cabinAverageTemp << "," << pipe1Pressure << "\n";
         file.close();
 
     }
@@ -6856,14 +6862,20 @@ void MainWindow::on_bResetFault_clicked()
 
 void MainWindow::on_bChooseData_clicked()
 {
-    startFromRecords = true;
+
     dataFilePath = QFileDialog::getOpenFileName(
                 this,
                 tr("Open File"),
                 "records\\",
                 "CSV file (*.csv);;All files (*.*)"
-
                 );
-    setupTGraph();
-    ui->tabWidget->setCurrentIndex(2);
+    if (!dataFilePath.isNull()){
+          startFromRecords = true;
+          setupTGraph();
+          ui->tabWidget->setCurrentIndex(2);
+    }
+    else{
+       startFromRecords = false;
+    }
+
 }
