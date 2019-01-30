@@ -15,5 +15,6 @@
         <file>img/heater_on.png</file>
         <file>img/button_info.png</file>
         <file>img/button_pressure.png</file>
+        <file>img/alarm.png</file>
     </qresource>
 </RCC>

@@ -6901,3 +6901,9 @@ void MainWindow::on_btnDetailsPipes_clicked()
     ui->detailsPages->setCurrentIndex(0);
     ui->detailsBottomPages->setCurrentIndex(2);
 }
+
+void MainWindow::on_btnDetailsPressure_2_clicked()
+{
+    ui->detailsPages->setCurrentIndex(0);
+    ui->detailsBottomPages->setCurrentIndex(5);
+}

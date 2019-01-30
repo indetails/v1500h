@@ -222,6 +222,8 @@ private slots:
 
     void on_btnDetailsPipes_clicked();
 
+    void on_btnDetailsPressure_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 

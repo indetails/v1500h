@@ -2335,7 +2335,7 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>5</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
@@ -3423,186 +3423,6 @@ font: 75 18pt &quot;Arial&quot;;</string>
            </widget>
           </widget>
           <widget class="QWidget" name="detailsBottomHetar">
-           <widget class="QLabel" name="laFault4A">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>170</y>
-              <width>831</width>
-              <height>81</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial Black</family>
-              <pointsize>18</pointsize>
-              <weight>10</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 87 18pt &quot;Arial Black&quot;;</string>
-            </property>
-            <property name="text">
-             <string>4A Sistem Basınclanmıyor</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="laFault48">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>170</y>
-              <width>831</width>
-              <height>81</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial Black</family>
-              <pointsize>18</pointsize>
-              <weight>10</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 87 18pt &quot;Arial Black&quot;;</string>
-            </property>
-            <property name="text">
-             <string>48 Pompa Hattı Tıkalı</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="laFault45">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>170</y>
-              <width>831</width>
-              <height>81</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial Black</family>
-              <pointsize>18</pointsize>
-              <weight>10</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 87 18pt &quot;Arial Black&quot;;</string>
-            </property>
-            <property name="text">
-             <string>45 Pompa calışmıyor</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="laFault47">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>170</y>
-              <width>831</width>
-              <height>81</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial Black</family>
-              <pointsize>18</pointsize>
-              <weight>10</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 87 18pt &quot;Arial Black&quot;;</string>
-            </property>
-            <property name="text">
-             <string>47 Haberleşme Arızası</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="laFault49">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>170</y>
-              <width>831</width>
-              <height>81</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial Black</family>
-              <pointsize>18</pointsize>
-              <weight>10</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 87 18pt &quot;Arial Black&quot;;</string>
-            </property>
-            <property name="text">
-             <string>49 Regülatör Yneiden Ayarlanmalı</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="laFault41">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>170</y>
-              <width>831</width>
-              <height>81</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial Black</family>
-              <pointsize>18</pointsize>
-              <weight>10</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 87 18pt &quot;Arial Black&quot;;</string>
-            </property>
-            <property name="text">
-             <string>41 Kapı Açık</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
            <widget class="QLabel" name="label_40">
             <property name="geometry">
              <rect>
@@ -3627,103 +3447,11 @@ color: rgb(255, 0, 0);
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
-          </widget>
-          <widget class="QWidget" name="page_5">
-           <widget class="QLabel" name="laFault42">
+           <widget class="QLabel" name="laFault46_2">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
-              <height>71</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial</family>
-              <pointsize>18</pointsize>
-              <weight>9</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 75 18pt &quot;Arial&quot;;</string>
-            </property>
-            <property name="text">
-             <string>42 Fan1 calışmıyor</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="laFault43">
-            <property name="geometry">
-             <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
-              <height>71</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial</family>
-              <pointsize>18</pointsize>
-              <weight>9</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 75 18pt &quot;Arial&quot;;</string>
-            </property>
-            <property name="text">
-             <string>43 Fan2 calışmıyor</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="laFault44">
-            <property name="geometry">
-             <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
-              <height>71</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial</family>
-              <pointsize>18</pointsize>
-              <weight>9</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 75 18pt &quot;Arial&quot;;</string>
-            </property>
-            <property name="text">
-             <string>44 Fan3 calışmıyor</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-           <widget class="QLabel" name="laFault46">
-            <property name="geometry">
-             <rect>
-              <x>130</x>
-              <y>120</y>
+              <x>170</x>
+              <y>170</y>
               <width>831</width>
               <height>71</height>
              </rect>
@@ -3749,6 +3477,128 @@ font: 75 18pt &quot;Arial&quot;;</string>
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
+           <widget class="QLabel" name="laFault46">
+            <property name="geometry">
+             <rect>
+              <x>170</x>
+              <y>170</y>
+              <width>831</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>18</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 75 18pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>46 Isınma Arızası</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault44">
+            <property name="geometry">
+             <rect>
+              <x>170</x>
+              <y>170</y>
+              <width>831</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>18</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 75 18pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>44 Fan3 calışmıyor</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault43">
+            <property name="geometry">
+             <rect>
+              <x>170</x>
+              <y>170</y>
+              <width>831</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>18</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 75 18pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>43 Fan2 calışmıyor</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault42">
+            <property name="geometry">
+             <rect>
+              <x>170</x>
+              <y>170</y>
+              <width>831</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>18</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 75 18pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>42 Fan1 calışmıyor</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="detailsBottomError">
            <widget class="QLabel" name="label_38">
             <property name="geometry">
              <rect>
@@ -3773,8 +3623,188 @@ color: rgb(255, 0, 0);
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
+           <widget class="QLabel" name="laFault41">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>120</y>
+              <width>831</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>18</pointsize>
+              <weight>10</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 87 18pt &quot;Arial Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>41 Kapı Açık</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault49">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>120</y>
+              <width>831</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>18</pointsize>
+              <weight>10</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 87 18pt &quot;Arial Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>49 Regülatör Yneiden Ayarlanmalı</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault47">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>120</y>
+              <width>831</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>18</pointsize>
+              <weight>10</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 87 18pt &quot;Arial Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>47 Haberleşme Arızası</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault45">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>120</y>
+              <width>831</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>18</pointsize>
+              <weight>10</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 87 18pt &quot;Arial Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>45 Pompa calışmıyor</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault48">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>120</y>
+              <width>831</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>18</pointsize>
+              <weight>10</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 87 18pt &quot;Arial Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>48 Pompa Hattı Tıkalı</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault4A">
+            <property name="geometry">
+             <rect>
+              <x>130</x>
+              <y>120</y>
+              <width>831</width>
+              <height>81</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>18</pointsize>
+              <weight>10</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);
+font: 87 18pt &quot;Arial Black&quot;;</string>
+            </property>
+            <property name="text">
+             <string>4A Sistem Basınclanmıyor</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
           </widget>
-          <widget class="QWidget" name="page_6">
+          <widget class="QWidget" name="detailsBottomEmergency">
            <widget class="QLabel" name="laFault11">
             <property name="geometry">
              <rect>
@@ -4342,6 +4372,29 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
           </property>
           <property name="checkable">
            <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btnDetailsPressure_2">
+          <property name="geometry">
+           <rect>
+            <x>570</x>
+            <y>560</y>
+            <width>94</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="src.qrc">
+            <normaloff>:/images/img/alarm.png</normaloff>:/images/img/alarm.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>90</width>
+            <height>55</height>
+           </size>
           </property>
          </widget>
         </widget>
