@@ -6992,8 +6992,8 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     float setPressure1500h = ui->leSetPressure1500h->text().toFloat()*10;
     quint16 totalDuration = ui->leTotalTestDuration1500h->text().toFloat();
     quint16 changePeriod = ui->leLiquidChangePeriod1500h->text().toFloat();
-
-
+     quint16 LiquidSirkulationtime1500h = ui->leLiquidSirkulationtime1500h->text().toFloat();
+quint16 LiquidChangetemp1500h = ui->leLiquidChangetemp1500h->text().toFloat();
     cantTouchThis.append(1);
 
     cantTouchThis.append(qint16(setPressure1500h) & 0x00FF);
@@ -7004,6 +7004,10 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     cantTouchThis.append(quint16(totalDuration) >> 8);
     cantTouchThis.append(quint16(changePeriod) & 0x00FF);
     cantTouchThis.append(quint16(changePeriod) >> 8);
+    cantTouchThis.append(quint16(LiquidSirkulationtime1500h) & 0x00FF);
+    cantTouchThis.append(quint16(LiquidSirkulationtime1500h) >> 8);
+    cantTouchThis.append(quint16(LiquidChangetemp1500h) & 0x00FF);
+    cantTouchThis.append(quint16(LiquidChangetemp1500h) >> 8);
 
     cantTouchThis.append(activePipes);
 
