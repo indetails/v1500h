@@ -81,6 +81,8 @@ quint32 totalTestDuration;
 quint8 askCounter = 1;
 
 QString testFolder;
+QString dataFilePath;
+bool startFromRecords;
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -275,7 +277,7 @@ void MainWindow::setupTGraph()
     QColor orangeColor(255,165,0);
     ui->tTestGraph->graph(0)->setPen(QPen(orangeColor,3));
     ui->tTestGraph->addGraph(ui->tTestGraph->xAxis,ui->tTestGraph->yAxis2);
-    ui->tTestGraph->graph(1)->setPen(QPen(Qt::red));
+    ui->tTestGraph->graph(1)->setPen(QPen(Qt::red,3));
     ui->tTestGraph->setInteractions(QCP::iRangeDrag | QCP::iSelectAxes |
                                     QCP::iSelectLegend| QCP::iRangeZoom | QCP::iSelectPlottables);
     //ui->tTestGraph->axisRect()->setRangeDrag(Qt::Horizontal);
@@ -346,10 +348,10 @@ void MainWindow::setupTGraph()
  //   connect(ui->tTestGraph->xAxis, SIGNAL(rangeChanged(QCPRange)), ui->tTestGraph->xAxis2, SLOT(setRange(QCPRange)));
  //   connect(ui->tTestGraph->yAxis, SIGNAL(rangeChanged(QCPRange)), ui->tTestGraph->yAxis2, SLOT(setRange(QCPRange)));
 
-    QVector<double> x(25), y(25);
+    QVector<double> x(180000), y(180000);
         #ifdef Q_OS_WIN
                 // windows code goes here
-                QString filePath = "records\\ads\\temperature.csv";
+                QString filePath = dataFilePath;
         #endif
 
                 QFile file(filePath);
@@ -811,9 +813,9 @@ void MainWindow::serialMessage(uint command, QByteArray data)
 
 void MainWindow::prepareTestTimers()
 {
-    tempPeriod = 10000;
+    tempPeriod = 30000;
     vibPeriod = 1000;
-    pressurePeriod = 250;
+    pressurePeriod = 30000;
 
     if (myPLC.temperatureTestActive)
     {
@@ -866,6 +868,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bStopTest->setEnabled(false);
                     ui->bPauseTest->setEnabled(false);
 
+                    ui->bStartTest1500h->setText("Başla");
                     ui->bStartTest1500h->setEnabled (true);
                     ui->bStopTest1500h->setEnabled (false);
                     ui->bPauseTest1500h->setEnabled (false);
@@ -940,7 +943,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
                     ui->bStartTest1500h->setEnabled(false);
 
-
+                    ui->bResetFault->setVisible(false);
                     ui->sbTTotalCycleManual->setEnabled(false);
                     //    ui->sbPTotalCycleManual->setEnabled(false);
                     //    ui->sbVTotalCycleManual->setEnabled(false);
@@ -972,8 +975,11 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bStartTest->setEnabled(true);
                     ui->bStartTestManual->setEnabled(true);
 
+                    ui->bStartTest1500h->setText("Devam");
                     ui->bStartTest1500h->setEnabled(true);
                     ui->bPauseTest1500h->setEnabled(false);
+
+
 
 
                 }
@@ -1012,6 +1018,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bStartTest->setEnabled(false);
                     ui->bStopTest->setEnabled(true);
                     ui->bPauseTest->setEnabled(false);
+                    ui->bResetFault->setVisible(false);
                 }
             }
         }
@@ -1026,6 +1033,22 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 myPLC.deviceState = data[0];
                 if (myPLC.deviceState)
                 {
+                    testFolder =
+                            QDate::currentDate().toString("dd.MM.yy") ;
+#ifdef Q_OS_LINUX
+                    //linux code goes here
+                    if (!QDir("/home/pi/InDetail/records/" + testFolder).exists())
+                    {
+                        QDir().mkdir("/home/pi/InDetail/records/" + testFolder);
+                    }
+#endif
+#ifdef Q_OS_WIN
+                    // windows code goes here
+                    if (!QDir("records\\" + testFolder).exists())
+                    {
+                        QDir().mkdir("records\\" + testFolder);
+                    }
+#endif
                     writeToLogTable("1500h modu aktif");
                     ui->bStartTest1500h->setEnabled(false);
                     ui->bStopTest1500h->setEnabled(true);
@@ -1033,12 +1056,28 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bSetTemperatureStop->setEnabled(true);
                     ui->bStartTest->setEnabled(false);
                     ui->bStopTest->setEnabled(true);
-                    ui->bPauseTest->setEnabled(false);
+                    ui->bPauseTest->setEnabled(true);
+                    ui->bResetFault->setVisible(false);
                 }
             }
         }
-        else if (data[0] == char(0x13)){
+        else if (data[0] == char(0x0B))
+        {
+            if (myPLC.deviceState == (data[0]))
+            {
 
+            }
+            else
+            {
+                myPLC.deviceState = data[0];
+                if (myPLC.deviceState)
+                {
+                    ui->tabWidget->setCurrentIndex(1);
+                    ui->detailsPages->setCurrentIndex(0);
+                    ui->detailsBottomPages->setCurrentIndex(5);
+                    ui->bResetFault->setVisible(true);
+                }
+            }
         }
         if (myPLC.pressurePrepActive == (data[1] & 0b00001000) >> 3)
         {
@@ -6639,6 +6678,7 @@ void MainWindow::on_bStopTest1500h_clicked()
     cantTouchThis.clear();
     cantTouchThis.append(0x01);
     proc->insertCommandMessage(mySerial::makeMessage(0x0A,cantTouchThis));
+    startFromRecords = false;
 }
 
 void MainWindow::on_bPauseTest1500h_clicked()
@@ -6800,4 +6840,30 @@ void MainWindow::on_b_tum_tanklari_bosalt_clicked()
     }
 }
 
+void MainWindow::on_bResetFault_clicked()
+{
 
+    proc->stop();
+
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+    cantTouchThis.append(0x03);
+    proc->insertCommandMessage(mySerial::makeMessage(0x0A,cantTouchThis));
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+
+
+void MainWindow::on_bChooseData_clicked()
+{
+    startFromRecords = true;
+    dataFilePath = QFileDialog::getOpenFileName(
+                this,
+                tr("Open File"),
+                "records\\",
+                "CSV file (*.csv);;All files (*.*)"
+
+                );
+    setupTGraph();
+    ui->tabWidget->setCurrentIndex(2);
+}
