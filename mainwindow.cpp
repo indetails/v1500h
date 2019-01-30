@@ -1119,6 +1119,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(2);
                     ui->bResetFault->setVisible(true);
                     ui->laFault21->setVisible(true);
+                    ui->Hortum1->setChecked(false);
                 }
             }
         }
@@ -1138,6 +1139,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(2);
                     ui->bResetFault->setVisible(true);
                     ui->laFault22->setVisible(true);
+                    ui->Hortum2->setChecked(false);
                 }
             }
         }
@@ -1157,6 +1159,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(2);
                     ui->bResetFault->setVisible(true);
                     ui->laFault23->setVisible(true);
+                    ui->Hortum3->setChecked(false);
                 }
             }
         }
@@ -1176,6 +1179,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(2);
                     ui->bResetFault->setVisible(true);
                     ui->laFault24->setVisible(true);
+                    ui->Hortum4->setChecked(false);
                 }
             }
         }
@@ -1195,6 +1199,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(2);
                     ui->bResetFault->setVisible(true);
                     ui->laFault25->setVisible(true);
+                    ui->Hortum5->setChecked(false);
                 }
             }
         }
@@ -1214,6 +1219,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(1);
                     ui->bResetFault->setVisible(true);
                     ui->laFault31->setVisible(true);
+                    ui->gb_CleanTankLevel->setStyleSheet("background-color: rgb(255, 0, 0);");
                 }
             }
         }
@@ -1233,6 +1239,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(1);
                     ui->bResetFault->setVisible(true);
                     ui->laFault32->setVisible(true);
+                   ui->gb_KirliTankLevel->setStyleSheet("background-color: rgb(255, 0, 0);");
                 }
             }
         }
@@ -1252,6 +1259,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(1);
                     ui->bResetFault->setVisible(true);
                     ui->laFault33->setVisible(true);
+                    ui->gb_basincTankLevel->setStyleSheet("background-color: rgb(255, 0, 0);");
                 }
             }
         }
@@ -1271,6 +1279,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(1);
                     ui->bResetFault->setVisible(true);
                     ui->laFault34->setVisible(true);
+                    ui->gb_basincTankLevel->setStyleSheet("background-color: rgb(255, 0, 0);");
                 }
             }
         }
@@ -7253,6 +7262,46 @@ void MainWindow::on_bResetFault_clicked()
     cantTouchThis.append(0x03);
     proc->insertCommandMessage(mySerial::makeMessage(0x0A,cantTouchThis));
     ui->tabWidget->setCurrentIndex(0);
+
+
+    // yazı kısmının resetlenmesi
+    ui->laFault11->setVisible(false);
+    ui->laFault12->setVisible(false);
+    ui->laFault21->setVisible(false);
+    ui->laFault22->setVisible(false);
+    ui->laFault23->setVisible(false);
+    ui->laFault24->setVisible(false);
+    ui->laFault25->setVisible(false);
+    ui->laFault31->setVisible(false);
+    ui->laFault32->setVisible(false);
+    ui->laFault33->setVisible(false);
+    ui->laFault34->setVisible(false);
+    ui->laFault41->setVisible(false);
+    ui->laFault42->setVisible(false);
+    ui->laFault43->setVisible(false);
+    ui->laFault44->setVisible(false);
+    ui->laFault45->setVisible(false);
+    ui->laFault46->setVisible(false);
+    ui->laFault47->setVisible(false);
+    ui->laFault48->setVisible(false);
+    ui->laFault49->setVisible(false);
+    ui->laFault4A->setVisible(false);
+
+
+
+
+    // tank kısmını resetleme
+     ui->gb_basincTankLevel->setStyleSheet(" ");
+     ui->gb_CleanTankLevel->setStyleSheet(" ");
+     ui->gb_KirliTankLevel->setStyleSheet(" ");
+     // hortum kısmının resetlenmesı
+     ui->Hortum1->setChecked(true);
+     ui->Hortum2->setChecked(true);
+     ui->Hortum3->setChecked(true);
+     ui->Hortum4->setChecked(true);
+     ui->Hortum5->setChecked(true);
+
+
 }
 
 
@@ -7287,3 +7336,5 @@ void MainWindow::on_btnDetailsPressure_2_clicked()
     ui->detailsPages->setCurrentIndex(0);
     ui->detailsBottomPages->setCurrentIndex(4);
 }
+
+
