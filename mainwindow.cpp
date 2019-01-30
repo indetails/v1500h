@@ -6509,7 +6509,7 @@ void MainWindow::on_btnDetailsTanklevel_clicked()
 void MainWindow::on_btnDetailsHeater_clicked()
 {
     ui->detailsPages->setCurrentIndex(0);
-    ui->detailsBottomPages->setCurrentIndex(2);
+    ui->detailsBottomPages->setCurrentIndex(3);
 }
 
 void MainWindow::on_btnDetailsPressure_clicked()
