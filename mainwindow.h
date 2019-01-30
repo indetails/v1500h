@@ -220,6 +220,8 @@ private slots:
 
     void on_bChooseData_clicked();
 
+    void on_btnDetailsPipes_clicked();
+
 private:
     Ui::MainWindow *ui;
 

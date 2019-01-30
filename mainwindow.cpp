@@ -6895,3 +6895,9 @@ void MainWindow::on_bChooseData_clicked()
     }
 
 }
+
+void MainWindow::on_btnDetailsPipes_clicked()
+{
+    ui->detailsPages->setCurrentIndex(0);
+    ui->detailsBottomPages->setCurrentIndex(2);
+}
