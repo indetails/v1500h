@@ -2335,7 +2335,7 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>5</number>
+           <number>4</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
@@ -3975,30 +3975,6 @@ background-color: rgb(255, 0, 0);</string>
            </size>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnDetailsPressure">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>560</y>
-            <width>94</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normalon>:/images/img/button_pressure.png</normalon>
-           </iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>94</width>
-            <height>61</height>
-           </size>
-          </property>
-         </widget>
          <widget class="QDoubleSpinBox" name="dsbCabinTopTemp_2">
           <property name="enabled">
            <bool>false</bool>
@@ -4377,7 +4353,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <widget class="QPushButton" name="btnDetailsPressure_2">
           <property name="geometry">
            <rect>
-            <x>570</x>
+            <x>470</x>
             <y>560</y>
             <width>94</width>
             <height>61</height>
