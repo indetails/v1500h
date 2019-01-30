@@ -2335,7 +2335,7 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
@@ -3077,9 +3077,9 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <widget class="QLabel" name="label_30">
              <property name="geometry">
               <rect>
-               <x>470</x>
-               <y>30</y>
-               <width>91</width>
+               <x>460</x>
+               <y>40</y>
+               <width>111</width>
                <height>31</height>
               </rect>
              </property>
@@ -3126,9 +3126,9 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <widget class="QLabel" name="label_32">
              <property name="geometry">
               <rect>
-               <x>240</x>
-               <y>30</y>
-               <width>91</width>
+               <x>230</x>
+               <y>40</y>
+               <width>111</width>
                <height>31</height>
               </rect>
              </property>
@@ -3143,8 +3143,8 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
              <property name="geometry">
               <rect>
                <x>0</x>
-               <y>30</y>
-               <width>91</width>
+               <y>40</y>
+               <width>111</width>
                <height>31</height>
               </rect>
              </property>
@@ -3158,9 +3158,9 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <widget class="QLabel" name="label_36">
              <property name="geometry">
               <rect>
-               <x>350</x>
-               <y>30</y>
-               <width>91</width>
+               <x>340</x>
+               <y>40</y>
+               <width>111</width>
                <height>31</height>
               </rect>
              </property>
@@ -3174,9 +3174,9 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <widget class="QLabel" name="label_37">
              <property name="geometry">
               <rect>
-               <x>130</x>
-               <y>30</y>
-               <width>91</width>
+               <x>110</x>
+               <y>40</y>
+               <width>111</width>
                <height>31</height>
               </rect>
              </property>
@@ -3299,7 +3299,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
 font: 75 18pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>25--5.boru patladı</string>
+             <string>25--5.Hortum patladı</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3328,7 +3328,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
 font: 75 18pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>23--3.boru patladı</string>
+             <string>23--3.Hortum patladı</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3357,7 +3357,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
 font: 75 18pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>24--4.boru patladı</string>
+             <string>24--4.Hortum patladı</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3386,7 +3386,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
 font: 75 18pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>22--2.boru patladı</string>
+             <string>22--2.Hortum patladı</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3415,7 +3415,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
 font: 75 18pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>21--1.boru patladı</string>
+             <string>21--1.Hortum patladı</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3426,10 +3426,10 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="label_40">
             <property name="geometry">
              <rect>
-              <x>170</x>
-              <y>50</y>
-              <width>831</width>
-              <height>121</height>
+              <x>0</x>
+              <y>30</y>
+              <width>1111</width>
+              <height>141</height>
              </rect>
             </property>
             <property name="styleSheet">
@@ -3447,42 +3447,12 @@ color: rgb(255, 0, 0);
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
-           <widget class="QLabel" name="laFault46_2">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>170</y>
-              <width>831</width>
-              <height>71</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial</family>
-              <pointsize>18</pointsize>
-              <weight>9</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 0);
-color: rgb(255, 0, 0);
-font: 75 18pt &quot;Arial&quot;;</string>
-            </property>
-            <property name="text">
-             <string>46 Isınma Arızası</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
            <widget class="QLabel" name="laFault46">
             <property name="geometry">
              <rect>
-              <x>170</x>
+              <x>0</x>
               <y>170</y>
-              <width>831</width>
+              <width>1111</width>
               <height>71</height>
              </rect>
             </property>
@@ -3510,9 +3480,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault44">
             <property name="geometry">
              <rect>
-              <x>170</x>
+              <x>0</x>
               <y>170</y>
-              <width>831</width>
+              <width>1111</width>
               <height>71</height>
              </rect>
             </property>
@@ -3540,9 +3510,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault43">
             <property name="geometry">
              <rect>
-              <x>170</x>
+              <x>0</x>
               <y>170</y>
-              <width>831</width>
+              <width>1111</width>
               <height>71</height>
              </rect>
             </property>
@@ -3570,9 +3540,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault42">
             <property name="geometry">
              <rect>
-              <x>170</x>
+              <x>0</x>
               <y>170</y>
-              <width>831</width>
+              <width>1111</width>
               <height>71</height>
              </rect>
             </property>
@@ -3602,10 +3572,10 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="label_38">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>10</y>
-              <width>831</width>
-              <height>111</height>
+              <x>-20</x>
+              <y>30</y>
+              <width>1141</width>
+              <height>141</height>
              </rect>
             </property>
             <property name="styleSheet">
@@ -3626,9 +3596,9 @@ color: rgb(255, 0, 0);
            <widget class="QLabel" name="laFault41">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
+              <x>0</x>
+              <y>170</y>
+              <width>1111</width>
               <height>81</height>
              </rect>
             </property>
@@ -3656,9 +3626,9 @@ font: 87 18pt &quot;Arial Black&quot;;</string>
            <widget class="QLabel" name="laFault49">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
+              <x>0</x>
+              <y>170</y>
+              <width>1111</width>
               <height>81</height>
              </rect>
             </property>
@@ -3686,9 +3656,9 @@ font: 87 18pt &quot;Arial Black&quot;;</string>
            <widget class="QLabel" name="laFault47">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
+              <x>0</x>
+              <y>170</y>
+              <width>1111</width>
               <height>81</height>
              </rect>
             </property>
@@ -3716,9 +3686,9 @@ font: 87 18pt &quot;Arial Black&quot;;</string>
            <widget class="QLabel" name="laFault45">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
+              <x>0</x>
+              <y>170</y>
+              <width>1111</width>
               <height>81</height>
              </rect>
             </property>
@@ -3746,9 +3716,9 @@ font: 87 18pt &quot;Arial Black&quot;;</string>
            <widget class="QLabel" name="laFault48">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
+              <x>0</x>
+              <y>170</y>
+              <width>1121</width>
               <height>81</height>
              </rect>
             </property>
@@ -3776,9 +3746,9 @@ font: 87 18pt &quot;Arial Black&quot;;</string>
            <widget class="QLabel" name="laFault4A">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>120</y>
-              <width>831</width>
+              <x>-10</x>
+              <y>170</y>
+              <width>1121</width>
               <height>81</height>
              </rect>
             </property>
