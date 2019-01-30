@@ -259,7 +259,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -3917,7 +3917,7 @@ background-color: rgb(255, 0, 0);</string>
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="src.qrc">
+           <iconset>
             <normaloff>:/images/img/button_info.png</normaloff>:/images/img/button_info.png</iconset>
           </property>
           <property name="iconSize">
@@ -4282,7 +4282,7 @@ font: 75 21pt &quot;Gill Sans MT&quot;;
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="src.qrc">
+           <iconset>
             <normaloff>:/images/img/chechbox_Pipe_checked.png</normaloff>:/images/img/chechbox_Pipe_checked.png</iconset>
           </property>
           <property name="iconSize">
@@ -4363,7 +4363,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="src.qrc">
+           <iconset>
             <normaloff>:/images/img/alarm.png</normaloff>:/images/img/alarm.png</iconset>
           </property>
           <property name="iconSize">
@@ -9143,8 +9143,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="src.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
