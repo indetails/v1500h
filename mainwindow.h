@@ -224,6 +224,8 @@ private slots:
 
     void on_btnDetailsPressure_2_clicked();
 
+
+
 private:
     Ui::MainWindow *ui;
 
