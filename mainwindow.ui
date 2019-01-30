@@ -259,7 +259,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2002,7 +2002,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="leLiquidChangePeriod1500h_2">
+            <widget class="QLineEdit" name="leLiquidChangetemp1500h">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2190,7 +2190,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="leLiquidChangePeriod1500h_3">
+            <widget class="QLineEdit" name="leLiquidSirkulationtime1500h">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2335,7 +2335,7 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
