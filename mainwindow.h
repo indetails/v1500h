@@ -84,6 +84,7 @@ private slots:
 
     void setupVisuals();
     void on_bScreenshot_clicked();
+    void on_bScreenshot_saved();
 
     void on_bStartCooler_clicked();
   //  void on_bStartVibration_clicked();
@@ -223,7 +224,7 @@ private:
     Ui::MainWindow *ui;
 
     mySerial *serial;
-    QTimer *timer1000, *timer250, *timerTemp, *timerVib, *timerPressure;
+    QTimer *timer1000, *timer250, *timerTemp, *timerVib, *timerPressure,*timerScreen;
     SerialProcess *proc;
     Numpad *lineEditkeyboard;
 };

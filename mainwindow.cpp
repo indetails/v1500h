@@ -167,6 +167,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     timerTemp = new QTimer(this);
     connect(timerTemp, SIGNAL(timeout()), this, SLOT(updateTPlot()));
+
+    timerScreen = new QTimer(this);
+    connect(timerScreen, SIGNAL(timeout()), this, SLOT(on_bScreenshot_saved()));
     /*
     timerVib = new QTimer(this);
     connect(timerVib, SIGNAL(timeout()), this, SLOT(updateVPlot()));
@@ -820,6 +823,7 @@ void MainWindow::prepareTestTimers()
     if (myPLC.temperatureTestActive)
     {
         timerTemp->start(tempPeriod);
+        timerScreen->start(300000);
     }
 
     if (myPLC.temperatureTestActive)
@@ -5005,6 +5009,18 @@ void MainWindow::updateVPlot()
     }
 }
 */
+void MainWindow::on_bScreenshot_saved()
+{
+    QScreen *screensave = QGuiApplication::primaryScreen();
+
+        QPixmap pixmap = screensave->grabWindow(0);
+    //    QString fileDir = "/home/pi/InDetail/screenshots/";
+        QString fileDir = "screenshots\\";
+        QString fileName = QDate::currentDate().toString("dd.MM.yy") + "-" +
+                QTime::currentTime().toString("hh.mm.ss");
+        QString fileExtention = ".png";
+        QFile file(fileDir + fileName + fileExtention);
+}
 void MainWindow::on_bScreenshot_clicked()
 {
     QScreen *screen = QGuiApplication::primaryScreen();
