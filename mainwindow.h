@@ -16,7 +16,7 @@
 #include <QPixmap>
 #include <QCloseEvent>
 #include <QApplication>
-
+#include <QFileDialog>
 #include "profilestruct.h"
 #include "serialprocess.h"
 #include "myserial.h"
@@ -214,6 +214,10 @@ private slots:
     void on_b_temiz_tank_bosalt_clicked();
 
     void on_b_tum_tanklari_bosalt_clicked();
+
+    void on_bResetFault_clicked();
+
+    void on_bChooseData_clicked();
 
 private:
     Ui::MainWindow *ui;

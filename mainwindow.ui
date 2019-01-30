@@ -259,7 +259,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -1875,7 +1875,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            <rect>
             <x>10</x>
             <y>420</y>
-            <width>891</width>
+            <width>431</width>
             <height>51</height>
            </rect>
           </property>
@@ -1931,7 +1931,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </size>
           </property>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>420</x>
@@ -1978,7 +1978,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>30</x>
@@ -2025,7 +2025,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>440</x>
@@ -2072,7 +2072,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>30</x>
@@ -2119,7 +2119,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>70</x>
@@ -2166,7 +2166,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>430</x>
@@ -2213,6 +2213,70 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
            </item>
           </layout>
          </widget>
+         <widget class="QPushButton" name="bChooseData">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>460</x>
+            <y>420</y>
+            <width>431</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>94</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Gill Sans MT</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*QPushButton {
+color: #fff;
+font-family: &quot;Gill Sans MT&quot;;
+font-size: 21px;
+border: 2px solid #c3fcf1;
+border-radius: 11px;
+padding: 5px;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
+min-width: 80px;
+}
+QPushButton:hover {
+background: qradialgradient(cx: 0.3, cy: -0.4,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
+}
+QPushButton:pressed {
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}
+QPushButton:disabled {
+color: #888;
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}</string>
+          </property>
+          <property name="text">
+           <string>Kayıt Seç</string>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>15</height>
+           </size>
+          </property>
+         </widget>
         </widget>
        </widget>
        <zorder>bClearLogTable_2</zorder>
@@ -2255,9 +2319,9 @@ radius: 2, stop: 0 rgb(30, 30, 30), stop: 1 rgb(80, 80, 80) );
          <widget class="QStackedWidget" name="detailsBottomPages">
           <property name="geometry">
            <rect>
-            <x>30</x>
+            <x>20</x>
             <y>160</y>
-            <width>1101</width>
+            <width>1111</width>
             <height>401</height>
            </rect>
           </property>
@@ -2271,7 +2335,7 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
@@ -2839,35 +2903,13 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
           </widget>
           <widget class="QWidget" name="detailsBottomHetar"/>
           <widget class="QWidget" name="page_5">
-           <widget class="QLabel" name="laFault11">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>100</y>
-              <width>251</width>
-              <height>121</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Gill Sans MT</family>
-              <pointsize>18</pointsize>
-              <weight>5</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>11 Acil Durum Basılı</string>
-            </property>
-           </widget>
            <widget class="QLabel" name="laFault12">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>40</y>
+              <x>40</x>
+              <y>30</y>
               <width>281</width>
-              <height>121</height>
+              <height>41</height>
              </rect>
             </property>
             <property name="font">
@@ -3302,6 +3344,70 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
             </property>
            </widget>
           </widget>
+          <widget class="QWidget" name="page_6">
+           <widget class="QLabel" name="laFault11">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>120</y>
+              <width>1111</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>18</pointsize>
+              <weight>10</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 0, 0);
+
+font: 87 18pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Acil Durum Butonu Basılı</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laFault11_2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>20</y>
+              <width>1111</width>
+              <height>101</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>26</pointsize>
+              <weight>10</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 0, 0);
+
+font: 87 26pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Acil Durum </string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
          </widget>
          <widget class="QPushButton" name="btnDetailsInfo">
           <property name="geometry">
@@ -3713,6 +3819,64 @@ font: 75 21pt &quot;Gill Sans MT&quot;;
             <width>104</width>
             <height>41</height>
            </size>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="bResetFault">
+          <property name="geometry">
+           <rect>
+            <x>840</x>
+            <y>560</y>
+            <width>171</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>94</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Gill Sans MT</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*QPushButton {
+color: #fff;
+font-family: &quot;Gill Sans MT&quot;;
+font-size: 21px;
+border: 2px solid #c3fcf1;
+border-radius: 11px;
+padding: 5px;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
+min-width: 80px;
+}
+QPushButton:hover {
+background: qradialgradient(cx: 0.3, cy: -0.4,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
+}
+QPushButton:pressed {
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}
+QPushButton:disabled {
+color: #888;
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}*/</string>
+          </property>
+          <property name="text">
+           <string>Reset</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
           </property>
          </widget>
         </widget>
