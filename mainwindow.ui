@@ -2335,7 +2335,7 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>4</number>
+           <number>5</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
@@ -3617,7 +3617,7 @@ color: rgb(255, 0, 0);
 </string>
             </property>
             <property name="text">
-             <string>FAN VE REZİSTANS HATASI</string>
+             <string>GENEL HATALAR </string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>

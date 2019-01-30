@@ -1080,6 +1080,121 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsPages->setCurrentIndex(0);
                     ui->detailsBottomPages->setCurrentIndex(5);
                     ui->bResetFault->setVisible(true);
+                    ui->laFault11->setVisible(true);
+                }
+            }
+        }
+        else if (data[0] == char(0x0C))
+        {
+            if (myPLC.deviceState == (data[0]))
+            {
+
+            }
+            else
+            {
+                myPLC.deviceState = data[0];
+                if (myPLC.deviceState)
+                {
+                    ui->tabWidget->setCurrentIndex(1);
+                    ui->detailsPages->setCurrentIndex(0);
+                    ui->detailsBottomPages->setCurrentIndex(5);
+                    ui->bResetFault->setVisible(true);
+                    ui->laFault12->setVisible(true);
+                }
+            }
+        }
+        else if (data[0] == char(0x21))
+        {
+            if (myPLC.deviceState == (data[0]))
+            {
+
+            }
+            else
+            {
+                myPLC.deviceState = data[0];
+                if (myPLC.deviceState)
+                {
+                    ui->tabWidget->setCurrentIndex(1);
+                    ui->detailsPages->setCurrentIndex(0);
+                    ui->detailsBottomPages->setCurrentIndex(2);
+                    ui->bResetFault->setVisible(true);
+                    ui->laFault21->setVisible(true);
+                }
+            }
+        }
+        else if (data[0] == char(0x22))
+        {
+            if (myPLC.deviceState == (data[0]))
+            {
+
+            }
+            else
+            {
+                myPLC.deviceState = data[0];
+                if (myPLC.deviceState)
+                {
+                    ui->tabWidget->setCurrentIndex(1);
+                    ui->detailsPages->setCurrentIndex(0);
+                    ui->detailsBottomPages->setCurrentIndex(2);
+                    ui->bResetFault->setVisible(true);
+                    ui->laFault22->setVisible(true);
+                }
+            }
+        }
+        else if (data[0] == char(0x23))
+        {
+            if (myPLC.deviceState == (data[0]))
+            {
+
+            }
+            else
+            {
+                myPLC.deviceState = data[0];
+                if (myPLC.deviceState)
+                {
+                    ui->tabWidget->setCurrentIndex(1);
+                    ui->detailsPages->setCurrentIndex(0);
+                    ui->detailsBottomPages->setCurrentIndex(2);
+                    ui->bResetFault->setVisible(true);
+                    ui->laFault23->setVisible(true);
+                }
+            }
+        }
+        else if (data[0] == char(0x24))
+        {
+            if (myPLC.deviceState == (data[0]))
+            {
+
+            }
+            else
+            {
+                myPLC.deviceState = data[0];
+                if (myPLC.deviceState)
+                {
+                    ui->tabWidget->setCurrentIndex(1);
+                    ui->detailsPages->setCurrentIndex(0);
+                    ui->detailsBottomPages->setCurrentIndex(2);
+                    ui->bResetFault->setVisible(true);
+                    ui->laFault24->setVisible(true);
+                }
+            }
+        }
+        else if (data[0] == char(0x25))
+        {
+            if (myPLC.deviceState == (data[0]))
+            {
+
+            }
+            else
+            {
+                myPLC.deviceState = data[0];
+                if (myPLC.deviceState)
+                {
+                    ui->tabWidget->setCurrentIndex(1);
+                    ui->detailsPages->setCurrentIndex(0);
+                    ui->detailsBottomPages->setCurrentIndex(2);
+                    ui->bResetFault->setVisible(true);
+                    ui->laFault25->setVisible(true);
                 }
             }
         }
