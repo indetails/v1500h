@@ -90,11 +90,37 @@ QTableBar
       </property>
       <property name="styleSheet">
        <string notr="true">
+QtabWidget::pane{
+    border-top: 2px solid rgb(255, 85, 0);
+}
+
+QTabBar::tab {
+	font: 20pt &quot;Calibri&quot;;	
+	color: rgb(255, 255, 255);
+	background: rgb(30, 30, 30);
+    border: 2px solid rgb(255, 85, 0);
+    border-bottom-color: rgb(77, 77, 77); /* same as the pane color */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    min-width: 8ex;
+    padding: 4px;
+}
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0  rgb(19, 19, 19), stop: 0.4  rgb(30, 30, 30),
+                                stop: 0.5  rgb(48, 48, 48), stop: 1.0  rgb(77, 77, 77));
+}
+
+
+QTabBar::tab:!selected {
+    margin-top: 2px; /* make non-selected tabs look smaller */
+    border-color: #9B9B9B;
+    border-bottom-color: #C2C7CB; 
+}
 #tab_Main
 {
 font: 112 50pt &quot;Segoe UI Black&quot;;
 
-border: none;
 background: qradialgradient(cx: 0.7, cy: -0.4,
 fx: 0.7, fy: -0.4,
 /*radius: 2, stop: 0 #A8EB12, stop: 1 #65BAAB );*/
@@ -725,7 +751,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
        <widget class="QStackedWidget" name="mainPage">
         <property name="geometry">
          <rect>
-          <x>210</x>
+          <x>200</x>
           <y>60</y>
           <width>971</width>
           <height>641</height>
@@ -2335,7 +2361,7 @@ radius: 2, stop: 1 rgb(62, 62, 62) ,stop: 0 rgb(0, 0, 25) ) ;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
