@@ -622,14 +622,7 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         break;
 
     case 0x32:
-        /*
-        pipe1Pressure = quint8(data[0]) / 10.0;
-        pipe2Pressure = quint8(data[1]) / 10.0;
-        pipe3Pressure = quint8(data[2]) / 10.0;
-        pipe4Pressure = quint8(data[3]) / 10.0;
-        pipe5Pressure = quint8(data[4]) / 10.0;
-        pipe6Pressure = quint8(data[5]) / 10.0;
-*/
+
         double pipePressure1Coeff ;
         double pipePressure1Err;
         float inpExpansionTankLevel;
@@ -638,12 +631,7 @@ void MainWindow::serialMessage(uint command, QByteArray data)
 
 
         pipePressure1In = qint16(((data[1] & 0xff) << 8) | (data[0] & 0xff)) ;
-        /*      pipe2Pressure = qint16(((data[3] & 0xff) << 8) | (data[2] & 0xff)) / 100.0;
-        pipe3Pressure = qint16(((data[5] & 0xff) << 8) | (data[4] & 0xff)) / 100.0;
-        pipe4Pressure = qint16(((data[7] & 0xff) << 8) | (data[6] & 0xff)) / 100.0;
-        pipe5Pressure = qint16(((data[9] & 0xff) << 8) | (data[8] & 0xff)) / 100.0;
-        pipe6Pressure = qint16(((data[11] & 0xff) << 8) | (data[10] & 0xff)) / 100.0;
-*/
+
         inpExpansionTankLevel = qint16(((data[3] & 0xff) << 8) | (data[2] & 0xff));
         inpCleanTankLevel = qint16(((data[5] & 0xff) << 8) | (data[4] & 0xff));
         inpDirtyTankLevel = qint16(((data[7] & 0xff) << 8) | (data[6] & 0xff));
@@ -672,31 +660,17 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         ui->dsbPipe1PressureMaintenance->setValue(pipe1Pressure);
         ui->dsbCalPipePressure1Input->setValue(pipePressure1In);
         ui->dsbCalPipePressure1Out->setValue(pipe1Pressure);
-        /*
-         *
-         *
-        ui->dsbPipe2Pressure->setValue(pipe2Pressure);
-        ui->dsbPipe2PressureMaintenance->setValue(pipe2Pressure);
-        ui->dsbPipe3Pressure->setValue(pipe3Pressure);
-        ui->dsbPipe3PressureMaintenance->setValue(pipe3Pressure);
-        ui->dsbPipe4Pressure->setValue(pipe4Pressure);
-        ui->dsbPipe4PressureMaintenance->setValue(pipe4Pressure);
-        ui->dsbPipe5Pressure->setValue(pipe5Pressure);
-        ui->dsbPipe5PressureMaintenance->setValue(pipe5Pressure);
-        ui->dsbPipe6Pressure->setValue(pipe6Pressure);
-        ui->dsbPipe6PressureMaintenance->setValue(pipe6Pressure);
-*/
+
         break;
 
     case 0x33:
 
-        //       waterTankLiquidLevel = quint8(data[0]);
-        //       waterTankTemperature = qint16(((data[2] & 0xff) << 8) | (data[1] & 0xff)) / 10.0;
+
         cabinTopTemperatureIn = qint16(((data[1] & 0xff) << 8) | (data[0] & 0xff));
         cabinBottomTemperatureIn = qint16(((data[3] & 0xff) << 8) | (data[2] & 0xff));
         cabinPIDTemperatureIn = qint16(((data[5] & 0xff) << 8) | (data[4] & 0xff))/10;
         cabinSetTemperatureIn = qint16(((data[7] & 0xff) << 8) | (data[6] & 0xff))/10;
-        //       pipeVibrationFrequency = quint16(((data[8] & 0xff) << 8) | (data[7] & 0xff)) / 10.0;
+
         double calCabinTopTempCoeff = ui->dsbCalCabinTopTempCoeff->value();
         double calCabinTopTempErr   = ui->dsbCalCabinTopTempErr->value();
         double  calCabinBottomTempCoeff = ui->dsbCalCabinBottomTempCoeff->value();
@@ -706,15 +680,14 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         cabinTopTemperatureValue = (cabinTopTemperatureIn * calCabinTopTempCoeff) + calCabinTopTempErr;
 
         cabinAverageTemp = (cabinTopTemperatureValue + cabinBottomTemperatureValue)/2;
-        //ui->dsbTankTemp->setValue(waterTankTemperature);
-        //ui->dsbTankTempMaintenance->setValue(waterTankTemperature);
+
 
         ui->dsbCabinTopTemp->setValue(cabinAverageTemp);
         ui->dsbCabinTopTemp_2->setValue(cabinAverageTemp);
         ui->dsbCabinTopTempMaintenance->setValue(cabinAverageTemp);
         ui->dsbSetTempCabinAvrTemp->setValue(cabinAverageTemp);
         ui->dsbCabinSetTemp->setValue(cabinSetTemperatureIn);
- //       ui->dsbCabinPIDTemp->setValue(cabinPIDTemperatureIn);
+
         ui->dsbCabinPIDTemp_2->setValue(cabinPIDTemperatureIn);
 
         ui->dsbCalCabinBottomInput->setValue(cabinBottomTemperatureIn);
@@ -722,8 +695,6 @@ void MainWindow::serialMessage(uint command, QByteArray data)
 
         ui->dsbCalCabinBottomTempOut->setValue(cabinBottomTemperatureValue);
         ui->dsbCalCabinTopTempOut->setValue(cabinTopTemperatureValue);
-        //ui->dsbPipeVibration->setValue(pipeVibrationFrequency);
-        //ui->dsbPipeVibrationMaintenance->setValue(pipeVibrationFrequency);
 
         break;
 
@@ -746,12 +717,7 @@ void MainWindow::prepareTestTimers()
     {
         timerPressure->start(pressurePeriod);
     }
-    /*
-    if (myPLC.vibrationTestActive)
-    {
-       timerVib->start(vibPeriod);
-    }
-*/
+
 }
 
 void MainWindow::updateInfo(quint8 index, QByteArray data)
@@ -776,29 +742,19 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 if (myPLC.deviceState)
                 {
                     timerTemp->stop();
-                    /*    timerVib->stop(); */
                     timerPressure->stop();
-
                     writeToLogTable("Cihaz Boşta");
-
                     ui->cbSelectProfileMain->setCurrentIndex(0);
                     ui->cbSelectProfileMain->setEnabled(true);
-
                     ui->bStartTest->setEnabled(true);
                     ui->bStopTest->setEnabled(false);
                     ui->bPauseTest->setEnabled(false);
-
                     ui->bStartTest1500h->setText("Başla");
                     ui->bStartTest1500h->setEnabled (true);
                     ui->bStopTest1500h->setEnabled (false);
                     ui->bPauseTest1500h->setEnabled (false);
-
- //                   ui->sbTTotalCycle->setEnabled(true);
                     ui->leTTotalCycle->setEnabled(true);
-                    
-
-
-                   ui->bSetTemperatureStop->setEnabled(false);
+                    ui->bSetTemperatureStop->setEnabled(false);
 
 
                     ui->cbSelectProfileManual->setCurrentIndex(0);
@@ -809,10 +765,6 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bPauseTestManual->setEnabled(false);
 
                     ui->sbTTotalCycleManual->setEnabled(true);
-                    //     ui->sbPTotalCycleManual->setEnabled(true);
-                    //     ui->sbVTotalCycleManual->setEnabled(true);
-                    //     ui->dsbTankTempSetManual->setEnabled(true);
-                    //     ui->chbEllipticalVibrationSetManual->setEnabled(true);
                 }
             }
         }
@@ -1774,29 +1726,11 @@ void MainWindow::writeToLogTable(QString info)
 
 void MainWindow::on_cbSelectGraph_currentIndexChanged(int index)
 {
- /*  if (index == 0)
-    {
-        ui->tTestGraph->setVisible(false);
-        ui->pTestGraph->setVisible(false);
-        //ui->vTestGraph->setVisible(false);
-        ui->laCycleCounterDetails->setVisible(false);
-        ui->laStepCounterDetails->setVisible(false);
-        ui->laRepeatCounterDetails->setVisible(false);
-        ui->laTCycleCounterDetails->setVisible(false);
-        ui->laTStepCounterDetails->setVisible(false);
-        ui->laPCycleCounterDetails->setVisible(false);
-        ui->laPStepCounterDetails->setVisible(false);
-        ui->laPRepeatCounterDetails->setVisible(false);
-        ui->laVCycleCounterDetails->setVisible(false);
-        ui->laVStepCounterDetails->setVisible(false);
-        ui->laVRepeatCounterDetails->setVisible(false);
-    }
-    */
+
     if (index == 0)
     {
         ui->tTestGraph->setVisible(false);
         ui->pTestGraph->setVisible(false);
-        //ui->vTestGraph->setVisible(false);
         ui->tTestGraph->setVisible(true);
 
     }
@@ -1804,7 +1738,6 @@ void MainWindow::on_cbSelectGraph_currentIndexChanged(int index)
     {
         ui->pTestGraph->setVisible(false);
         ui->tTestGraph->setVisible(false);
-        //ui->vTestGraph->setVisible(false);
         ui->pTestGraph->setVisible(true);
 
     }
@@ -1840,20 +1773,11 @@ void MainWindow::on_bEditPro_clicked()
     ui->bEditProLook->setEnabled(false);
 
     ui->bNewTStep->setEnabled(false);
-    //  ui->bNewPStep->setEnabled(true);
-    //  ui->bNewVStep->setEnabled(true);
+
 
     ui->cbTSelectSUnit->setEnabled(true);
-    //  ui->cbPSelectSUnit->setEnabled(true);
-    // ui->cbVSelectSUnit->setEnabled(true);
-    //  ui->cbTSelectSType->setEnabled(true);
-    //  ui->cbPSelectSType->setEnabled(true);
-    //  ui->cbVSelectSType->setEnabled(true);
 
     ui->leStartValue->setEnabled(true);
-    //  ui->dsbPStartValue->setEnabled(true);
-    //  ui->dsbVStartValue->setEnabled(true);
-
     ui->leProfileName->setEnabled(true);
     ui->bSavePro->setEnabled(false);
 }
@@ -1875,29 +1799,14 @@ void MainWindow::on_bClearPro_clicked()
 
     ui->leStartValue->setText("0");
     ui->leStartValue->setEnabled(false);
-    //  ui->dsbPStartValue->setValue(0);
-    //  ui->dsbPStartValue->setEnabled(false);
-    //  ui->dsbVStartValue->setValue(0);
-    //  ui->dsbVStartValue->setEnabled(false);
 
     ui->laTTotalStep->setText("0");
-    //  ui->laPTotalStep->setText("0");
-    //  ui->laVTotalStep->setText("0");
 
     ui->tWidget->setCurrentIndex(0);
-    //  ui->pWidget->setCurrentIndex(0);
-    //  ui->vWidget->setCurrentIndex(0);
 
     ui->cbTSelectSUnit->setEnabled(false);
-    //  ui->cbPSelectSUnit->setEnabled(false);
-    //  ui->cbVSelectSUnit->setEnabled(false);
-    //  ui->cbTSelectSType->setEnabled(false);
-    //  ui->cbPSelectSType->setEnabled(false);
-    //  ui->cbVSelectSType->setEnabled(false);
 
     ui->tPreview->clearPlottables();
-    //  ui->pPreview->clearPlottables();
-    //  ui->vPreview->clearPlottables();
 
     currentTStep = 0;
     currentPStep = 0;
@@ -1924,8 +1833,7 @@ void MainWindow::on_cbSelectProfile_currentIndexChanged(int index)
         ui->bSavePro->setEnabled(false);
         ui->bClearPro->setEnabled(false);
         ui->bNewTStep->setEnabled(false);
-        //      ui->bNewPStep->setEnabled(false);
-        //      ui->bNewVStep->setEnabled(false);
+
     }
     else
     {
@@ -2216,8 +2124,6 @@ void MainWindow::updateTPreview()
 
 
 }
-
-
 
 bool MainWindow::readProfiles(char rType, int index)
 {
@@ -2832,15 +2738,15 @@ void MainWindow::on_bSavePro_clicked()
     //  ui->cbVSelectSType->setEnabled(false);
 
     ui->tPreview->graph(0)->data().clear();
-//    ui->tPreview->clearPlottables();
-//    ui->tPreview->clearGraphs();
-//    ui->tPreview->clearItems();
+    //    ui->tPreview->clearPlottables();
+    //    ui->tPreview->clearGraphs();
+    //    ui->tPreview->clearItems();
     ui->tPreview->replot();
 
     ui->tPreview_2->graph(0)->data().clear();
-//    ui->tPreview_2->clearPlottables();
-//    ui->tPreview_2->clearGraphs();
-//    ui->tPreview_2->clearItems();
+    //    ui->tPreview_2->clearPlottables();
+    //    ui->tPreview_2->clearGraphs();
+    //    ui->tPreview_2->clearItems();
     ui->tPreview_2->replot();
 
 
@@ -3768,7 +3674,6 @@ void MainWindow::on_bLightsMain_clicked()
         proc->insertCommandMessage(mySerial::makeMessage(0x9C,cantTouchThis));
     }
 }
-
 
 void MainWindow::on_bClearLogTable_clicked()
 {
@@ -5352,5 +5257,3 @@ void MainWindow::on_btnDetailsPressure_2_clicked()
     ui->detailsPages->setCurrentIndex(0);
     ui->detailsBottomPages->setCurrentIndex(4);
 }
-
-
