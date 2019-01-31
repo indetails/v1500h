@@ -556,7 +556,7 @@ void MainWindow::setupVisuals()
 
     connect(ui->leLiquidChangetemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidSirkulationtime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-    connect(ui->dsbCalCabinTopTempErr,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leCalCabinTopTempErr,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
 
     ui->tTestGraph->setVisible(false);
@@ -698,7 +698,7 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         cabinSetTemperatureIn = qint16(((data[7] & 0xff) << 8) | (data[6] & 0xff))/10;
         //       pipeVibrationFrequency = quint16(((data[8] & 0xff) << 8) | (data[7] & 0xff)) / 10.0;
         double calCabinTopTempCoeff = ui->dsbCalCabinTopTempCoeff->value();
-        double calCabinTopTempErr   = ui->dsbCalCabinTopTempErr->value();
+        double calCabinTopTempErr   = ui->leCalCabinTopTempErr->text().toDouble();
         double  calCabinBottomTempCoeff = ui->dsbCalCabinBottomTempCoeff->value();
         double  calCabinBottomTempErr       =  ui->dsbCalCabinBottomTempErr->value();
 
@@ -4664,7 +4664,7 @@ void MainWindow::saveValueTopTempSensorCalibration()
     {
         QTextStream stream(&file);
 
-        stream <<  ui->dsbCalCabinTopTempErr->value() << ","
+        stream <<  ui->leCalCabinTopTempErr->text().toFloat() << ","
                 <<  ui->dsbCalCabinTopTempCoeff->value() ;
         file.close();
     }
@@ -4722,7 +4722,7 @@ void MainWindow::loadValueTopTempSensorCalibration()
         }
        double v = line.split(",")[0].toDouble();
        double y = line.split(",")[1].toDouble();
-        ui->dsbCalCabinTopTempErr->setValue(v);
+        ui->leCalCabinTopTempErr->setText("");
         ui->dsbCalCabinTopTempCoeff->setValue(y);
         file.close();
    //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);

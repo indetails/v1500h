@@ -8715,13 +8715,13 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>134</x>
           <y>175</y>
-          <width>748</width>
-          <height>318</height>
+          <width>754</width>
+          <height>328</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -8804,28 +8804,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
            <property name="maximum">
             <double>65532.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QDoubleSpinBox" name="dsbCalCabinTopTempErr">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-60.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
            </property>
            <property name="singleStep">
             <double>0.100000000000000</double>
@@ -9396,6 +9374,28 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
            <property name="singleStep">
             <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="leCalCabinTopTempErr">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
            </property>
           </widget>
          </item>
