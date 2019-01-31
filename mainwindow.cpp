@@ -555,6 +555,7 @@ void MainWindow::setupVisuals()
     connect(ui->leFixTempValue,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidChangetemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidSirkulationtime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->dsbCalCabinTopTempErr,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
   //  ui->warningTable->setColumnWidth(0, 140);
   //  ui->warningTable->setColumnWidth(1, 110);
