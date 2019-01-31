@@ -33,6 +33,7 @@ int tempPeriod;
 int vibPeriod;
 int pressurePeriod;
 
+
 double tKey = 0;
 double tKeyElapsed = 0;
 double pKey = 0;
@@ -553,6 +554,15 @@ void MainWindow::setupVisuals()
     connect(ui->leTotalTestDuration1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidChangePeriod1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leFixTempValue,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leCalCleanTankLevelErr ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leCalCleanTankCoeff ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+
+    connect(ui->leCalDirtyTankErr  ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leCalDirtyTankCoeff ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+
+    connect(ui->leCalExpansionTankErr ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leCalExpansionTankCoeff ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+
 
     connect(ui->leLiquidChangetemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidSirkulationtime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
@@ -628,6 +638,15 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         float inpExpansionTankLevel;
         float inpCleanTankLevel;
         float inpDirtyTankLevel;
+        float CalCleanTankCoeff;
+        float CalCleanTankLevelErr;
+        float CalDirtyTankCoeff ;
+        float CalDirtyTankErr ;
+        float CalExpansionTankCoeff ;
+        float CalExpansionTankErr;
+        float vCleanTankLevel;
+        float vExpansionTankLevel;
+        float vDirtyTankLevel;
 
 
         pipePressure1In = qint16(((data[1] & 0xff) << 8) | (data[0] & 0xff)) ;
@@ -637,17 +656,33 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         inpDirtyTankLevel = qint16(((data[7] & 0xff) << 8) | (data[6] & 0xff));
         setPressure = qint16(((data[9] & 0xff) << 8) | (data[8] & 0xff));
 
+
+        CalCleanTankCoeff = ui->leCalCleanTankCoeff->text().toDouble();
+        CalCleanTankLevelErr = ui->leCalCleanTankLevelErr->text().toDouble();
+        vCleanTankLevel = ((CalCleanTankCoeff * inpCleanTankLevel) + CalCleanTankLevelErr );
         ui->pbCleanTankLevel->setMaximum(32000);
         ui->pbCleanTankLevel->setMinimum(0);
-        ui->pbCleanTankLevel->setValue(inpCleanTankLevel);
+        ui->pbCleanTankLevel->setValue(vCleanTankLevel);
 
+
+
+        CalExpansionTankCoeff = ui->leCalExpansionTankCoeff->text().toDouble();
+        CalExpansionTankErr = ui->leCalExpansionTankErr->text().toDouble();
+        vExpansionTankLevel = ((CalExpansionTankCoeff * inpExpansionTankLevel) + CalExpansionTankErr );
         ui->pbExpansionTankLevel->setMaximum(15000);
         ui->pbExpansionTankLevel->setMinimum(0);
-        ui->pbExpansionTankLevel->setValue(inpExpansionTankLevel);
+        ui->pbExpansionTankLevel->setValue(vExpansionTankLevel);
+
+
+
+        CalDirtyTankCoeff = ui->leCalDirtyTankCoeff->text().toDouble();
+        CalDirtyTankErr = ui->leCalDirtyTankErr->text().toDouble();
+        vDirtyTankLevel = ((CalDirtyTankCoeff * inpDirtyTankLevel) + CalDirtyTankErr);
+
 
         ui->pbDirtyTankLevel->setMaximum(32000);
         ui->pbDirtyTankLevel->setMinimum(0);
-        ui->pbDirtyTankLevel->setValue(inpDirtyTankLevel);
+        ui->pbDirtyTankLevel->setValue(vDirtyTankLevel);
 
         ui->dsbSetPressure_2->setValue(setPressure/10);
 
