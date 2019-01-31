@@ -554,10 +554,6 @@ void MainWindow::setupVisuals()
     connect(ui->leLiquidChangePeriod1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leFixTempValue,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
-    connect(ui->leLiquidChangetemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-    connect(ui->leLiquidSirkulationtime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-
-
     ui->tTestGraph->setVisible(false);
     ui->pTestGraph->setVisible(false);
     ui->rectRecipe->setVisible(true);
@@ -2218,6 +2214,102 @@ void MainWindow::updateTPreview()
 
 
 
+void MainWindow::updateVPreview()
+{
+    //ui->vPreview->clearPlottables();
+    //ui->vPreview->xAxis->setRange(0, ui->dsbVLTarget->value());
+    //ui->vPreview->yAxis->setRange(1, 60);
+
+    if (vProfileSave[currentProfile].step[currentVStep].stepUnit == 1)
+    {
+        ui->vPreview->xAxis->setLabel("Time (seconds)");
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep].stepUnit == 2)
+    {
+        ui->vPreview->xAxis->setLabel("Time (minutes)");
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep].stepUnit == 3)
+    {
+        ui->vPreview->xAxis->setLabel("Time (hours)");
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep].stepUnit == 4)
+    {
+        ui->vPreview->xAxis->setLabel("Time (days)");
+    }
+
+    if (vProfileSave[currentProfile].step[currentVStep].stepType == 1)
+    {
+        float delta;
+        float duration = vProfileSave[currentProfile].step[currentVStep].lDuration;
+        float startValue = vProfileSave[currentProfile].startValue;
+        float oldTarget = vProfileSave[currentProfile].step[currentVStep - 1].lTarget;
+        float target = vProfileSave[currentProfile].step[currentVStep].lTarget;
+
+        QVector<double> vPreviewX( ( duration * 10) + 1 ), vPreviewY( ( duration * 10) + 1 );
+
+        if (currentVStep == 0)
+        {
+            vPreviewY[0] = startValue;
+            vPreviewX[0] = 0;
+            delta = target - startValue;
+        }
+        else
+        {
+            vPreviewY[0] = oldTarget;
+            vPreviewX[0] = 0;
+            delta = target - oldTarget;
+        }
+
+        for(int i=1; i < ( duration * 10) + 1; i++)
+        {
+            vPreviewY[i] = vPreviewY[i-1] + ( delta / ( duration * 10 ) );
+            vPreviewX[i] = float(i) / 10;
+        }
+
+        ui->vPreview->graph(0)->setData(vPreviewX, vPreviewY);
+        ui->vPreview->graph(0)->rescaleAxes();
+        ui->vPreview->replot();
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep].stepType == 4)
+    {
+        float rate = vProfileSave[currentProfile].step[currentVStep].logRate;
+        float min = vProfileSave[currentProfile].step[currentVStep].logMin;
+        float max = vProfileSave[currentProfile].step[currentVStep].logMax;
+        double coeff = qPow(2, rate/600.0);
+        quint16 duration=0;
+        double buddy = min;
+        while (buddy < max)
+        {
+            buddy = buddy * coeff;
+            duration++;
+        }
+
+        duration = duration * 2;
+
+        QVector<double> vPreviewX( ( duration) + 1 ), vPreviewY( ( duration) + 1 );
+
+        vPreviewY[0] = min;
+        vPreviewX[0] = 0;
+
+        for(int i=1; i < ( duration / 2 ) + 1; i++)
+        {
+            vPreviewY[i] = vPreviewY[i-1] * coeff ;
+            vPreviewX[i] = float(i) / 10;
+        }
+        for(int i=( duration / 2 ) + 1; i < (duration) + 1; i++)
+        {
+            vPreviewY[i] = vPreviewY[i-1] / coeff ;
+            vPreviewX[i] = float(i) / 10;
+        }
+
+        ui->vPreview->graph(0)->setData(vPreviewX, vPreviewY);
+        ui->vPreview->graph(0)->rescaleAxes();
+        ui->vPreview->replot();
+
+    }
+}
+
+
 bool MainWindow::readProfiles(char rType, int index)
 {
     if (index == 0)
@@ -3498,20 +3590,12 @@ void MainWindow::on_bScreenshot_saved()
 {
     QScreen *screensave = QGuiApplication::primaryScreen();
 
-
     QPixmap pixmap = screensave->grabWindow(0);
-//    QString fileDir = "/home/pi/InDetail/screenshots/";
     QString fileDir = "screenshots\\";
     QString fileName = QDate::currentDate().toString("dd.MM.yy") + "-" +
             QTime::currentTime().toString("hh.mm.ss");
     QString fileExtention = ".png";
     QFile file(fileDir + fileName + fileExtention);
-    if (file.open(QIODevice::WriteOnly))
-    {
-
-        pixmap.save(&file, "PNG");
-
-    }
 }
 
 void MainWindow::on_bScreenshot_clicked()
@@ -5001,8 +5085,8 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     float setPressure1500h = ui->leSetPressure1500h->text().toFloat()*10;
     quint16 totalDuration = ui->leTotalTestDuration1500h->text().toFloat();
     quint16 changePeriod = ui->leLiquidChangePeriod1500h->text().toFloat();
-    quint16 LiquidSirkulationtime1500h = ui->leLiquidSirkulationtime1500h->text().toFloat();
-    quint16 LiquidChangetemp1500h = ui->leLiquidChangetemp1500h->text().toFloat();
+
+
     cantTouchThis.append(1);
 
     cantTouchThis.append(qint16(setPressure1500h) & 0x00FF);
@@ -5013,10 +5097,6 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     cantTouchThis.append(quint16(totalDuration) >> 8);
     cantTouchThis.append(quint16(changePeriod) & 0x00FF);
     cantTouchThis.append(quint16(changePeriod) >> 8);
-    cantTouchThis.append(quint16(LiquidSirkulationtime1500h) & 0x00FF);
-    cantTouchThis.append(quint16(LiquidSirkulationtime1500h) >> 8);
-    cantTouchThis.append(quint16(LiquidChangetemp1500h) & 0x00FF);
-    cantTouchThis.append(quint16(LiquidChangetemp1500h) >> 8);
 
     cantTouchThis.append(activePipes);
 
