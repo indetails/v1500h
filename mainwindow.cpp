@@ -651,8 +651,8 @@ void MainWindow::serialMessage(uint command, QByteArray data)
 
         ui->dsbSetPressure_2->setValue(setPressure/10);
 
-        pipePressure1Coeff = ui->dsbCalPipePressure1Coeff->value();
-        pipePressure1Err = ui->dsbCalPipePressure1Err->value();
+        pipePressure1Coeff = ui->leCalPipePressure1Coeff->text().toDouble();
+        pipePressure1Err = ui->leCalPipePressure1Err->text().toDouble();
 
         pipe1Pressure = ((pipePressure1Coeff * pipePressure1In) + pipePressure1Err);
         ui->dsbPipe1Pressure->setValue(pipe1Pressure);
@@ -666,15 +666,15 @@ void MainWindow::serialMessage(uint command, QByteArray data)
     case 0x33:
 
 
-        cabinTopTemperatureIn = qint16(((data[1] & 0xff) << 8) | (data[0] & 0xff));
-        cabinBottomTemperatureIn = qint16(((data[3] & 0xff) << 8) | (data[2] & 0xff));
-        cabinPIDTemperatureIn = qint16(((data[5] & 0xff) << 8) | (data[4] & 0xff))/10;
-        cabinSetTemperatureIn = qint16(((data[7] & 0xff) << 8) | (data[6] & 0xff))/10;
+        cabinTopTemperatureIn       = qint16(((data[1] & 0xff) << 8) | (data[0] & 0xff));
+        cabinBottomTemperatureIn    = qint16(((data[3] & 0xff) << 8) | (data[2] & 0xff));
+        cabinPIDTemperatureIn       = qint16(((data[5] & 0xff) << 8) | (data[4] & 0xff))/10;
+        cabinSetTemperatureIn       = qint16(((data[7] & 0xff) << 8) | (data[6] & 0xff))/10;
 
-        double calCabinTopTempCoeff = ui->dsbCalCabinTopTempCoeff->value();
-        double calCabinTopTempErr   = ui->leCalCabinTopTempErr->text().toDouble();
-        double  calCabinBottomTempCoeff = ui->dsbCalCabinBottomTempCoeff->value();
-        double  calCabinBottomTempErr       =  ui->dsbCalCabinBottomTempErr->value();
+        double  calCabinTopTempCoeff    = ui->leCalCabinTopTempCoeff->text().toDouble();
+        double  calCabinTopTempErr      = ui->leCalCabinTopTempErr->text().toDouble();
+        double  calCabinBottomTempCoeff = ui->leCalCabinBottomTempCoeff->text().toDouble();
+        double  calCabinBottomTempErr   = ui->leCalCabinBottomTempErr->text().toDouble();
 
         cabinBottomTemperatureValue = (cabinBottomTemperatureIn * calCabinBottomTempCoeff) + calCabinBottomTempErr ;
         cabinTopTemperatureValue = (cabinTopTemperatureIn * calCabinTopTempCoeff) + calCabinTopTempErr;
@@ -4569,8 +4569,8 @@ void MainWindow::saveValueTopTempSensorCalibration()
     {
         QTextStream stream(&file);
 
-        stream <<  ui->leCalCabinTopTempErr->text().toFloat() << ","
-                <<  ui->dsbCalCabinTopTempCoeff->value() ;
+        stream <<  ui->leCalCabinTopTempErr->text().toDouble() << ","
+                <<  ui->leCalCabinTopTempCoeff->text().toDouble() ;
         file.close();
     }
 
@@ -4594,8 +4594,8 @@ void MainWindow::saveValueBottomTempSensorCalibration()
     {
         QTextStream stream(&file);
 
-        stream <<  ui->dsbCalCabinBottomTempErr->value() << ","
-                <<  ui->dsbCalCabinBottomTempCoeff->value() ;
+        stream <<  ui->leCalCabinBottomTempErr->text().toDouble() << ","
+                <<  ui->leCalCabinBottomTempCoeff->text().toDouble() ;
         file.close();
     }
 }
@@ -4627,8 +4627,8 @@ void MainWindow::loadValueTopTempSensorCalibration()
         }
        double v = line.split(",")[0].toDouble();
        double y = line.split(",")[1].toDouble();
-        ui->leCalCabinTopTempErr->setText("");
-        ui->dsbCalCabinTopTempCoeff->setValue(y);
+        ui->leCalCabinTopTempErr->setText(QString::number(v));
+        ui->leCalCabinTopTempCoeff->setText(QString::number(y));
         file.close();
    //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
     //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
@@ -4663,8 +4663,8 @@ void MainWindow::loadValueBottomTempSensorCalibration()
         }
        double v = line.split(",")[0].toDouble();
        double y = line.split(",")[1].toDouble();
-        ui->dsbCalCabinBottomTempErr->setValue(v);
-        ui->dsbCalCabinBottomTempCoeff->setValue(y);
+        ui->leCalCabinBottomTempErr->setText(QString::number(v));
+        ui->leCalCabinBottomTempCoeff->setText(QString::number(y));
         file.close();
    //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
     //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
@@ -4715,8 +4715,8 @@ void MainWindow::saveValuePressureSensor1Calibration()
     {
         QTextStream stream(&file);
 
-        stream <<  ui->dsbCalPipePressure1Err->value() << ","
-                <<  ui->dsbCalPipePressure1Coeff->value() ;
+        stream <<  ui->leCalPipePressure1Err->text().toDouble() << ","
+                <<  ui->leCalPipePressure1Coeff->text().toDouble() ;
         file.close();
     }
 }
@@ -4743,10 +4743,10 @@ void MainWindow::loadValuePressureSensor1Calibration()
         {
              line = file.readLine();
         }
-       double v = line.split(",")[0].toDouble();
-       double y = line.split(",")[1].toDouble();
-        ui->dsbCalPipePressure1Err->setValue(v);
-        ui->dsbCalPipePressure1Coeff->setValue(y);
+        double v = line.split(",")[0].toDouble();
+        double y = line.split(",")[1].toDouble();
+        ui->leCalPipePressure1Err->setText(QString::number(v));
+        ui->leCalPipePressure1Coeff->setText(QString::number(y));
         file.close();
     }
 }

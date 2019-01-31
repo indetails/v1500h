@@ -8672,8 +8672,8 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
         </property>
         <property name="geometry">
          <rect>
-          <x>130</x>
-          <y>120</y>
+          <x>50</x>
+          <y>10</y>
           <width>291</width>
           <height>41</height>
          </rect>
@@ -8715,18 +8715,384 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QWidget" name="layoutWidget">
+       <widget class="QWidget" name="layoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>134</x>
-          <y>175</y>
+          <x>140</x>
+          <y>120</y>
           <width>754</width>
-          <height>328</height>
+          <height>372</height>
          </rect>
         </property>
-        <layout class="QGridLayout" name="gridLayout_2">
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="2" column="2">
+          <widget class="QLineEdit" name="leCalCabinBottomTempErr">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="leCalCabinBottomTempCoeff">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="leCalCabinTopTempCoeff">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="leCalCleanTankCoeff">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="leCalPipePressure1Coeff">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLineEdit" name="leCalPipePressure1Err">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="QLineEdit" name="leCalDirtyTankCoeff">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLineEdit" name="leCalCleanTankLevelErr">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLineEdit" name="leCalDirtyTankErr">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="3">
+          <widget class="QLineEdit" name="leCalExpansionTankCoeff">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QLabel" name="label_107">
+           <property name="text">
+            <string>Sonuc</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_75">
+           <property name="text">
+            <string>Kirli Tank Sıvı Seviye </string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QDoubleSpinBox" name="dsbCalTankDirtyInput">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="decimals">
+            <number>1</number>
+           </property>
+           <property name="minimum">
+            <double>-40.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>65532.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="4">
+          <widget class="QDoubleSpinBox" name="dsbCalTankDirtyOut">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="decimals">
+            <number>2</number>
+           </property>
+           <property name="minimum">
+            <double>-40.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>65535.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QDoubleSpinBox" name="dsbCalTankPressureInput">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="decimals">
+            <number>1</number>
+           </property>
+           <property name="minimum">
+            <double>-40.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>65532.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_76">
+           <property name="text">
+            <string>Basınç Tank Sıvı Seviye </string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="4">
+          <widget class="QDoubleSpinBox" name="dsbCalTankPressureOut">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="decimals">
+            <number>2</number>
+           </property>
+           <property name="minimum">
+            <double>-40.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>65535.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="leCalCabinTopTempErr">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>135</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="0">
-          <widget class="QLabel" name="label_98">
+          <widget class="QLabel" name="label_103">
            <property name="text">
             <string>Kalibrasyon</string>
            </property>
@@ -8736,7 +9102,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLabel" name="label_99">
+          <widget class="QLabel" name="label_104">
            <property name="text">
             <string>Gelen</string>
            </property>
@@ -8746,7 +9112,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
           </widget>
          </item>
          <item row="0" column="2">
-          <widget class="QLabel" name="label_100">
+          <widget class="QLabel" name="label_105">
            <property name="text">
             <string>Fark</string>
            </property>
@@ -8756,7 +9122,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
           </widget>
          </item>
          <item row="0" column="3">
-          <widget class="QLabel" name="label_101">
+          <widget class="QLabel" name="label_106">
            <property name="text">
             <string>Carpan</string>
            </property>
@@ -8765,18 +9131,8 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
           </widget>
          </item>
-         <item row="0" column="4">
-          <widget class="QLabel" name="label_102">
-           <property name="text">
-            <string>Sonuc</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
          <item row="1" column="0">
-          <widget class="QLabel" name="label_96">
+          <widget class="QLabel" name="label_108">
            <property name="text">
             <string>Kabin Sıcaklık Üst</string>
            </property>
@@ -8810,25 +9166,13 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
           </widget>
          </item>
-         <item row="1" column="3">
-          <widget class="QDoubleSpinBox" name="dsbCalCabinTopTempCoeff">
-           <property name="enabled">
-            <bool>true</bool>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_109">
+           <property name="text">
+            <string>Kabin Sıcaklık Alt</string>
            </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>9</number>
-           </property>
-           <property name="minimum">
-            <double>0.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>1.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -8857,16 +9201,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_97">
-           <property name="text">
-            <string>Kabin Sıcaklık Alt</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="1">
           <widget class="QDoubleSpinBox" name="dsbCalCabinBottomInput">
            <property name="enabled">
@@ -8886,50 +9220,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
            <property name="maximum">
             <double>65532.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="2">
-          <widget class="QDoubleSpinBox" name="dsbCalCabinBottomTempErr">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-60.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="QDoubleSpinBox" name="dsbCalCabinBottomTempCoeff">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>9</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
            </property>
            <property name="singleStep">
             <double>0.100000000000000</double>
@@ -8962,7 +9252,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
           </widget>
          </item>
          <item row="3" column="0">
-          <widget class="QLabel" name="label_66">
+          <widget class="QLabel" name="label_71">
            <property name="text">
             <string>Basınç </string>
            </property>
@@ -9005,50 +9295,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
           </widget>
          </item>
-         <item row="3" column="2" rowspan="2">
-          <widget class="QDoubleSpinBox" name="dsbCalPipePressure1Err">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="3">
-          <widget class="QDoubleSpinBox" name="dsbCalPipePressure1Coeff">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>9</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="4" rowspan="2">
           <widget class="QDoubleSpinBox" name="dsbCalPipePressure1Out">
            <property name="enabled">
@@ -9074,30 +9320,8 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
           </widget>
          </item>
-         <item row="4" column="3" rowspan="2">
-          <widget class="QDoubleSpinBox" name="dsbCalTankCleanCarpan">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>9</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
          <item row="5" column="0">
-          <widget class="QLabel" name="label_67">
+          <widget class="QLabel" name="label_72">
            <property name="text">
             <string>Temiz Tank Sıvı Seviye </string>
            </property>
@@ -9122,28 +9346,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
            <property name="maximum">
             <double>65532.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="2">
-          <widget class="QDoubleSpinBox" name="dsbCalTankCleanErr">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
            </property>
            <property name="singleStep">
             <double>0.100000000000000</double>
@@ -9175,210 +9377,8 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </property>
           </widget>
          </item>
-         <item row="6" column="0">
-          <widget class="QLabel" name="label_69">
-           <property name="text">
-            <string>Kirli Tank Sıvı Seviye </string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QDoubleSpinBox" name="dsbCalTankDirtyInput">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::NoButtons</enum>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>65532.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="2">
-          <widget class="QDoubleSpinBox" name="dsbCalTankDirtyErr">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="3">
-          <widget class="QDoubleSpinBox" name="dsbCalTankDirtyCarpan">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>9</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="4">
-          <widget class="QDoubleSpinBox" name="dsbCalTankDirtyOut">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::NoButtons</enum>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>65535.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="0">
-          <widget class="QLabel" name="label_70">
-           <property name="text">
-            <string>Basınç Tank Sıvı Seviye </string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="QDoubleSpinBox" name="dsbCalTankPressureInput">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::NoButtons</enum>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>65532.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
          <item row="7" column="2">
-          <widget class="QDoubleSpinBox" name="dsbCalTankPressureErr">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="3">
-          <widget class="QDoubleSpinBox" name="dsbCalTankPressureCarpan">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-           <property name="decimals">
-            <number>9</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>250.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="4">
-          <widget class="QDoubleSpinBox" name="dsbCalTankPressureOut">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::NoButtons</enum>
-           </property>
-           <property name="decimals">
-            <number>2</number>
-           </property>
-           <property name="minimum">
-            <double>-40.000000000000000</double>
-           </property>
-           <property name="maximum">
-            <double>65535.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLineEdit" name="leCalCabinTopTempErr">
+          <widget class="QLineEdit" name="leCalExpansionTankErr">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
