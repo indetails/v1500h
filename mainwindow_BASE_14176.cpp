@@ -553,40 +553,124 @@ void MainWindow::setupVisuals()
     connect(ui->leTotalTestDuration1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidChangePeriod1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leFixTempValue,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-
-    connect(ui->leLiquidChangetemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-    connect(ui->leLiquidSirkulationtime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-    connect(ui->dsbCalCabinTopTempErr,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-
+  //  ui->warningTable->setColumnWidth(0, 140);
+  //  ui->warningTable->setColumnWidth(1, 110);
+  //  ui->warningTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     ui->tTestGraph->setVisible(false);
     ui->pTestGraph->setVisible(false);
-    ui->rectRecipe->setVisible(true);
-    ui->rectFix->setVisible(false);
-    ui->rect1500h->setVisible(false);
-
-    ui->leStartValue->setEnabled(false);     
-    ui->bTemperatureSet->setEnabled(true);
-    ui->leFixTempValue->setEnabled(true);
+    //ui->vTestGraph->setVisible(false);
 
     ui->tWidget->setCurrentIndex(0);
-    ui->mainPage->setCurrentIndex(0);
+    //   ui->pWidget->setCurrentIndex(0);
+    //   ui->vWidget->setCurrentIndex(0);
 
+    //ui->wdRepeatEdit->setVisible(false);
+    //ui->wdLinearEdit->setVisible(false);
+    //ui->wdTrapEdit->setVisible(false);
+    //ui->wdSinEdit->setVisible(false);
+    //ui->wdLogEdit->setVisible(false);
+
+
+    //ui->sbTTotalCycle->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->leStartValue->setEnabled(false);
+
+
+    /*
+    ui->dsbPStartValue->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
+    ui->dsbPLDuration->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPLTarget->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPTRise->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPTUp->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPTFall->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPTDown->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPTLow->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPTHigh->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPSPeriod->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPSMean->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPSAmp->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPRepeatValue->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbPRepeatTime->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
+    ui->dsbVStartValue->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
+    ui->sbVLDuration->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbVLTarget->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbVLogRate->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbVLogMin->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbVLogMax->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbVRepeatValue->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbVRepeatTime->setButtonSymbols(QAbstractSpinBox::NoButtons);
+*/
+   // ui->dsbRepeatDurationEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbStartValueEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+   // ui->dsbLDurationEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+   // ui->dsbLTargetEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+   /* ui->dsbTRiseEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbTUpEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbTFallEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbTDownEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbTLowEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbTHighEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbSPeriodEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbSMeanEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbSAmpEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbLogRateEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbLogMinEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbLogMaxEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+*/
     ui->dsbCabinTopTemp->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->dsbPipe1Pressure->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe2Pressure->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe3Pressure->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe4Pressure->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe5Pressure->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe6Pressure->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipeVibration->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbTankTemp->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
     ui->dsbCabinTopTempMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->dsbPipe1PressureMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->sbTTotalCycleManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->dsbTTimeSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->sbTStepSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->sbTStepRepeatSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->sbTCycleSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe2PressureMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe3PressureMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe4PressureMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe5PressureMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipe6PressureMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPipeVibrationMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbTankTempMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbVibrationMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPressureMaintenance->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
+    ui->sbTTotalCycleManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->sbPTotalCycleManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->sbVTotalCycleManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbTankTempSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->dsbTTimeSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbPTimeSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->dsbVTimeSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->sbTStepSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->sbPStepSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->sbVStepSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->sbTStepRepeatSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->sbPStepRepeatSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->sbVStepRepeatSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->sbTCycleSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->sbPCycleSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    //ui->sbVCycleSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
+    //ui->laTestStartEdit->setText("");
+
+     ui->bTemperatureSet->setEnabled(true);
+     ui->leFixTempValue->setEnabled(true);
     loadValueExhaustValve();
     loadValueTopTempSensorCalibration();
     loadValueBottomTempSensorCalibration();
-    loadValuePressureSensor1Calibration();
-    on_bResetFault_clicked();
+    loadValuePressureSensor1Calibration();    
+      ui->mainPage->setCurrentIndex(0);
+      ui->rectRecipe->setVisible(true);
+      ui->rectFix->setVisible(false);
+      ui->rect1500h->setVisible(false);
 }
 
 void MainWindow::serialMessage(uint command, QByteArray data)
@@ -2102,6 +2186,8 @@ void MainWindow::updateTPreview()
     ui->tPreview->xAxis->setRange(0, ui->leTLTarget->text().toDouble());
     ui->tPreview->yAxis->setRange(-40, 250);
 
+
+
     if (tProfileSave[currentProfile].step[currentTStep].stepUnit == 1)
     {
         ui->tPreview->xAxis->setLabel("Time (seconds)");
@@ -2217,7 +2303,1220 @@ void MainWindow::updateTPreview()
 
 }
 
+/*
+void MainWindow::on_bNewVStep_clicked()
+{
+    ui->dsbVRepeatValue->setValue(0);
+    ui->bVForward4->setEnabled(false);
 
+    if (vProfileSave[currentProfile].totalStep == 0)
+    {
+        oldVValue = ui->dsbVStartValue->value();
+        ui->laOldVValue->setText(QString::number(oldVValue));
+    }
+
+    if ( ( ui->cbVSelectSType->currentIndex() == 0 ) || ( ui->cbVSelectSUnit->currentIndex() == 0 ) )
+    {
+        //nothing selected for neither step type nor step time unit. Going forward should be banned.
+    }
+    else
+    {
+        if ( ui->cbVSelectSUnit->currentIndex() == 1 )
+        {
+            //second selected for step time unit, do what you gotta do.
+
+            vProfileSave[currentProfile].active = 1;
+            vProfileSave[currentProfile].step[currentVStep].stepUnit = 1;
+            vProfileSave[currentProfile].startValue = ui->dsbVStartValue->value();
+
+            ui->laVLinDurationSave->setText("s.");
+        }
+        else if ( ui->cbVSelectSUnit->currentIndex() == 2 )
+        {
+            //minute selected for step time unit, do what you gotta do.
+
+            vProfileSave[currentProfile].active = 1;
+            vProfileSave[currentProfile].step[currentVStep].stepUnit = 2;
+            vProfileSave[currentProfile].startValue = ui->dsbVStartValue->value();
+
+            ui->laVLinDurationSave->setText("m.");
+        }
+        else if ( ui->cbVSelectSUnit->currentIndex() == 3 )
+        {
+            //hour selected for step time unit, do what you gotta do.
+
+            vProfileSave[currentProfile].active = 1;
+            vProfileSave[currentProfile].step[currentVStep].stepUnit = 3;
+            vProfileSave[currentProfile].startValue = ui->dsbVStartValue->value();
+
+            ui->laVLinDurationSave->setText("h.");
+        }
+        else if ( ui->cbVSelectSUnit->currentIndex() == 4 )
+        {
+            //day selected for step time unit, do what you gotta do.
+
+            vProfileSave[currentProfile].active = 1;
+            vProfileSave[currentProfile].step[currentVStep].stepUnit = 4;
+            vProfileSave[currentProfile].startValue = ui->dsbVStartValue->value();
+
+            ui->laVLinDurationSave->setText("d.");
+        }
+
+        if ( ui->cbVSelectSType->currentIndex() == 1 )
+        {
+            //linear step type selected do what you gotta do.
+
+            vProfileSave[currentProfile].step[currentVStep].stepType = 1;
+            ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() + 1);
+        }
+        else if ( ui->cbVSelectSType->currentIndex() == 2 )
+        {
+            //logarithmic sweep step type selected do what you gotta do.
+
+            vProfileSave[currentProfile].step[currentVStep].stepType = 4;
+            ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() + 2);
+        }
+
+    }
+}
+*/
+/*
+void MainWindow::on_bNewPStep_clicked()
+{
+    ui->dsbPRepeatValue->setValue(0);
+    ui->bPForward5->setEnabled(false);
+
+    if (pProfileSave[currentProfile].totalStep == 0)
+    {
+        oldPValue = ui->dsbPStartValue->value();
+        ui->laOldPValue->setText(QString::number(oldPValue));
+    }
+
+    if ( ( ui->cbPSelectSType->currentIndex() == 0 ) || ( ui->cbPSelectSUnit->currentIndex() == 0 ) )
+    {
+        //nothing selected for neither step type nor step time unit. Going forward should be banned.
+    }
+    else
+    {
+        if ( ui->cbPSelectSUnit->currentIndex() == 1 )
+        {
+            //second selected for step time unit, do what you gotta do.
+
+            pProfileSave[currentProfile].active = 1;
+            pProfileSave[currentProfile].step[currentPStep].stepUnit = 1;
+            pProfileSave[currentProfile].startValue = ui->dsbPStartValue->value();
+
+            ui->cbPStepRepeatUnit->clear();
+            ui->cbPStepRepeatUnit->addItem("Select a step repeat time unit...");
+            ui->cbPStepRepeatUnit->addItem("Seconds");
+            ui->cbPStepRepeatUnit->addItem("Minutes");
+            ui->cbPStepRepeatUnit->addItem("Hours");
+            ui->cbPStepRepeatUnit->addItem("Days");
+            ui->cbPStepRepeatUnit->addItem("Number of Times");
+
+            ui->laPLinDurationSave->setText("s.");
+            ui->laPTRiseSave->setText("s.");
+            ui->laPTUpSave->setText("s.");
+            ui->laPTFallSave->setText("s.");
+            ui->laPTDownSave->setText("s.");
+            ui->laPSPeriodSave->setText("s.");
+        }
+        else if ( ui->cbPSelectSUnit->currentIndex() == 2 )
+        {
+            //minute selected for step time unit, do what you gotta do.
+
+            pProfileSave[currentProfile].active = 1;
+            pProfileSave[currentProfile].step[currentPStep].stepUnit = 2;
+            pProfileSave[currentProfile].startValue = ui->dsbPStartValue->value();
+
+            ui->cbPStepRepeatUnit->clear();
+            ui->cbPStepRepeatUnit->addItem("Select a step repeat time unit...");
+            ui->cbPStepRepeatUnit->addItem("Minutes");
+            ui->cbPStepRepeatUnit->addItem("Hours");
+            ui->cbPStepRepeatUnit->addItem("Days");
+            ui->cbPStepRepeatUnit->addItem("Number of Times");
+
+            ui->laPLinDurationSave->setText("m.");
+            ui->laPTRiseSave->setText("m.");
+            ui->laPTUpSave->setText("m.");
+            ui->laPTFallSave->setText("m.");
+            ui->laPTDownSave->setText("m.");
+            ui->laPSPeriodSave->setText("m.");
+        }
+        else if ( ui->cbPSelectSUnit->currentIndex() == 3 )
+        {
+            //hour selected for step time unit, do what you gotta do.
+
+            pProfileSave[currentProfile].active = 1;
+            pProfileSave[currentProfile].step[currentPStep].stepUnit = 3;
+            pProfileSave[currentProfile].startValue = ui->dsbPStartValue->value();
+
+            ui->cbPStepRepeatUnit->clear();
+            ui->cbPStepRepeatUnit->addItem("Select a step repeat time unit...");
+            ui->cbPStepRepeatUnit->addItem("Hours");
+            ui->cbPStepRepeatUnit->addItem("Days");
+            ui->cbPStepRepeatUnit->addItem("Number of Times");
+
+            ui->laPLinDurationSave->setText("h.");
+            ui->laPTRiseSave->setText("h.");
+            ui->laPTUpSave->setText("h.");
+            ui->laPTFallSave->setText("h.");
+            ui->laPTDownSave->setText("h.");
+            ui->laPSPeriodSave->setText("h.");
+        }
+        else if ( ui->cbPSelectSUnit->currentIndex() == 4 )
+        {
+            //day selected for step time unit, do what you gotta do.
+
+            pProfileSave[currentProfile].active = 1;
+            pProfileSave[currentProfile].step[currentPStep].stepUnit = 4;
+            pProfileSave[currentProfile].startValue = ui->dsbPStartValue->value();
+
+            ui->cbPStepRepeatUnit->clear();
+            ui->cbPStepRepeatUnit->addItem("Select a step repeat time unit...");
+            ui->cbPStepRepeatUnit->addItem("Days");
+            ui->cbPStepRepeatUnit->addItem("Number of Times");
+
+            ui->laPLinDurationSave->setText("d.");
+            ui->laPTRiseSave->setText("d.");
+            ui->laPTUpSave->setText("d.");
+            ui->laPTFallSave->setText("d.");
+            ui->laPTDownSave->setText("d.");
+            ui->laPSPeriodSave->setText("d.");
+        }
+
+        if ( ui->cbPSelectSType->currentIndex() == 1 )
+        {
+            //linear step type selected do what you gotta do.
+
+            pProfileSave[currentProfile].step[currentPStep].stepType = 1;
+            ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 1);
+        }
+        else if ( ui->cbPSelectSType->currentIndex() == 2 )
+        {
+            //trapezoid step type selected do what you gotta do.
+            pProfileSave[currentProfile].step[currentPStep].stepType = 2;
+            ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 2);
+        }
+        else if ( ui->cbPSelectSType->currentIndex() == 3 )
+        {
+            //sinusoid step type selected do what you gotta do.
+            pProfileSave[currentProfile].step[currentPStep].stepType = 3;
+            ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 3);
+        }
+    }
+}
+*/
+/*
+void MainWindow::on_bPForward2_clicked()
+{  
+    if ( ( ui->dsbPLTarget->value() >= 0 ) && ( ui->dsbPLTarget->value() <= 10 ) )
+    {
+        pProfileSave[currentProfile].step[currentPStep].lDuration = ui->dsbPLDuration->value();
+        pProfileSave[currentProfile].step[currentPStep].lTarget = ui->dsbPLTarget->value();
+
+        float delta = qFabs(pProfileSave[currentProfile].step[currentPStep].lTarget - oldPValue);
+        float duration = pProfileSave[currentProfile].step[currentPStep].lDuration;
+        float pressureCondition;
+
+        if ( ( delta >= 8 ) && ( delta <= 10 ) )
+        {
+            pressureCondition = 2.5;
+        }
+        else if ( ( delta >= 5 ) && ( delta < 8 ) )
+        {
+            pressureCondition = 2;
+        }
+        else if ( ( delta >= 2.5 ) && ( delta < 5 ) )
+        {
+            pressureCondition = 1.5;
+        }
+        else if ( ( delta >= 1 ) && ( delta < 2.5 ) )
+        {
+            pressureCondition = 1;
+        }
+        else if ( ( delta >= 0 ) && ( delta < 1 ) )
+        {
+            pressureCondition = 0.5;
+        }
+
+        if (ui->cbPSelectSUnit->currentIndex() == 1)
+        {
+            if ( ( pressureCondition ) <= ( duration * 1 ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = duration * 1;
+                updatePPreview();
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 4);
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 2)
+        {
+            if ( ( pressureCondition ) <= ( duration * 60 ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = duration * 60;
+                updatePPreview();
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 4);
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 3)
+        {
+            if ( ( pressureCondition ) <= ( duration * 60 * 60 ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = duration * 60 * 60;
+                updatePPreview();
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 4);
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 4)
+        {
+            if ( ( pressureCondition ) <= ( duration * 60 * 60 * 24 ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = duration * 60 * 60 * 24;
+                updatePPreview();
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 4);
+            }
+        }
+    }
+    else
+    {
+
+    }
+    qApp->processEvents();
+}
+*/
+/*
+void MainWindow::on_bPBack2_clicked()
+{
+    ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() - 1);
+}
+*/
+/*
+void MainWindow::on_bPForward3_clicked()
+{
+    ui->laOldPValue->setText(QString::number(oldPValue));
+
+    if ( ui->dsbPTLow->value() == oldPValue )
+    {
+        pProfileSave[currentProfile].step[currentPStep].tRise = ui->dsbPTRise->value();
+        pProfileSave[currentProfile].step[currentPStep].tUp = ui->dsbPTUp->value();
+        pProfileSave[currentProfile].step[currentPStep].tFall = ui->dsbPTFall->value();
+        pProfileSave[currentProfile].step[currentPStep].tDown = ui->dsbPTDown->value();
+        pProfileSave[currentProfile].step[currentPStep].tLow = ui->dsbPTLow->value();
+        pProfileSave[currentProfile].step[currentPStep].tHigh = ui->dsbPTHigh->value();
+
+        float delta = pProfileSave[currentProfile].step[currentPStep].tHigh -
+                pProfileSave[currentProfile].step[currentPStep].tLow;
+        float rise = pProfileSave[currentProfile].step[currentPStep].tRise;
+        float up = pProfileSave[currentProfile].step[currentPStep].tUp;
+        float fall = pProfileSave[currentProfile].step[currentPStep].tFall;
+        float down = pProfileSave[currentProfile].step[currentPStep].tDown;
+        float period = (rise + up + fall + down);
+        float pressureCondition;
+
+        if ( ( delta >= 8 ) && ( delta <= 10 ) )
+        {
+            pressureCondition = 2.5;
+        }
+        else if ( ( delta >= 5 ) && ( delta < 8 ) )
+        {
+            pressureCondition = 2;
+        }
+        else if ( ( delta >= 2.5 ) && ( delta < 5 ) )
+        {
+            pressureCondition = 1.5;
+        }
+        else if ( ( delta >= 1 ) && ( delta < 2.5 ) )
+        {
+            pressureCondition = 1;
+        }
+        else if ( ( delta >= 0 ) && ( delta < 1 ) )
+        {
+            pressureCondition = 0.5;
+        }
+
+        if (ui->cbPSelectSUnit->currentIndex() == 1)
+        {
+            if ( ( pressureCondition <= ( rise * 1 ) ) && ( pressureCondition <= ( fall * 1 ) ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = ( period ) * 1;
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 2);
+            }
+            else if ( pressureCondition > ( rise * 1 ))
+            {
+                bool ok = false;
+                int adminPass = QInputDialog::getInt(this, tr(appName),
+                                             tr("Girilen Pressure Rise değeri tanımlı cihaz fonksiyonunu aşmaktadır.\n"
+                                                "bu değerlerle devam etmek için şifre girin. \n"
+                                                "(UYARI! Cihaz garanti kapsamı dışında kalır.)"), 0, 0, 9999, 1, &ok);
+                if (ok)
+                {
+                    if (adminPass == 1881)
+                    {
+                        writeToLogTable("Pressure Rise Value Out off limits");
+                        pProfileSave[currentProfile].stepDuration[currentPStep] = ( period ) * 1;
+                        ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 2);
+                    }
+                    else
+                    {
+                        QMessageBox::information(
+                                    this,
+                                    tr(appName),
+                                    tr("Yanlış şifre girildi.") );
+                    }
+                }
+             }
+            else if ( pressureCondition > ( fall * 1 ))
+            {
+                bool ok = false;
+                int adminPass = QInputDialog::getInt(this, tr(appName),
+                                             tr("Girilen pressure fall değeri tanımlı cihaz fonksiyonunu aşmaktadır.\n"
+                                                "bu değerlerle devam etmek için şifre girin \n"
+                                                "(Cihaz garanti kapsamı dışında kalır)"), 0, 0, 9999, 1, &ok);
+                if (ok)
+                {
+                    if (adminPass == 1881)
+                    {
+                        writeToLogTable("Pressure Fall Value Out off limits");
+                        pProfileSave[currentProfile].stepDuration[currentPStep] = ( period ) * 1;
+                        ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 2);
+                    }
+                    else
+                    {
+                        QMessageBox::information(
+                                    this,
+                                    tr(appName),
+                                    tr("Yanlış şifre girildi.") );
+                    }
+                }
+
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 2)
+        {
+            if ( ( pressureCondition <= ( rise * 60 ) ) && ( pressureCondition <= ( fall * 60 ) ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = ( period ) * 60;
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 2);
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 3)
+        {
+            if ( ( pressureCondition <= ( rise * 60 * 60 ) ) && ( pressureCondition <= ( fall * 60 * 60 ) ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = ( period ) * 60 * 60;
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 2);
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 4)
+        {
+            if ( ( pressureCondition <= ( rise * 60 * 60 * 24 ) ) && ( pressureCondition <= ( fall * 60 * 60 * 24 ) ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = ( period ) * 60 * 60 * 24;
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 2);
+            }
+        }
+    }
+    else
+    {
+        // there must be linear step before this step to make the oldValue equal to trapezoid low value
+
+    }
+}
+*/
+/*
+void MainWindow::on_bPBack3_clicked()
+{
+    ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() - 2);
+}
+*/
+/*
+void MainWindow::on_bPForward4_clicked()
+{
+    if ( ( ui->dsbPSMean->value() == oldPValue ) && ( ( ui->dsbPSMean->value() - ui->dsbPSAmp->value() ) >= 0 ) &&
+         ( ( ui->dsbPSMean->value() + ui->dsbPSAmp->value() ) <= 10 ) )
+    {
+        pProfileSave[currentProfile].step[currentPStep].sPeriod = ui->dsbPSPeriod->value();
+        pProfileSave[currentProfile].step[currentPStep].sMean = ui->dsbPSMean->value();
+        pProfileSave[currentProfile].step[currentPStep].sAmp = ui->dsbPSAmp->value();
+
+        float pressureCondition;
+        float delta = pProfileSave[currentProfile].step[currentPStep].sAmp;
+        float period = pProfileSave[currentProfile].step[currentPStep].sPeriod;
+
+        if ( ( delta >= 8 ) && ( delta <= 10 ) )
+        {
+            pressureCondition = 2.5;
+        }
+        else if ( ( delta >= 5 ) && ( delta < 8 ) )
+        {
+            pressureCondition = 2;
+        }
+        else if ( ( delta >= 2.5 ) && ( delta < 5 ) )
+        {
+            pressureCondition = 1.5;
+        }
+        else if ( ( delta >= 1 ) && ( delta < 2.5 ) )
+        {
+            pressureCondition = 1;
+        }
+        else if ( ( delta >= 0 ) && ( delta < 1 ) )
+        {
+            pressureCondition = 0.5;
+        }
+
+        if (ui->cbPSelectSUnit->currentIndex() == 1)
+        {
+            if ( pressureCondition <= ( period * 1 / 4 ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = period * 1;
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 1);
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 2)
+        {
+            if ( pressureCondition <= ( period * 60 / 4 ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = period * 60;
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 1);
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 3)
+        {
+            if ( pressureCondition <= ( period * 60 * 60 / 4 ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = period * 60 * 60;
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 1);
+            }
+        }
+        else if (ui->cbPSelectSUnit->currentIndex() == 4)
+        {
+            if ( pressureCondition <= ( period * 60 * 60 * 24 / 4 ) )
+            {
+                pProfileSave[currentProfile].stepDuration[currentPStep] = period * 60 * 60 * 24;
+                ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 1);
+            }
+        }
+    }
+    else
+    {
+        // there must be linear step before this step to make the oldValue equal to sinusoid mean value
+        // (mean - amp) value cannot be smaller than 0 bar
+        // (mean + amp) value cannot be greater than 10 bar
+    }
+}
+*/
+/*
+void MainWindow::on_bPBack4_clicked()
+{
+    ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() - 3);
+}
+*/
+/*
+void MainWindow::on_bPForward5_clicked()
+{
+    QString arg1 = ui->cbPStepRepeatUnit->currentText();
+
+    if (arg1 == "Select a step repeat time unit...")
+    {
+        pProfileSave[currentProfile].step[currentPStep].repeatUnit = 0;
+    }
+    else if (arg1 == "Seconds")
+    {
+        pProfileSave[currentProfile].step[currentPStep].repeatUnit = 1;
+    }
+    else if (arg1 == "Minutes")
+    {
+        pProfileSave[currentProfile].step[currentPStep].repeatUnit = 2;
+    }
+    else if (arg1 == "Hours")
+    {
+        pProfileSave[currentProfile].step[currentPStep].repeatUnit = 3;
+    }
+    else if (arg1 == "Days")
+    {
+        pProfileSave[currentProfile].step[currentPStep].repeatUnit = 4;
+    }
+    else if (arg1 == "Number of Times")
+    {
+        pProfileSave[currentProfile].step[currentPStep].repeatUnit = 5;
+    }
+
+    pProfileSave[currentProfile].step[currentPStep].repeatDuration = ui->dsbPRepeatValue->value();
+    updatePPreview();
+    ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() + 1);
+}
+*/
+/*
+void MainWindow::on_bPBack5_clicked()
+{
+    if ( ui->cbPSelectSType->currentIndex() == 1 )
+    {
+        ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() - 3);
+    }
+    else if ( ui->cbPSelectSType->currentIndex() == 2 )
+    {
+        ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() - 2);
+    }
+    else if ( ui->cbPSelectSType->currentIndex() == 3 )
+    {
+        ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() - 1);
+    }
+}
+*/
+/*
+void MainWindow::on_bPSaveStep_clicked()
+{
+    ui->dsbPStartValue->setEnabled(false);
+
+    ui->bPForward5->setEnabled(false);
+
+    pProfileSave[currentProfile].totalStep++;
+    currentPStep++;
+    ui->laPTotalStep->setText(QString::number(currentPStep));
+
+    if (pProfileSave[currentProfile].step[currentPStep - 1].stepType == 1)
+    {
+        oldPValue = pProfileSave[currentProfile].step[currentPStep - 1].lTarget;
+    }
+    else if (pProfileSave[currentProfile].step[currentPStep - 1].stepType == 2)
+    {
+        oldPValue = pProfileSave[currentProfile].step[currentPStep - 1].tLow;
+    }
+    else if (pProfileSave[currentProfile].step[currentPStep - 1].stepType == 3)
+    {
+        oldPValue = pProfileSave[currentProfile].step[currentPStep - 1].sMean;
+    }
+
+    ui->laOldPValue->setText(QString::number(oldPValue));
+
+    ui->dsbPLDuration->setValue(1);
+    ui->dsbPLTarget->setValue(0);
+
+    ui->dsbPTFall->setValue(1);
+    ui->dsbPTRise->setValue(1);
+    ui->dsbPTUp->setValue(1);
+    ui->dsbPTLow->setValue(0);
+    ui->dsbPTHigh->setValue(0);
+
+    ui->dsbPSMean->setValue(0);
+    ui->dsbPSAmp->setValue(0);
+    ui->dsbPSPeriod->setValue(1);
+
+    ui->dsbPRepeatValue->setValue(0);
+    ui->dsbPRepeatTime->setValue(0);
+
+    ui->cbPSelectSType->setCurrentIndex(0);
+    ui->cbPSelectSUnit->setCurrentIndex(0);
+    ui->cbPStepRepeatUnit->setCurrentIndex(0);
+
+    ui->pWidget->setCurrentIndex(0);
+}
+*/
+/*
+void MainWindow::on_bPBack6_clicked()
+{
+    if ( ui->cbPSelectSType->currentIndex() == 1 )
+    {
+        ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() - 4);
+    }
+    else
+    {
+        ui->pWidget->setCurrentIndex(ui->pWidget->currentIndex() - 1);
+    }
+
+}
+*/
+/*
+void MainWindow::on_cbPStepRepeatUnit_currentIndexChanged(const QString &arg1)
+{
+    ui->dsbPRepeatValue->setValue(0);
+
+    if (arg1 == "Select a step repeat time unit...")
+    {
+        ui->laPRepeatSave->setText("");
+    }
+    else if (arg1 == "Seconds")
+    {
+        ui->laPRepeatSave->setText("s.");
+    }
+    else if (arg1 == "Minutes")
+    {
+        ui->laPRepeatSave->setText("m.");
+    }
+    else if (arg1 == "Hours")
+    {
+        ui->laPRepeatSave->setText("h.");
+    }
+    else if (arg1 == "Days")
+    {
+        ui->laPRepeatSave->setText("d.");
+    }
+    else if (arg1 == "Number of Times")
+    {
+        ui->laPRepeatSave->setText("t.");
+    }
+
+}
+*/
+/*
+void MainWindow::on_dsbPRepeatValue_valueChanged(double arg1)
+{
+    float result;
+    float duration = pProfileSave[currentProfile].stepDuration[currentPStep];
+
+    ui->dsbPRepeatTime->setValue(0);
+
+    if (ui->cbPStepRepeatUnit->currentText() == "Seconds")
+    {
+        result = ui->dsbPRepeatValue->value() * 1 / duration;
+        ui->dsbPRepeatTime->setValue(result);
+    }
+    else if (ui->cbPStepRepeatUnit->currentText() == "Minutes")
+    {
+        result = ui->dsbPRepeatValue->value() * 60 / duration;
+        ui->dsbPRepeatTime->setValue(result);
+    }
+    else if (ui->cbPStepRepeatUnit->currentText() == "Hours")
+    {
+        result = ui->dsbPRepeatValue->value() * 60 * 60 / duration;
+        ui->dsbPRepeatTime->setValue(result);
+    }
+    else if (ui->cbPStepRepeatUnit->currentText() == "Days")
+    {
+        result = ui->dsbPRepeatValue->value() * 60 * 60 * 24 / duration;
+        ui->dsbPRepeatTime->setValue(result);
+    }
+    else if (ui->cbPStepRepeatUnit->currentText() == "Number of Times")
+    {
+        result = ui->dsbPRepeatValue->value();
+        ui->dsbPRepeatTime->setValue(result);
+    }
+    else
+    {
+        ui->dsbPRepeatTime->setValue(0);
+    }
+
+    if (ui->dsbPRepeatTime->value() == 0)
+    {
+        ui->bPForward5->setEnabled(false);
+    }
+    else
+    {
+        ui->bPForward5->setEnabled(true);
+    }
+}
+*/
+/*
+void MainWindow::updatePPreview()
+{
+    //ui->pPreview->clearPlottables();
+    //ui->pPreview->xAxis->setRange(0, ui->dsbPLTarget->value());
+    //ui->pPreview->yAxis->setRange(1, 10);
+
+    if (pProfileSave[currentProfile].step[currentPStep].stepUnit == 1)
+    {
+        ui->pPreview->xAxis->setLabel("Time (seconds)");
+    }
+    else if (pProfileSave[currentProfile].step[currentPStep].stepUnit == 2)
+    {
+        ui->pPreview->xAxis->setLabel("Time (minutes)");
+    }
+    else if (pProfileSave[currentProfile].step[currentPStep].stepUnit == 3)
+    {
+        ui->pPreview->xAxis->setLabel("Time (hours)");
+    }
+    else if (pProfileSave[currentProfile].step[currentPStep].stepUnit == 4)
+    {
+        ui->pPreview->xAxis->setLabel("Time (days)");
+    }
+
+
+    if (pProfileSave[currentProfile].step[currentPStep].stepType == 1)        //linear plot
+    {
+        float delta;
+        float duration = pProfileSave[currentProfile].step[currentPStep].lDuration;
+        float target = pProfileSave[currentProfile].step[currentPStep].lTarget;
+
+        QVector<double> pPreviewX( ( quint16( duration * 10 )  ) + 1 ), pPreviewY( ( quint16( duration * 10 ) ) + 1 );
+
+        pPreviewY[0] = oldPValue;
+        pPreviewX[0] = 0;
+        delta = target - oldPValue;
+
+        for(int i=1; i < ( quint16( duration * 10 ) ) + 1; i++)
+        {
+            pPreviewY[i] = pPreviewY[i-1] + ( delta / ( duration * 10 ) );
+            pPreviewX[i] = float(i) / 10;
+        }
+
+        ui->pPreview->graph(0)->setData(pPreviewX, pPreviewY);
+        ui->pPreview->graph(0)->rescaleAxes();
+        ui->pPreview->replot();
+    }
+    else if (pProfileSave[currentProfile].step[currentPStep].stepType == 2)   //trapezoid plot
+    {
+        // commented blocks make a sinusoid-like trapezoid with mean and amp values and rise up and down times.
+
+        float rise = pProfileSave[currentProfile].step[currentPStep].tRise;
+        float up = pProfileSave[currentProfile].step[currentPStep].tUp;
+        float fall = pProfileSave[currentProfile].step[currentPStep].tFall;
+        float down = pProfileSave[currentProfile].step[currentPStep].tDown;
+        float low = pProfileSave[currentProfile].step[currentPStep].tLow;
+        float high = pProfileSave[currentProfile].step[currentPStep].tHigh;
+        float period = rise + up + fall + down;
+
+        QVector<double> pPreviewX( quint16( period * 10 ) + 1 ), pPreviewY( quint16( period * 10 ) + 1 );
+        //QVector<double> pPreviewX( quint16( period * 20 ) + 1 ), pPreviewY( quint16( period * 20 ) + 1 );
+
+        pPreviewY[0] = oldPValue;
+        pPreviewX[0] = 0;
+
+        quint16 segment1 = ( rise * 10 ) + 1;
+        quint16 segment2 = ( ( rise + up ) * 10) + 1;
+        quint16 segment3 = ( ( rise + up + fall ) * 10) + 1;
+        quint16 segment4 = ( ( rise + up + fall + down ) * 10) + 1;
+        //quint16 segment3 = ( ( rise + up + ( fall * 2 ) ) * 10) + 1;
+        //quint16 segment4 = ( ( rise + up + ( fall * 2 ) + up ) * 10) + 1;
+        //quint16 segment5 = ( ( rise + up + ( fall * 2 ) + up + rise ) * 10) + 1;
+
+        for(int i=1; i < segment1 ; i++)    // from low to high
+        {
+            pPreviewY[i] = pPreviewY[i-1] + ( (high - low) / ( rise * 10 ) );
+            pPreviewX[i] = float(i) / 10;
+        }
+
+        for(int i = segment1; i < segment2; i++)    // stay at high
+        {
+            pPreviewY[i] = high;
+            pPreviewX[i] = float(i) / 10;
+        }
+
+        for(int i = segment2; i < segment3; i++)    // from high to low
+        {
+            pPreviewY[i] = pPreviewY[i-1] - ( (high - low) / ( fall * 10 ) );
+            pPreviewX[i] = float(i) / 10;
+        }
+
+        for(int i = segment3; i < segment4; i++)    // stay at low
+        {
+            pPreviewY[i] = low;
+            pPreviewX[i] = float(i) / 10;
+        }
+
+
+        for(int i = segment3; i < segment4; i++)    // stay at amp*(-1)
+        {
+            pPreviewY[i] = mean - amp;
+            pPreviewX[i] = float(i) / 10;
+        }
+
+        for(int i = segment4; i < segment5; i++)    // from amp*(-1) to mean
+        {
+            pPreviewY[i] = pPreviewY[i-1] + ( amp / ( rise * 10 ) );
+            pPreviewX[i] = float(i) / 10;
+        }
+
+
+        ui->pPreview->graph(0)->setData(pPreviewX, pPreviewY);
+        ui->pPreview->graph(0)->rescaleAxes();
+        ui->pPreview->replot();
+
+    }
+    else if (pProfileSave[currentProfile].step[currentPStep].stepType == 3)   //sinusoid plot
+    {
+        float period = pProfileSave[currentProfile].step[currentPStep].sPeriod;
+        float mean = pProfileSave[currentProfile].step[currentPStep].sMean;
+        float amp = pProfileSave[currentProfile].step[currentPStep].sAmp;
+
+        QVector<double> pPreviewX( ( quint16( period * 10 ) + 1 ) ), pPreviewY( ( quint16( period * 10 ) + 1 ) );
+
+        pPreviewY[0] = oldPValue;
+        pPreviewX[0] = 0;
+
+        for(int i=1; i < ( quint16( period * 10 ) ) + 1; i++)
+        {
+            pPreviewY[i] = ( qSin( ( ( 2 * M_PI * i ) / ( period * 10 ) ) ) * amp ) + mean;
+            pPreviewX[i] = float(i) / 10;
+        }
+
+        ui->pPreview->graph(0)->setData(pPreviewX, pPreviewY);
+        ui->pPreview->graph(0)->rescaleAxes();
+        ui->pPreview->replot();
+    }
+}
+*/
+/*
+void MainWindow::on_bVForward2_clicked()
+{
+    float delta;
+
+    vProfileSave[currentProfile].step[currentVStep].lDuration = ui->sbVLDuration->value();
+    vProfileSave[currentProfile].step[currentVStep].lTarget = ui->dsbVLTarget->value();
+
+    float startValue = vProfileSave[currentProfile].startValue;
+    float duration = vProfileSave[currentProfile].step[currentVStep].lDuration;
+    float oldTarget = vProfileSave[currentProfile].step[currentVStep-1].lTarget;
+    float target = vProfileSave[currentProfile].step[currentVStep].lTarget;
+
+
+    if ( currentVStep == 0 )
+    {
+        delta = qFabs( target - startValue );
+    }
+    else
+    {
+        delta = qFabs( target - oldTarget);
+    }
+
+    if ( ui->cbVSelectSUnit->currentIndex() == 1 )
+    {
+        if ( ( delta * 1 / 2 ) <= ( duration * 1 ) )
+        {
+            ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() + 3);
+            updateVPreview();
+        }
+    }
+    else if ( ui->cbVSelectSUnit->currentIndex() == 2 )
+    {
+        if ( ( delta * 1 / 2 ) <= ( duration * 60 ) )
+        {
+            ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() + 3);
+            updateVPreview();
+        }
+    }
+    else if ( ui->cbVSelectSUnit->currentIndex() == 3 )
+    {
+        if ( ( delta * 1 / 2 ) <= ( duration * 60 * 60 ) )
+        {
+            ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() + 3);
+            updateVPreview();
+        }
+    }
+    else if ( ui->cbVSelectSUnit->currentIndex() == 4 )
+    {
+        if ( ( delta * 1 / 2 ) <= ( duration * 60 * 60 * 24 ) )
+        {
+            ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() + 3);
+            updateVPreview();
+        }
+    }
+}
+*/
+/*
+void MainWindow::on_bVBack2_clicked()
+{
+    ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() - 1);
+}
+
+void MainWindow::on_bVBack3_clicked()
+{
+    ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() - 2);
+}
+
+void MainWindow::on_bVForward3_clicked()
+{
+    if ( (ui->dsbVLogMax->value() > ui->dsbVLogMin->value()) )
+    {
+        vProfileSave[currentProfile].step[currentVStep].logRate = ui->dsbVLogRate->value();
+        vProfileSave[currentProfile].step[currentVStep].logMin = ui->dsbVLogMin->value();
+        vProfileSave[currentProfile].step[currentVStep].logMax = ui->dsbVLogMax->value();
+
+        float rate = vProfileSave[currentProfile].step[currentVStep].logRate;
+        float min = vProfileSave[currentProfile].step[currentVStep].logMin;
+        float max = vProfileSave[currentProfile].step[currentVStep].logMax;
+        float delta = max - min;
+        double coeff = qPow(2, rate/60.0);
+        quint16 duration=0;
+        double buddy = min;
+        while (buddy < max)
+        {
+            buddy = buddy * coeff;
+            duration++;
+        }
+
+        // multiply by two because "her çıkışın bir inişi de vardır."
+        vProfileSave[currentProfile].stepDuration[currentVStep] = duration * 2;
+
+        if ( ui->cbVSelectSUnit->currentIndex() == 1 )
+        {
+            if ( ( delta * 1 ) <= ( duration ) )
+            {
+                ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() + 1);
+            }
+        }
+    }
+}
+*/
+/*
+void MainWindow::on_bVForward4_clicked()
+{
+    QString arg1 = ui->cbVStepRepeatUnit->currentText();
+
+    if (arg1 == "Select a step repeat time unit...")
+    {
+        vProfileSave[currentProfile].step[currentVStep].repeatUnit = 0;
+    }
+    else if (arg1 == "Seconds")
+    {
+        vProfileSave[currentProfile].step[currentVStep].repeatUnit = 1;
+    }
+    else if (arg1 == "Minutes")
+    {
+        vProfileSave[currentProfile].step[currentVStep].repeatUnit = 2;
+    }
+    else if (arg1 == "Hours")
+    {
+        vProfileSave[currentProfile].step[currentVStep].repeatUnit = 3;
+    }
+    else if (arg1 == "Days")
+    {
+        vProfileSave[currentProfile].step[currentVStep].repeatUnit = 4;
+    }
+    else if (arg1 == "Number of Times")
+    {
+        vProfileSave[currentProfile].step[currentVStep].repeatUnit = 5;
+    }
+
+    vProfileSave[currentProfile].step[currentVStep].repeatDuration = ui->dsbVRepeatValue->value();
+    updateVPreview();
+    ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() + 1);
+}
+
+void MainWindow::on_bVBack4_clicked()
+{
+    if ( ui->cbVSelectSType->currentIndex() == 2 )
+    {
+        ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() - 1);
+    }
+}
+*/
+/*
+void MainWindow::on_bVBack5_clicked()
+{
+    if ( ui->cbVSelectSType->currentIndex() == 1 )
+    {
+        ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() - 3);
+    }
+    else if ( ui->cbVSelectSType->currentIndex() == 2 )
+    {
+        ui->vWidget->setCurrentIndex(ui->vWidget->currentIndex() - 1);
+    }
+}
+*/
+/*
+void MainWindow::on_bVSaveStep_clicked()
+{
+    ui->dsbVStartValue->setEnabled(false);
+    ui->bVForward4->setEnabled(false);
+
+    vProfileSave[currentProfile].totalStep++;
+    currentVStep++;
+    ui->laVTotalStep->setText(QString::number(currentVStep));
+
+    if (vProfileSave[currentProfile].step[currentVStep - 1].stepType == 1)
+    {
+        oldVValue = vProfileSave[currentProfile].step[currentVStep - 1].lTarget;
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep - 1].stepType == 4)
+    {
+        oldVValue = vProfileSave[currentProfile].step[currentVStep - 1].logMin;
+    }
+
+    ui->laOldVValue->setText(QString::number(oldVValue));
+
+    ui->cbVSelectSType->setCurrentIndex(0);
+    ui->cbVSelectSUnit->setCurrentIndex(0);
+    ui->cbVStepRepeatUnit->setCurrentIndex(0);
+
+    ui->sbVLDuration->setValue(1);
+    ui->dsbVLTarget->setValue(0);
+
+    ui->dsbVLogRate->setValue(0.1);
+    ui->dsbVLogMin->setValue(0.1);
+    ui->dsbVLogMax->setValue(0.1);
+
+    ui->dsbVRepeatValue->setValue(0);
+    ui->dsbVRepeatTime->setValue(0);
+
+    ui->vWidget->setCurrentIndex(0);
+}
+*/
+/*
+void MainWindow::on_cbVStepRepeatUnit_currentIndexChanged(const QString &arg1)
+{
+    ui->dsbVRepeatValue->setValue(0);
+
+    if (arg1 == "Select a step repeat time unit...")
+    {
+        ui->laVRepeatSave->setText("");
+    }
+    else if (arg1 == "Seconds")
+    {
+        ui->laVRepeatSave->setText("s.");
+    }
+    else if (arg1 == "Minutes")
+    {
+        ui->laVRepeatSave->setText("m.");
+    }
+    else if (arg1 == "Hours")
+    {
+        ui->laVRepeatSave->setText("h.");
+    }
+    else if (arg1 == "Days")
+    {
+        ui->laVRepeatSave->setText("d.");
+    }
+    else if (arg1 == "Number of Times")
+    {
+        ui->laVRepeatSave->setText("t.");
+    }
+
+}
+*/
+/*
+void MainWindow::on_dsbVRepeatValue_valueChanged(double arg1)
+{
+    float result;
+    float duration = vProfileSave[currentProfile].stepDuration[currentVStep];
+
+    ui->dsbVRepeatTime->setValue(0);
+
+    if (ui->cbVStepRepeatUnit->currentText() == "Seconds")
+    {
+        result = ui->dsbVRepeatValue->value() * 1 / duration;
+        ui->dsbVRepeatTime->setValue(result);
+    }
+    else if (ui->cbVStepRepeatUnit->currentText() == "Minutes")
+    {
+        result = ui->dsbVRepeatValue->value() * 60 / duration;
+        ui->dsbVRepeatTime->setValue(result);
+    }
+    else if (ui->cbVStepRepeatUnit->currentText() == "Hours")
+    {
+        result = ui->dsbVRepeatValue->value() * 60 * 60 / duration;
+        ui->dsbVRepeatTime->setValue(result);
+    }
+    else if (ui->cbVStepRepeatUnit->currentText() == "Days")
+    {
+        result = ui->dsbVRepeatValue->value() * 60 * 60 * 24 / duration;
+        ui->dsbVRepeatTime->setValue(result);
+    }
+    else if (ui->cbVStepRepeatUnit->currentText() == "Number of Times")
+    {
+        result = ui->dsbVRepeatValue->value();
+        ui->dsbVRepeatTime->setValue(result);
+    }
+    else
+    {
+        ui->dsbVRepeatTime->setValue(0);
+    }
+
+    if (ui->dsbVRepeatTime->value() == 0)
+    {
+        ui->bVForward4->setEnabled(false);
+    }
+    else
+    {
+        ui->bVForward4->setEnabled(true);
+    }
+}
+*/
+/*
+void MainWindow::updateVPreview()
+{
+    //ui->vPreview->clearPlottables();
+    //ui->vPreview->xAxis->setRange(0, ui->dsbVLTarget->value());
+    //ui->vPreview->yAxis->setRange(1, 60);
+
+    if (vProfileSave[currentProfile].step[currentVStep].stepUnit == 1)
+    {
+        ui->vPreview->xAxis->setLabel("Time (seconds)");
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep].stepUnit == 2)
+    {
+        ui->vPreview->xAxis->setLabel("Time (minutes)");
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep].stepUnit == 3)
+    {
+        ui->vPreview->xAxis->setLabel("Time (hours)");
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep].stepUnit == 4)
+    {
+        ui->vPreview->xAxis->setLabel("Time (days)");
+    }
+
+    if (vProfileSave[currentProfile].step[currentVStep].stepType == 1)
+    {
+        float delta;
+        float duration = vProfileSave[currentProfile].step[currentVStep].lDuration;
+        float startValue = vProfileSave[currentProfile].startValue;
+        float oldTarget = vProfileSave[currentProfile].step[currentVStep - 1].lTarget;
+        float target = vProfileSave[currentProfile].step[currentVStep].lTarget;
+
+        QVector<double> vPreviewX( ( duration * 10) + 1 ), vPreviewY( ( duration * 10) + 1 );
+
+        if (currentVStep == 0)
+        {
+            vPreviewY[0] = startValue;
+            vPreviewX[0] = 0;
+            delta = target - startValue;
+        }
+        else
+        {
+            vPreviewY[0] = oldTarget;
+            vPreviewX[0] = 0;
+            delta = target - oldTarget;
+        }
+
+        for(int i=1; i < ( duration * 10) + 1; i++)
+        {
+            vPreviewY[i] = vPreviewY[i-1] + ( delta / ( duration * 10 ) );
+            vPreviewX[i] = float(i) / 10;
+        }
+
+        ui->vPreview->graph(0)->setData(vPreviewX, vPreviewY);
+        ui->vPreview->graph(0)->rescaleAxes();
+        ui->vPreview->replot();
+    }
+    else if (vProfileSave[currentProfile].step[currentVStep].stepType == 4)
+    {
+        float rate = vProfileSave[currentProfile].step[currentVStep].logRate;
+        float min = vProfileSave[currentProfile].step[currentVStep].logMin;
+        float max = vProfileSave[currentProfile].step[currentVStep].logMax;
+        double coeff = qPow(2, rate/600.0);
+        quint16 duration=0;
+        double buddy = min;
+        while (buddy < max)
+        {
+            buddy = buddy * coeff;
+            duration++;
+        }
+
+        duration = duration * 2;
+
+        QVector<double> vPreviewX( ( duration) + 1 ), vPreviewY( ( duration) + 1 );
+
+        vPreviewY[0] = min;
+        vPreviewX[0] = 0;
+
+        for(int i=1; i < ( duration / 2 ) + 1; i++)
+        {
+            vPreviewY[i] = vPreviewY[i-1] * coeff ;
+            vPreviewX[i] = float(i) / 10;
+        }
+        for(int i=( duration / 2 ) + 1; i < (duration) + 1; i++)
+        {
+            vPreviewY[i] = vPreviewY[i-1] / coeff ;
+            vPreviewX[i] = float(i) / 10;
+        }
+
+        ui->vPreview->graph(0)->setData(vPreviewX, vPreviewY);
+        ui->vPreview->graph(0)->rescaleAxes();
+        ui->vPreview->replot();
+
+    }
+}
+*/
 
 bool MainWindow::readProfiles(char rType, int index)
 {
@@ -2888,6 +4187,578 @@ void MainWindow::on_bSavePro_clicked()
 
 }
 
+/*
+void MainWindow::on_cbSelectProfileEdit_currentIndexChanged(int index)
+{
+    if (index == 0)
+    {
+        ui->cbSelectPTypeEdit->setEnabled(false);
+        ui->cbSelectPTypeEdit->setCurrentIndex(0);
+
+        ui->cbSelectStepEdit->setEnabled(false);
+        ui->cbSelectStepEdit->setCurrentIndex(0);
+
+//        ui->cbSelectSTypeEdit->setEnabled(false);
+//        ui->cbSelectSTypeEdit->setCurrentIndex(0);
+    }
+    else
+    {
+        ui->cbSelectPTypeEdit->setEnabled(true);
+        ui->cbSelectPTypeEdit->setCurrentIndex(0);
+        ui->cbSelectStepEdit->setCurrentIndex(0);
+//        ui->cbSelectSTypeEdit->setCurrentIndex(0);
+
+        readProfiles('e', index);
+    }
+}
+*/
+/*
+void MainWindow::on_cbSelectPTypeEdit_currentIndexChanged(int index)
+{
+    if (index == 0)
+    {
+        ui->dsbStartValueEdit->setValue(0);
+        ui->dsbStartValueEdit->setEnabled(false);
+
+        ui->laTotalStepEdit->setText("");
+        ui->laTotalStepEdit->setEnabled(false);
+
+    //    ui->cbSelectSTypeEdit->setCurrentIndex(0);
+    //    ui->cbSelectSTypeEdit->setEnabled(false);
+
+        ui->cbSelectStepEdit->setCurrentIndex(0);
+        ui->cbSelectStepEdit->setEnabled(false);
+
+        ui->laTestStartEdit->setText("");
+
+
+    }
+    else if (index == 1)
+    {
+        ui->cbSelectStepEdit->setEnabled(true);
+
+        ui->dsbStartValueEdit->setValue(tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].startValue);
+        ui->laTotalStepEdit->setText(QString::number(tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].totalStep));
+
+ //       ui->cbSelectSTypeEdit->clear();
+ //       ui->cbSelectSTypeEdit->addItem("Select a step type...");
+ //       ui->cbSelectSTypeEdit->addItem("Linear");
+ //      ui->cbSelectSTypeEdit->setCurrentIndex(0);
+
+        ui->cbSelectStepEdit->clear();
+        ui->cbSelectStepEdit->addItem("Select a step number...");
+
+        for(int i=0; i<tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].totalStep; i++)
+        {
+            ui->cbSelectStepEdit->addItem("Step " + QString::number(i+1));
+        }
+        ui->cbSelectStepEdit->setCurrentIndex(0);
+
+        ui->laTestStartEdit->setText("°C");
+    }
+
+    else if (index == 2)
+    {
+        ui->cbSelectStepEdit->setEnabled(true);
+
+        ui->dsbStartValueEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].startValue);
+        ui->laTotalStepEdit->setText(QString::number(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].totalStep));
+
+  //      ui->cbSelectSTypeEdit->clear();
+  //      ui->cbSelectSTypeEdit->addItem("Select a step type...");
+  //      ui->cbSelectSTypeEdit->addItem("Linear");
+  //      ui->cbSelectSTypeEdit->addItem("Trapezoid");
+  //      ui->cbSelectSTypeEdit->addItem("Sinusoid");
+ //       ui->cbSelectSTypeEdit->setCurrentIndex(0);
+
+        ui->cbSelectStepEdit->clear();
+        ui->cbSelectStepEdit->addItem("Select a step number...");
+
+        for(int i=0; i<pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].totalStep; i++)
+        {
+            ui->cbSelectStepEdit->addItem("Step " + QString::number(i+1));
+        }
+        ui->cbSelectStepEdit->setCurrentIndex(0);
+
+        ui->laTestStartEdit->setText("bar");
+    }
+    else if (index == 3)
+    {
+        ui->cbSelectStepEdit->setEnabled(true);
+
+        ui->dsbStartValueEdit->setValue(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].startValue);
+        ui->laTotalStepEdit->setText(QString::number(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].totalStep));
+
+   //     ui->cbSelectSTypeEdit->clear();
+   //     ui->cbSelectSTypeEdit->addItem("Select a step type...");
+   //     ui->cbSelectSTypeEdit->addItem("Linear");
+   //     ui->cbSelectSTypeEdit->addItem("Logarithmic Sweep");
+   //     ui->cbSelectSTypeEdit->setCurrentIndex(0);
+
+        ui->cbSelectStepEdit->clear();
+        ui->cbSelectStepEdit->addItem("Select a step number...");
+
+        for(int i=0; i<vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].totalStep; i++)
+        {
+            ui->cbSelectStepEdit->addItem("Step " + QString::number(i+1));
+        }
+        ui->cbSelectStepEdit->setCurrentIndex(0);
+
+        ui->laTestStartEdit->setText("Hz");
+    }
+
+}
+*/
+/*
+void MainWindow::on_cbSelectStepEdit_currentIndexChanged(int index)
+{
+    if (ui->cbSelectPTypeEdit->currentIndex() == 0)
+    {
+        ui->cbSelectSUnitEdit->setCurrentIndex(0);
+   //    ui->cbSelectSTypeEdit->setCurrentIndex(0);
+
+        ui->dsbLDurationEdit->setValue(0);
+        ui->dsbLTargetEdit->setValue(0);
+
+   //     ui->dsbTRiseEdit->setValue(0);
+    //    ui->dsbTUpEdit->setValue(0);
+   //     ui->dsbTFallEdit->setValue(0);
+    //    ui->dsbTDownEdit->setValue(0);
+   //     ui->dsbTLowEdit->setValue(0);
+    //    ui->dsbTHighEdit->setValue(0);
+
+  //      ui->dsbSPeriodEdit->setValue(0);
+   //     ui->dsbSMeanEdit->setValue(0);
+  //      ui->dsbSAmpEdit->setValue(0);
+
+   //     ui->dsbLogRateEdit->setValue(0);
+   //     ui->dsbLogMinEdit->setValue(0);
+   //     ui->dsbLogMaxEdit->setValue(0);
+
+    //    ui->dsbRepeatDurationEdit->setValue(0);
+   //     ui->laStepDurationEdit->setText("");
+//        ui->cbSRepeatUnitEdit->setCurrentIndex(0);
+
+    }
+    else if (ui->cbSelectPTypeEdit->currentIndex() == 1)
+    {
+        ui->cbSelectSUnitEdit->setCurrentIndex(tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepUnit);
+    //    ui->cbSelectSTypeEdit->setCurrentIndex(tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType);
+
+        ui->dsbLDurationEdit->setValue(tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].lDuration);
+        ui->dsbLTargetEdit->setValue(tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].lTarget);
+
+   //     ui->dsbTRiseEdit->setValue(0);
+   //     ui->dsbTUpEdit->setValue(0);
+   //     ui->dsbTFallEdit->setValue(0);
+   //     ui->dsbTDownEdit->setValue(0);
+   //     ui->dsbTLowEdit->setValue(0);
+   //     ui->dsbTHighEdit->setValue(0);
+
+   //     ui->dsbSPeriodEdit->setValue(0);
+   //     ui->dsbSMeanEdit->setValue(0);
+   //     ui->dsbSAmpEdit->setValue(0);
+
+   //     ui->dsbRepeatDurationEdit->setValue(0);
+   //    ui->laStepDurationEdit->setText("");
+   //     ui->cbSRepeatUnitEdit->setCurrentIndex(0);
+    } 
+    else if (ui->cbSelectPTypeEdit->currentIndex() == 2)
+    {
+        ui->cbSelectSUnitEdit->setCurrentIndex(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepUnit);
+        ui->cbSelectSTypeEdit->setCurrentIndex(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType);
+
+        ui->cbSRepeatUnitEdit->setCurrentIndex(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit);
+        ui->dsbRepeatDurationEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatDuration);
+
+        if(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit == 1)
+        {
+            ui->laStepDurationEdit->setText("s.");
+        }
+        else if(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit == 2)
+        {
+            ui->laStepDurationEdit->setText("m.");
+        }
+        else if(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit == 3)
+        {
+            ui->laStepDurationEdit->setText("h.");
+        }
+        else if(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit == 4)
+        {
+            ui->laStepDurationEdit->setText("d.");
+        }
+
+
+        if (pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType == 1)
+        {
+            ui->dsbLDurationEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].lDuration);
+            ui->dsbLTargetEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].lTarget);
+
+            ui->dsbTRiseEdit->setValue(0);
+            ui->dsbTUpEdit->setValue(0);
+            ui->dsbTFallEdit->setValue(0);
+            ui->dsbTDownEdit->setValue(0);
+            ui->dsbTLowEdit->setValue(0);
+            ui->dsbTHighEdit->setValue(0);
+
+            ui->dsbSPeriodEdit->setValue(0);
+            ui->dsbSMeanEdit->setValue(0);
+            ui->dsbSAmpEdit->setValue(0);
+
+            ui->dsbLogRateEdit->setValue(0);
+            ui->dsbLogMinEdit->setValue(0);
+            ui->dsbLogMaxEdit->setValue(0);
+        }
+        else if (pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType == 2)
+        {
+            ui->dsbTRiseEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].tRise);
+            ui->dsbTUpEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].tUp);
+            ui->dsbTFallEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].tFall);
+            ui->dsbTDownEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].tDown);
+            ui->dsbTLowEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].tLow);
+            ui->dsbTHighEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].tHigh);
+
+            ui->dsbLDurationEdit->setValue(0);
+            ui->dsbLTargetEdit->setValue(0);
+
+            ui->dsbSPeriodEdit->setValue(0);
+            ui->dsbSMeanEdit->setValue(0);
+            ui->dsbSAmpEdit->setValue(0);
+
+            ui->dsbLogRateEdit->setValue(0);
+            ui->dsbLogMinEdit->setValue(0);
+            ui->dsbLogMaxEdit->setValue(0);
+        }
+        else if (pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType == 3)
+        {
+            ui->dsbSPeriodEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].sPeriod);
+            ui->dsbSMeanEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].sMean);
+            ui->dsbSAmpEdit->setValue(pProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].sAmp);
+
+            ui->dsbLDurationEdit->setValue(tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].lDuration);
+            ui->dsbLTargetEdit->setValue(tProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].lTarget);
+            ui->dsbTRiseEdit->setValue(0);
+            ui->dsbTUpEdit->setValue(0);
+            ui->dsbTFallEdit->setValue(0);
+            ui->dsbTDownEdit->setValue(0);
+            ui->dsbTLowEdit->setValue(0);
+            ui->dsbTHighEdit->setValue(0);
+
+            ui->dsbLogRateEdit->setValue(0);
+            ui->dsbLogMinEdit->setValue(0);
+            ui->dsbLogMaxEdit->setValue(0);
+
+        }      
+    }
+    else if (ui->cbSelectPTypeEdit->currentIndex() == 3)
+    {
+        ui->cbSelectSUnitEdit->setCurrentIndex(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepUnit);
+
+        if (vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType == 1)
+        {
+       //     ui->cbSelectSTypeEdit->setCurrentIndex(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType);
+
+            ui->dsbLDurationEdit->setValue(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].lDuration);
+            ui->dsbLTargetEdit->setValue(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].lTarget);
+
+            ui->dsbTRiseEdit->setValue(0);
+            ui->dsbTUpEdit->setValue(0);
+            ui->dsbTFallEdit->setValue(0);
+            ui->dsbTDownEdit->setValue(0);
+            ui->dsbTLowEdit->setValue(0);
+            ui->dsbTHighEdit->setValue(0);
+
+            ui->dsbSPeriodEdit->setValue(0);
+            ui->dsbSMeanEdit->setValue(0);
+            ui->dsbSAmpEdit->setValue(0);
+
+            ui->dsbLogRateEdit->setValue(0);
+            ui->dsbLogMinEdit->setValue(0);
+            ui->dsbLogMaxEdit->setValue(0);
+
+            ui->dsbRepeatDurationEdit->setValue(0);
+            ui->laStepDurationEdit->setText("");
+            ui->cbSRepeatUnitEdit->setCurrentIndex(0);
+
+        }
+
+        else if (vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType == 4)
+        {
+            ui->cbSelectSTypeEdit->setCurrentIndex(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].stepType - 2);
+
+            ui->dsbLDurationEdit->setValue(0);
+            ui->dsbLTargetEdit->setValue(0);
+
+            ui->dsbTRiseEdit->setValue(0);
+            ui->dsbTUpEdit->setValue(0);
+            ui->dsbTFallEdit->setValue(0);
+            ui->dsbTDownEdit->setValue(0);
+            ui->dsbTLowEdit->setValue(0);
+            ui->dsbTHighEdit->setValue(0);
+
+            ui->dsbSPeriodEdit->setValue(0);
+            ui->dsbSMeanEdit->setValue(0);
+            ui->dsbSAmpEdit->setValue(0);
+
+            ui->dsbLogRateEdit->setValue(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].logRate);
+            ui->dsbLogMinEdit->setValue(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].logMin);
+            ui->dsbLogMaxEdit->setValue(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].logMax);
+
+            ui->cbSRepeatUnitEdit->setCurrentIndex(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit);
+            ui->dsbRepeatDurationEdit->setValue(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatDuration);
+
+            if(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit == 1)
+            {
+                ui->laStepDurationEdit->setText("s.");
+            }
+            else if(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit == 2)
+            {
+                ui->laStepDurationEdit->setText("m.");
+            }
+            else if(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit == 3)
+            {
+                ui->laStepDurationEdit->setText("h.");
+            }
+            else if(vProfileEdit[ui->cbSelectProfileEdit->currentIndex()-1].step[index-1].repeatUnit == 4)
+            {
+                ui->laStepDurationEdit->setText("d.");
+            }
+
+        }
+
+    }
+
+}
+*/
+
+/*
+void MainWindow::on_cbSelectSTypeEdit_currentIndexChanged(int index)
+{
+    if (index == 0)
+    {
+    //    ui->wdRepeatEdit->setVisible(false);
+        ui->wdLinearEdit->setVisible(false);
+    //    ui->wdTrapEdit->setVisible(false);
+    //    ui->wdSinEdit->setVisible(false);
+    //    ui->wdLogEdit->setVisible(false);
+
+        ui->laLinTargetEdit->setText("");
+
+    //    ui->laTrapLowEdit->setText("");
+    //    ui->laTrapHighEdit->setText("");
+
+    //    ui->laSinMeanEdit->setText("");
+    //    ui->laSinAmplitudeEdit->setText("");
+
+    //    ui->laLogMinEdit->setText("");
+    //    ui->laLogMaxEdit->setText("");
+
+    }
+    else if (index == 1)
+    {
+    //    ui->wdRepeatEdit->setVisible(false);
+        ui->wdLinearEdit->setVisible(true);
+    //    ui->wdTrapEdit->setVisible(false);
+    //    ui->wdSinEdit->setVisible(false);
+    //    ui->wdLogEdit->setVisible(false);
+
+        if (ui->cbSelectPTypeEdit->currentIndex() == 1)
+        {
+            ui->laLinTargetEdit->setText("°C");
+
+    //        ui->laTrapLowEdit->setText("");
+    //        ui->laTrapHighEdit->setText("");
+
+    //        ui->laSinMeanEdit->setText("");
+    //        ui->laSinAmplitudeEdit->setText("");
+
+    //        ui->laLogMinEdit->setText("");
+    //        ui->laLogMaxEdit->setText("");
+        }
+
+        else if (ui->cbSelectPTypeEdit->currentIndex() == 2)
+        {
+            ui->laLinTargetEdit->setText("bar");
+
+            ui->laTrapLowEdit->setText("");
+            ui->laTrapHighEdit->setText("");
+
+            ui->laSinMeanEdit->setText("");
+            ui->laSinAmplitudeEdit->setText("");
+
+            ui->laLogMinEdit->setText("");
+            ui->laLogMaxEdit->setText("");
+        }
+        else if (ui->cbSelectPTypeEdit->currentIndex() == 3)
+        {
+            ui->laLinTargetEdit->setText("Hz");
+
+            ui->laTrapLowEdit->setText("");
+            ui->laTrapHighEdit->setText("");
+
+            ui->laSinMeanEdit->setText("");
+            ui->laSinAmplitudeEdit->setText("");
+
+            ui->laLogMinEdit->setText("");
+            ui->laLogMaxEdit->setText("");
+        }
+
+    }
+    else if (index == 2)
+    {
+        if (ui->cbSelectPTypeEdit->currentIndex() == 2)
+        {
+            ui->wdRepeatEdit->setVisible(true);
+            ui->wdLinearEdit->setVisible(false);
+            ui->wdTrapEdit->setVisible(true);
+            ui->wdSinEdit->setVisible(false);
+            ui->wdLogEdit->setVisible(false);
+
+            ui->laLinTargetEdit->setText("");
+
+            ui->laTrapLowEdit->setText("bar");
+            ui->laTrapHighEdit->setText("bar");
+
+            ui->laSinMeanEdit->setText("");
+            ui->laSinAmplitudeEdit->setText("");
+
+            ui->laLogMinEdit->setText("");
+            ui->laLogMaxEdit->setText("");
+
+        }
+        else if (ui->cbSelectPTypeEdit->currentIndex() == 3)
+        {
+            ui->wdRepeatEdit->setVisible(true);
+            ui->wdLinearEdit->setVisible(false);
+            ui->wdTrapEdit->setVisible(false);
+            ui->wdSinEdit->setVisible(false);
+            ui->wdLogEdit->setVisible(true);
+
+            ui->laLinTargetEdit->setText("");
+
+            ui->laTrapLowEdit->setText("");
+            ui->laTrapHighEdit->setText("");
+
+            ui->laSinMeanEdit->setText("");
+            ui->laSinAmplitudeEdit->setText("");
+
+            ui->laLogMinEdit->setText("Hz");
+            ui->laLogMaxEdit->setText("Hz");
+        }
+    }
+    else if (index == 3)
+    {
+        ui->wdRepeatEdit->setVisible(true);
+        ui->wdLinearEdit->setVisible(false);
+        ui->wdTrapEdit->setVisible(false);
+        ui->wdSinEdit->setVisible(true);
+        ui->wdLogEdit->setVisible(false);
+
+        if (ui->cbSelectPTypeEdit->currentIndex() == 1)
+        {
+            ui->laLinTargetEdit->setText("");
+
+            ui->laTrapLowEdit->setText("");
+            ui->laTrapHighEdit->setText("");
+
+            ui->laSinMeanEdit->setText("");
+            ui->laSinAmplitudeEdit->setText("");
+
+            ui->laLogMinEdit->setText("");
+            ui->laLogMaxEdit->setText("");
+        }
+        else if (ui->cbSelectPTypeEdit->currentIndex() == 2)
+        {
+            ui->laLinTargetEdit->setText("");
+
+            ui->laTrapLowEdit->setText("");
+            ui->laTrapHighEdit->setText("");
+
+            ui->laSinMeanEdit->setText("bar");
+            ui->laSinAmplitudeEdit->setText("bar");
+
+            ui->laLogMinEdit->setText("");
+            ui->laLogMaxEdit->setText("");
+        }
+        else if (ui->cbSelectPTypeEdit->currentIndex() == 3)
+        {
+            ui->laLinTargetEdit->setText("");
+
+            ui->laTrapLowEdit->setText("");
+            ui->laTrapHighEdit->setText("");
+
+            ui->laSinMeanEdit->setText("");
+            ui->laSinAmplitudeEdit->setText("");
+
+            ui->laLogMinEdit->setText("");
+            ui->laLogMaxEdit->setText("");
+        }
+
+    }
+
+}
+*/
+/*
+void MainWindow::on_cbSelectSUnitEdit_currentIndexChanged(int index)
+{
+    if (index == 0)
+    {
+        ui->laLinDurationEdit->setText("");
+
+  //      ui->laTrapRiseEdit->setText("");
+  //      ui->laTrapUpEdit->setText("");
+  //      ui->laTrapFallEdit->setText("");
+  //      ui->laTrapDownEdit->setText("");
+  //      ui->laSinPeriodEdit->setText("");
+    }
+    else if (index == 1)
+    {
+        ui->laLinDurationEdit->setText("s.");
+
+   //     ui->laTrapRiseEdit->setText("s.");
+   //     ui->laTrapUpEdit->setText("s.");
+   //     ui->laTrapFallEdit->setText("s.");
+   //     ui->laTrapDownEdit->setText("s.");
+
+   //     ui->laSinPeriodEdit->setText("s.");
+    }
+    else if (index == 2)
+    {
+        ui->laLinDurationEdit->setText("m.");
+
+   //     ui->laTrapRiseEdit->setText("m.");
+   //     ui->laTrapUpEdit->setText("m.");
+   //    ui->laTrapFallEdit->setText("m.");
+   //     ui->laTrapDownEdit->setText("m.");
+
+   //     ui->laSinPeriodEdit->setText("m.");
+    }
+    else if (index == 3)
+    {
+        ui->laLinDurationEdit->setText("h.");
+
+  //      ui->laTrapRiseEdit->setText("h.");
+  //      ui->laTrapUpEdit->setText("h.");
+  //      ui->laTrapFallEdit->setText("h.");
+  //      ui->laTrapDownEdit->setText("h.");
+
+  //      ui->laSinPeriodEdit->setText("h.");
+    }
+    else if (index == 4)
+    {
+        ui->laLinDurationEdit->setText("d.");
+
+   //     ui->laTrapRiseEdit->setText("d.");
+   //     ui->laTrapUpEdit->setText("d.");
+   //     ui->laTrapFallEdit->setText("d.");
+   //     ui->laTrapDownEdit->setText("d.");
+
+   //     ui->laSinPeriodEdit->setText("d.");
+    }
+
+}
+*/
+
 void MainWindow::on_cbSelectProfileMain_currentIndexChanged(int index)
 {
     //ui->laCurrentTCycleMain->setText("0");
@@ -3494,27 +5365,52 @@ void MainWindow::updatePPlots()
     }
 
 }
+/*
+void MainWindow::updateVPlot()
+{
+    vKey = vKey + (double(vibPeriod)/1000.0);
 
+    ui->vTestGraph->graph(0)->addData(vKey, pipeVibrationFrequency);
+    // rescale key (horizontal) axis to fit the current data:
+    //ui->vTestGraph->graph(0)->rescaleKeyAxis();
+
+    // make key axis range scroll with the data (at a constant range size of 30):
+    ui->vTestGraph->xAxis->setRange(vKey, 60, Qt::AlignRight);
+
+    // replot the graph with the added data
+    ui->vTestGraph->replot();
+
+#ifdef Q_OS_LINUX
+    //linux code goes here
+    QString filePath = "/home/pi/InDetail/records/" + testFolder + "/" + "vibration.csv";
+#endif
+#ifdef Q_OS_WIN
+    // windows code goes here
+    QString filePath = "records\\" + testFolder + "\\" + "vibration.csv";
+#endif
+
+    QFile file(filePath);
+
+    if (file.open(QFile::WriteOnly|QFile::Append))
+    {
+    QTextStream stream(&file);
+    stream << vKey << "\t" << pipeVibrationFrequency << "\n";
+    file.close();
+    }
+}
+*/
 void MainWindow::on_bScreenshot_saved()
 {
     QScreen *screensave = QGuiApplication::primaryScreen();
 
-
-    QPixmap pixmap = screensave->grabWindow(0);
-//    QString fileDir = "/home/pi/InDetail/screenshots/";
-    QString fileDir = "screenshots\\";
-    QString fileName = QDate::currentDate().toString("dd.MM.yy") + "-" +
-            QTime::currentTime().toString("hh.mm.ss");
-    QString fileExtention = ".png";
-    QFile file(fileDir + fileName + fileExtention);
-    if (file.open(QIODevice::WriteOnly))
-    {
-
-        pixmap.save(&file, "PNG");
-
-    }
+        QPixmap pixmap = screensave->grabWindow(0);
+    //    QString fileDir = "/home/pi/InDetail/screenshots/";
+        QString fileDir = "screenshots\\";
+        QString fileName = QDate::currentDate().toString("dd.MM.yy") + "-" +
+                QTime::currentTime().toString("hh.mm.ss");
+        QString fileExtention = ".png";
+        QFile file(fileDir + fileName + fileExtention);
 }
-
 void MainWindow::on_bScreenshot_clicked()
 {
     QScreen *screen = QGuiApplication::primaryScreen();
@@ -3716,6 +5612,81 @@ void MainWindow::on_bRes_clicked()
     proc->insertCommandMessage(mySerial::makeMessage(0x97,cantTouchThis));
 }
 
+void MainWindow::on_bStartCooler_clicked()
+{
+  /*  if (ui->bStartCooler->isChecked())
+    {
+        QByteArray cantTouchThis;
+        cantTouchThis.clear();
+        cantTouchThis.append(0x01);
+        proc->insertCommandMessage(mySerial::makeMessage(0x98,cantTouchThis));
+    }
+    else
+    {
+        QByteArray cantTouchThis;
+        cantTouchThis.clear();
+        cantTouchThis.append(char(0x00));
+        proc->insertCommandMessage(mySerial::makeMessage(0x98,cantTouchThis));
+    }
+    */
+}
+/*
+void MainWindow::on_bStartPressure_clicked()
+{
+    if (ui->bStartPressure->isChecked())
+    {
+        QByteArray cantTouchThis;
+        cantTouchThis.clear();
+        cantTouchThis.append(0x01);
+
+        float pressureValue = ui->dsbPressureMaintenance->value() * 10.0;
+        cantTouchThis.append(quint16(pressureValue) & 0x00FF);
+        cantTouchThis.append(quint16(pressureValue) >> 8);
+
+        proc->insertCommandMessage(mySerial::makeMessage(0x99,cantTouchThis));
+    }
+    else
+    {
+        QByteArray cantTouchThis;
+        cantTouchThis.clear();
+        cantTouchThis.append(char(0x00));
+
+        float pressureValue = ui->dsbPressureMaintenance->value() * 10.0;
+        cantTouchThis.append(quint16(pressureValue) & 0x00FF);
+        cantTouchThis.append(quint16(pressureValue) >> 8);
+
+        proc->insertCommandMessage(mySerial::makeMessage(0x99,cantTouchThis));
+    }
+}
+
+void MainWindow::on_bStartVibration_clicked()
+{
+    if (ui->bStartVibration->isChecked())
+    {
+        QByteArray cantTouchThis;
+        cantTouchThis.clear();
+        cantTouchThis.append(0x01);
+
+        float vibrationFreq = ui->dsbVibrationMaintenance->value() * 10.0;
+        cantTouchThis.append(quint16(vibrationFreq) & 0x00FF);
+        cantTouchThis.append(quint16(vibrationFreq) >> 8);
+
+        proc->insertCommandMessage(mySerial::makeMessage(0x9A,cantTouchThis));
+    }
+    else
+    {
+        QByteArray cantTouchThis;
+        cantTouchThis.clear();
+        cantTouchThis.append(char(0x00));
+
+        float vibrationFreq = ui->dsbVibrationMaintenance->value() * 10.0;
+        cantTouchThis.append(quint16(vibrationFreq) & 0x00FF);
+        cantTouchThis.append(quint16(vibrationFreq) >> 8);
+
+        proc->insertCommandMessage(mySerial::makeMessage(0x9A,cantTouchThis));
+    }
+}
+*/
 void MainWindow::on_bFan_clicked()
 {
     QByteArray cantTouchThis;
@@ -3768,8 +5739,24 @@ void MainWindow::on_bLightsMain_clicked()
         proc->insertCommandMessage(mySerial::makeMessage(0x9C,cantTouchThis));
     }
 }
-
-
+/*
+void MainWindow::on_cbVSelectSUnit_currentIndexChanged(int index)
+{
+    if (ui->cbVSelectSType->currentIndex() == 2)
+    {
+        ui->cbVSelectSUnit->setCurrentIndex(1);
+    }
+}
+*/
+/*
+void MainWindow::on_cbVSelectSType_currentIndexChanged(int index)
+{
+    if (ui->cbVSelectSType->currentIndex() == 2)
+    {
+        ui->cbVSelectSUnit->setCurrentIndex(1);
+    }
+}
+*/
 void MainWindow::on_bClearLogTable_clicked()
 {
     // ui->warningTable->setRowCount(0);
@@ -5002,8 +6989,8 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     float setPressure1500h = ui->leSetPressure1500h->text().toFloat()*10;
     quint16 totalDuration = ui->leTotalTestDuration1500h->text().toFloat();
     quint16 changePeriod = ui->leLiquidChangePeriod1500h->text().toFloat();
-    quint16 LiquidSirkulationtime1500h = ui->leLiquidSirkulationtime1500h->text().toFloat();
-    quint16 LiquidChangetemp1500h = ui->leLiquidChangetemp1500h->text().toFloat();
+
+
     cantTouchThis.append(1);
 
     cantTouchThis.append(qint16(setPressure1500h) & 0x00FF);
@@ -5014,10 +7001,6 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     cantTouchThis.append(quint16(totalDuration) >> 8);
     cantTouchThis.append(quint16(changePeriod) & 0x00FF);
     cantTouchThis.append(quint16(changePeriod) >> 8);
-    cantTouchThis.append(quint16(LiquidSirkulationtime1500h) & 0x00FF);
-    cantTouchThis.append(quint16(LiquidSirkulationtime1500h) >> 8);
-    cantTouchThis.append(quint16(LiquidChangetemp1500h) & 0x00FF);
-    cantTouchThis.append(quint16(LiquidChangetemp1500h) >> 8);
 
     cantTouchThis.append(activePipes);
 
@@ -5320,6 +7303,7 @@ void MainWindow::on_bResetFault_clicked()
 
 
 }
+
 
 void MainWindow::on_bChooseData_clicked()
 {

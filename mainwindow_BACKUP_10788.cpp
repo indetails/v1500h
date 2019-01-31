@@ -556,7 +556,6 @@ void MainWindow::setupVisuals()
 
     connect(ui->leLiquidChangetemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidSirkulationtime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-    connect(ui->dsbCalCabinTopTempErr,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
 
     ui->tTestGraph->setVisible(false);
