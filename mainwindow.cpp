@@ -582,6 +582,8 @@ void MainWindow::setupVisuals()
     ui->sbTStepRepeatSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->sbTCycleSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
+    ui->Hortum1->setChecked(true);
+
     loadValueExhaustValve();
     loadValueTopTempSensorCalibration();
     loadValueBottomTempSensorCalibration();
