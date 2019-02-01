@@ -145,6 +145,12 @@ private slots:
 
     void saveValuePressureSensor1Calibration();
 
+    void saveValueCleanTankLevelCalibration();
+
+    void saveValueDirtyTankLevelCalibration();
+
+    void saveValueExpansionTankLevelCalibration();
+
     void loadValueTopTempSensorCalibration();
 
     void loadValueBottomTempSensorCalibration();

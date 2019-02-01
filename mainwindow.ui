@@ -285,7 +285,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>6</number>
       </property>
       <property name="iconSize">
        <size>
@@ -1963,7 +1963,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
             <x>400</x>
             <y>220</y>
             <width>321</width>
-            <height>51</height>
+            <height>52</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_11">
@@ -2022,7 +2022,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             <x>20</x>
             <y>360</y>
             <width>321</width>
-            <height>51</height>
+            <height>52</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -2081,7 +2081,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             <x>400</x>
             <y>290</y>
             <width>321</width>
-            <height>51</height>
+            <height>52</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -2140,7 +2140,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             <x>20</x>
             <y>290</y>
             <width>321</width>
-            <height>51</height>
+            <height>52</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -2199,7 +2199,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             <x>20</x>
             <y>220</y>
             <width>321</width>
-            <height>51</height>
+            <height>52</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2258,7 +2258,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             <x>400</x>
             <y>360</y>
             <width>321</width>
-            <height>51</height>
+            <height>52</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_12">
