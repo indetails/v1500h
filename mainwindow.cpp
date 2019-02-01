@@ -4610,7 +4610,7 @@ void MainWindow::saveValueExpansionTankLevelCalibration()
 
     #ifdef Q_OS_WIN
         // windows code goes here
-         QString filePath = "Settings\\calibrationTopTemp.txt";
+         QString filePath = "Settings\\calExpansionTankLevel.txt";
     #endif
 
     QFile file(filePath);
@@ -4634,7 +4634,7 @@ void MainWindow::saveValueDirtyTankLevelCalibration()
 
     #ifdef Q_OS_WIN
         // windows code goes here
-         QString filePath = "Settings\\calibrationTopTemp.txt";
+         QString filePath = "Settings\\calDirtyTankLevel.txt";
     #endif
 
     QFile file(filePath);
@@ -4658,7 +4658,7 @@ void MainWindow::saveValueCleanTankLevelCalibration()
 
     #ifdef Q_OS_WIN
         // windows code goes here
-         QString filePath = "Settings\\calibrationTopTemp.txt";
+         QString filePath = "Settings\\calCleanTankLevel.txt";
     #endif
 
     QFile file(filePath);
