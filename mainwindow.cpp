@@ -554,6 +554,7 @@ void MainWindow::setupVisuals()
     connect(ui->leTotalTestDuration1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidChangePeriod1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leFixTempValue,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+
     connect(ui->leCalCleanTankLevelErr ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leCalCleanTankCoeff ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
@@ -563,10 +564,19 @@ void MainWindow::setupVisuals()
     connect(ui->leCalExpansionTankErr ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leCalExpansionTankCoeff ,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
+    connect(ui->leCalCabinTopTempErr,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leCalCabinTopTempCoeff,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+
+    connect(ui->leCalCabinBottomTempErr,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leCalCabinBottomTempCoeff,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+
+    connect(ui->leCalPipePressure1Err,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leCalPipePressure1Coeff,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
     connect(ui->leLiquidChangetemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidSirkulationtime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-    connect(ui->leCalCabinTopTempErr,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+
+
 
 
     ui->tTestGraph->setVisible(false);
@@ -4586,8 +4596,83 @@ void MainWindow::on_bSaveCalibrationValues_clicked()
     saveValueTopTempSensorCalibration();
     saveValueBottomTempSensorCalibration();
     saveValuePressureSensor1Calibration();
-}
+    saveValueCleanTankLevelCalibration();
+    saveValueDirtyTankLevelCalibration();
+    saveValueExpansionTankLevelCalibration();
 
+}
+void MainWindow::saveValueExpansionTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+        //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationTopTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+        // windows code goes here
+         QString filePath = "Settings\\calibrationTopTemp.txt";
+    #endif
+
+    QFile file(filePath);
+
+    if (file.open(QFile::WriteOnly|QFile::Truncate))
+    {
+        QTextStream stream(&file);
+
+        stream <<  ui->leCalExpansionTankErr->text().toDouble() << ","
+                <<  ui->leCalExpansionTankCoeff->text().toDouble() ;
+        file.close();
+    }
+
+}
+void MainWindow::saveValueDirtyTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+        //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationTopTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+        // windows code goes here
+         QString filePath = "Settings\\calibrationTopTemp.txt";
+    #endif
+
+    QFile file(filePath);
+
+    if (file.open(QFile::WriteOnly|QFile::Truncate))
+    {
+        QTextStream stream(&file);
+
+        stream <<  ui->leCalDirtyTankErr ->text().toDouble() << ","
+                <<  ui->leCalDirtyTankCoeff->text().toDouble() ;
+        file.close();
+    }
+
+}
+void MainWindow::saveValueCleanTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+        //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationTopTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+        // windows code goes here
+         QString filePath = "Settings\\calibrationTopTemp.txt";
+    #endif
+
+    QFile file(filePath);
+
+    if (file.open(QFile::WriteOnly|QFile::Truncate))
+    {
+        QTextStream stream(&file);
+
+        stream <<  ui->leCalCleanTankLevelErr->text().toDouble() << ","
+                <<  ui->leCalCleanTankCoeff->text().toDouble() ;
+        file.close();
+    }
+
+}
 void MainWindow::saveValueTopTempSensorCalibration()
 {
     #ifdef Q_OS_LINUX
