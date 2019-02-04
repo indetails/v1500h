@@ -63,7 +63,40 @@ struct PLC
     bool vibrationMotor1Stat;
     bool vibrationMotor2Stat;
 
-    bool commStat;
+
+    bool Fix_mode_active;
+    bool Hata_mode_active;
+    bool Emergancy_mode ;
+    // sıcaklı state  bitleri
+    bool Rezistans_active;
+    bool Fan_aktive;
+    bool sivi_degisimi;
+    bool sicaklik_dusuruluyor;
+    bool sicaklik_ayarlaniyor;
+    // hortum kontrol state
+    bool hortum1;
+    bool hortum2;
+    bool hortum3;
+    bool hortum4;
+    bool hortum5;
+    bool hortum_hava_alma;
+    bool hortum_kontrol;
+    // tank state
+    bool expansion_tank_exhaust_to_dirty_tank_active;
+    bool expansion_tank_fulling_from_clean_tank_active;
+    bool clean_tank_exhaust_to_dirty_tank_active;
+    bool sivilar_degistiriliyor;
+    bool sivi_degisimi_tamamlandi;
+    bool pomp_active;
+   //basınc state
+    bool basinc_ayarlaniyor
+    //nem state
+
+    // sogutma state
+
+    //titresim state
+;
+
 };
 
 #endif // PROFILESTRUCT_H

@@ -285,7 +285,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -807,7 +807,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
   }</string>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="pRecipeMode">
          <widget class="QComboBox" name="cbSelectProfileMain">
@@ -2411,7 +2411,7 @@ radius: 2, stop: 0 rgb(30, 30, 30), stop: 1 rgb(80, 80, 80) );
 }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="detailsMain">
          <widget class="QStackedWidget" name="detailsBottomPages">

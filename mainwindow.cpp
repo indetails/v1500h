@@ -577,8 +577,8 @@ void MainWindow::setupVisuals()
     connect(ui->leCalPipePressure1Err,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leCalPipePressure1Coeff,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
-    connect(ui->leLiquidChangetemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
-    connect(ui->leLiquidSirkulationtime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leLiquidChangeTemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+    connect(ui->leLiquidCirculationTime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
 
 
@@ -1393,6 +1393,370 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
+
+        if (myPLC.Rezistans_active == (data[1] & 0b00000001))
+        {
+
+        }
+        else
+        {
+            myPLC.Rezistans_active = (data[1] & 0b00000001);
+
+            if (myPLC.Rezistans_active)
+            {
+                writeToLogTable("Rezistans aktif.");
+            }
+            else
+            {
+                writeToLogTable("rezistans kapalı.");
+            }
+        }
+        if (myPLC.Fan_aktive == (data[1] & 0b00000010) >> 1)
+        {
+
+        }
+        else
+        {
+            myPLC.Fan_aktive = (data[1] & 0b00000010) >> 1;
+
+            if (myPLC.Fan_aktive)
+            {
+                writeToLogTable("fan aktif.");
+            }
+            else
+            {
+
+                    writeToLogTable("fan kapalı.");
+
+            }
+        }
+
+        if (myPLC.sivi_degisimi == (data[1] & 0b00000100) >> 2)
+        {
+
+        }
+        else
+        {
+            myPLC.sivi_degisimi = (data[1] & 0b00000100) >> 2;
+
+            if (myPLC.sivi_degisimi)
+            {
+                writeToLogTable("Sıvı degişimi yapılıyor.");
+            }
+            else
+            {
+
+                    writeToLogTable("sıvı degişimi tamamlandı.");
+
+            }
+        }
+        if (myPLC.sicaklik_dusuruluyor == (data[1] & 0b00001000) >> 3)
+        {
+
+        }
+        else
+        {
+            myPLC.sicaklik_dusuruluyor = (data[1] & 0b00001000) >> 3;
+
+            if (myPLC.sicaklik_dusuruluyor)
+            {
+                writeToLogTable("sıcaklık düşürülüyor.");
+            }
+            else
+            {
+
+                    writeToLogTable("sıcaklık düşürme tamamlandı.");
+
+            }
+        }
+
+        if (myPLC.sicaklik_ayarlaniyor == (data[1] & 0b00100000) >> 5)
+        {
+
+        }
+        else
+        {
+            myPLC.sicaklik_ayarlaniyor = (data[1] & 0b00100000) >> 5;
+
+            if (myPLC.sicaklik_ayarlaniyor)
+            {
+                writeToLogTable("sıcaklık ayarlanıyor.");
+            }
+            else
+            {
+
+                    writeToLogTable("sıcaklık ayarlama yapıldı.");
+
+            }
+        }
+        if (myPLC.hortum1 == (data[2] & 0b00000001) )
+        {
+
+        }
+        else
+        {
+            myPLC.hortum1 = (data[2] & 0b00000001) ;
+
+            if (myPLC.hortum1)
+            {
+                writeToLogTable("hortum 1 kontrol.");
+            }
+            else
+            {
+
+                    writeToLogTable("hortum1 kontrol edildi.");
+
+            }
+        }
+        if (myPLC.hortum2 == (data[2] & 0b00000010) >> 1)
+        {
+
+        }
+        else
+        {
+            myPLC.hortum2 = (data[2] & 0b00000010) >> 1 ;
+
+            if (myPLC.hortum2)
+            {
+                writeToLogTable("hortum 2 kontrol.");
+            }
+            else
+            {
+
+                    writeToLogTable("hortum 2 kontrol edildi.");
+
+            }
+        }
+        if (myPLC.hortum3 == (data[2] & 0b00000100) >> 2 )
+        {
+
+        }
+        else
+        {
+            myPLC.hortum3 = (data[2] & 0b00000100) >> 2 ;
+
+            if (myPLC.hortum3)
+            {
+                writeToLogTable("hortum 3 kontrol.");
+            }
+            else
+            {
+
+                    writeToLogTable("hortum 3 kontrol edildi.");
+
+            }
+        }
+        if (myPLC.hortum4 == (data[2] & 0b00001000) >> 3 )
+        {
+
+        }
+        else
+        {
+            myPLC.hortum4 = (data[2] & 0b00001000) >> 3 ;
+
+            if (myPLC.hortum4)
+            {
+                writeToLogTable("hortum 4 kontrol.");
+            }
+            else
+            {
+
+                    writeToLogTable("hortum 4 kontrol edildi.");
+
+            }
+        }
+        if (myPLC.hortum5 == (data[2] & 0b00010000) >> 4 )
+        {
+
+        }
+        else
+        {
+            myPLC.hortum5 = (data[2] & 0b00010000) >> 4 ;
+
+            if (myPLC.hortum5)
+            {
+                writeToLogTable("hortum 5 kontrol.");
+            }
+            else
+            {
+
+                    writeToLogTable("hortum 5 kontrol edildi.");
+
+            }
+        }
+        if (myPLC.hortum_hava_alma == (data[2] & 0b00100000) >> 5 )
+        {
+
+        }
+        else
+        {
+            myPLC.hortum_hava_alma = (data[2] & 0b00100000) >> 5 ;
+
+            if (myPLC.hortum_hava_alma)
+            {
+                writeToLogTable("hortum hava alma kontrol.");
+            }
+            else
+            {
+
+                    writeToLogTable("hortum hava alma kontrol edildi.");
+
+            }
+        }
+        if (myPLC.hortum_kontrol == (data[2] & 0b01000000) >> 6 )
+        {
+
+        }
+        else
+        {
+            myPLC.hortum_kontrol = (data[2] & 0b01000000) >> 6 ;
+
+            if (myPLC.hortum_kontrol)
+            {
+                writeToLogTable("hortum kontrol.");
+            }
+            else
+            {
+
+                    writeToLogTable("hortum kontrol edildi.");
+
+            }
+        }
+        if (myPLC.expansion_tank_exhaust_to_dirty_tank_active == (data[3] & 0b00000001)  )
+        {
+
+        }
+        else
+        {
+            myPLC.expansion_tank_exhaust_to_dirty_tank_active = (data[3] & 0b00000001) ;
+
+            if (myPLC.expansion_tank_exhaust_to_dirty_tank_active)
+            {
+                writeToLogTable("basınc tankından kirli tanka sıvı aktarımı.");
+            }
+            else
+            {
+
+                    writeToLogTable("basınc tankından kirli tanka sıvı aktarımı yapıldı.");
+
+            }
+        }
+        if (myPLC.expansion_tank_fulling_from_clean_tank_active == (data[3] & 0b00000010) >> 1 )
+        {
+
+        }
+        else
+        {
+            myPLC.expansion_tank_fulling_from_clean_tank_active = (data[3] & 0b00000010) >> 1 ;
+
+            if (myPLC.expansion_tank_fulling_from_clean_tank_active)
+            {
+                writeToLogTable("temiz tanktan basınc tankına sıvı aktarılıyor .");
+            }
+            else
+            {
+
+                    writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
+
+            }
+        }
+        if (myPLC.clean_tank_exhaust_to_dirty_tank_active == (data[3] & 0b00000100) >> 2 )
+        {
+
+        }
+        else
+        {
+            myPLC.clean_tank_exhaust_to_dirty_tank_active = (data[3] & 0b00000100) >> 2 ;
+
+            if (myPLC.clean_tank_exhaust_to_dirty_tank_active)
+            {
+                writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor .");
+            }
+            else
+            {
+
+                    writeToLogTable("temiz tanktan kirli tankına sıvı aktarıldı .");
+
+            }
+        }
+        if (myPLC.sivilar_degistiriliyor == (data[3] & 0b00001000) >> 3 )
+        {
+
+        }
+        else
+        {
+            myPLC.sivilar_degistiriliyor = (data[3] & 0b00001000) >> 3 ;
+
+            if (myPLC.sivilar_degistiriliyor)
+            {
+                writeToLogTable("sıvı degisimi gercekleşiyor.");
+            }
+            else
+            {
+
+                    writeToLogTable("sıvı degisimi gercekleşdi.");
+
+            }
+        }
+        if (myPLC.pomp_active == (data[3] & 0b00010000) >> 4 )
+        {
+
+        }
+        else
+        {
+            myPLC.pomp_active = (data[3] & 0b00010000) >> 4 ;
+
+            if (myPLC.pomp_active)
+            {
+                writeToLogTable("Pompa calısıyor");
+            }
+            else
+            {
+
+                    writeToLogTable("Pompa kapalı");
+
+            }
+        }
+        if (myPLC.basinc_ayarlaniyor == (data[4] & 0b00000001)  )
+        {
+
+        }
+        else
+        {
+            myPLC.basinc_ayarlaniyor = (data[4] & 0b00000001) ;
+
+            if (myPLC.basinc_ayarlaniyor)
+            {
+                writeToLogTable("basınc ayarlanıyor");
+            }
+            else
+            {
+
+                    writeToLogTable("basınc ayarlandı");
+
+            }
+        }
+        if (myPLC.basinc_ayarlaniyor == (data[4] & 0b00000001)  )
+        {
+
+        }
+        else
+        {
+            myPLC.basinc_ayarlaniyor = (data[4] & 0b00000001) ;
+
+            if (myPLC.basinc_ayarlaniyor)
+            {
+                writeToLogTable("basınc ayarlanıyor");
+            }
+            else
+            {
+
+                    writeToLogTable("basınc ayarlandı");
+
+            }
+        }
+
+        /*
         if (myPLC.pressurePrepActive == (data[1] & 0b00001000) >> 3)
         {
 
@@ -1647,7 +2011,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         {
 
         }
-
+*/
         if (tCycle != quint16(((data[4] & 0xff) << 8) | (data[3] & 0xff)))
         {
             tCycle = quint16(((data[4] & 0xff) << 8) | (data[3] & 0xff));
