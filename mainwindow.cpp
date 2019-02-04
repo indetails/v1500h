@@ -248,17 +248,21 @@ void MainWindow::commInfo(bool status)
     {
 
         commStatus = true;
-  //      ui->laCommErr->setStyleSheet("QLabel { color : green; }");
-  //      ui->laCommErr->setText("OK");
+
     }
     else
     {
-    //    ui->laCommErr->setStyleSheet("QLabel { color : red; }");
-    //    ui->laCommErr->setText("NOK");
+
+        ui->tabWidget->setCurrentIndex(1);
+        ui->detailsPages->setCurrentIndex(0);
+        ui->detailsBottomPages->setCurrentIndex(4);
+        ui->bResetFault->setVisible(true);
+        ui->laFault47->setVisible(true);
         proc->stop();
         proc->commandMessages.clear();
         proc->profileMessages.clear();
         commStatus = false;
+
     }
 
 }
@@ -1388,6 +1392,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 }
             }
         }
+
         if (myPLC.pressurePrepActive == (data[1] & 0b00001000) >> 3)
         {
 
@@ -1683,7 +1688,8 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 //setupVGraph();
             }
         }
-*/
+        */
+
         if ( myPLC.deviceState == char(0x02) )
         {
 #ifdef Q_OS_LINUX
@@ -4601,6 +4607,7 @@ void MainWindow::on_bSaveCalibrationValues_clicked()
     saveValueExpansionTankLevelCalibration();
 
 }
+
 void MainWindow::saveValueExpansionTankLevelCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -4625,6 +4632,7 @@ void MainWindow::saveValueExpansionTankLevelCalibration()
     }
 
 }
+
 void MainWindow::saveValueDirtyTankLevelCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -4649,6 +4657,7 @@ void MainWindow::saveValueDirtyTankLevelCalibration()
     }
 
 }
+
 void MainWindow::saveValueCleanTankLevelCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -4673,6 +4682,7 @@ void MainWindow::saveValueCleanTankLevelCalibration()
     }
 
 }
+
 void MainWindow::saveValueTopTempSensorCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -5029,8 +5039,8 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     float setPressure1500h = ui->leSetPressure1500h->text().toFloat()*10;
     quint16 totalDuration = ui->leTotalTestDuration1500h->text().toFloat();
     quint16 changePeriod = ui->leLiquidChangePeriod1500h->text().toFloat();
-    quint16 LiquidSirkulationtime1500h = ui->leLiquidSirkulationtime1500h->text().toFloat();
-    quint16 LiquidChangetemp1500h = ui->leLiquidChangetemp1500h->text().toFloat();
+    quint16 LiquidCirculationtime1500h = ui->leLiquidCirculationTime1500h->text().toFloat();
+    quint16 LiquidChangeTemp1500h = ui->leLiquidChangeTemp1500h->text().toFloat();
     cantTouchThis.append(1);
 
     cantTouchThis.append(qint16(setPressure1500h) & 0x00FF);
@@ -5041,10 +5051,10 @@ bool MainWindow::on_bSendProfile1500h_clicked()
     cantTouchThis.append(quint16(totalDuration) >> 8);
     cantTouchThis.append(quint16(changePeriod) & 0x00FF);
     cantTouchThis.append(quint16(changePeriod) >> 8);
-    cantTouchThis.append(quint16(LiquidSirkulationtime1500h) & 0x00FF);
-    cantTouchThis.append(quint16(LiquidSirkulationtime1500h) >> 8);
-    cantTouchThis.append(quint16(LiquidChangetemp1500h) & 0x00FF);
-    cantTouchThis.append(quint16(LiquidChangetemp1500h) >> 8);
+    cantTouchThis.append(quint16(LiquidCirculationtime1500h) & 0x00FF);
+    cantTouchThis.append(quint16(LiquidCirculationtime1500h) >> 8);
+    cantTouchThis.append(quint16(LiquidChangeTemp1500h) & 0x00FF);
+    cantTouchThis.append(quint16(LiquidChangeTemp1500h) >> 8);
 
     cantTouchThis.append(activePipes);
 
