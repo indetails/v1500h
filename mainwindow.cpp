@@ -248,17 +248,21 @@ void MainWindow::commInfo(bool status)
     {
 
         commStatus = true;
-  //      ui->laCommErr->setStyleSheet("QLabel { color : green; }");
-  //      ui->laCommErr->setText("OK");
+
     }
     else
     {
-    //    ui->laCommErr->setStyleSheet("QLabel { color : red; }");
-    //    ui->laCommErr->setText("NOK");
+
+        ui->tabWidget->setCurrentIndex(1);
+        ui->detailsPages->setCurrentIndex(0);
+        ui->detailsBottomPages->setCurrentIndex(4);
+        ui->bResetFault->setVisible(true);
+        ui->laFault47->setVisible(true);
         proc->stop();
         proc->commandMessages.clear();
         proc->profileMessages.clear();
         commStatus = false;
+
     }
 
 }
@@ -4601,6 +4605,7 @@ void MainWindow::on_bSaveCalibrationValues_clicked()
     saveValueExpansionTankLevelCalibration();
 
 }
+
 void MainWindow::saveValueExpansionTankLevelCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -4625,6 +4630,7 @@ void MainWindow::saveValueExpansionTankLevelCalibration()
     }
 
 }
+
 void MainWindow::saveValueDirtyTankLevelCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -4649,6 +4655,7 @@ void MainWindow::saveValueDirtyTankLevelCalibration()
     }
 
 }
+
 void MainWindow::saveValueCleanTankLevelCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -4673,6 +4680,7 @@ void MainWindow::saveValueCleanTankLevelCalibration()
     }
 
 }
+
 void MainWindow::saveValueTopTempSensorCalibration()
 {
     #ifdef Q_OS_LINUX
