@@ -285,7 +285,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2052,7 +2052,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="leLiquidChangetemp1500h">
+            <widget class="QLineEdit" name="leLiquidChangeTemp1500h">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2288,7 +2288,7 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="leLiquidSirkulationtime1500h">
+            <widget class="QLineEdit" name="leLiquidCirculationTime1500h">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2435,7 +2435,7 @@ border-radius : 8px;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>4</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QProgressBar" name="progressBar_7">
@@ -3527,7 +3527,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>30</y>
+              <y>0</y>
               <width>1111</width>
               <height>141</height>
              </rect>
@@ -3551,7 +3551,7 @@ color: rgb(255, 0, 0);
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>170</y>
+              <y>150</y>
               <width>1111</width>
               <height>71</height>
              </rect>
@@ -3581,7 +3581,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>170</y>
+              <y>140</y>
               <width>1111</width>
               <height>71</height>
              </rect>
@@ -3611,7 +3611,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>170</y>
+              <y>140</y>
               <width>1111</width>
               <height>71</height>
              </rect>
@@ -3641,7 +3641,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>170</y>
+              <y>140</y>
               <width>1111</width>
               <height>71</height>
              </rect>
