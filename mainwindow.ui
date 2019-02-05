@@ -285,7 +285,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -5627,8 +5627,8 @@ font: 12pt &quot;Gill Sans MT&quot;;
          <widget class="QCheckBox" name="cB_tte_27">
           <property name="geometry">
            <rect>
-            <x>250</x>
-            <y>470</y>
+            <x>120</x>
+            <y>300</y>
             <width>125</width>
             <height>24</height>
            </rect>
@@ -5663,8 +5663,8 @@ font: 12pt &quot;Gill Sans MT&quot;;
          <widget class="QCheckBox" name="cB_tte_5">
           <property name="geometry">
            <rect>
-            <x>220</x>
-            <y>560</y>
+            <x>110</x>
+            <y>330</y>
             <width>125</width>
             <height>24</height>
            </rect>
