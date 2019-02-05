@@ -612,6 +612,15 @@ void MainWindow::setupVisuals()
     loadValueTopTempSensorCalibration();
     loadValueBottomTempSensorCalibration();
     loadValuePressureSensor1Calibration();
+<<<<<<< HEAD
+=======
+    loadValueCleanTankLevelCalibration();
+    loadValueDirtyTankLevelCalibration();
+    loadValueExpansionTankLevelCalibration();
+
+
+
+>>>>>>> a960aac91bb3bce3647ea96f1bedd13384ae5fbe
 
     on_bResetFault_clicked();
 }
@@ -1426,11 +1435,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.Fan_aktive)
             {
                 writeToLogTable("fan aktif.");
+                ui->cB_tte_7->setCheckState(Qt::CheckState(true));
             }
             else
             {
-
-                    writeToLogTable("fan kapalı.");
+                ui->cB_tte_7->setCheckState(Qt::CheckState(false));
+                writeToLogTable("fan kapalı.");
 
             }
         }
@@ -1443,13 +1453,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         {
             myPLC.sivi_degisimi = (data[1] & 0b00000100) >> 2;
 
+
             if (myPLC.sivi_degisimi)
             {
+                ui->cB_tte_22->setCheckState(Qt::CheckState(true));
                 writeToLogTable("Sıvı degişimi yapılıyor.");
             }
             else
             {
-
+                    ui->cB_tte_22->setCheckState(Qt::CheckState(false));
                     writeToLogTable("sıvı degişimi tamamlandı.");
 
             }
@@ -1464,12 +1476,14 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.sicaklik_dusuruluyor)
             {
+                ui->cB_tte_23->setCheckState(Qt::CheckState(true));
                 writeToLogTable("sıcaklık düşürülüyor.");
             }
             else
             {
 
-                    writeToLogTable("sıcaklık düşürme tamamlandı.");
+                ui->cB_tte_23->setCheckState(Qt::CheckState(false));
+                writeToLogTable("sıcaklık düşürme tamamlandı.");
 
             }
         }
@@ -1484,11 +1498,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.sicaklik_ayarlaniyor)
             {
+                ui->cB_tte_4->setCheckState(Qt::CheckState(true));
                 writeToLogTable("sıcaklık ayarlanıyor.");
             }
             else
             {
-
+                    ui->cB_tte_4->setCheckState(Qt::CheckState(false));
                     writeToLogTable("sıcaklık ayarlama yapıldı.");
 
             }
@@ -1502,12 +1517,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.hortum1 = (data[2] & 0b00000001) ;
 
             if (myPLC.hortum1)
-            {
+            {    ui->cB_tte_9->setCheckState(Qt::CheckState(true));
                 writeToLogTable("hortum 1 kontrol.");
             }
             else
             {
-
+                   ui->cB_tte_9->setCheckState(Qt::CheckState(false));
                     writeToLogTable("hortum1 kontrol edildi.");
 
             }
@@ -1522,11 +1537,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.hortum2)
             {
+                ui->cB_tte_10->setCheckState(Qt::CheckState(true));
                 writeToLogTable("hortum 2 kontrol.");
             }
             else
             {
-
+                     ui->cB_tte_10->setCheckState(Qt::CheckState(false));
                     writeToLogTable("hortum 2 kontrol edildi.");
 
             }
@@ -1540,12 +1556,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.hortum3 = (data[2] & 0b00000100) >> 2 ;
 
             if (myPLC.hortum3)
-            {
+            { ui->cB_tte_11->setCheckState(Qt::CheckState(true));
                 writeToLogTable("hortum 3 kontrol.");
             }
             else
             {
-
+        ui->cB_tte_11->setCheckState(Qt::CheckState(false));
                     writeToLogTable("hortum 3 kontrol edildi.");
 
             }
@@ -1559,12 +1575,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.hortum4 = (data[2] & 0b00001000) >> 3 ;
 
             if (myPLC.hortum4)
-            {
+            { ui->cB_tte_12->setCheckState(Qt::CheckState(true));
                 writeToLogTable("hortum 4 kontrol.");
             }
             else
             {
-
+                    ui->cB_tte_12->setCheckState(Qt::CheckState(false));
                     writeToLogTable("hortum 4 kontrol edildi.");
 
             }
@@ -1578,12 +1594,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.hortum5 = (data[2] & 0b00010000) >> 4 ;
 
             if (myPLC.hortum5)
-            {
+            { ui->cB_tte_13->setCheckState(Qt::CheckState(true));
                 writeToLogTable("hortum 5 kontrol.");
             }
             else
             {
-
+                     ui->cB_tte_13->setCheckState(Qt::CheckState(false));
                     writeToLogTable("hortum 5 kontrol edildi.");
 
             }
@@ -1597,12 +1613,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.hortum_hava_alma = (data[2] & 0b00100000) >> 5 ;
 
             if (myPLC.hortum_hava_alma)
-            {
+            {   ui->cB_tte_15->setCheckState(Qt::CheckState(true));
                 writeToLogTable("hortum hava alma kontrol.");
             }
             else
             {
-
+                    ui->cB_tte_15->setCheckState(Qt::CheckState(false));
                     writeToLogTable("hortum hava alma kontrol edildi.");
 
             }
@@ -1616,12 +1632,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.hortum_kontrol = (data[2] & 0b01000000) >> 6 ;
 
             if (myPLC.hortum_kontrol)
-            {
+            {   ui->cB_tte_8->setCheckState(Qt::CheckState(true));
                 writeToLogTable("hortum kontrol.");
             }
             else
             {
-
+                    ui->cB_tte_8->setCheckState(Qt::CheckState(false));
                     writeToLogTable("hortum kontrol edildi.");
 
             }
@@ -1635,12 +1651,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.expansion_tank_exhaust_to_dirty_tank_active = (data[3] & 0b00000001) ;
 
             if (myPLC.expansion_tank_exhaust_to_dirty_tank_active)
-            {
+            {ui->cB_tte_26->setCheckState(Qt::CheckState(true));
                 writeToLogTable("basınc tankından kirli tanka sıvı aktarımı.");
             }
             else
             {
-
+                    ui->cB_tte_26->setCheckState(Qt::CheckState(false));
                     writeToLogTable("basınc tankından kirli tanka sıvı aktarımı yapıldı.");
 
             }
@@ -1654,12 +1670,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.expansion_tank_fulling_from_clean_tank_active = (data[3] & 0b00000010) >> 1 ;
 
             if (myPLC.expansion_tank_fulling_from_clean_tank_active)
-            {
+            { ui->cB_tte_32->setCheckState(Qt::CheckState(true));
                 writeToLogTable("temiz tanktan basınc tankına sıvı aktarılıyor .");
             }
             else
             {
-
+                    ui->cB_tte_32->setCheckState(Qt::CheckState(false));
                     writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
 
             }
@@ -1673,12 +1689,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.clean_tank_exhaust_to_dirty_tank_active = (data[3] & 0b00000100) >> 2 ;
 
             if (myPLC.clean_tank_exhaust_to_dirty_tank_active)
-            {
+            {ui->cB_tte_28->setCheckState(Qt::CheckState(true));
                 writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor .");
             }
             else
             {
-
+                    ui->cB_tte_28->setCheckState(Qt::CheckState(false));
                     writeToLogTable("temiz tanktan kirli tankına sıvı aktarıldı .");
 
             }
@@ -1692,12 +1708,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.sivilar_degistiriliyor = (data[3] & 0b00001000) >> 3 ;
 
             if (myPLC.sivilar_degistiriliyor)
-            {
+            {ui->cB_tte_24->setCheckState(Qt::CheckState(true));
                 writeToLogTable("sıvı degisimi gercekleşiyor.");
             }
             else
             {
-
+                    ui->cB_tte_24->setCheckState(Qt::CheckState(false));
                     writeToLogTable("sıvı degisimi gercekleşdi.");
 
             }
@@ -1711,12 +1727,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.pomp_active = (data[3] & 0b00010000) >> 4 ;
 
             if (myPLC.pomp_active)
-            {
+                {ui->cB_tte_27->setCheckState(Qt::CheckState(true));
                 writeToLogTable("Pompa calısıyor");
             }
             else
             {
-
+                    ui->cB_tte_27->setCheckState(Qt::CheckState(false));
                     writeToLogTable("Pompa kapalı");
 
             }
@@ -1730,35 +1746,17 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             myPLC.basinc_ayarlaniyor = (data[4] & 0b00000001) ;
 
             if (myPLC.basinc_ayarlaniyor)
-            {
+            {ui->cB_tte_5->setCheckState(Qt::CheckState(true));
                 writeToLogTable("basınc ayarlanıyor");
             }
             else
             {
-
+                    ui->cB_tte_5->setCheckState(Qt::CheckState(false));
                     writeToLogTable("basınc ayarlandı");
 
             }
         }
-        if (myPLC.basinc_ayarlaniyor == (data[4] & 0b00000001)  )
-        {
 
-        }
-        else
-        {
-            myPLC.basinc_ayarlaniyor = (data[4] & 0b00000001) ;
-
-            if (myPLC.basinc_ayarlaniyor)
-            {
-                writeToLogTable("basınc ayarlanıyor");
-            }
-            else
-            {
-
-                    writeToLogTable("basınc ayarlandı");
-
-            }
-        }
 
         /*
         if (myPLC.pressurePrepActive == (data[1] & 0b00001000) >> 3)
@@ -5045,7 +5043,7 @@ void MainWindow::saveValueCleanTankLevelCalibration()
         QTextStream stream(&file);
 
         stream <<  ui->leCalCleanTankLevelErr->text().toDouble() << ","
-                <<  ui->leCalCleanTankCoeff->text().toDouble() ;
+               <<  ui->leCalCleanTankCoeff->text().toDouble() ;
         file.close();
     }
 
@@ -5135,6 +5133,7 @@ void MainWindow::loadValueTopTempSensorCalibration()
     }
 }
 
+
 void MainWindow::loadValueBottomTempSensorCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -5148,8 +5147,8 @@ void MainWindow::loadValueBottomTempSensorCalibration()
     #endif
 
     QStringList wordList;
-//     QList<double> dList;
-//     QByteArray dList;
+   //     QList<double> dList;
+   //     QByteArray dList;
      QFile file(filePath);
     QString line;
     if (file.open(QFile::ReadOnly))
@@ -5172,6 +5171,116 @@ void MainWindow::loadValueBottomTempSensorCalibration()
 
  }
 
+void MainWindow::loadValueCleanTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+    //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+    // windows code goes here
+        QString filePath = "Settings\\calCleanTankLevel.txt";
+    #endif
+
+    QStringList wordList;
+//     QList<double> dList;
+//     QByteArray dList;
+     QFile file(filePath);
+    QString line;
+    if (file.open(QFile::ReadOnly))
+    {
+
+        while (!file.atEnd())
+        {
+   //      dList = file.readLine();
+         line = file.readLine();
+
+        }
+       double v = line.split(",")[0].toDouble();
+       double y = line.split(",")[1].toDouble();
+        ui->leCalCleanTankLevelErr->setText(QString::number(v));
+        ui->leCalCleanTankCoeff->setText(QString::number(y));
+        file.close();
+   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
+    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
+    }
+
+ }
+
+
+void MainWindow::loadValueDirtyTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+    //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+    // windows code goes here
+        QString filePath = "Settings\\calDirtyTankLevel.txt";
+    #endif
+
+    QStringList wordList;
+//     QList<double> dList;
+//     QByteArray dList;
+     QFile file(filePath);
+    QString line;
+    if (file.open(QFile::ReadOnly))
+    {
+
+        while (!file.atEnd())
+        {
+   //      dList = file.readLine();
+         line = file.readLine();
+
+        }
+       double v = line.split(",")[0].toDouble();
+       double y = line.split(",")[1].toDouble();
+        ui->leCalDirtyTankErr->setText(QString::number(v));
+        ui->leCalDirtyTankCoeff->setText(QString::number(y));
+        file.close();
+   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
+    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
+    }
+
+ }
+void MainWindow::loadValueExpansionTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+    //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+    // windows code goes here
+        QString filePath = "Settings\\calExpansionTankLevel.txt";
+    #endif
+
+    QStringList wordList;
+//     QList<double> dList;
+//     QByteArray dList;
+     QFile file(filePath);
+    QString line;
+    if (file.open(QFile::ReadOnly))
+    {
+
+        while (!file.atEnd())
+        {
+   //      dList = file.readLine();
+         line = file.readLine();
+
+        }
+       double v = line.split(",")[0].toDouble();
+       double y = line.split(",")[1].toDouble();
+        ui->leCalExpansionTankErr->setText(QString::number(v));
+        ui->leCalExpansionTankCoeff->setText(QString::number(y));
+        file.close();
+   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
+    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
+    }
+
+ }
 void MainWindow::on_bCabinDoor_clicked()
 {
    if (myPLC.deviceState == 0 )
