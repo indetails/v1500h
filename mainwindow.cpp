@@ -1405,9 +1405,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.Rezistans_active)
             {
                 writeToLogTable("Rezistans aktif.");
+                ui->sW_0->setCurrentIndex(0);
+                ui->cB_tte_6->setCheckState(Qt::CheckState(true));
             }
             else
             {
+                ui->cB_tte_6->setCheckState(Qt::CheckState(false));
                 writeToLogTable("rezistans kapalı.");
             }
         }
