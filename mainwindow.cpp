@@ -614,6 +614,7 @@ void MainWindow::setupVisuals()
     loadValuePressureSensor1Calibration();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     loadValueCleanTankLevelCalibration();
     loadValueDirtyTankLevelCalibration();
@@ -625,6 +626,8 @@ void MainWindow::setupVisuals()
 
 =======
 >>>>>>> parent of ab1a6b2... read edit
+=======
+>>>>>>> parent of bb04fbb... [DESIGN] Test takip ekranı güncelleme
     on_bResetFault_clicked();
 }
 
