@@ -1442,8 +1442,8 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
             else
             {
-                ui->cB_tte_7->setCheckState(Qt::CheckState(false));
-                writeToLogTable("fan kapalı.");
+                    ui->cB_tte_7->setCheckState(Qt::CheckState(false));
+                    writeToLogTable("fan kapalı.");
 
             }
         }
