@@ -2430,10 +2430,10 @@ image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
          <widget class="QStackedWidget" name="detailsBottomPages">
           <property name="geometry">
            <rect>
-            <x>450</x>
-            <y>180</y>
-            <width>681</width>
-            <height>381</height>
+            <x>10</x>
+            <y>220</y>
+            <width>1111</width>
+            <height>331</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -2454,8 +2454,8 @@ border-radius : 8px;
            <widget class="QLabel" name="label_26">
             <property name="geometry">
              <rect>
-              <x>120</x>
-              <y>50</y>
+              <x>420</x>
+              <y>0</y>
               <width>291</width>
               <height>31</height>
              </rect>
@@ -2467,9 +2467,9 @@ border-radius : 8px;
            <widget class="QProgressBar" name="pb_testProgress">
             <property name="geometry">
              <rect>
-              <x>40</x>
-              <y>90</y>
-              <width>501</width>
+              <x>230</x>
+              <y>40</y>
+              <width>651</width>
               <height>50</height>
              </rect>
             </property>
@@ -2499,9 +2499,9 @@ border-radius : 8px;
            <widget class="QTableWidget" name="warningTable">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>160</y>
-              <width>521</width>
+              <x>540</x>
+              <y>110</y>
+              <width>561</width>
               <height>211</height>
              </rect>
             </property>
@@ -2546,13 +2546,1207 @@ border-radius : 8px;
              </property>
             </column>
            </widget>
+           <widget class="QStackedWidget" name="sW_0">
+            <property name="geometry">
+             <rect>
+              <x>250</x>
+              <y>110</y>
+              <width>231</width>
+              <height>211</height>
+             </rect>
+            </property>
+            <property name="currentIndex">
+             <number>2</number>
+            </property>
+            <widget class="QWidget" name="scaklik_ayar">
+             <widget class="QCheckBox" name="cB_tte_4">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>161</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Sıcaklık ayarlanıyor </string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="basn_ayar">
+             <widget class="QCheckBox" name="cB_tte_11">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>80</y>
+                <width>101</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>3.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_12">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>100</y>
+                <width>91</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>4.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_10">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>60</y>
+                <width>91</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>2.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_8">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>143</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Hortum Kontrolü</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_9">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>40</y>
+                <width>219</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>1.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_13">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>120</y>
+                <width>91</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>5.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="hortumkontrolu">
+             <widget class="QCheckBox" name="cB_tte_22">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>80</y>
+                <width>219</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Sıvı Degişimi</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_23">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>100</y>
+                <width>158</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Sıcaklık düşürülüyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_24">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>120</y>
+                <width>219</width>
+                <height>23</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Sıvı degişimi yapılıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_25">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>140</y>
+                <width>152</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Sıvı degişimi yapıldı</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_32">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>148</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Basınc ayarlanıyor </string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_33">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>50</y>
+                <width>156</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Sıcaklık ayarlanıyor </string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_9">
+             <widget class="QCheckBox" name="cB_tte_21">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>150</y>
+                <width>161</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Pompa Çalısıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_15">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>20</y>
+                <width>161</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Hortum Hava Alma</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_19">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>100</y>
+                <width>101</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>4.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_17">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>60</y>
+                <width>101</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>2.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_16">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>40</y>
+                <width>101</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>1.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_18">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>80</y>
+                <width>101</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>3.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_20">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>120</y>
+                <width>101</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>5.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_11">
+             <widget class="QCheckBox" name="cB_tte_26">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>20</y>
+                <width>191</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Basınc Tankı
+Boşaltılıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_12">
+             <widget class="QCheckBox" name="cB_tte_28">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>131</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Temiz Sıvı Tankı
+Boşaltılıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_29">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>70</y>
+                <width>161</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Pompa Çalısıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_13">
+             <widget class="QCheckBox" name="cB_tte_30">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>201</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Kirli Sıvı Tankı
+Boşaltılıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_31">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>70</y>
+                <width>151</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Pompa Çalısıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+           </widget>
+           <widget class="QStackedWidget" name="stackedWidget_2">
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>110</y>
+              <width>171</width>
+              <height>211</height>
+             </rect>
+            </property>
+            <widget class="QWidget" name="page_5">
+             <widget class="QCheckBox" name="cB_tte_0">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>109</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>1500h Mode</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_1">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>30</y>
+                <width>83</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Hazırlık </string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_2">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>60</y>
+                <width>58</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Test </string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_3">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>90</y>
+                <width>133</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Test Tamamlandı</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_14">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>120</y>
+                <width>133</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Pompa Çalısıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_6">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>150</y>
+                <width>137</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Rezistanslar aktif</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cB_tte_7">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>180</y>
+                <width>125</width>
+                <height>24</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/img/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/img/qt4.PNG);
+}
+QCheckBox{
+font: 12pt &quot;Gill Sans MT&quot;;
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Fanlar calışıyor</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_6"/>
+           </widget>
           </widget>
           <widget class="QWidget" name="detailsBottomTankLevels">
            <widget class="QGroupBox" name="gb_KirliTankLevel">
             <property name="geometry">
              <rect>
-              <x>460</x>
-              <y>30</y>
+              <x>790</x>
+              <y>10</y>
               <width>181</width>
               <height>201</height>
              </rect>
@@ -2691,8 +3885,8 @@ border-radius : 8px;
            <widget class="QGroupBox" name="gb_CleanTankLevel">
             <property name="geometry">
              <rect>
-              <x>250</x>
-              <y>30</y>
+              <x>520</x>
+              <y>10</y>
               <width>181</width>
               <height>201</height>
              </rect>
@@ -2834,8 +4028,8 @@ border-radius : 8px;
            <widget class="QGroupBox" name="gb_basincTankLevel">
             <property name="geometry">
              <rect>
-              <x>40</x>
-              <y>30</y>
+              <x>250</x>
+              <y>10</y>
               <width>181</width>
               <height>201</height>
              </rect>
@@ -2977,8 +4171,8 @@ border-radius : 8px;
            <widget class="QLabel" name="laFault31">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>280</y>
+              <x>330</x>
+              <y>220</y>
               <width>621</width>
               <height>81</height>
              </rect>
@@ -3006,9 +4200,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault32">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>280</y>
-              <width>611</width>
+              <x>250</x>
+              <y>220</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3035,9 +4229,9 @@ background-color: rgb(255, 0, 0);</string>
            <widget class="QLabel" name="laFault34">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>280</y>
-              <width>611</width>
+              <x>250</x>
+              <y>220</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3065,9 +4259,9 @@ color: rgb(255, 255, 255);</string>
            <widget class="QLabel" name="laFault33">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>280</y>
-              <width>611</width>
+              <x>250</x>
+              <y>220</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3097,9 +4291,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QGroupBox" name="groupBox_3">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>20</y>
-              <width>641</width>
+              <x>250</x>
+              <y>0</y>
+              <width>621</width>
               <height>201</height>
              </rect>
             </property>
@@ -3145,7 +4339,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <widget class="QLabel" name="label_30">
              <property name="geometry">
               <rect>
-               <x>460</x>
+               <x>470</x>
                <y>40</y>
                <width>111</width>
                <height>31</height>
@@ -3226,7 +4420,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <widget class="QLabel" name="label_36">
              <property name="geometry">
               <rect>
-               <x>340</x>
+               <x>350</x>
                <y>40</y>
                <width>111</width>
                <height>31</height>
@@ -3302,7 +4496,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <widget class="QCheckBox" name="Hortum4">
              <property name="geometry">
               <rect>
-               <x>360</x>
+               <x>370</x>
                <y>90</y>
                <width>61</width>
                <height>71</height>
@@ -3324,7 +4518,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <widget class="QCheckBox" name="Hortum5">
              <property name="geometry">
               <rect>
-               <x>480</x>
+               <x>490</x>
                <y>90</y>
                <width>61</width>
                <height>71</height>
@@ -3347,8 +4541,8 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
            <widget class="QLabel" name="laFault25">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>270</y>
+              <x>340</x>
+              <y>210</y>
               <width>581</width>
               <height>81</height>
              </rect>
@@ -3376,9 +4570,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault23">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>230</y>
-              <width>551</width>
+              <x>340</x>
+              <y>210</y>
+              <width>581</width>
               <height>81</height>
              </rect>
             </property>
@@ -3405,9 +4599,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault24">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>230</y>
-              <width>561</width>
+              <x>200</x>
+              <y>210</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3434,9 +4628,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault22">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>230</y>
-              <width>551</width>
+              <x>200</x>
+              <y>210</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3463,9 +4657,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault21">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>230</y>
-              <width>581</width>
+              <x>200</x>
+              <y>210</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3494,10 +4688,10 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="label_40">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>581</width>
-              <height>141</height>
+              <x>240</x>
+              <y>130</y>
+              <width>721</width>
+              <height>81</height>
              </rect>
             </property>
             <property name="styleSheet">
@@ -3518,10 +4712,10 @@ color: rgb(255, 0, 0);
            <widget class="QLabel" name="laFault46">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>140</y>
-              <width>461</width>
-              <height>71</height>
+              <x>240</x>
+              <y>210</y>
+              <width>721</width>
+              <height>81</height>
              </rect>
             </property>
             <property name="font">
@@ -3548,10 +4742,10 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault44">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>140</y>
-              <width>361</width>
-              <height>71</height>
+              <x>240</x>
+              <y>210</y>
+              <width>721</width>
+              <height>81</height>
              </rect>
             </property>
             <property name="font">
@@ -3578,10 +4772,10 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault43">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>140</y>
-              <width>431</width>
-              <height>71</height>
+              <x>240</x>
+              <y>210</y>
+              <width>721</width>
+              <height>81</height>
              </rect>
             </property>
             <property name="font">
@@ -3608,10 +4802,10 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="laFault42">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>140</y>
-              <width>441</width>
-              <height>71</height>
+              <x>240</x>
+              <y>210</y>
+              <width>721</width>
+              <height>81</height>
              </rect>
             </property>
             <property name="font">
@@ -3640,9 +4834,9 @@ font: 75 18pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="label_38">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>511</width>
+              <x>200</x>
+              <y>110</y>
+              <width>721</width>
               <height>91</height>
              </rect>
             </property>
@@ -3669,9 +4863,9 @@ border: 4px solid rgb(65, 65, 65);
            <widget class="QLabel" name="laFault41">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>100</y>
-              <width>511</width>
+              <x>200</x>
+              <y>200</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3704,9 +4898,9 @@ border: 4px solid rgb(65, 65, 65);
            <widget class="QLabel" name="laFault49">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>100</y>
-              <width>511</width>
+              <x>200</x>
+              <y>200</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3739,9 +4933,9 @@ border: 4px solid rgb(65, 65, 65);
            <widget class="QLabel" name="laFault47">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>100</y>
-              <width>511</width>
+              <x>200</x>
+              <y>200</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3774,9 +4968,9 @@ border: 4px solid rgb(65, 65, 65);
            <widget class="QLabel" name="laFault45">
             <property name="geometry">
              <rect>
-              <x>-10</x>
-              <y>100</y>
-              <width>511</width>
+              <x>200</x>
+              <y>200</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3809,9 +5003,9 @@ border: 4px solid rgb(65, 65, 65);
            <widget class="QLabel" name="laFault48">
             <property name="geometry">
              <rect>
-              <x>-10</x>
-              <y>100</y>
-              <width>521</width>
+              <x>200</x>
+              <y>200</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3844,9 +5038,9 @@ border: 4px solid rgb(65, 65, 65);
            <widget class="QLabel" name="laFault4A">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>100</y>
-              <width>511</width>
+              <x>200</x>
+              <y>200</y>
+              <width>721</width>
               <height>81</height>
              </rect>
             </property>
@@ -3881,8 +5075,8 @@ border: 4px solid rgb(65, 65, 65);
            <widget class="QLabel" name="laFault11">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>120</y>
+              <x>320</x>
+              <y>250</y>
               <width>521</width>
               <height>71</height>
              </rect>
@@ -3912,8 +5106,8 @@ color: rgb(255, 255, 255);</string>
            <widget class="QLabel" name="laFault11_2">
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>20</y>
+              <x>320</x>
+              <y>140</y>
               <width>521</width>
               <height>101</height>
              </rect>
@@ -3946,10 +5140,10 @@ color: rgb(255, 255, 255);</string>
             </property>
             <property name="geometry">
              <rect>
-              <x>0</x>
-              <y>190</y>
+              <x>320</x>
+              <y>250</y>
               <width>521</width>
-              <height>61</height>
+              <height>71</height>
              </rect>
             </property>
             <property name="font">
@@ -3980,7 +5174,7 @@ background-color: rgb(255, 0, 0);</string>
          <widget class="QPushButton" name="btnDetailsInfo">
           <property name="geometry">
            <rect>
-            <x>460</x>
+            <x>340</x>
             <y>560</y>
             <width>94</width>
             <height>61</height>
@@ -4003,7 +5197,7 @@ background-color: rgb(255, 0, 0);</string>
          <widget class="QPushButton" name="btnDetailsTanklevel">
           <property name="geometry">
            <rect>
-            <x>660</x>
+            <x>540</x>
             <y>560</y>
             <width>94</width>
             <height>61</height>
@@ -4027,7 +5221,7 @@ background-color: rgb(255, 0, 0);</string>
          <widget class="QPushButton" name="btnDetailsHeater">
           <property name="geometry">
            <rect>
-            <x>760</x>
+            <x>640</x>
             <y>560</y>
             <width>94</width>
             <height>61</height>
@@ -4054,7 +5248,7 @@ background-color: rgb(255, 0, 0);</string>
           </property>
           <property name="geometry">
            <rect>
-            <x>570</x>
+            <x>290</x>
             <y>50</y>
             <width>231</width>
             <height>121</height>
@@ -4109,8 +5303,8 @@ font: 75 64pt &quot;Gill Sans MT&quot;;
          <widget class="QLabel" name="label_34">
           <property name="geometry">
            <rect>
-            <x>550</x>
-            <y>-10</y>
+            <x>130</x>
+            <y>50</y>
             <width>170</width>
             <height>69</height>
            </rect>
@@ -4146,8 +5340,8 @@ font: 75 25pt &quot;Gill Sans MT&quot;;
           </property>
           <property name="geometry">
            <rect>
-            <x>480</x>
-            <y>50</y>
+            <x>180</x>
+            <y>120</y>
             <width>91</width>
             <height>51</height>
            </rect>
@@ -4198,7 +5392,7 @@ font: 75 21pt &quot;Gill Sans MT&quot;;
           </property>
           <property name="geometry">
            <rect>
-            <x>900</x>
+            <x>730</x>
             <y>50</y>
             <width>230</width>
             <height>121</height>
@@ -4250,8 +5444,8 @@ font: 75 64pt &quot;Gill Sans MT&quot;;
          <widget class="QLabel" name="label_15">
           <property name="geometry">
            <rect>
-            <x>900</x>
-            <y>-10</y>
+            <x>570</x>
+            <y>50</y>
             <width>170</width>
             <height>70</height>
            </rect>
@@ -4296,8 +5490,8 @@ font: 75 25pt &quot;Gill Sans MT&quot;;
           </property>
           <property name="geometry">
            <rect>
-            <x>810</x>
-            <y>50</y>
+            <x>620</x>
+            <y>120</y>
             <width>91</width>
             <height>51</height>
            </rect>
@@ -4345,7 +5539,7 @@ font: 75 21pt &quot;Gill Sans MT&quot;;
          <widget class="QPushButton" name="btnDetailsPipes">
           <property name="geometry">
            <rect>
-            <x>560</x>
+            <x>440</x>
             <y>560</y>
             <width>94</width>
             <height>61</height>
@@ -4426,7 +5620,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <widget class="QPushButton" name="btnDetailsPressure_2">
           <property name="geometry">
            <rect>
-            <x>860</x>
+            <x>740</x>
             <y>560</y>
             <width>94</width>
             <height>61</height>
@@ -4446,1184 +5640,24 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
            </size>
           </property>
          </widget>
-         <widget class="QCheckBox" name="cB_tte_7">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>180</y>
-            <width>125</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Fanlar calışıyor</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QCheckBox" name="cB_tte_2">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>90</y>
-            <width>58</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Test </string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QCheckBox" name="cB_tte_14">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>140</y>
-            <width>133</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Pompa Çalısıyor</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QCheckBox" name="cB_tte_0">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>40</y>
-            <width>109</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>1500h Mode</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QCheckBox" name="cB_tte_6">
-          <property name="geometry">
-           <rect>
-            <x>11</x>
-            <y>160</y>
-            <width>137</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Rezistanslar aktif</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QCheckBox" name="cB_tte_1">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>70</y>
-            <width>83</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Hazırlık </string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QCheckBox" name="cB_tte_3">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>110</y>
-            <width>133</width>
-            <height>24</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Test Tamamlandı</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QStackedWidget" name="sW_0">
-          <property name="geometry">
-           <rect>
-            <x>170</x>
-            <y>30</y>
-            <width>251</width>
-            <height>191</height>
-           </rect>
-          </property>
-          <property name="currentIndex">
-           <number>2</number>
-          </property>
-          <widget class="QWidget" name="scaklik_ayar">
-           <widget class="QCheckBox" name="cB_tte_4">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>191</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Sıcaklık ayarlanıyor </string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="basn_ayar">
-           <widget class="QCheckBox" name="cB_tte_11">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>80</y>
-              <width>101</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>3.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_12">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>100</y>
-              <width>91</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>4.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_10">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>60</y>
-              <width>91</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>2.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_8">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>143</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Hortum Kontrolü</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_9">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>40</y>
-              <width>219</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>1.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_13">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>120</y>
-              <width>91</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>5.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="hortumkontrolu">
-           <widget class="QCheckBox" name="cB_tte_22">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>70</y>
-              <width>219</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Sıvı Degişimi</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_23">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>90</y>
-              <width>158</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Sıcaklık düşürülüyor</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_24">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>110</y>
-              <width>219</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Sıvı degişimi yapılıyor</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_25">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>130</y>
-              <width>152</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Sıvı degişimi yapıldı</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_32">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>148</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Basınc ayarlanıyor </string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_33">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>40</y>
-              <width>156</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Sıcaklık ayarlanıyor </string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="page_9">
-           <widget class="QCheckBox" name="cB_tte_21">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>140</y>
-              <width>161</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Pompa Çalısıyor</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_15">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>161</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Hortum Hava Alma</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_19">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>90</y>
-              <width>101</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>4.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_17">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>50</y>
-              <width>101</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>2.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_16">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>30</y>
-              <width>101</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>1.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_18">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>70</y>
-              <width>101</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>3.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_20">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>110</y>
-              <width>101</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>5.Hortum</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="page_11">
-           <widget class="QCheckBox" name="cB_tte_26">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>0</y>
-              <width>191</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Basınc Tankı Boşaltılıyor</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="page_12">
-           <widget class="QCheckBox" name="cB_tte_28">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>221</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Temiz Sıvı Tankı Boşaltılıyor</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_29">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>30</y>
-              <width>161</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Pompa Çalısıyor</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="page_13">
-           <widget class="QCheckBox" name="cB_tte_30">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>201</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Kirli Sıvı Tankı Boşaltılıyor</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QCheckBox" name="cB_tte_31">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>30</y>
-              <width>151</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Pompa Çalısıyor</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </widget>
-         </widget>
+         <zorder>detailsBottomPages</zorder>
+         <zorder>btnDetailsInfo</zorder>
+         <zorder>btnDetailsTanklevel</zorder>
+         <zorder>btnDetailsHeater</zorder>
+         <zorder>dsbCabinTopTemp_2</zorder>
+         <zorder>label_34</zorder>
+         <zorder>dsbCabinPIDTemp_2</zorder>
+         <zorder>dsbPipe1Pressure_2</zorder>
+         <zorder>label_15</zorder>
+         <zorder>dsbSetPressure_2</zorder>
+         <zorder>btnDetailsPipes</zorder>
+         <zorder>bResetFault</zorder>
+         <zorder>btnDetailsPressure_2</zorder>
+         <zorder>cB_tte_7</zorder>
+         <zorder>cB_tte_14</zorder>
+         <zorder>cB_tte_6</zorder>
+         <zorder>cB_tte_0</zorder>
+         <zorder>cB_tte_1</zorder>
         </widget>
         <widget class="QWidget" name="detailsPressure">
          <widget class="QGroupBox" name="groupBox_2">

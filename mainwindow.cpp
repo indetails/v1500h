@@ -612,6 +612,7 @@ void MainWindow::setupVisuals()
     loadValueTopTempSensorCalibration();
     loadValueBottomTempSensorCalibration();
     loadValuePressureSensor1Calibration();
+
     on_bResetFault_clicked();
 }
 
