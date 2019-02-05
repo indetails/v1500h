@@ -807,7 +807,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
   }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="pRecipeMode">
          <widget class="QComboBox" name="cbSelectProfileMain">
@@ -2397,7 +2397,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>60</y>
+          <y>50</y>
           <width>1141</width>
           <height>661</height>
          </rect>
@@ -2408,10 +2408,23 @@ background: qradialgradient(cx: 0.7, cy: -0.4,
 fx: 0.7, fy: -0.4,
 /*radius: 2, stop: 0 #A8EB12, stop: 1 #65BAAB );*/
 radius: 2, stop: 0 rgb(30, 30, 30), stop: 1 rgb(80, 80, 80) );
+}
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
 }</string>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="detailsMain">
          <widget class="QStackedWidget" name="detailsBottomPages">
@@ -5439,6 +5452,1093 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
           </property>
           <property name="text">
            <string>Geri</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="TTE_0">
+         <widget class="QStackedWidget" name="sW_0">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>60</y>
+            <width>421</width>
+            <height>391</height>
+           </rect>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="scaklik_ayar">
+           <widget class="QCheckBox" name="cB_tte_4">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>60</y>
+              <width>251</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Sıcaklık ayarlanıyor </string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_6">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>220</y>
+              <width>251</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Rezistanslar aktif</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_7">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>260</y>
+              <width>251</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Fanlar calışıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="basn_ayar">
+           <widget class="QCheckBox" name="cB_tte_5">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>60</y>
+              <width>251</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Basınc ayarlanıyor </string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="hortumkontrolu">
+           <widget class="QCheckBox" name="cB_tte_8">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>60</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Hortum Kontrolü Gerçekleşiyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_9">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>130</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>1.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_10">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>170</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>2.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_11">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>210</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>3.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_12">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>250</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>4.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_13">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>290</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>5.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_14">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>340</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Pompa Çalısıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_9">
+           <widget class="QCheckBox" name="cB_tte_21">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>340</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Pompa Çalısıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_15">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>60</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Hortum Hava Alma Gerçekleşiyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_19">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>250</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>4.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_17">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>170</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>2.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_16">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>130</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>1.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_18">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>210</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>3.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_20">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>290</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>5.Hortum</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_10">
+           <widget class="QCheckBox" name="cB_tte_23">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>130</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Sıcaklık düşürülüyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_22">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>60</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Sıvı Degişimi Gercekleşiyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_24">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>170</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Sıvı degişimi yapılıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_25">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>210</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Sıvı degişimi yapıldı</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_11">
+           <widget class="QCheckBox" name="cB_tte_26">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>60</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Basınc Tankı Boşaltılıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_27">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>340</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Pompa Çalısıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_12">
+           <widget class="QCheckBox" name="cB_tte_28">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>60</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Temiz Sıvı Tankı Boşaltılıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_29">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>340</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Pompa Çalısıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_13">
+           <widget class="QCheckBox" name="cB_tte_30">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>60</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Kirli Sıvı Tankı Boşaltılıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cB_tte_31">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>340</y>
+              <width>381</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Pompa Çalısıyor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+         <widget class="QCheckBox" name="cB_tte_1">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>120</y>
+            <width>201</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Hazırlık </string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="cB_tte_2">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>220</y>
+            <width>201</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Test </string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="cB_tte_3">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>330</y>
+            <width>201</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Test Tamamlandı</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="cB_tte_0">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>20</y>
+            <width>201</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 0, 0);
+QCheckBox::indicator {
+    width:30px;
+    height: 30px;
+}
+
+  QCheckBox::indicator:checked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt3.PNG);
+  }
+  QCheckBox::indicator:unchecked
+  {
+image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>1500h Mode</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
           </property>
          </widget>
         </widget>
