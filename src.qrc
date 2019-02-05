@@ -16,5 +16,7 @@
         <file>img/button_info.png</file>
         <file>img/button_pressure.png</file>
         <file>img/alarm.png</file>
+        <file>img/qt3.PNG</file>
+        <file>img/qt4.PNG</file>
     </qresource>
 </RCC>
