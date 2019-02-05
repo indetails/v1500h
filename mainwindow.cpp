@@ -613,6 +613,7 @@ void MainWindow::setupVisuals()
     loadValueBottomTempSensorCalibration();
     loadValuePressureSensor1Calibration();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     loadValueCleanTankLevelCalibration();
     loadValueDirtyTankLevelCalibration();
@@ -622,6 +623,8 @@ void MainWindow::setupVisuals()
 
 >>>>>>> a960aac91bb3bce3647ea96f1bedd13384ae5fbe
 
+=======
+>>>>>>> parent of ab1a6b2... read edit
     on_bResetFault_clicked();
 }
 
@@ -5043,7 +5046,7 @@ void MainWindow::saveValueCleanTankLevelCalibration()
         QTextStream stream(&file);
 
         stream <<  ui->leCalCleanTankLevelErr->text().toDouble() << ","
-               <<  ui->leCalCleanTankCoeff->text().toDouble() ;
+                <<  ui->leCalCleanTankCoeff->text().toDouble() ;
         file.close();
     }
 
@@ -5133,7 +5136,6 @@ void MainWindow::loadValueTopTempSensorCalibration()
     }
 }
 
-
 void MainWindow::loadValueBottomTempSensorCalibration()
 {
     #ifdef Q_OS_LINUX
@@ -5147,8 +5149,8 @@ void MainWindow::loadValueBottomTempSensorCalibration()
     #endif
 
     QStringList wordList;
-   //     QList<double> dList;
-   //     QByteArray dList;
+//     QList<double> dList;
+//     QByteArray dList;
      QFile file(filePath);
     QString line;
     if (file.open(QFile::ReadOnly))
@@ -5171,116 +5173,6 @@ void MainWindow::loadValueBottomTempSensorCalibration()
 
  }
 
-void MainWindow::loadValueCleanTankLevelCalibration()
-{
-    #ifdef Q_OS_LINUX
-    //linux code goes here
-        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
-    #endif
-
-    #ifdef Q_OS_WIN
-    // windows code goes here
-        QString filePath = "Settings\\calCleanTankLevel.txt";
-    #endif
-
-    QStringList wordList;
-//     QList<double> dList;
-//     QByteArray dList;
-     QFile file(filePath);
-    QString line;
-    if (file.open(QFile::ReadOnly))
-    {
-
-        while (!file.atEnd())
-        {
-   //      dList = file.readLine();
-         line = file.readLine();
-
-        }
-       double v = line.split(",")[0].toDouble();
-       double y = line.split(",")[1].toDouble();
-        ui->leCalCleanTankLevelErr->setText(QString::number(v));
-        ui->leCalCleanTankCoeff->setText(QString::number(y));
-        file.close();
-   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
-    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
-    }
-
- }
-
-
-void MainWindow::loadValueDirtyTankLevelCalibration()
-{
-    #ifdef Q_OS_LINUX
-    //linux code goes here
-        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
-    #endif
-
-    #ifdef Q_OS_WIN
-    // windows code goes here
-        QString filePath = "Settings\\calDirtyTankLevel.txt";
-    #endif
-
-    QStringList wordList;
-//     QList<double> dList;
-//     QByteArray dList;
-     QFile file(filePath);
-    QString line;
-    if (file.open(QFile::ReadOnly))
-    {
-
-        while (!file.atEnd())
-        {
-   //      dList = file.readLine();
-         line = file.readLine();
-
-        }
-       double v = line.split(",")[0].toDouble();
-       double y = line.split(",")[1].toDouble();
-        ui->leCalDirtyTankErr->setText(QString::number(v));
-        ui->leCalDirtyTankCoeff->setText(QString::number(y));
-        file.close();
-   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
-    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
-    }
-
- }
-void MainWindow::loadValueExpansionTankLevelCalibration()
-{
-    #ifdef Q_OS_LINUX
-    //linux code goes here
-        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
-    #endif
-
-    #ifdef Q_OS_WIN
-    // windows code goes here
-        QString filePath = "Settings\\calExpansionTankLevel.txt";
-    #endif
-
-    QStringList wordList;
-//     QList<double> dList;
-//     QByteArray dList;
-     QFile file(filePath);
-    QString line;
-    if (file.open(QFile::ReadOnly))
-    {
-
-        while (!file.atEnd())
-        {
-   //      dList = file.readLine();
-         line = file.readLine();
-
-        }
-       double v = line.split(",")[0].toDouble();
-       double y = line.split(",")[1].toDouble();
-        ui->leCalExpansionTankErr->setText(QString::number(v));
-        ui->leCalExpansionTankCoeff->setText(QString::number(y));
-        file.close();
-   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
-    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
-    }
-
- }
 void MainWindow::on_bCabinDoor_clicked()
 {
    if (myPLC.deviceState == 0 )

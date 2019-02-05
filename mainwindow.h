@@ -157,12 +157,6 @@ private slots:
 
     void loadValuePressureSensor1Calibration();
 
-    void loadValueCleanTankLevelCalibration();
-
-    void loadValueDirtyTankLevelCalibration();
-
-    void loadValueExpansionTankLevelCalibration();
-
     void on_bSaveCalibrationValues_clicked();
 
     void on_bCabinDoor_clicked();
