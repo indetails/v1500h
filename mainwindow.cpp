@@ -613,6 +613,10 @@ void MainWindow::setupVisuals()
     loadValueBottomTempSensorCalibration();
     loadValuePressureSensor1Calibration();
 
+    loadValueCleanTankLevelCalibration();
+    loadValueDirtyTankLevelCalibration();
+    loadValueExpansionTankLevelCalibration();
+
     on_bResetFault_clicked();
 }
 
@@ -5171,6 +5175,118 @@ void MainWindow::loadValueBottomTempSensorCalibration()
     }
 
  }
+
+void MainWindow::loadValueCleanTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+    //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+    // windows code goes here
+        QString filePath = "settings\\calCleanTankLevel.txt";
+    #endif
+
+    QStringList wordList;
+//     QList<double> dList;
+//     QByteArray dList;
+     QFile file(filePath);
+    QString line;
+    if (file.open(QFile::ReadOnly))
+    {
+
+        while (!file.atEnd())
+        {
+   //      dList = file.readLine();
+         line = file.readLine();
+
+        }
+       double v = line.split(",")[0].toDouble();
+       double y = line.split(",")[1].toDouble();
+        ui->leCalCleanTankLevelErr->setText(QString::number(v));
+        ui->leCalCleanTankCoeff->setText(QString::number(y));
+        file.close();
+   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
+    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
+    }
+
+ }
+
+void MainWindow::loadValueDirtyTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+    //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+    // windows code goes here
+        QString filePath = "settings\\calDirtyTankLevel.txt";
+    #endif
+
+    QStringList wordList;
+//     QList<double> dList;
+//     QByteArray dList;
+     QFile file(filePath);
+    QString line;
+    if (file.open(QFile::ReadOnly))
+    {
+
+        while (!file.atEnd())
+        {
+   //      dList = file.readLine();
+         line = file.readLine();
+
+        }
+       double v = line.split(",")[0].toDouble();
+       double y = line.split(",")[1].toDouble();
+        ui->leCalDirtyTankErr->setText(QString::number(v));
+        ui->leCalDirtyTankCoeff->setText(QString::number(y));
+        file.close();
+   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
+    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
+    }
+
+ }
+
+void MainWindow::loadValueExpansionTankLevelCalibration()
+{
+    #ifdef Q_OS_LINUX
+    //linux code goes here
+        QString filePath = "/home/pi/InDetail/settings/" +"calibrationBottomTemp.txt";
+    #endif
+
+    #ifdef Q_OS_WIN
+    // windows code goes here
+        QString filePath = "settings\\calExpansionTankLevel.txt";
+    #endif
+
+    QStringList wordList;
+//     QList<double> dList;
+//     QByteArray dList;
+     QFile file(filePath);
+    QString line;
+    if (file.open(QFile::ReadOnly))
+    {
+
+        while (!file.atEnd())
+        {
+   //      dList = file.readLine();
+         line = file.readLine();
+
+        }
+       double v = line.split(",")[0].toDouble();
+       double y = line.split(",")[1].toDouble();
+        ui->leCalExpansionTankErr->setText(QString::number(v));
+        ui->leCalExpansionTankCoeff->setText(QString::number(y));
+        file.close();
+   //     ui->dsbCalCabinTopTempErr->setValue(dList[1]);
+    //    ui->dsbCalCabinTopTempCoeff->setValue(dList[2]);
+    }
+
+ }
+
 
 void MainWindow::on_bCabinDoor_clicked()
 {
