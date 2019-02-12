@@ -83,7 +83,7 @@ quint8 askCounter = 1;
 
 QString testFolder;
 QString dataFilePath;
-bool startFromRecords;
+bool startFromRecords = false;
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -652,6 +652,12 @@ void MainWindow::serialMessage(uint command, QByteArray data)
 
         break;
 
+    case 0x0F:
+
+        updateInfo(4,data);
+
+        break;
+
     case 0x32:
 
         double pipePressure1Coeff ;
@@ -907,9 +913,6 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bStartTest1500h->setEnabled(true);
                     ui->bPauseTest1500h->setEnabled(false);
 
-
-
-
                 }
             }
         }
@@ -959,6 +962,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             else
             {
                 myPLC.deviceState = data[0];
+
                 if (myPLC.deviceState)
                 {
                     testFolder =
@@ -979,6 +983,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 #endif
                     writeToLogTable("1500h modu aktif");
                     ui->bStartTest1500h->setEnabled(false);
+                    ui->bPauseTest1500h->setEnabled(true);
                     ui->bStopTest1500h->setEnabled(true);
                     ui->bSetTemperatureStart->setEnabled(false);
                     ui->bSetTemperatureStop->setEnabled(true);
@@ -1398,7 +1403,6 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-
         if (myPLC.Rezistans_active == (data[1] & 0b00000001))
         {
 
@@ -1409,16 +1413,17 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.Rezistans_active)
             {
-                writeToLogTable("Rezistans aktif.");
+
                 ui->sW_0->setCurrentIndex(0);
                 ui->cB_tte_6->setCheckState(Qt::CheckState(true));
             }
             else
             {
                 ui->cB_tte_6->setCheckState(Qt::CheckState(false));
-                writeToLogTable("rezistans kapalı.");
+
             }
         }
+
         if (myPLC.Fan_aktive == (data[1] & 0b00000010) >> 1)
         {
 
@@ -1429,13 +1434,13 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.Fan_aktive)
             {
-                writeToLogTable("fan aktif.");
+
+                ui->cB_tte_7->setCheckState(Qt::CheckState(true));
             }
             else
             {
 
-                    writeToLogTable("fan kapalı.");
-
+                ui->cB_tte_7->setCheckState(Qt::CheckState(true));
             }
         }
 
@@ -1450,14 +1455,16 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.sivi_degisimi)
             {
                 writeToLogTable("Sıvı degişimi yapılıyor.");
+                ui->cB_tte_22->setCheckState(Qt::CheckState(true));
             }
             else
             {
-
-                    writeToLogTable("sıvı degişimi tamamlandı.");
+                ui->cB_tte_22->setCheckState(Qt::CheckState(true));
+                writeToLogTable("sıvı degişimi tamamlandı.");
 
             }
         }
+
         if (myPLC.sicaklik_dusuruluyor == (data[1] & 0b00001000) >> 3)
         {
 
@@ -1468,16 +1475,38 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.sicaklik_dusuruluyor)
             {
+                ui->cB_tte_23->setCheckState(Qt::CheckState(true));
                 writeToLogTable("sıcaklık düşürülüyor.");
             }
             else
             {
-
-                    writeToLogTable("sıcaklık düşürme tamamlandı.");
-
+               ui->cB_tte_23->setCheckState(Qt::CheckState(true));
+               writeToLogTable("sıcaklık düşürme tamamlandı.");
             }
         }
+        if (myPLC.sicaklik_kontrol_active == (data[1] & 0b00010000) >> 4)
+        {
 
+        }
+        else
+        {
+            myPLC.sicaklik_kontrol_active = (data[1] & 0b00010000) >> 4;
+
+            if (myPLC.sicaklik_kontrol_active)
+            {
+
+                ui->cB_tte_33->setCheckState(Qt::CheckState(true));
+                writeToLogTable("sıcaklık kontrol aktif.");
+                myPLC.temperatureTestActive = true;    
+                prepareTestTimers();
+
+            }
+            else
+            {
+                ui->cB_tte_33->setCheckState(Qt::CheckState(false));
+                writeToLogTable("sıcaklık kontrol kapalı.");
+            }
+        }
         if (myPLC.sicaklik_ayarlaniyor == (data[1] & 0b00100000) >> 5)
         {
 
@@ -1492,11 +1521,10 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
             else
             {
-
-                    writeToLogTable("sıcaklık ayarlama yapıldı.");
-
+                writeToLogTable("sıcaklık ayarlama yapıldı.");
             }
         }
+
         if (myPLC.hortum1 == (data[2] & 0b00000001) )
         {
 
@@ -1516,6 +1544,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.hortum2 == (data[2] & 0b00000010) >> 1)
         {
 
@@ -1535,6 +1564,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.hortum3 == (data[2] & 0b00000100) >> 2 )
         {
 
@@ -1554,6 +1584,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.hortum4 == (data[2] & 0b00001000) >> 3 )
         {
 
@@ -1573,6 +1604,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.hortum5 == (data[2] & 0b00010000) >> 4 )
         {
 
@@ -1592,6 +1624,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.hortum_hava_alma == (data[2] & 0b00100000) >> 5 )
         {
 
@@ -1611,6 +1644,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.hortum_kontrol == (data[2] & 0b01000000) >> 6 )
         {
 
@@ -1630,6 +1664,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.expansion_tank_exhaust_to_dirty_tank_active == (data[3] & 0b00000001)  )
         {
 
@@ -1649,6 +1684,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.expansion_tank_fulling_from_clean_tank_active == (data[3] & 0b00000010) >> 1 )
         {
 
@@ -1668,6 +1704,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.clean_tank_exhaust_to_dirty_tank_active == (data[3] & 0b00000100) >> 2 )
         {
 
@@ -1687,6 +1724,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.sivilar_degistiriliyor == (data[3] & 0b00001000) >> 3 )
         {
 
@@ -1706,6 +1744,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.pomp_active == (data[3] & 0b00010000) >> 4 )
         {
 
@@ -1725,6 +1764,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.basinc_ayarlaniyor == (data[4] & 0b00000001)  )
         {
 
@@ -1744,6 +1784,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
+
         if (myPLC.basinc_ayarlaniyor == (data[4] & 0b00000001)  )
         {
 
@@ -2020,17 +2061,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
         }
 */
-        if (tCycle != quint16(((data[4] & 0xff) << 8) | (data[3] & 0xff)))
-        {
-            tCycle = quint16(((data[4] & 0xff) << 8) | (data[3] & 0xff));
-          //           ui->laTTotalCycleMain->setText(QString::number(tCycle));
-         /*   if (tCycle != 0)
-            {
-                tKey = 0;
-                ui->tTestGraph->clearPlottables();
-                setupTGraph();
-            }*/
-        }
+
         if (profileId != data[5])
         {
             profileId = quint16(data[5]);
@@ -2114,7 +2145,20 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         vElapsedSeconds = (data[6] & 0xFF) | ((data[7] & 0xFF) <<  8) |
                 ((data[8] & 0xFF) << 16);
  //       ui->laTTestElepsedSecond->setText(QString::number(tElapsedSeconds));
-        ui->progressBar_2->setValue(tElapsedSeconds);
+        ui->pb_testProgress->setValue(tElapsedSeconds);
+    }
+    else if(index == 4){
+        if (tCycle != quint16(((data[1] & 0xff) << 8) | (data[0] & 0xff)))
+        {
+            tCycle = quint16(((data[1] & 0xff) << 8) | (data[0] & 0xff));
+          //           ui->laTTotalCycleMain->setText(QString::number(tCycle));
+         /*   if (tCycle != 0)
+            {
+                tKey = 0;
+                ui->tTestGraph->clearPlottables();
+                setupTGraph();
+            }*/
+        }
     }
 }
 
@@ -5286,7 +5330,6 @@ void MainWindow::loadValueExpansionTankLevelCalibration()
     }
 
  }
-
 
 void MainWindow::on_bCabinDoor_clicked()
 {

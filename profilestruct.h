@@ -72,7 +72,9 @@ struct PLC
     bool Fan_aktive;
     bool sivi_degisimi;
     bool sicaklik_dusuruluyor;
+    bool sicaklik_kontrol_active;
     bool sicaklik_ayarlaniyor;
+
     // hortum kontrol state
     bool hortum1;
     bool hortum2;

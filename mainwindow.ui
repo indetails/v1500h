@@ -285,7 +285,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2448,7 +2448,7 @@ border-radius : 8px;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>4</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QLabel" name="label_26">
@@ -2963,7 +2963,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <rect>
                 <x>10</x>
                 <y>20</y>
-                <width>148</width>
+                <width>161</width>
                 <height>21</height>
                </rect>
               </property>
@@ -2999,7 +2999,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <rect>
                 <x>10</x>
                 <y>50</y>
-                <width>156</width>
+                <width>191</width>
                 <height>21</height>
                </rect>
               </property>
@@ -3024,7 +3024,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
 </string>
               </property>
               <property name="text">
-               <string>Sıcaklık ayarlanıyor </string>
+               <string>Sıcaklık kontrol aktif</string>
               </property>
               <property name="checked">
                <bool>true</bool>
@@ -3526,8 +3526,8 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <rect>
                 <x>40</x>
                 <y>30</y>
-                <width>83</width>
-                <height>24</height>
+                <width>111</width>
+                <height>31</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3562,8 +3562,8 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <rect>
                 <x>40</x>
                 <y>60</y>
-                <width>58</width>
-                <height>24</height>
+                <width>111</width>
+                <height>31</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3598,8 +3598,8 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <rect>
                 <x>40</x>
                 <y>90</y>
-                <width>133</width>
-                <height>24</height>
+                <width>161</width>
+                <height>31</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3634,8 +3634,8 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <rect>
                 <x>0</x>
                 <y>120</y>
-                <width>133</width>
-                <height>24</height>
+                <width>171</width>
+                <height>31</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3670,8 +3670,8 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <rect>
                 <x>0</x>
                 <y>150</y>
-                <width>137</width>
-                <height>24</height>
+                <width>171</width>
+                <height>31</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3706,8 +3706,8 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <rect>
                 <x>0</x>
                 <y>180</y>
-                <width>125</width>
-                <height>24</height>
+                <width>151</width>
+                <height>31</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -5303,9 +5303,9 @@ font: 75 64pt &quot;Gill Sans MT&quot;;
          <widget class="QLabel" name="label_34">
           <property name="geometry">
            <rect>
-            <x>130</x>
+            <x>99</x>
             <y>20</y>
-            <width>170</width>
+            <width>181</width>
             <height>69</height>
            </rect>
           </property>
@@ -5444,9 +5444,9 @@ font: 75 64pt &quot;Gill Sans MT&quot;;
          <widget class="QLabel" name="label_15">
           <property name="geometry">
            <rect>
-            <x>570</x>
+            <x>549</x>
             <y>20</y>
-            <width>170</width>
+            <width>181</width>
             <height>70</height>
            </rect>
           </property>
