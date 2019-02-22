@@ -307,9 +307,9 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>100</y>
+          <y>70</y>
           <width>171</width>
-          <height>50</height>
+          <height>91</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -377,9 +377,9 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>160</y>
+          <y>180</y>
           <width>171</width>
-          <height>50</height>
+          <height>91</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -441,9 +441,9 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>220</y>
+          <y>290</y>
           <width>171</width>
-          <height>50</height>
+          <height>91</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -505,9 +505,9 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>90</y>
+          <y>60</y>
           <width>201</width>
-          <height>71</height>
+          <height>111</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -522,9 +522,9 @@ border-radius: 5px;</string>
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>150</y>
+          <y>170</y>
           <width>201</width>
-          <height>71</height>
+          <height>111</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -539,9 +539,9 @@ border-radius: 5px;</string>
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>210</y>
+          <y>280</y>
           <width>201</width>
-          <height>71</height>
+          <height>111</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -620,9 +620,9 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>350</y>
+          <y>610</y>
           <width>171</width>
-          <height>61</height>
+          <height>91</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -3491,7 +3491,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                 <x>0</x>
                 <y>0</y>
                 <width>109</width>
-                <height>24</height>
+                <height>31</height>
                </rect>
               </property>
               <property name="styleSheet">

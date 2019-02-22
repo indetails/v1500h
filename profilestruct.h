@@ -40,64 +40,56 @@ struct profileStruct
 struct PLC
 {
     quint8 deviceState;
+    bool profileActive;
+    bool Fix_mode_active;
+    bool Hata_mode_active;
+    bool EmergencyMode ;
 
+    // sıcaklık state  bitleri
     bool temperaturePrepActive;
     bool temperatureTestActive;
     bool temperatureTestCompleted;
-
-    bool pressurePrepActive;
-    bool pressureTestActive;
-    bool pressureTestCompleted;
-
-    bool vibrationPrepActive;
-    bool vibrationTestActive;
-    bool vibrationTestCompleted;
-
-    bool profileActive;
-
+    bool resistancesActive;
+    bool fansActive;
+    bool liquidChangeCoolingActive;
     bool cabinTemperatureStat;
     bool tankTemperatureStat;
 
-    bool pipePressureStat;
-
-    bool vibrationMotor1Stat;
-    bool vibrationMotor2Stat;
-
-
-    bool Fix_mode_active;
-    bool Hata_mode_active;
-    bool Emergancy_mode ;
-    // sıcaklı state  bitleri
-    bool Rezistans_active;
-    bool Fan_aktive;
-    bool sivi_degisimi;
-    bool sicaklik_dusuruluyor;
-    bool sicaklik_kontrol_active;
-    bool sicaklik_ayarlaniyor;
 
     // hortum kontrol state
-    bool hortum1;
-    bool hortum2;
-    bool hortum3;
-    bool hortum4;
-    bool hortum5;
-    bool hortum_hava_alma;
-    bool hortum_kontrol;
+    bool pipe1Control;
+    bool pipe2Control;
+    bool pipe3Control;
+    bool pipe4Control;
+    bool pipe5Control;
+    bool pipePrepareActive;
+    bool pipePressureControl;
+    bool pressurePrepActive;
+    bool pressureTestActive;
+    bool pressureTestCompleted;
+    bool pipePressureStat;
+
     // tank state
     bool expansion_tank_exhaust_to_dirty_tank_active;
-    bool expansion_tank_fulling_from_clean_tank_active;
+    bool workPumpCleanToExpansion;
     bool clean_tank_exhaust_to_dirty_tank_active;
-    bool sivilar_degistiriliyor;
-    bool sivi_degisimi_tamamlandi;
-    bool pomp_active;
-   //basınc state
-    bool basinc_ayarlaniyor
+    bool liquidChangeActive;
+    bool liquidChangeComplete;
+    bool circulationPumpActive;
+    //basınc state
+
     //nem state
 
     // sogutma state
 
     //titresim state
-;
+    bool vibrationPrepActive;
+    bool vibrationTestActive;
+    bool vibrationTestCompleted;
+    bool vibrationMotor1Stat;
+    bool vibrationMotor2Stat;
+
+
 
 };
 

@@ -248,7 +248,7 @@ public:
         Button8->setText(QApplication::translate("Keyboard", "8", 0));
         Button9->setText(QApplication::translate("Keyboard", "9", 0));    
         enterButton->setText(QApplication::translate("Keyboard", "Enter", 0));
-        commaButton->setText(QApplication::translate("Keyboard", ",", 0));
+        commaButton->setText(QApplication::translate("Keyboard", ".", 0));
         Q_UNUSED(Keyboard);
     } // retranslateUi
 

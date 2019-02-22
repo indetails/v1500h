@@ -151,7 +151,7 @@ void Numpad::on_char_2_toggled(bool checked)
         ui->Button7->setText("7");
         ui->Button8->setText("8");
         ui->Button9->setText("9");
-        ui->commaButton->setText(",");
+        ui->commaButton->setText(".");
 
     }
 }

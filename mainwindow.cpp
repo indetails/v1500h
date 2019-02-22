@@ -1403,15 +1403,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.Rezistans_active == (data[1] & 0b00000001))
+        if (myPLC.resistancesActive == (data[1] & 0b00000001))
         {
 
         }
         else
         {
-            myPLC.Rezistans_active = (data[1] & 0b00000001);
+            myPLC.resistancesActive = (data[1] & 0b00000001);
 
-            if (myPLC.Rezistans_active)
+            if (myPLC.resistancesActive)
             {
 
                 ui->sW_0->setCurrentIndex(0);
@@ -1424,15 +1424,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.Fan_aktive == (data[1] & 0b00000010) >> 1)
+        if (myPLC.fansActive == (data[1] & 0b00000010) >> 1)
         {
 
         }
         else
         {
-            myPLC.Fan_aktive = (data[1] & 0b00000010) >> 1;
+            myPLC.fansActive = (data[1] & 0b00000010) >> 1;
 
-            if (myPLC.Fan_aktive)
+            if (myPLC.fansActive)
             {
 
                 ui->cB_tte_7->setCheckState(Qt::CheckState(true));
@@ -1444,15 +1444,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.sivi_degisimi == (data[1] & 0b00000100) >> 2)
+        if (myPLC.liquidChangeActive == (data[1] & 0b00000100) >> 2)
         {
 
         }
         else
         {
-            myPLC.sivi_degisimi = (data[1] & 0b00000100) >> 2;
+            myPLC.liquidChangeActive = (data[1] & 0b00000100) >> 2;
 
-            if (myPLC.sivi_degisimi)
+            if (myPLC.liquidChangeActive)
             {
                 writeToLogTable("Sıvı degişimi yapılıyor.");
                 ui->cB_tte_22->setCheckState(Qt::CheckState(true));
@@ -1465,15 +1465,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.sicaklik_dusuruluyor == (data[1] & 0b00001000) >> 3)
+        if (myPLC.liquidChangeCoolingActive == (data[1] & 0b00001000) >> 3)
         {
 
         }
         else
         {
-            myPLC.sicaklik_dusuruluyor = (data[1] & 0b00001000) >> 3;
+            myPLC.liquidChangeCoolingActive = (data[1] & 0b00001000) >> 3;
 
-            if (myPLC.sicaklik_dusuruluyor)
+            if (myPLC.liquidChangeCoolingActive)
             {
                 ui->cB_tte_23->setCheckState(Qt::CheckState(true));
                 writeToLogTable("sıcaklık düşürülüyor.");
@@ -1484,15 +1484,16 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                writeToLogTable("sıcaklık düşürme tamamlandı.");
             }
         }
-        if (myPLC.sicaklik_kontrol_active == (data[1] & 0b00010000) >> 4)
+
+        if (myPLC.temperatureTestActive == (data[1] & 0b00010000) >> 4)
         {
 
         }
         else
         {
-            myPLC.sicaklik_kontrol_active = (data[1] & 0b00010000) >> 4;
+            myPLC.temperatureTestActive = (data[1] & 0b00010000) >> 4;
 
-            if (myPLC.sicaklik_kontrol_active)
+            if (myPLC.temperatureTestActive)
             {
 
                 ui->cB_tte_33->setCheckState(Qt::CheckState(true));
@@ -1504,18 +1505,20 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             else
             {
                 ui->cB_tte_33->setCheckState(Qt::CheckState(false));
+                myPLC.temperatureTestActive = false;
                 writeToLogTable("sıcaklık kontrol kapalı.");
             }
         }
-        if (myPLC.sicaklik_ayarlaniyor == (data[1] & 0b00100000) >> 5)
+
+        if (myPLC.temperaturePrepActive == (data[1] & 0b00100000) >> 5)
         {
 
         }
         else
         {
-            myPLC.sicaklik_ayarlaniyor = (data[1] & 0b00100000) >> 5;
+            myPLC.temperaturePrepActive = (data[1] & 0b00100000) >> 5;
 
-            if (myPLC.sicaklik_ayarlaniyor)
+            if (myPLC.temperaturePrepActive)
             {
                 writeToLogTable("sıcaklık ayarlanıyor.");
             }
@@ -1525,15 +1528,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.hortum1 == (data[2] & 0b00000001) )
+        if (myPLC.pipe1Control == (data[2] & 0b00000001) )
         {
 
         }
         else
         {
-            myPLC.hortum1 = (data[2] & 0b00000001) ;
+            myPLC.pipe1Control = (data[2] & 0b00000001) ;
 
-            if (myPLC.hortum1)
+            if (myPLC.pipe1Control)
             {
                 writeToLogTable("hortum 1 kontrol.");
             }
@@ -1545,15 +1548,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.hortum2 == (data[2] & 0b00000010) >> 1)
+        if (myPLC.pipe2Control == (data[2] & 0b00000010) >> 1)
         {
 
         }
         else
         {
-            myPLC.hortum2 = (data[2] & 0b00000010) >> 1 ;
+            myPLC.pipe2Control = (data[2] & 0b00000010) >> 1 ;
 
-            if (myPLC.hortum2)
+            if (myPLC.pipe2Control)
             {
                 writeToLogTable("hortum 2 kontrol.");
             }
@@ -1565,15 +1568,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.hortum3 == (data[2] & 0b00000100) >> 2 )
+        if (myPLC.pipe3Control == (data[2] & 0b00000100) >> 2 )
         {
 
         }
         else
         {
-            myPLC.hortum3 = (data[2] & 0b00000100) >> 2 ;
+            myPLC.pipe3Control = (data[2] & 0b00000100) >> 2 ;
 
-            if (myPLC.hortum3)
+            if (myPLC.pipe3Control)
             {
                 writeToLogTable("hortum 3 kontrol.");
             }
@@ -1585,15 +1588,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.hortum4 == (data[2] & 0b00001000) >> 3 )
+        if (myPLC.pipe4Control == (data[2] & 0b00001000) >> 3 )
         {
 
         }
         else
         {
-            myPLC.hortum4 = (data[2] & 0b00001000) >> 3 ;
+            myPLC.pipe4Control = (data[2] & 0b00001000) >> 3 ;
 
-            if (myPLC.hortum4)
+            if (myPLC.pipe4Control)
             {
                 writeToLogTable("hortum 4 kontrol.");
             }
@@ -1605,35 +1608,33 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.hortum5 == (data[2] & 0b00010000) >> 4 )
+        if (myPLC.pipe5Control == (data[2] & 0b00010000) >> 4 )
         {
 
         }
         else
         {
-            myPLC.hortum5 = (data[2] & 0b00010000) >> 4 ;
+            myPLC.pipe5Control = (data[2] & 0b00010000) >> 4 ;
 
-            if (myPLC.hortum5)
+            if (myPLC.pipe5Control)
             {
                 writeToLogTable("hortum 5 kontrol.");
             }
             else
             {
-
-                    writeToLogTable("hortum 5 kontrol edildi.");
-
+                writeToLogTable("hortum 5 kontrol edildi.");
             }
         }
 
-        if (myPLC.hortum_hava_alma == (data[2] & 0b00100000) >> 5 )
+        if (myPLC.pipePrepareActive == (data[2] & 0b00100000) >> 5 )
         {
 
         }
         else
         {
-            myPLC.hortum_hava_alma = (data[2] & 0b00100000) >> 5 ;
+            myPLC.pipePrepareActive = (data[2] & 0b00100000) >> 5 ;
 
-            if (myPLC.hortum_hava_alma)
+            if (myPLC.pipePrepareActive)
             {
                 writeToLogTable("hortum hava alma kontrol.");
             }
@@ -1645,15 +1646,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.hortum_kontrol == (data[2] & 0b01000000) >> 6 )
+        if (myPLC.pipePressureStat == (data[2] & 0b01000000) >> 6 )
         {
 
         }
         else
         {
-            myPLC.hortum_kontrol = (data[2] & 0b01000000) >> 6 ;
+            myPLC.pipePressureStat = (data[2] & 0b01000000) >> 6 ;
 
-            if (myPLC.hortum_kontrol)
+            if (myPLC.pipePressureStat)
             {
                 writeToLogTable("hortum kontrol.");
             }
@@ -1685,23 +1686,21 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.expansion_tank_fulling_from_clean_tank_active == (data[3] & 0b00000010) >> 1 )
+        if (myPLC.workPumpCleanToExpansion == (data[3] & 0b00000010) >> 1 )
         {
 
         }
         else
         {
-            myPLC.expansion_tank_fulling_from_clean_tank_active = (data[3] & 0b00000010) >> 1 ;
+            myPLC.workPumpCleanToExpansion = (data[3] & 0b00000010) >> 1 ;
 
-            if (myPLC.expansion_tank_fulling_from_clean_tank_active)
+            if (myPLC.workPumpCleanToExpansion)
             {
                 writeToLogTable("temiz tanktan basınc tankına sıvı aktarılıyor .");
             }
             else
             {
-
-                    writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
-
+                writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
             }
         }
 
@@ -1715,45 +1714,41 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.clean_tank_exhaust_to_dirty_tank_active)
             {
-                writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor .");
+                writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor.");
             }
             else
             {
-
-                    writeToLogTable("temiz tanktan kirli tankına sıvı aktarıldı .");
-
+                writeToLogTable("temiz tanktan kirli tankına sıvı aktarıldı.");
             }
         }
 
-        if (myPLC.sivilar_degistiriliyor == (data[3] & 0b00001000) >> 3 )
+        if (myPLC.liquidChangeActive == (data[3] & 0b00001000) >> 3 )
         {
 
         }
         else
         {
-            myPLC.sivilar_degistiriliyor = (data[3] & 0b00001000) >> 3 ;
+            myPLC.liquidChangeActive = (data[3] & 0b00001000) >> 3 ;
 
-            if (myPLC.sivilar_degistiriliyor)
+            if (myPLC.liquidChangeActive)
             {
                 writeToLogTable("sıvı degisimi gercekleşiyor.");
             }
             else
             {
-
-                    writeToLogTable("sıvı degisimi gercekleşdi.");
-
+               writeToLogTable("sıvı degisimi gercekleşdi.");
             }
         }
 
-        if (myPLC.pomp_active == (data[3] & 0b00010000) >> 4 )
+        if (myPLC.circulationPumpActive == (data[3] & 0b00010000) >> 4 )
         {
 
         }
         else
         {
-            myPLC.pomp_active = (data[3] & 0b00010000) >> 4 ;
+            myPLC.circulationPumpActive = (data[3] & 0b00010000) >> 4 ;
 
-            if (myPLC.pomp_active)
+            if (myPLC.circulationPumpActive)
             {
                 writeToLogTable("Pompa calısıyor");
             }
@@ -1765,45 +1760,24 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-        if (myPLC.basinc_ayarlaniyor == (data[4] & 0b00000001)  )
+        if (myPLC.pressurePrepActive == (data[4] & 0b00000001)  )
         {
 
         }
         else
         {
-            myPLC.basinc_ayarlaniyor = (data[4] & 0b00000001) ;
+            myPLC.pressurePrepActive = (data[4] & 0b00000001) ;
 
-            if (myPLC.basinc_ayarlaniyor)
+            if (myPLC.pressurePrepActive)
             {
                 writeToLogTable("basınc ayarlanıyor");
             }
             else
             {
-
-                    writeToLogTable("basınc ayarlandı");
-
+               writeToLogTable("basınc ayarlandı");
             }
         }
 
-        if (myPLC.basinc_ayarlaniyor == (data[4] & 0b00000001)  )
-        {
-
-        }
-        else
-        {
-            myPLC.basinc_ayarlaniyor = (data[4] & 0b00000001) ;
-
-            if (myPLC.basinc_ayarlaniyor)
-            {
-                writeToLogTable("basınc ayarlanıyor");
-            }
-            else
-            {
-
-                    writeToLogTable("basınc ayarlandı");
-
-            }
-        }
 
         /*
         if (myPLC.pressurePrepActive == (data[1] & 0b00001000) >> 3)
@@ -2145,7 +2119,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         vElapsedSeconds = (data[6] & 0xFF) | ((data[7] & 0xFF) <<  8) |
                 ((data[8] & 0xFF) << 16);
  //       ui->laTTestElepsedSecond->setText(QString::number(tElapsedSeconds));
-        ui->pb_testProgress->setValue(tElapsedSeconds);
+
     }
     else if(index == 4){
         if (tCycle != quint16(((data[1] & 0xff) << 8) | (data[0] & 0xff)))
@@ -3809,7 +3783,10 @@ void MainWindow::updateTPlot()
     if (file.open(QFile::WriteOnly|QFile::Append))
     {
         QTextStream stream(&file);
-        stream << tKeyElapsed << "," << cabinAverageTemp << "," << pipe1Pressure << "\n";
+        stream << QDate::currentDate().toString(Qt::SystemLocaleShortDate)<<";"
+               << QTime::currentTime().toString()<< ";"
+               << tKeyElapsed << ";" << QString::number(cabinAverageTemp) << ";"
+               << QString::number(pipe1Pressure) << "\n";
         file.close();
 
     }
