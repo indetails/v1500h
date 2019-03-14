@@ -80,6 +80,9 @@ QTableBar
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="font">
        <font>
         <pointsize>20</pointsize>
@@ -285,7 +288,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2377,6 +2380,71 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          </widget>
         </widget>
        </widget>
+       <widget class="QPushButton" name="bMainDoorInfo">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>510</y>
+          <width>171</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>94</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gill Sans MT</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: rgb(255, 255, 255);
+font-family: &quot;Gill Sans MT&quot;;
+font-size: 25px;
+border: 2px solid rgb(255, 85, 0);
+/*border: 2px solid rgb(0, 115, 255);*/
+border-radius: 5px;
+padding: 5px;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+min-width: 80px;
+}
+/*
+QPushButton:hover {
+background: qradialgradient(cx: 0.3, cy: -0.4,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(220, 0, 0), stop: 1 rgb(150, 0, 0));
+}
+QPushButton:pressed {
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}
+*/
+QPushButton:disabled {
+color: rgb(255, 255, 255);
+border: 2px solid rgb(255, 85, 0);
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}</string>
+        </property>
+        <property name="text">
+         <string>Kapak </string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
        <zorder>bClearLogTable_2</zorder>
        <zorder>bLightsMain</zorder>
        <zorder>laDate</zorder>
@@ -2388,6 +2456,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
        <zorder>bFixMode</zorder>
        <zorder>b1500hMode</zorder>
        <zorder>mainPage</zorder>
+       <zorder>bMainDoorInfo</zorder>
       </widget>
       <widget class="QWidget" name="tab_setTemp">
        <attribute name="title">
@@ -2431,9 +2500,9 @@ image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>170</y>
+            <y>160</y>
             <width>1111</width>
-            <height>331</height>
+            <height>361</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -2454,9 +2523,9 @@ border-radius : 8px;
            <widget class="QLabel" name="label_26">
             <property name="geometry">
              <rect>
-              <x>420</x>
-              <y>0</y>
-              <width>291</width>
+              <x>80</x>
+              <y>20</y>
+              <width>241</width>
               <height>31</height>
              </rect>
             </property>
@@ -2467,8 +2536,8 @@ border-radius : 8px;
            <widget class="QProgressBar" name="pb_testProgress">
             <property name="geometry">
              <rect>
-              <x>230</x>
-              <y>40</y>
+              <x>360</x>
+              <y>10</y>
               <width>651</width>
               <height>50</height>
              </rect>
@@ -2500,7 +2569,7 @@ border-radius : 8px;
             <property name="geometry">
              <rect>
               <x>540</x>
-              <y>110</y>
+              <y>130</y>
               <width>561</width>
               <height>211</height>
              </rect>
@@ -2550,13 +2619,13 @@ border-radius : 8px;
             <property name="geometry">
              <rect>
               <x>280</x>
-              <y>110</y>
+              <y>140</y>
               <width>231</width>
               <height>211</height>
              </rect>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="scaklik_ayar">
              <widget class="QCheckBox" name="cB_tte_4">
@@ -2592,7 +2661,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Sıcaklık ayarlanıyor </string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </widget>
@@ -2630,7 +2699,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>3.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_12">
@@ -2666,7 +2735,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>4.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_10">
@@ -2702,7 +2771,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>2.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_8">
@@ -2737,7 +2806,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Hortum Kontrolü</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_9">
@@ -2773,7 +2842,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>1.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_13">
@@ -2809,7 +2878,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>5.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </widget>
@@ -2847,7 +2916,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Sıvı Degişimi</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_23">
@@ -2883,7 +2952,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Sıcaklık düşürülüyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_24">
@@ -2919,7 +2988,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Sıvı degişimi yapılıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_25">
@@ -2955,7 +3024,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Sıvı degişimi yapıldı</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_32">
@@ -2991,7 +3060,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Basınc ayarlanıyor </string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_33">
@@ -3027,7 +3096,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Sıcaklık kontrol aktif</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </widget>
@@ -3065,7 +3134,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Pompa Çalısıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_15">
@@ -3101,7 +3170,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Hortum Hava Alma</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_19">
@@ -3137,7 +3206,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>4.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_17">
@@ -3173,7 +3242,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>2.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_16">
@@ -3209,7 +3278,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>1.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_18">
@@ -3245,7 +3314,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>3.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_20">
@@ -3281,7 +3350,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>5.Hortum</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </widget>
@@ -3320,7 +3389,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
 Boşaltılıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </widget>
@@ -3359,7 +3428,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
 Boşaltılıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_29">
@@ -3395,7 +3464,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Pompa Çalısıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </widget>
@@ -3434,7 +3503,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
 Boşaltılıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_31">
@@ -3470,7 +3539,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Pompa Çalısıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </widget>
@@ -3479,10 +3548,13 @@ font: 12pt &quot;Gill Sans MT&quot;;
             <property name="geometry">
              <rect>
               <x>50</x>
-              <y>110</y>
+              <y>140</y>
               <width>231</width>
               <height>211</height>
              </rect>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_5">
              <widget class="QCheckBox" name="cB_tte_0">
@@ -3518,7 +3590,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>1500h Mode</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_1">
@@ -3554,7 +3626,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Hazırlık </string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_2">
@@ -3590,7 +3662,7 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Test </string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_3">
@@ -3626,16 +3698,16 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Test Tamamlandı</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_14">
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>120</y>
+                <y>130</y>
                 <width>171</width>
-                <height>31</height>
+                <height>21</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3662,16 +3734,19 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Pompa Çalısıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_6">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>0</x>
                 <y>150</y>
                 <width>171</width>
-                <height>31</height>
+                <height>21</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3681,33 +3756,47 @@ QCheckBox::indicator {
     height: 20px;
 }
 
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
+
 QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
 }
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+}
+
 </string>
               </property>
               <property name="text">
                <string>Rezistanslar aktif</string>
               </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
              <widget class="QCheckBox" name="cB_tte_7">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>180</y>
+                <y>171</y>
                 <width>151</width>
-                <height>31</height>
+                <height>21</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3717,16 +3806,22 @@ QCheckBox::indicator {
     height: 20px;
 }
 
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
 QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
 }
 </string>
               </property>
@@ -3734,11 +3829,56 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <string>Fanlar calışıyor</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </widget>
             <widget class="QWidget" name="page_6"/>
+           </widget>
+           <widget class="QProgressBar" name="pb_testProgress_2">
+            <property name="geometry">
+             <rect>
+              <x>360</x>
+              <y>70</y>
+              <width>651</width>
+              <height>50</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QProgressBar {
+    border: 2px solid grey;
+    border-radius: 5px;
+    text-align: center;
+}
+</string>
+            </property>
+            <property name="value">
+             <number>50</number>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_27">
+            <property name="geometry">
+             <rect>
+              <x>80</x>
+              <y>80</y>
+              <width>241</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Sıvı Değişim Periyodu</string>
+            </property>
            </widget>
           </widget>
           <widget class="QWidget" name="detailsBottomTankLevels">
@@ -9868,7 +10008,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <rect>
           <x>750</x>
           <y>77</y>
-          <width>96</width>
+          <width>131</width>
           <height>161</height>
          </rect>
         </property>
@@ -9958,6 +10098,148 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QPushButton" name="bDoorCOntrolDeactive">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>360</y>
+          <width>171</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>94</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gill Sans MT</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: rgb(255, 255, 255);
+font-family: &quot;Gill Sans MT&quot;;
+font-size: 25px;
+border: 2px solid rgb(255, 85, 0);
+/*border: 2px solid rgb(0, 115, 255);*/
+border-radius: 5px;
+padding: 5px;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+min-width: 80px;
+}
+/*
+QPushButton:hover {
+background: qradialgradient(cx: 0.3, cy: -0.4,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(220, 0, 0), stop: 1 rgb(150, 0, 0));
+}
+QPushButton:pressed {
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}
+*/
+QPushButton:disabled {
+color: rgb(255, 255, 255);
+border: 2px solid rgb(255, 85, 0);
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}</string>
+        </property>
+        <property name="text">
+         <string>Kapak 
+ Kullanım dışı</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="bDoorControlActive">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>360</y>
+          <width>171</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>94</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Gill Sans MT</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: rgb(255, 255, 255);
+font-family: &quot;Gill Sans MT&quot;;
+font-size: 25px;
+border: 2px solid rgb(255, 85, 0);
+/*border: 2px solid rgb(0, 115, 255);*/
+border-radius: 5px;
+padding: 5px;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+min-width: 80px;
+}
+/*
+QPushButton:hover {
+background: qradialgradient(cx: 0.3, cy: -0.4,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(220, 0, 0), stop: 1 rgb(150, 0, 0));
+}
+QPushButton:pressed {
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}
+*/
+QPushButton:disabled {
+color: rgb(255, 255, 255);
+border: 2px solid rgb(255, 85, 0);
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}</string>
+        </property>
+        <property name="text">
+         <string>Kapak 
+ Kullanımda</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>470</y>
+          <width>113</width>
+          <height>21</height>
+         </rect>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_calibration">
@@ -10717,5 +10999,22 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
  <resources>
   <include location="src.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>bDoorControlActive</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>478</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>505</x>
+     <y>534</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -580,6 +580,8 @@ void MainWindow::setupVisuals()
     connect(ui->leLiquidChangeTemp1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
     connect(ui->leLiquidCirculationTime1500h,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
+    connect(ui->lineEdit,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
+
 
 
 
@@ -618,6 +620,8 @@ void MainWindow::setupVisuals()
     loadValueExpansionTankLevelCalibration();
 
     on_bResetFault_clicked();
+
+    ui->bMainDoorInfo->setEnabled(false);
 }
 
 void MainWindow::serialMessage(uint command, QByteArray data)
@@ -1413,14 +1417,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.resistancesActive)
             {
-
-                ui->sW_0->setCurrentIndex(0);
-                ui->cB_tte_6->setCheckState(Qt::CheckState(true));
+               // ui->sW_0->setCurrentIndex(0);
+                ui->cB_tte_6->setEnabled(true);
             }
             else
             {
-                ui->cB_tte_6->setCheckState(Qt::CheckState(false));
-
+                ui->cB_tte_6->setEnabled(false);
             }
         }
 
@@ -1435,12 +1437,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.fansActive)
             {
 
-                ui->cB_tte_7->setCheckState(Qt::CheckState(true));
+                ui->cB_tte_7->setEnabled(true);
             }
             else
             {
 
-                ui->cB_tte_7->setCheckState(Qt::CheckState(true));
+                ui->cB_tte_7->setEnabled(false);
             }
         }
 
@@ -1455,11 +1457,11 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.liquidChangeActive)
             {
                 writeToLogTable("Sıvı degişimi yapılıyor.");
-                ui->cB_tte_22->setCheckState(Qt::CheckState(true));
+                ui->cB_tte_22->setEnabled(true);
             }
             else
             {
-                ui->cB_tte_22->setCheckState(Qt::CheckState(true));
+                ui->cB_tte_22->setEnabled(false);
                 writeToLogTable("sıvı degişimi tamamlandı.");
 
             }
@@ -1676,12 +1678,11 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.expansion_tank_exhaust_to_dirty_tank_active)
             {
-                writeToLogTable("basınc tankından kirli tanka sıvı aktarımı.");
+                writeToLogTable("temiz tanktan basınc tankına sıvı aktarılıyor .");
             }
             else
             {
-
-                    writeToLogTable("basınc tankından kirli tanka sıvı aktarımı yapıldı.");
+                    writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
 
             }
         }
@@ -1696,11 +1697,11 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.workPumpCleanToExpansion)
             {
-                writeToLogTable("temiz tanktan basınc tankına sıvı aktarılıyor .");
+                writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor.");
             }
             else
             {
-                writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
+                writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor.");
             }
         }
 
@@ -1714,67 +1715,86 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.clean_tank_exhaust_to_dirty_tank_active)
             {
-                writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor.");
+                writeToLogTable("hatlardaki sıvı boşaltılıyor");
             }
             else
             {
-                writeToLogTable("temiz tanktan kirli tankına sıvı aktarıldı.");
+                writeToLogTable("hatlardaki sıvı boşaltıldı.");
             }
         }
 
-        if (myPLC.liquidChangeActive == (data[3] & 0b00001000) >> 3 )
+        if (myPLC.circulationPumpActive == (data[3] & 0b00001000) >> 3 )
         {
 
         }
         else
         {
-            myPLC.liquidChangeActive = (data[3] & 0b00001000) >> 3 ;
-
-            if (myPLC.liquidChangeActive)
-            {
-                writeToLogTable("sıvı degisimi gercekleşiyor.");
-            }
-            else
-            {
-               writeToLogTable("sıvı degisimi gercekleşdi.");
-            }
-        }
-
-        if (myPLC.circulationPumpActive == (data[3] & 0b00010000) >> 4 )
-        {
-
-        }
-        else
-        {
-            myPLC.circulationPumpActive = (data[3] & 0b00010000) >> 4 ;
+            myPLC.circulationPumpActive = (data[3] & 0b00001000) >> 3 ;
 
             if (myPLC.circulationPumpActive)
             {
-                writeToLogTable("Pompa calısıyor");
+                writeToLogTable("Sirkülasyon Pompası Çalışıyor");
             }
             else
             {
-
-                    writeToLogTable("Pompa kapalı");
-
+               writeToLogTable("Sirkülasyon Pompası durdu. ");
             }
         }
 
-        if (myPLC.pressurePrepActive == (data[4] & 0b00000001)  )
+        if (myPLC.cleanTankLow == (data[3] & 0b00010000) >> 4 )
         {
 
         }
         else
         {
-            myPLC.pressurePrepActive = (data[4] & 0b00000001) ;
+            myPLC.cleanTankLow = (data[3] & 0b00010000) >> 4 ;
 
-            if (myPLC.pressurePrepActive)
+            if (myPLC.cleanTankLow)
             {
-                writeToLogTable("basınc ayarlanıyor");
+                writeToLogTable("Temiz tank seviyesi çok düşük.");
             }
             else
             {
-               writeToLogTable("basınc ayarlandı");
+
+                    writeToLogTable("Temiz tank seviyesi normal");
+
+            }
+        }
+
+        if (myPLC.expansionTankHigh == (data[3] & 0b00100000) >> 5 )
+        {
+
+        }
+        else
+        {
+            myPLC.expansionTankHigh = (data[3] & 0b00100000) >> 5 ;
+
+            if (myPLC.expansionTankHigh)
+            {
+                writeToLogTable("basınç tankı sıvı seviyesi yüksek");
+            }
+            else
+            {
+               writeToLogTable("basınç tankı sıvı seviyesi normale döndü.");
+            }
+        }
+        if (myPLC.cabinDoorLock == (data[3] & 0b01000000) >> 6 )
+        {
+
+        }
+        else
+        {
+            myPLC.cabinDoorLock = (data[3] & 0b01000000) >> 6 ;
+
+            if (myPLC.cabinDoorLock)
+            {
+                writeToLogTable("Kapak kilidi aktif");
+                ui->bMainDoorInfo->setEnabled(true);
+            }
+            else
+            {
+               writeToLogTable("Kapak kilidi kullanım dışı");
+               ui->bMainDoorInfo->setEnabled(false);
             }
         }
 
@@ -5892,4 +5912,37 @@ void MainWindow::on_btnDetailsPressure_2_clicked()
 {
     ui->detailsPages->setCurrentIndex(0);
     ui->detailsBottomPages->setCurrentIndex(4);
+}
+
+void MainWindow::on_bDoorControlActive_clicked()
+{
+
+}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    if(ui->lineEdit->text() == "1881"){
+        writeToLogTable("Kapı kilidi şifresi onaylandı.");
+        activateCabinDoorLock();
+    }
+
+}
+
+void MainWindow::activateCabinDoorLock(){
+
+       QByteArray cantTouchThis;
+       cantTouchThis.clear();
+       cantTouchThis.append(0x01);
+       proc->insertCommandMessage(mySerial::makeMessage(0x99,cantTouchThis));
+       ui->lineEdit->setText("");
+
+}
+
+void MainWindow::on_bDoorCOntrolDeactive_clicked()
+{
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+    cantTouchThis.append(char(0x00));
+    proc->insertCommandMessage(mySerial::makeMessage(0x99,cantTouchThis));
+    ui->lineEdit->setText("");
 }

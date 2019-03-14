@@ -235,7 +235,13 @@ private slots:
 
     void on_btnDetailsPressure_2_clicked();
 
+    void on_bDoorControlActive_clicked();
 
+    void on_lineEdit_textChanged(const QString &arg1);
+
+    void activateCabinDoorLock();
+
+    void on_bDoorCOntrolDeactive_clicked();
 
 private:
     Ui::MainWindow *ui;

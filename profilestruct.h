@@ -76,6 +76,8 @@ struct PLC
     bool liquidChangeActive;
     bool liquidChangeComplete;
     bool circulationPumpActive;
+    bool cleanTankLow;
+    bool    expansionTankHigh;
     //basınc state
 
     //nem state
@@ -89,7 +91,7 @@ struct PLC
     bool vibrationMotor1Stat;
     bool vibrationMotor2Stat;
 
-
+    bool cabinDoorLock;
 
 };
 
