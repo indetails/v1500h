@@ -69,6 +69,16 @@ struct PLC
     bool pressureTestCompleted;
     bool pipePressureStat;
 
+    //hortum hata durumları
+
+    bool pipe1LeakageDetected;
+    bool pipe2LeakageDetected;
+    bool pipe3LeakageDetected;
+    bool pipe4LeakageDetected;
+    bool pipe5LeakageDetected;
+
+    bool manualPressureLine;
+
     // tank state
     bool expansion_tank_exhaust_to_dirty_tank_active;
     bool workPumpCleanToExpansion;

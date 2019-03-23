@@ -608,7 +608,13 @@ void MainWindow::setupVisuals()
     ui->sbTStepRepeatSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->sbTCycleSetManual->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
-    ui->Hortum1->setChecked(true);
+    ui->control_hortum_1->setVisible(false);
+    ui->control_hortum_2->setVisible(false);
+    ui->control_hortum_3->setVisible(false);
+    ui->control_hortum_4->setVisible(false);
+    ui->control_hortum_5->setVisible(false);
+
+
 
     loadValueExhaustValve();
     loadValueTopTempSensorCalibration();
@@ -622,6 +628,8 @@ void MainWindow::setupVisuals()
     on_bResetFault_clicked();
 
     ui->bMainDoorInfo->setEnabled(false);
+
+
 }
 
 void MainWindow::serialMessage(uint command, QByteArray data)
@@ -917,6 +925,10 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bStartTest1500h->setEnabled(true);
                     ui->bPauseTest1500h->setEnabled(false);
 
+                    ui->bManualPressureLinesStart->setEnabled(true);
+                    ui->bManualEvacLines->setEnabled(true);
+                    ui->bManualPrepareLines->setEnabled(true);
+
                 }
             }
         }
@@ -932,6 +944,9 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 if (myPLC.deviceState)
                 {
                     writeToLogTable("Bakım modu aktif");
+                    ui->bManualPressureLinesStart->setEnabled(true);
+                    ui->bManualEvacLines->setEnabled(true);
+                    ui->bManualPrepareLines->setEnabled(true);
 
                 }
             }
@@ -954,6 +969,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bStopTest->setEnabled(true);
                     ui->bPauseTest->setEnabled(false);
                     ui->bResetFault->setVisible(false);
+                    ui->bManualPressureLinesStart->setEnabled(false);
                 }
             }
         }
@@ -995,6 +1011,11 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->bStopTest->setEnabled(true);
                     ui->bPauseTest->setEnabled(true);
                     ui->bResetFault->setVisible(false);
+
+                    ui->bManualPressureLinesStart->setEnabled(false);
+                    ui->bManualPressureLinesStop->setEnabled(false);
+                    ui->bManualEvacLines->setEnabled(false);
+                    ui->bManualPrepareLines->setEnabled(false);
                 }
             }
         }
@@ -1033,6 +1054,24 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                     ui->detailsBottomPages->setCurrentIndex(5);
                     ui->bResetFault->setVisible(true);
                     ui->laFault12->setVisible(true);
+                }
+            }
+        }
+        else if (data[0] == char(0x0D))
+        {
+            if (myPLC.deviceState == (data[0]))
+            {
+
+            }
+            else
+            {
+                myPLC.deviceState = data[0];
+                if (myPLC.deviceState)
+                {
+                    ui->bManualPressureLinesStart->setEnabled(true);
+                    ui->bManualPrepareLines->setEnabled(true);
+                    ui->bManualPressureLinesStop->setEnabled(true);
+                    ui->bManualEvacLines->setEnabled(true);
                 }
             }
         }
@@ -1541,12 +1580,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.pipe1Control)
             {
                 writeToLogTable("hortum 1 kontrol.");
+                ui->control_hortum_1->setVisible(true);
             }
             else
             {
-
-                    writeToLogTable("hortum1 kontrol edildi.");
-
+               writeToLogTable("hortum1 kontrol edildi.");
+               ui->control_hortum_1->setVisible(false);
             }
         }
 
@@ -1561,11 +1600,13 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.pipe2Control)
             {
                 writeToLogTable("hortum 2 kontrol.");
+                ui->control_hortum_2->setVisible(true);
             }
             else
             {
 
                     writeToLogTable("hortum 2 kontrol edildi.");
+                    ui->control_hortum_2->setVisible(false);
 
             }
         }
@@ -1581,11 +1622,13 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.pipe3Control)
             {
                 writeToLogTable("hortum 3 kontrol.");
+                ui->control_hortum_3->setVisible(true);
             }
             else
             {
 
                     writeToLogTable("hortum 3 kontrol edildi.");
+                    ui->control_hortum_3->setVisible(false);
 
             }
         }
@@ -1601,10 +1644,11 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.pipe4Control)
             {
                 writeToLogTable("hortum 4 kontrol.");
+                ui->control_hortum_4->setVisible(true);
             }
             else
             {
-
+                    ui->control_hortum_4->setVisible(false);
                     writeToLogTable("hortum 4 kontrol edildi.");
 
             }
@@ -1621,10 +1665,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.pipe5Control)
             {
                 writeToLogTable("hortum 5 kontrol.");
+                ui->control_hortum_5->setVisible(true);
             }
             else
             {
                 writeToLogTable("hortum 5 kontrol edildi.");
+                ui->control_hortum_5->setVisible(false);
             }
         }
 
@@ -1658,15 +1704,45 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.pipePressureStat)
             {
-                writeToLogTable("hortum kontrol.");
+                writeToLogTable("hortum kontrol");
+                ui->tabWidget->setCurrentIndex(1);
+                ui->detailsBottomPages->setCurrentIndex(2);               
+                ui->laFault4A_2->setVisible(true);
+                ui->bResetFault->setVisible(true);
             }
             else
             {
 
                     writeToLogTable("hortum kontrol edildi.");
+                    ui->laFault4A_2->setVisible(false);
+            }
+        }
+
+
+
+        if (myPLC.pipePressureStat == (data[2] & 0b10000000) >> 7 )
+        {
+
+        }
+        else
+        {
+            myPLC.manualPressureLine = (data[2] & 0b10000000) >> 7 ;
+
+            if (myPLC.manualPressureLine)
+            {
+                writeToLogTable("hortum manuel basınçlandırılıyor");
+                ui->detailsBottomPages->setCurrentIndex(2);
+                ui->bManualPressureLinesStop->setEnabled(true);
+
+            }
+            else
+            {
+
+                    writeToLogTable("hortum manuel basınçlandırma tamamlandı.");
 
             }
         }
+
 
         if (myPLC.expansion_tank_exhaust_to_dirty_tank_active == (data[3] & 0b00000001)  )
         {
@@ -1682,7 +1758,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
             else
             {
-                    writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
+                writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
 
             }
         }
@@ -1797,6 +1873,113 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                ui->bMainDoorInfo->setEnabled(false);
             }
         }
+
+
+
+        if (myPLC.pipe1LeakageDetected == (data[4] & 0b00000001)  )
+        {
+
+        }
+        else
+        {
+            myPLC.pipe1LeakageDetected = (data[4] & 0b00000001) ;
+
+            if (myPLC.pipe1LeakageDetected)
+            {
+                writeToLogTable("1. hatta sızıntı tespit edildi.");
+                ui->laFault21->setVisible(true);
+                ui->Hortum1_2->setChecked(false);
+            }
+            else
+            {
+                ui->Hortum1_2->setChecked(true);
+
+
+            }
+        }
+
+        if (myPLC.pipe2LeakageDetected == (data[4] & 0b00000010) >> 1 )
+        {
+
+        }
+        else
+        {
+            myPLC.pipe2LeakageDetected = (data[4] & 0b00000010) >> 1 ;
+
+            if (myPLC.pipe2LeakageDetected)
+            {
+                writeToLogTable("2. hatta sızıntı tespit edildi.");
+                ui->laFault22->setVisible(true);
+                ui->Hortum2_2->setChecked(false);
+            }
+            else
+            {
+                ui->Hortum2_2->setChecked(true);
+
+            }
+        }
+
+        if (myPLC.pipe3LeakageDetected == (data[4] & 0b00000100) >> 2 )
+        {
+
+        }
+        else
+        {
+            myPLC.pipe3LeakageDetected = (data[4] & 0b00000100) >> 2 ;
+
+            if (myPLC.pipe3LeakageDetected)
+            {
+                writeToLogTable("3.hatta sızıntı tespit edildi.");
+                ui->laFault23->setVisible(true);
+                ui->Hortum3_2->setChecked(false);
+            }
+            else
+            {
+                ui->Hortum3_2->setChecked(true);
+            }
+        }
+
+        if (myPLC.pipe4LeakageDetected== (data[4] & 0b00001000) >> 3 )
+        {
+
+        }
+        else
+        {
+            myPLC.pipe4LeakageDetected = (data[4] & 0b00001000) >> 3 ;
+
+            if (myPLC.pipe4LeakageDetected)
+            {
+                writeToLogTable("4.hatta sızıntı tespit edildi.");
+                ui->laFault24->setVisible(true);
+                ui->Hortum4_2->setChecked(false);
+            }
+            else
+            {
+                ui->Hortum4_2->setChecked(true);
+            }
+        }
+
+        if (myPLC.pipe5LeakageDetected == (data[4] & 0b00010000) >> 4 )
+        {
+
+        }
+        else
+        {
+            myPLC.pipe5LeakageDetected = (data[4] & 0b00010000) >> 4 ;
+
+            if (myPLC.pipe5LeakageDetected)
+            {
+                writeToLogTable("5.hatta sızıntı tespit edildi.");
+                ui->laFault25->setVisible(true);
+                ui->Hortum5_2->setChecked(false);
+            }
+            else
+            {
+                ui->Hortum5_2->setChecked(true);
+            }
+        }
+
+
 
 
         /*
@@ -5588,9 +5771,9 @@ bool MainWindow::on_bSendProfile1500h_clicked()
 
     proc->setProfile();
 
-ui->pb_testProgress->setMaximum(totalDuration);
-ui->pb_testProgress->setMinimum(0);
-ui->pb_testProgress->setValue(0);
+    ui->pb_testProgress->setMaximum(totalDuration);
+    ui->pb_testProgress->setMinimum(0);
+    ui->pb_testProgress->setValue(0);
 
 
     return true;
@@ -5864,6 +6047,7 @@ void MainWindow::on_bResetFault_clicked()
     ui->laFault48->setVisible(false);
     ui->laFault49->setVisible(false);
     ui->laFault4A->setVisible(false);
+    ui->laFault4A_2->setVisible(false);
 
 
 
@@ -5921,7 +6105,7 @@ void MainWindow::on_bDoorControlActive_clicked()
 
 void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
-    if(ui->lineEdit->text() == "1881"){
+    if(ui->lineEdit->text() == "11"){
         writeToLogTable("Kapı kilidi şifresi onaylandı.");
         activateCabinDoorLock();
     }
@@ -5945,4 +6129,271 @@ void MainWindow::on_bDoorCOntrolDeactive_clicked()
     cantTouchThis.append(char(0x00));
     proc->insertCommandMessage(mySerial::makeMessage(0x99,cantTouchThis));
     ui->lineEdit->setText("");
+}
+
+
+
+bool MainWindow::on_Hortum1_stateChanged()
+{
+    if (ui->Hortum1->isChecked()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool MainWindow::on_Hortum2_stateChanged()
+{
+    if (ui->Hortum2->isChecked()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool MainWindow::on_Hortum3_stateChanged()
+{
+    if (ui->Hortum3->isChecked()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool MainWindow::on_Hortum4_stateChanged()
+{
+    if (ui->Hortum4->isChecked()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool MainWindow::on_Hortum5_stateChanged()
+{
+    if (ui->Hortum5->isChecked()){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+void MainWindow::on_bManualPressureLinesStart_clicked()
+{
+    char activePipes;
+
+    if(on_Hortum1_stateChanged()){
+        activePipes |= 1 << 0;
+    }
+    else
+    {
+        activePipes &= ~1;
+    }
+
+    if(on_Hortum2_stateChanged()){
+        activePipes |= 1 << 1;
+    }
+    else
+    {
+        activePipes &= ~2;
+    }
+    if(on_Hortum3_stateChanged()){
+        activePipes |= 1 << 2;
+    }
+    else
+    {
+        activePipes &= ~4;
+    }
+
+    if(on_Hortum4_stateChanged()){
+        activePipes |= 1 << 3;
+    }
+    else
+    {
+        activePipes &= ~8;
+    }
+
+    if(on_Hortum5_stateChanged()){
+        activePipes |= 1 << 4;
+    }
+    else
+    {
+        activePipes &= ~16;
+    }
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+    writeToLogTable("Manual hortum kontrolu başlatıldı.");
+    cantTouchThis.append(activePipes);
+    cantTouchThis.append(char(0x01));
+    cantTouchThis.append(char(0x00));
+    cantTouchThis.append(char(0x00));
+
+    proc->insertCommandMessage(mySerial::makeMessage(0xA1,cantTouchThis));
+}
+
+void MainWindow::on_bManualPressureLinesStop_clicked()
+{
+    char activePipes;
+
+    if(on_Hortum1_stateChanged()){
+        activePipes |= 1 << 0;
+    }
+    else
+    {
+        activePipes &= ~1;
+    }
+
+    if(on_Hortum2_stateChanged()){
+        activePipes |= 1 << 1;
+    }
+    else
+    {
+        activePipes &= ~2;
+    }
+    if(on_Hortum3_stateChanged()){
+        activePipes |= 1 << 2;
+    }
+    else
+    {
+        activePipes &= ~4;
+    }
+
+    if(on_Hortum4_stateChanged()){
+        activePipes |= 1 << 3;
+    }
+    else
+    {
+        activePipes &= ~8;
+    }
+
+    if(on_Hortum5_stateChanged()){
+        activePipes |= 1 << 4;
+    }
+    else
+    {
+        activePipes &= ~16;
+    }
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+
+    writeToLogTable("Manual hortum kontrolleri durduruldu.");
+    cantTouchThis.append(activePipes);
+    cantTouchThis.append(char(0x00));
+    cantTouchThis.append(char(0x00));
+    cantTouchThis.append(char(0x00));
+
+    proc->insertCommandMessage(mySerial::makeMessage(0xA1,cantTouchThis));
+}
+
+void MainWindow::on_bManualEvacLines_clicked()
+{
+    char activePipes;
+
+    if(on_Hortum1_stateChanged()){
+        activePipes |= 1 << 0;
+    }
+    else
+    {
+        activePipes &= ~1;
+    }
+
+    if(on_Hortum2_stateChanged()){
+        activePipes |= 1 << 1;
+    }
+    else
+    {
+        activePipes &= ~2;
+    }
+    if(on_Hortum3_stateChanged()){
+        activePipes |= 1 << 2;
+    }
+    else
+    {
+        activePipes &= ~4;
+    }
+
+    if(on_Hortum4_stateChanged()){
+        activePipes |= 1 << 3;
+    }
+    else
+    {
+        activePipes &= ~8;
+    }
+
+    if(on_Hortum5_stateChanged()){
+        activePipes |= 1 << 4;
+    }
+    else
+    {
+        activePipes &= ~16;
+    }
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+
+    writeToLogTable("Manual hat boşaltma çalışıyor.");
+    cantTouchThis.append(activePipes);
+    cantTouchThis.append(char(0x00));
+    cantTouchThis.append(char(0x01));
+    cantTouchThis.append(char(0x00));
+
+    proc->insertCommandMessage(mySerial::makeMessage(0xA1,cantTouchThis));
+}
+
+void MainWindow::on_bManualPrepareLines_clicked()
+{
+    char activePipes;
+
+    if(on_Hortum1_stateChanged()){
+        activePipes |= 1 << 0;
+    }
+    else
+    {
+        activePipes &= ~1;
+    }
+
+    if(on_Hortum2_stateChanged()){
+        activePipes |= 1 << 1;
+    }
+    else
+    {
+        activePipes &= ~2;
+    }
+    if(on_Hortum3_stateChanged()){
+        activePipes |= 1 << 2;
+    }
+    else
+    {
+        activePipes &= ~4;
+    }
+
+    if(on_Hortum4_stateChanged()){
+        activePipes |= 1 << 3;
+    }
+    else
+    {
+        activePipes &= ~8;
+    }
+
+    if(on_Hortum5_stateChanged()){
+        activePipes |= 1 << 4;
+    }
+    else
+    {
+        activePipes &= ~16;
+    }
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+
+    writeToLogTable("Manual hortum hava alma yapılıyor");
+    cantTouchThis.append(activePipes);
+    cantTouchThis.append(char(0x00));
+    cantTouchThis.append(char(0x00));
+    cantTouchThis.append(char(0x01));
+
+    proc->insertCommandMessage(mySerial::makeMessage(0xA1,cantTouchThis));
 }

@@ -243,6 +243,26 @@ private slots:
 
     void on_bDoorCOntrolDeactive_clicked();
 
+
+
+    bool on_Hortum1_stateChanged();
+
+    bool on_Hortum2_stateChanged();
+
+    bool on_Hortum3_stateChanged();
+
+    bool on_Hortum4_stateChanged();
+
+    bool on_Hortum5_stateChanged();
+
+    void on_bManualPressureLinesStart_clicked();
+
+    void on_bManualPressureLinesStop_clicked();
+
+    void on_bManualEvacLines_clicked();
+
+    void on_bManualPrepareLines_clicked();
+
 private:
     Ui::MainWindow *ui;
 
