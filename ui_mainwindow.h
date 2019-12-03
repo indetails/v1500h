@@ -6085,7 +6085,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(bDoorControlActive, SIGNAL(clicked()), lineEdit, SLOT(selectAll()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
         mainPage->setCurrentIndex(0);
         detailsPages->setCurrentIndex(0);
         detailsBottomPages->setCurrentIndex(3);
