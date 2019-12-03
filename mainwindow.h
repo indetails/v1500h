@@ -229,6 +229,8 @@ private slots:
 
     void on_bResetFault_clicked();
 
+    void resetFault();
+
     void on_bChooseData_clicked();
 
     void on_btnDetailsPipes_clicked();
@@ -262,6 +264,8 @@ private slots:
     void on_bManualEvacLines_clicked();
 
     void on_bManualPrepareLines_clicked();
+
+    void on_bBuzzerReset_clicked();
 
 private:
     Ui::MainWindow *ui;

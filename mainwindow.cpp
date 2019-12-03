@@ -355,7 +355,7 @@ void MainWindow::setupTGraph()
     connect(ui->tTestGraph, SIGNAL(mouseWheel(QWheelEvent*)), this, SLOT(mouseWheel()));
  //   connect(ui->tTestGraph->xAxis, SIGNAL(rangeChanged(QCPRange)), ui->tTestGraph->xAxis2, SLOT(setRange(QCPRange)));
  //   connect(ui->tTestGraph->yAxis, SIGNAL(rangeChanged(QCPRange)), ui->tTestGraph->yAxis2, SLOT(setRange(QCPRange)));
-if (startFromRecords){
+/*if (startFromRecords){
     QVector<double> x(180000), y(180000);
         #ifdef Q_OS_WIN
                 // windows code goes here
@@ -371,17 +371,18 @@ if (startFromRecords){
                 QTextStream xin (&file);
                 int rowcount = 0;
                 while (!xin.atEnd()) {
-                    auto line =xin.readLine();
-                    auto values =line.split(",");
-                    x[rowcount] = values[0].toDouble();
-                    y[rowcount]= values[1].toDouble();
+                    //auto line =xin.readLine();
+                    //auto values =line.split(",");
+                    //x[rowcount] = values[0].toDouble();
+                   // y[rowcount]= values[1].toDouble();
                     rowcount++;
                 }
 
 
            ui->tTestGraph->graph(0)->setData(x, y);
-}
 
+}
+*/
 
 
 
@@ -613,6 +614,13 @@ void MainWindow::setupVisuals()
     ui->control_hortum_3->setVisible(false);
     ui->control_hortum_4->setVisible(false);
     ui->control_hortum_5->setVisible(false);
+    ui->laDurum1->setVisible(false);
+    ui->laDurum2->setVisible(false);
+    ui->laDurum2_2->setVisible(false);
+    ui->laDurum3->setVisible(false);
+    ui->laDurum3_2->setVisible(false);
+    ui->label_40->setVisible(false);
+    ui->label_38->setVisible(false);
 
 
 
@@ -625,9 +633,10 @@ void MainWindow::setupVisuals()
     loadValueDirtyTankLevelCalibration();
     loadValueExpansionTankLevelCalibration();
 
-    on_bResetFault_clicked();
+    resetFault();
 
     ui->bMainDoorInfo->setEnabled(false);
+    ui->mainPage->setCurrentIndex(2);
 
 
 }
@@ -798,9 +807,9 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 {
     if (index == 3)
     {
-        if (profileId != data[5])
+        if (profileId != data[6])
         {
-            profileId = quint16(data[5]);
+            profileId = quint16(data[6]);
             ui->cbSelectProfileMain->setCurrentIndex(profileId);
         }
         if (data[0] == char(0x01))
@@ -1562,12 +1571,59 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             if (myPLC.temperaturePrepActive)
             {
                 writeToLogTable("sıcaklık ayarlanıyor.");
+                ui-> laDurum2->setVisible(true);
+
             }
             else
             {
                 writeToLogTable("sıcaklık ayarlama yapıldı.");
+                ui-> laDurum2->setVisible(false);
             }
         }
+
+
+        if (myPLC.temperatureFixing == (data[1] & 0b01000000) >> 6)
+        {
+
+        }
+        else
+        {
+            myPLC.temperatureFixing = (data[1] & 0b01000000) >> 6;
+
+            if (myPLC.temperatureFixing)
+            {
+                writeToLogTable("sıcaklık ayarlanıyor.");
+                ui-> laDurum2->setVisible(true);
+
+            }
+            else
+            {
+                writeToLogTable("sıcaklık ayarlama yapıldı.");
+                ui-> laDurum2->setVisible(false);
+            }
+        }
+
+
+        if (myPLC.temperatureFixed == (data[1] & 0b10000000) >> 7)
+        {
+
+        }
+        else
+        {
+            myPLC.temperatureFixed = (data[1] & 0b10000000) >> 7;
+
+            if (not myPLC.temperatureFixed )
+            {
+                ui-> laDurum2_2->setVisible(true);
+
+            }
+            else
+            {
+                ui-> laDurum2_2->setVisible(false);
+            }
+        }
+
+
 
         if (myPLC.pipe1Control == (data[2] & 0b00000001) )
         {
@@ -1684,12 +1740,14 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.pipePrepareActive)
             {
-                writeToLogTable("hortum hava alma kontrol.");
+                  writeToLogTable("hortum hava alma kontrol.");
+                   ui->laDurum1->setVisible(true);
             }
             else
             {
 
                     writeToLogTable("hortum hava alma kontrol edildi.");
+                     ui->laDurum1->setVisible(false);
 
             }
         }
@@ -1710,6 +1768,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 ui->laFault4A_2->setVisible(true);
                 ui->bResetFault->setVisible(true);
             }
+
             else
             {
 
@@ -1718,9 +1777,7 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
             }
         }
 
-
-
-        if (myPLC.pipePressureStat == (data[2] & 0b10000000) >> 7 )
+        if (myPLC.manualPressureLine == (data[2] & 0b10000000) >> 7 )
         {
 
         }
@@ -1742,7 +1799,6 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             }
         }
-
 
         if (myPLC.expansion_tank_exhaust_to_dirty_tank_active == (data[3] & 0b00000001)  )
         {
@@ -1827,13 +1883,15 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.cleanTankLow)
             {
+                ui->laFault31->setVisible(true);
                 writeToLogTable("Temiz tank seviyesi çok düşük.");
+                ui->tabWidget->setCurrentIndex(1);
+                ui->detailsBottomPages->setCurrentIndex(1);
             }
             else
             {
-
-                    writeToLogTable("Temiz tank seviyesi normal");
-
+                ui->laFault31->setVisible(false);
+               writeToLogTable("Temiz tank seviyesi normal");
             }
         }
 
@@ -1875,7 +1933,6 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         }
 
 
-
         if (myPLC.pipe1LeakageDetected == (data[4] & 0b00000001)  )
         {
 
@@ -1889,10 +1946,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 writeToLogTable("1. hatta sızıntı tespit edildi.");
                 ui->laFault21->setVisible(true);
                 ui->Hortum1_2->setChecked(false);
+                ui->Hortum1->setChecked(true);
             }
             else
             {
                 ui->Hortum1_2->setChecked(true);
+                ui->Hortum1->setChecked(false);
 
 
             }
@@ -1911,10 +1970,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 writeToLogTable("2. hatta sızıntı tespit edildi.");
                 ui->laFault22->setVisible(true);
                 ui->Hortum2_2->setChecked(false);
+                ui->Hortum2->setChecked(true);
             }
             else
             {
                 ui->Hortum2_2->setChecked(true);
+                ui->Hortum2->setChecked(false);
 
             }
         }
@@ -1932,10 +1993,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 writeToLogTable("3.hatta sızıntı tespit edildi.");
                 ui->laFault23->setVisible(true);
                 ui->Hortum3_2->setChecked(false);
+                ui->Hortum3->setChecked(true);
             }
             else
             {
                 ui->Hortum3_2->setChecked(true);
+                ui->Hortum3->setChecked(false);
             }
         }
 
@@ -1952,10 +2015,12 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 writeToLogTable("4.hatta sızıntı tespit edildi.");
                 ui->laFault24->setVisible(true);
                 ui->Hortum4_2->setChecked(false);
+                ui->Hortum4->setChecked(true);
             }
             else
             {
                 ui->Hortum4_2->setChecked(true);
+                ui->Hortum4->setChecked(false);
             }
         }
 
@@ -1972,14 +2037,95 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
                 writeToLogTable("5.hatta sızıntı tespit edildi.");
                 ui->laFault25->setVisible(true);
                 ui->Hortum5_2->setChecked(false);
+                ui->Hortum5->setChecked(true);
             }
             else
             {
                 ui->Hortum5_2->setChecked(true);
+                ui->Hortum5->setChecked(false);
             }
         }
 
+        if (myPLC.ManualPrepareLinesFixing == (data[4] & 0b00100000) >> 5 )
+        {
 
+        }
+        else
+        {
+            myPLC.ManualPrepareLinesFixing = (data[4] & 0b00100000) >> 5 ;
+
+            if (myPLC.ManualPrepareLinesFixing)
+            {
+                // Manuel hava alma işlemi
+                ui->label_62->setVisible(true);
+
+
+            }
+            else
+            {
+              ui->label_62->setVisible(true);
+            }
+        }
+
+        if (myPLC.ManualEvacLinesFixing == (data[4] & 0b01000000) >> 6 )
+        {
+
+        }
+        else
+        {
+            myPLC.ManualEvacLinesFixing = (data[4] & 0b01000000) >> 6 ;
+
+            if (myPLC.ManualEvacLinesFixing)
+            {
+                ui->label_63->setVisible(true);
+            }
+            else
+            {
+                ui->label_63->setVisible(false);
+            }
+        }
+
+        if (myPLC.pressureFixing == (data[5] & 0b00000001) )
+        {
+
+        }
+        else
+        {
+            myPLC.pressureFixing = (data[5] & 0b00000001)  ;
+
+            if (myPLC.pressureFixing)
+            {
+
+                ui->laDurum3->setVisible(true);
+
+
+            }
+            else
+            {
+                ui->laDurum3->setVisible(false);
+            }
+        }
+
+        if (myPLC.pressureFixed == (data[5] & 0b00000010 >> 1 ) )
+        {
+
+        }
+        else
+        {
+            myPLC.pressureFixed = (data[5] & 0b00000010 >> 1) ;
+
+            if (myPLC.pressureFixed)
+            {
+
+                ui->laDurum3_2->setVisible(true);
+
+
+            }
+            else
+            {
+                ui->laDurum3_2->setVisible(false);
+            }
+        }
 
 
         /*
@@ -2238,13 +2384,13 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
         }
 */
-
-        if (profileId != data[5])
+/*
+        if (profileId != data[7])
         {
-            profileId = quint16(data[5]);
+            profileId = quint16(data[7]);
             ui->cbSelectProfileMain->setCurrentIndex(profileId);
         }
-
+*/
         /*     if ( pCycle != quint16(((data[6] & 0xff) << 8) | (data[5] & 0xff)) )
         {
 
@@ -6015,7 +6161,30 @@ void MainWindow::on_b_tum_tanklari_bosalt_clicked()
 
 void MainWindow::on_bResetFault_clicked()
 {
+    QMessageBox::StandardButton resetBtn;
 
+    resetBtn = QMessageBox::question( this, appName,
+                                    tr("Hataların giderildiğini onaylıyor musunuz?"),
+                                     QMessageBox::No | QMessageBox::Yes,
+                                    QMessageBox::Yes);
+
+
+
+    if (resetBtn == QMessageBox::Yes)
+    {
+        resetFault();
+    }
+
+    else
+    {
+
+    }
+
+
+
+}
+
+void MainWindow::resetFault(){
     proc->stop();
 
     QByteArray cantTouchThis;
@@ -6057,14 +6226,13 @@ void MainWindow::on_bResetFault_clicked()
      ui->gb_CleanTankLevel->setStyleSheet(" ");
      ui->gb_KirliTankLevel->setStyleSheet(" ");
      // hortum kısmının resetlenmesı
-     ui->Hortum1->setChecked(true);
-     ui->Hortum2->setChecked(true);
-     ui->Hortum3->setChecked(true);
-     ui->Hortum4->setChecked(true);
-     ui->Hortum5->setChecked(true);
-
-
+     ui->Hortum1->setChecked(false);
+     ui->Hortum2->setChecked(false);
+     ui->Hortum3->setChecked(false);
+     ui->Hortum4->setChecked(false);
+     ui->Hortum5->setChecked(false);
 }
+
 
 void MainWindow::on_bChooseData_clicked()
 {
@@ -6130,8 +6298,6 @@ void MainWindow::on_bDoorCOntrolDeactive_clicked()
     proc->insertCommandMessage(mySerial::makeMessage(0x99,cantTouchThis));
     ui->lineEdit->setText("");
 }
-
-
 
 bool MainWindow::on_Hortum1_stateChanged()
 {
@@ -6346,6 +6512,7 @@ void MainWindow::on_bManualEvacLines_clicked()
 
 void MainWindow::on_bManualPrepareLines_clicked()
 {
+
     char activePipes;
 
     if(on_Hortum1_stateChanged()){
@@ -6396,4 +6563,14 @@ void MainWindow::on_bManualPrepareLines_clicked()
     cantTouchThis.append(char(0x01));
 
     proc->insertCommandMessage(mySerial::makeMessage(0xA1,cantTouchThis));
+}
+
+void MainWindow::on_bBuzzerReset_clicked()
+{
+
+
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+    cantTouchThis.append(0x01);
+    proc->insertCommandMessage(mySerial::makeMessage(0xA2,cantTouchThis));
 }

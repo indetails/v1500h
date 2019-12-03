@@ -54,6 +54,8 @@ struct PLC
     bool liquidChangeCoolingActive;
     bool cabinTemperatureStat;
     bool tankTemperatureStat;
+    bool temperatureFixing;
+    bool temperatureFixed;
 
 
     // hortum kontrol state
@@ -68,6 +70,8 @@ struct PLC
     bool pressureTestActive;
     bool pressureTestCompleted;
     bool pipePressureStat;
+    bool ManualPrepareLinesFixing;
+    bool ManualEvacLinesFixing;
 
     //hortum hata durumları
 
@@ -89,7 +93,8 @@ struct PLC
     bool cleanTankLow;
     bool    expansionTankHigh;
     //basınc state
-
+     bool pressureFixing;
+     bool pressureFixed;
     //nem state
 
     // sogutma state

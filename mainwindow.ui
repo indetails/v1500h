@@ -288,7 +288,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -810,7 +810,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
   }</string>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="pRecipeMode">
          <widget class="QComboBox" name="cbSelectProfileMain">
@@ -2015,6 +2015,9 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
                <height>16777215</height>
               </size>
              </property>
+             <property name="text">
+              <string>132.5</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -2073,6 +2076,9 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
                <width>135</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="text">
+              <string>50</string>
              </property>
             </widget>
            </item>
@@ -2133,6 +2139,9 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
                <height>16777215</height>
               </size>
              </property>
+             <property name="text">
+              <string>170</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -2191,6 +2200,9 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
                <width>135</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="text">
+              <string>1500</string>
              </property>
             </widget>
            </item>
@@ -2251,6 +2263,9 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
                <height>16777215</height>
               </size>
              </property>
+             <property name="text">
+              <string>2</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -2309,6 +2324,9 @@ font: 75 14pt &quot;Gill Sans MT&quot;;
                <width>135</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="text">
+              <string>1</string>
              </property>
             </widget>
            </item>
@@ -2404,6 +2422,9 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
           <pointsize>-1</pointsize>
          </font>
         </property>
+        <property name="whatsThis">
+         <string/>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
 color: rgb(255, 255, 255);
@@ -2443,6 +2464,9 @@ radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
         </property>
         <property name="checkable">
          <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
         </property>
        </widget>
        <zorder>bClearLogTable_2</zorder>
@@ -2499,7 +2523,7 @@ image: url(:/images/Desktop/ilhan/1500h/qt4.PNG);
          <widget class="QStackedWidget" name="detailsBottomPages">
           <property name="geometry">
            <rect>
-            <x>10</x>
+            <x>20</x>
             <y>150</y>
             <width>1111</width>
             <height>381</height>
@@ -2517,7 +2541,7 @@ border-radius : 8px;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QLabel" name="label_26">
@@ -2562,7 +2586,7 @@ border-radius : 8px;
 </string>
             </property>
             <property name="value">
-             <number>50</number>
+             <number>0</number>
             </property>
            </widget>
            <widget class="QTableWidget" name="warningTable">
@@ -3864,7 +3888,7 @@ radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
 </string>
             </property>
             <property name="value">
-             <number>50</number>
+             <number>0</number>
             </property>
            </widget>
            <widget class="QLabel" name="label_27">
@@ -4319,19 +4343,25 @@ radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
             </property>
             <property name="font">
              <font>
-              <family>Arial</family>
-              <pointsize>18</pointsize>
-              <weight>9</weight>
+              <family>Arial Black</family>
+              <pointsize>22</pointsize>
+              <weight>10</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 0, 0);
-font: 75 18pt &quot;Arial&quot;;</string>
+             <string notr="true">background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),
+                                stop: 0.5  rgb(255, 100, 0), stop: 1.0  rgb(125, 85,0 ));
+font: 87 22pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border: 4px solid rgb(65, 65, 65);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;</string>
             </property>
             <property name="text">
-             <string>31 Temiz Tank Seviyesi Düşük</string>
+             <string> Temiz Tankı Sıvı Seviyesi Düşük</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -4341,7 +4371,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>200</x>
-              <y>230</y>
+              <y>280</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -4370,7 +4400,7 @@ background-color: rgb(255, 0, 0);</string>
             <property name="geometry">
              <rect>
               <x>200</x>
-              <y>230</y>
+              <y>280</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -4400,7 +4430,7 @@ color: rgb(255, 255, 255);</string>
             <property name="geometry">
              <rect>
               <x>200</x>
-              <y>230</y>
+              <y>280</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -4426,6 +4456,13 @@ font: 75 18pt &quot;Arial&quot;;</string>
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
+           <zorder>gb_KirliTankLevel</zorder>
+           <zorder>gb_CleanTankLevel</zorder>
+           <zorder>gb_basincTankLevel</zorder>
+           <zorder>laFault32</zorder>
+           <zorder>laFault34</zorder>
+           <zorder>laFault33</zorder>
+           <zorder>laFault31</zorder>
           </widget>
           <widget class="QWidget" name="detailsBottomPipes">
            <widget class="QLabel" name="laFault25">
@@ -4962,13 +4999,45 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <zorder>Hortum4_2</zorder>
             <zorder>Hortum5_2</zorder>
            </widget>
+           <widget class="QLabel" name="laDurum1">
+            <property name="geometry">
+             <rect>
+              <x>190</x>
+              <y>230</y>
+              <width>731</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 255);
+border: 4px solid rgb(65, 65, 65);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;</string>
+            </property>
+            <property name="text">
+             <string>Hava alma işlemi gercekleşiyor </string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="detailsBottomHetar">
            <widget class="QLabel" name="label_40">
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>150</y>
+              <y>190</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -4992,7 +5061,7 @@ color: rgb(255, 0, 0);
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>230</y>
+              <y>270</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -5022,7 +5091,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>230</y>
+              <y>270</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -5052,7 +5121,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>230</y>
+              <y>270</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -5082,7 +5151,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>230</y>
+              <y>270</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -5103,6 +5172,134 @@ font: 75 18pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
              <string>42 Fan1 calışmıyor</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laDurum2">
+            <property name="geometry">
+             <rect>
+              <x>240</x>
+              <y>50</y>
+              <width>721</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 255);
+border: 4px solid rgb(65, 65, 65);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;</string>
+            </property>
+            <property name="text">
+             <string>Sıcaklık set degerine getiriliyor</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laDurum3">
+            <property name="geometry">
+             <rect>
+              <x>240</x>
+              <y>120</y>
+              <width>721</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 255);
+border: 4px solid rgb(65, 65, 65);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;</string>
+            </property>
+            <property name="text">
+             <string>Basınç set degerine getiriliyor</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laDurum3_2">
+            <property name="geometry">
+             <rect>
+              <x>240</x>
+              <y>120</y>
+              <width>721</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 255);
+border: 4px solid rgb(65, 65, 65);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;</string>
+            </property>
+            <property name="text">
+             <string>Basınç set degerinde</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="laDurum2_2">
+            <property name="geometry">
+             <rect>
+              <x>240</x>
+              <y>50</y>
+              <width>721</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>18</pointsize>
+              <weight>5</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 255);
+border: 4px solid rgb(65, 65, 65);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;</string>
+            </property>
+            <property name="text">
+             <string>Sıcaklık set degerinde</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -5453,7 +5650,7 @@ background-color: rgb(255, 0, 0);</string>
          <widget class="QPushButton" name="btnDetailsInfo">
           <property name="geometry">
            <rect>
-            <x>340</x>
+            <x>200</x>
             <y>540</y>
             <width>94</width>
             <height>61</height>
@@ -5476,7 +5673,7 @@ background-color: rgb(255, 0, 0);</string>
          <widget class="QPushButton" name="btnDetailsTanklevel">
           <property name="geometry">
            <rect>
-            <x>540</x>
+            <x>400</x>
             <y>540</y>
             <width>94</width>
             <height>61</height>
@@ -5500,7 +5697,7 @@ background-color: rgb(255, 0, 0);</string>
          <widget class="QPushButton" name="btnDetailsHeater">
           <property name="geometry">
            <rect>
-            <x>640</x>
+            <x>500</x>
             <y>540</y>
             <width>94</width>
             <height>61</height>
@@ -5818,7 +6015,7 @@ font: 75 21pt &quot;Gill Sans MT&quot;;
          <widget class="QPushButton" name="btnDetailsPipes">
           <property name="geometry">
            <rect>
-            <x>440</x>
+            <x>300</x>
             <y>540</y>
             <width>94</width>
             <height>61</height>
@@ -5841,7 +6038,7 @@ font: 75 21pt &quot;Gill Sans MT&quot;;
          <widget class="QPushButton" name="bResetFault">
           <property name="geometry">
            <rect>
-            <x>950</x>
+            <x>750</x>
             <y>540</y>
             <width>161</width>
             <height>61</height>
@@ -5899,7 +6096,7 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <widget class="QPushButton" name="btnDetailsPressure_2">
           <property name="geometry">
            <rect>
-            <x>740</x>
+            <x>600</x>
             <y>540</y>
             <width>94</width>
             <height>61</height>
@@ -5917,6 +6114,64 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
             <width>90</width>
             <height>55</height>
            </size>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="bBuzzerReset">
+          <property name="geometry">
+           <rect>
+            <x>930</x>
+            <y>540</y>
+            <width>161</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>94</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Gill Sans MT</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*QPushButton {
+color: #fff;
+font-family: &quot;Gill Sans MT&quot;;
+font-size: 21px;
+border: 2px solid #c3fcf1;
+border-radius: 11px;
+padding: 5px;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
+min-width: 80px;
+}
+QPushButton:hover {
+background: qradialgradient(cx: 0.3, cy: -0.4,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
+}
+QPushButton:pressed {
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}
+QPushButton:disabled {
+color: #888;
+background: qradialgradient(cx: 0.4, cy: -0.1,
+fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
+}*/</string>
+          </property>
+          <property name="text">
+           <string>Buzzer Reset</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
           </property>
          </widget>
         </widget>
@@ -9211,7 +9466,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <bool>true</bool>
            </property>
            <property name="checked">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="tristate">
             <bool>false</bool>
@@ -9297,7 +9552,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <bool>true</bool>
            </property>
            <property name="checked">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="tristate">
             <bool>false</bool>
@@ -9322,7 +9577,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <bool>true</bool>
            </property>
            <property name="checked">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="tristate">
             <bool>false</bool>
@@ -9344,7 +9599,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <bool>true</bool>
            </property>
            <property name="checked">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="tristate">
             <bool>false</bool>
@@ -9366,13 +9621,66 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
             <bool>true</bool>
            </property>
            <property name="checked">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="tristate">
             <bool>false</bool>
            </property>
           </widget>
          </widget>
+         <widget class="QLabel" name="label_62">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>734</x>
+            <y>304</y>
+            <width>172</width>
+            <height>94</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(23, 177, 0);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_63">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>915</x>
+            <y>304</y>
+            <width>172</width>
+            <height>94</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(23, 177, 0);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <zorder>b_pipe_1</zorder>
+         <zorder>b_pipe_2</zorder>
+         <zorder>b_pipe_3</zorder>
+         <zorder>b_pipe_4</zorder>
+         <zorder>b_pipe_5</zorder>
+         <zorder>b_basinc_tank_doldur</zorder>
+         <zorder>b_temiz_tank_bosalt</zorder>
+         <zorder>b_tum_tanklari_bosalt</zorder>
+         <zorder>bManualPressureLinesStart</zorder>
+         <zorder>bManualPressureLinesStop</zorder>
+         <zorder>groupBox_3</zorder>
+         <zorder>label_62</zorder>
+         <zorder>bManualPrepareLines</zorder>
+         <zorder>label_63</zorder>
+         <zorder>bManualEvacLines</zorder>
         </widget>
        </widget>
       </widget>
