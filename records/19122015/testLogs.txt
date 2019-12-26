@@ -1,0 +1,7 @@
+Date: 20.12.2019	Time: 17.06.21	Info: 1500h modu aktif
+Date: 20.12.2019	Time: 17.06.21	Info: Test kontrol aktif.
+Date: 20.12.2019	Time: 17.06.21	Info: Kapak kilidi aktif
+Date: 20.12.2019	Time: 17.06.21	Info: Basýnç kontrol sistemi aktif.
+Date: 20.12.2019	Time: 17.06.41	Info: Test beklemede.
+Date: 20.12.2019	Time: 17.06.41	Info: Test kontrolu kapali.
+Date: 20.12.2019	Time: 17.06.41	Info: Basýnç kontrol sistemi kapandý.

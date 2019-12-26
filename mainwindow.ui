@@ -288,7 +288,7 @@ font: 45 18pt &quot;Gill Sans MT&quot;;
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>4</number>
       </property>
       <property name="iconSize">
        <size>
@@ -810,7 +810,7 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
   }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="pRecipeMode">
          <widget class="QComboBox" name="cbSelectProfileMain">
@@ -2541,7 +2541,7 @@ border-radius : 8px;
 }</string>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="detailsBottomInfo">
            <widget class="QLabel" name="label_26">
@@ -2588,13 +2588,16 @@ border-radius : 8px;
             <property name="value">
              <number>0</number>
             </property>
+            <property name="format">
+             <string>%p%</string>
+            </property>
            </widget>
            <widget class="QTableWidget" name="warningTable">
             <property name="geometry">
              <rect>
-              <x>540</x>
-              <y>130</y>
-              <width>561</width>
+              <x>400</x>
+              <y>140</y>
+              <width>611</width>
               <height>211</height>
              </rect>
             </property>
@@ -2604,7 +2607,7 @@ border-radius : 8px;
              </font>
             </property>
             <attribute name="horizontalHeaderDefaultSectionSize">
-             <number>250</number>
+             <number>300</number>
             </attribute>
             <attribute name="horizontalHeaderMinimumSectionSize">
              <number>100</number>
@@ -2639,18 +2642,343 @@ border-radius : 8px;
              </property>
             </column>
            </widget>
-           <widget class="QStackedWidget" name="sW_0">
+           <widget class="QStackedWidget" name="swSubWorks">
             <property name="geometry">
              <rect>
-              <x>280</x>
-              <y>140</y>
-              <width>231</width>
-              <height>211</height>
+              <x>210</x>
+              <y>160</y>
+              <width>150</width>
+              <height>191</height>
              </rect>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>1</number>
             </property>
+            <widget class="QWidget" name="blankPage"/>
+            <widget class="QWidget" name="pipeControl">
+             <widget class="QCheckBox" name="cbPipe3">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>60</y>
+                <width>150</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+
+QCheckBox{
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+}
+</string>
+              </property>
+              <property name="text">
+               <string>3.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cbPipe4">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>80</y>
+                <width>150</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+
+QCheckBox{
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+}
+</string>
+              </property>
+              <property name="text">
+               <string>4.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cbPipe2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>40</y>
+                <width>150</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+
+QCheckBox{
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+}
+</string>
+              </property>
+              <property name="text">
+               <string>2.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cbPipeControl">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>150</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+
+QCheckBox{
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Hortum Kontrolü</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cbPipe1">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>20</y>
+                <width>150</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+
+QCheckBox{
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+}
+</string>
+              </property>
+              <property name="text">
+               <string>1.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cbPipe5">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>100</y>
+                <width>150</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+
+QCheckBox{
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+}
+</string>
+              </property>
+              <property name="text">
+               <string>5.Hortum</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="cbPipe5_2">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>120</y>
+                <width>150</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QCheckBox::indicator {
+    width:20px;
+    height: 20px;
+}
+
+
+QCheckBox{
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
+}
+</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </widget>
             <widget class="QWidget" name="scaklik_ayar">
              <widget class="QCheckBox" name="cB_tte_4">
               <property name="geometry">
@@ -2683,223 +3011,6 @@ font: 12pt &quot;Gill Sans MT&quot;;
               </property>
               <property name="text">
                <string>Sıcaklık ayarlanıyor </string>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </widget>
-            <widget class="QWidget" name="basn_ayar">
-             <widget class="QCheckBox" name="cB_tte_11">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>80</y>
-                <width>101</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>3.Hortum</string>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-             </widget>
-             <widget class="QCheckBox" name="cB_tte_12">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>100</y>
-                <width>91</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>4.Hortum</string>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-             </widget>
-             <widget class="QCheckBox" name="cB_tte_10">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>60</y>
-                <width>91</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>2.Hortum</string>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-             </widget>
-             <widget class="QCheckBox" name="cB_tte_8">
-              <property name="geometry">
-               <rect>
-                <x>10</x>
-                <y>10</y>
-                <width>143</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Hortum Kontrolü</string>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-             </widget>
-             <widget class="QCheckBox" name="cB_tte_9">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>40</y>
-                <width>219</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>1.Hortum</string>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-             </widget>
-             <widget class="QCheckBox" name="cB_tte_13">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>120</y>
-                <width>91</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-QCheckBox::indicator {
-    width:20px;
-    height: 20px;
-}
-
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
-QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>5.Hortum</string>
               </property>
               <property name="checked">
                <bool>false</bool>
@@ -3568,26 +3679,29 @@ font: 12pt &quot;Gill Sans MT&quot;;
              </widget>
             </widget>
            </widget>
-           <widget class="QStackedWidget" name="stackedWidget_2">
+           <widget class="QStackedWidget" name="swMainWorks">
             <property name="geometry">
              <rect>
-              <x>50</x>
-              <y>140</y>
-              <width>231</width>
-              <height>211</height>
+              <x>60</x>
+              <y>160</y>
+              <width>150</width>
+              <height>191</height>
              </rect>
             </property>
             <property name="currentIndex">
              <number>0</number>
             </property>
             <widget class="QWidget" name="page_5">
-             <widget class="QCheckBox" name="cB_tte_0">
+             <widget class="QCheckBox" name="cbTestMode">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>109</width>
-                <height>31</height>
+                <width>150</width>
+                <height>20</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3597,16 +3711,23 @@ QCheckBox::indicator {
     height: 20px;
 }
 
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
+
 QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
 }
 </string>
               </property>
@@ -3617,13 +3738,16 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <bool>false</bool>
               </property>
              </widget>
-             <widget class="QCheckBox" name="cB_tte_1">
+             <widget class="QCheckBox" name="cbTestPrepare">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="geometry">
                <rect>
-                <x>40</x>
-                <y>30</y>
-                <width>111</width>
-                <height>31</height>
+                <x>0</x>
+                <y>20</y>
+                <width>150</width>
+                <height>20</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3633,16 +3757,23 @@ QCheckBox::indicator {
     height: 20px;
 }
 
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
+
 QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
 }
 </string>
               </property>
@@ -3653,13 +3784,16 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <bool>false</bool>
               </property>
              </widget>
-             <widget class="QCheckBox" name="cB_tte_2">
+             <widget class="QCheckBox" name="cbTestActive">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="geometry">
                <rect>
-                <x>40</x>
-                <y>60</y>
-                <width>111</width>
-                <height>31</height>
+                <x>0</x>
+                <y>40</y>
+                <width>150</width>
+                <height>20</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3669,16 +3803,23 @@ QCheckBox::indicator {
     height: 20px;
 }
 
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
+
 QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
 }
 </string>
               </property>
@@ -3689,13 +3830,16 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <bool>false</bool>
               </property>
              </widget>
-             <widget class="QCheckBox" name="cB_tte_3">
+             <widget class="QCheckBox" name="cbTestComplete">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="geometry">
                <rect>
-                <x>40</x>
-                <y>90</y>
-                <width>161</width>
-                <height>31</height>
+                <x>0</x>
+                <y>60</y>
+                <width>150</width>
+                <height>20</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3705,16 +3849,23 @@ QCheckBox::indicator {
     height: 20px;
 }
 
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
+
 QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
 }
 </string>
               </property>
@@ -3725,13 +3876,16 @@ font: 12pt &quot;Gill Sans MT&quot;;
                <bool>false</bool>
               </property>
              </widget>
-             <widget class="QCheckBox" name="cB_tte_14">
+             <widget class="QCheckBox" name="cbPumpActive">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>130</y>
-                <width>171</width>
-                <height>21</height>
+                <y>80</y>
+                <width>150</width>
+                <height>20</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3741,36 +3895,43 @@ QCheckBox::indicator {
     height: 20px;
 }
 
-  QCheckBox::indicator:checked
-  {
-image: url(:/images/img/qt3.PNG);
-  }
-  QCheckBox::indicator:unchecked
-  {
-image: url(:/images/img/qt4.PNG);
-}
+
 QCheckBox{
-font: 12pt &quot;Gill Sans MT&quot;;
+font: 12pt;
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+
+}
+QCheckBox::disabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));
+}
+QCheckBox::enabled{
+background: qradialgradient(cx: 0.3, cy: -0.6,
+fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
 }
 </string>
               </property>
               <property name="text">
-               <string>Pompa Çalısıyor</string>
+               <string>Pompa Çalışıyor</string>
               </property>
               <property name="checked">
                <bool>false</bool>
               </property>
              </widget>
-             <widget class="QCheckBox" name="cB_tte_6">
+             <widget class="QCheckBox" name="cbResistanceActive">
               <property name="enabled">
                <bool>false</bool>
               </property>
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>150</y>
-                <width>171</width>
-                <height>21</height>
+                <y>100</y>
+                <width>150</width>
+                <height>20</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -3811,16 +3972,16 @@ radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
                <bool>false</bool>
               </property>
              </widget>
-             <widget class="QCheckBox" name="cB_tte_7">
+             <widget class="QCheckBox" name="cbFansActive">
               <property name="enabled">
                <bool>false</bool>
               </property>
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>171</y>
-                <width>171</width>
-                <height>21</height>
+                <y>120</y>
+                <width>150</width>
+                <height>20</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -4336,7 +4497,7 @@ radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));
             <property name="geometry">
              <rect>
               <x>200</x>
-              <y>230</y>
+              <y>280</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -5121,7 +5282,7 @@ font: 75 18pt &quot;Arial&quot;;</string>
             <property name="geometry">
              <rect>
               <x>240</x>
-              <y>270</y>
+              <y>250</y>
               <width>721</width>
               <height>81</height>
              </rect>
@@ -7381,50 +7542,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
        <attribute name="title">
         <string>Grafik</string>
        </attribute>
-       <widget class="QComboBox" name="cbSelectGraph">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>20</y>
-          <width>221</width>
-          <height>91</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>45</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>250</width>
-          <height>150</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Gill Sans MT</family>
-          <pointsize>18</pointsize>
-          <weight>9</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="currentIndex">
-         <number>0</number>
-        </property>
-        <item>
-         <property name="text">
-          <string>Kabin Sıcaklıgı</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Boru Basıncı</string>
-         </property>
-        </item>
-       </widget>
        <widget class="QCustomPlot" name="tTestGraph" native="true">
         <property name="geometry">
          <rect>
@@ -7466,24 +7583,6 @@ font: 45 14pt &quot;Gill Sans MT&quot;;
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QCustomPlot" name="pTestGraph" native="true">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>140</y>
-          <width>1011</width>
-          <height>551</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>14</pointsize>
-         </font>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
         </property>
        </widget>
        <widget class="QPushButton" name="bScreenshot">
@@ -8099,8 +8198,6 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <string>_</string>
         </property>
        </widget>
-       <zorder>cbSelectGraph</zorder>
-       <zorder>pTestGraph</zorder>
        <zorder>bScreenshot</zorder>
        <zorder>layoutWidget</zorder>
        <zorder>layoutWidget</zorder>
@@ -8669,301 +8766,11 @@ Zamanı</string>
          </widget>
         </widget>
         <widget class="QWidget" name="page_4">
-         <widget class="QPushButton" name="b_pipe_1">
-          <property name="geometry">
-           <rect>
-            <x>70</x>
-            <y>630</y>
-            <width>171</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>94</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Gill Sans MT</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*QPushButton {
-color: #fff;
-font-family: &quot;Gill Sans MT&quot;;
-font-size: 21px;
-border: 2px solid #c3fcf1;
-border-radius: 11px;
-padding: 5px;
-background: qradialgradient(cx: 0.3, cy: -0.6,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-min-width: 80px;
-}
-QPushButton:hover {
-background: qradialgradient(cx: 0.3, cy: -0.4,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-}
-QPushButton:pressed {
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}
-QPushButton:disabled {
-color: #888;
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}*/</string>
-          </property>
-          <property name="text">
-           <string>HAT 1</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="b_pipe_2">
-          <property name="geometry">
-           <rect>
-            <x>360</x>
-            <y>630</y>
-            <width>171</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>94</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Gill Sans MT</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*QPushButton {
-color: #fff;
-font-family: &quot;Gill Sans MT&quot;;
-font-size: 21px;
-border: 2px solid #c3fcf1;
-border-radius: 11px;
-padding: 5px;
-background: qradialgradient(cx: 0.3, cy: -0.6,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-min-width: 80px;
-}
-QPushButton:hover {
-background: qradialgradient(cx: 0.3, cy: -0.4,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-}
-QPushButton:pressed {
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}
-QPushButton:disabled {
-color: #888;
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}*/</string>
-          </property>
-          <property name="text">
-           <string>HAT 2</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="b_pipe_3">
-          <property name="geometry">
-           <rect>
-            <x>540</x>
-            <y>630</y>
-            <width>171</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>94</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Gill Sans MT</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*QPushButton {
-color: #fff;
-font-family: &quot;Gill Sans MT&quot;;
-font-size: 21px;
-border: 2px solid #c3fcf1;
-border-radius: 11px;
-padding: 5px;
-background: qradialgradient(cx: 0.3, cy: -0.6,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-min-width: 80px;
-}
-QPushButton:hover {
-background: qradialgradient(cx: 0.3, cy: -0.4,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-}
-QPushButton:pressed {
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}
-QPushButton:disabled {
-color: #888;
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}*/</string>
-          </property>
-          <property name="text">
-           <string>HAT 3</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="b_pipe_4">
-          <property name="geometry">
-           <rect>
-            <x>720</x>
-            <y>630</y>
-            <width>171</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>94</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Gill Sans MT</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*QPushButton {
-color: #fff;
-font-family: &quot;Gill Sans MT&quot;;
-font-size: 21px;
-border: 2px solid #c3fcf1;
-border-radius: 11px;
-padding: 5px;
-background: qradialgradient(cx: 0.3, cy: -0.6,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-min-width: 80px;
-}
-QPushButton:hover {
-background: qradialgradient(cx: 0.3, cy: -0.4,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-}
-QPushButton:pressed {
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}
-QPushButton:disabled {
-color: #888;
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}*/</string>
-          </property>
-          <property name="text">
-           <string>HAT 4</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="b_pipe_5">
-          <property name="geometry">
-           <rect>
-            <x>910</x>
-            <y>630</y>
-            <width>171</width>
-            <height>61</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>94</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Gill Sans MT</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*QPushButton {
-color: #fff;
-font-family: &quot;Gill Sans MT&quot;;
-font-size: 21px;
-border: 2px solid #c3fcf1;
-border-radius: 11px;
-padding: 5px;
-background: qradialgradient(cx: 0.3, cy: -0.6,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-min-width: 80px;
-}
-QPushButton:hover {
-background: qradialgradient(cx: 0.3, cy: -0.4,
-fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);
-}
-QPushButton:pressed {
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}
-QPushButton:disabled {
-color: #888;
-background: qradialgradient(cx: 0.4, cy: -0.1,
-fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
-}*/</string>
-          </property>
-          <property name="text">
-           <string>HAT 5</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
          <widget class="QPushButton" name="b_basinc_tank_doldur">
           <property name="geometry">
            <rect>
-            <x>560</x>
-            <y>550</y>
+            <x>460</x>
+            <y>530</y>
             <width>171</width>
             <height>61</height>
            </rect>
@@ -9020,8 +8827,8 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <widget class="QPushButton" name="b_temiz_tank_bosalt">
           <property name="geometry">
            <rect>
-            <x>170</x>
-            <y>550</y>
+            <x>80</x>
+            <y>530</y>
             <width>171</width>
             <height>61</height>
            </rect>
@@ -9078,8 +8885,8 @@ radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);
          <widget class="QPushButton" name="b_tum_tanklari_bosalt">
           <property name="geometry">
            <rect>
-            <x>360</x>
-            <y>550</y>
+            <x>270</x>
+            <y>530</y>
             <width>171</width>
             <height>61</height>
            </rect>
@@ -9666,11 +9473,6 @@ image: url(:/images/img/chechbox_Pipe_unchecked.png);
            <string/>
           </property>
          </widget>
-         <zorder>b_pipe_1</zorder>
-         <zorder>b_pipe_2</zorder>
-         <zorder>b_pipe_3</zorder>
-         <zorder>b_pipe_4</zorder>
-         <zorder>b_pipe_5</zorder>
          <zorder>b_basinc_tank_doldur</zorder>
          <zorder>b_temiz_tank_bosalt</zorder>
          <zorder>b_tum_tanklari_bosalt</zorder>

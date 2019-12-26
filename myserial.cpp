@@ -79,6 +79,7 @@ void mySerial::startSerial()
 
     if(serial->open(QIODevice::ReadWrite))
     {
+        writeToLogTable->machineInfosToText("Connected to " + serial->portName() + ": " + QString::number(serial->baudRate()) + "bps, 8Data, NoParity, 1Stop, NoFlow");
         qDebug() << "Connected to " + serial->portName() + ": " + QString::number(serial->baudRate()) + "bps, 8Data, NoParity, 1Stop, NoFlow";
     }
     else

@@ -136,16 +136,18 @@ public:
     QLabel *label_26;
     QProgressBar *pb_testProgress;
     QTableWidget *warningTable;
-    QStackedWidget *sW_0;
+    QStackedWidget *swSubWorks;
+    QWidget *blankPage;
+    QWidget *pipeControl;
+    QCheckBox *cbPipe3;
+    QCheckBox *cbPipe4;
+    QCheckBox *cbPipe2;
+    QCheckBox *cbPipeControl;
+    QCheckBox *cbPipe1;
+    QCheckBox *cbPipe5;
+    QCheckBox *cbPipe5_2;
     QWidget *scaklik_ayar;
     QCheckBox *cB_tte_4;
-    QWidget *basn_ayar;
-    QCheckBox *cB_tte_11;
-    QCheckBox *cB_tte_12;
-    QCheckBox *cB_tte_10;
-    QCheckBox *cB_tte_8;
-    QCheckBox *cB_tte_9;
-    QCheckBox *cB_tte_13;
     QWidget *hortumkontrolu;
     QCheckBox *cB_tte_22;
     QCheckBox *cB_tte_23;
@@ -169,15 +171,15 @@ public:
     QWidget *page_13;
     QCheckBox *cB_tte_30;
     QCheckBox *cB_tte_31;
-    QStackedWidget *stackedWidget_2;
+    QStackedWidget *swMainWorks;
     QWidget *page_5;
-    QCheckBox *cB_tte_0;
-    QCheckBox *cB_tte_1;
-    QCheckBox *cB_tte_2;
-    QCheckBox *cB_tte_3;
-    QCheckBox *cB_tte_14;
-    QCheckBox *cB_tte_6;
-    QCheckBox *cB_tte_7;
+    QCheckBox *cbTestMode;
+    QCheckBox *cbTestPrepare;
+    QCheckBox *cbTestActive;
+    QCheckBox *cbTestComplete;
+    QCheckBox *cbPumpActive;
+    QCheckBox *cbResistanceActive;
+    QCheckBox *cbFansActive;
     QWidget *page_6;
     QProgressBar *pb_testProgress_2;
     QLabel *label_27;
@@ -330,10 +332,8 @@ public:
     QLabel *laDate_2;
     QPushButton *bMinimize_2;
     QWidget *tab_Details;
-    QComboBox *cbSelectGraph;
     QCustomPlot *tTestGraph;
     QLabel *laTestName;
-    QCustomPlot *pTestGraph;
     QPushButton *bScreenshot;
     QWidget *layoutWidget9;
     QVBoxLayout *verticalLayout_10;
@@ -380,11 +380,6 @@ public:
     QLabel *label_122;
     QFrame *line_28;
     QWidget *page_4;
-    QPushButton *b_pipe_1;
-    QPushButton *b_pipe_2;
-    QPushButton *b_pipe_3;
-    QPushButton *b_pipe_4;
-    QPushButton *b_pipe_5;
     QPushButton *b_basinc_tank_doldur;
     QPushButton *b_temiz_tank_bosalt;
     QPushButton *b_tum_tanklari_bosalt;
@@ -1993,16 +1988,232 @@ public:
         __qtablewidgetitem1->setFont(font7);
         warningTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         warningTable->setObjectName(QStringLiteral("warningTable"));
-        warningTable->setGeometry(QRect(540, 130, 561, 211));
+        warningTable->setGeometry(QRect(400, 140, 611, 211));
         warningTable->setFont(font7);
-        warningTable->horizontalHeader()->setDefaultSectionSize(250);
+        warningTable->horizontalHeader()->setDefaultSectionSize(300);
         warningTable->horizontalHeader()->setMinimumSectionSize(100);
         warningTable->verticalHeader()->setDefaultSectionSize(30);
         warningTable->verticalHeader()->setMinimumSectionSize(30);
         warningTable->verticalHeader()->setStretchLastSection(false);
-        sW_0 = new QStackedWidget(detailsBottomInfo);
-        sW_0->setObjectName(QStringLiteral("sW_0"));
-        sW_0->setGeometry(QRect(280, 140, 231, 211));
+        swSubWorks = new QStackedWidget(detailsBottomInfo);
+        swSubWorks->setObjectName(QStringLiteral("swSubWorks"));
+        swSubWorks->setGeometry(QRect(210, 160, 150, 191));
+        blankPage = new QWidget();
+        blankPage->setObjectName(QStringLiteral("blankPage"));
+        swSubWorks->addWidget(blankPage);
+        pipeControl = new QWidget();
+        pipeControl->setObjectName(QStringLiteral("pipeControl"));
+        cbPipe3 = new QCheckBox(pipeControl);
+        cbPipe3->setObjectName(QStringLiteral("cbPipe3"));
+        cbPipe3->setEnabled(false);
+        cbPipe3->setGeometry(QRect(0, 60, 150, 20));
+        cbPipe3->setStyleSheet(QLatin1String("\n"
+"QCheckBox::indicator {\n"
+"    width:20px;\n"
+"    height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox{\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
+"}\n"
+""));
+        cbPipe3->setChecked(false);
+        cbPipe4 = new QCheckBox(pipeControl);
+        cbPipe4->setObjectName(QStringLiteral("cbPipe4"));
+        cbPipe4->setEnabled(false);
+        cbPipe4->setGeometry(QRect(0, 80, 150, 20));
+        cbPipe4->setStyleSheet(QLatin1String("\n"
+"QCheckBox::indicator {\n"
+"    width:20px;\n"
+"    height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox{\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
+"}\n"
+""));
+        cbPipe4->setChecked(false);
+        cbPipe2 = new QCheckBox(pipeControl);
+        cbPipe2->setObjectName(QStringLiteral("cbPipe2"));
+        cbPipe2->setEnabled(false);
+        cbPipe2->setGeometry(QRect(0, 40, 150, 20));
+        cbPipe2->setStyleSheet(QLatin1String("\n"
+"QCheckBox::indicator {\n"
+"    width:20px;\n"
+"    height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox{\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
+"}\n"
+""));
+        cbPipe2->setChecked(false);
+        cbPipeControl = new QCheckBox(pipeControl);
+        cbPipeControl->setObjectName(QStringLiteral("cbPipeControl"));
+        cbPipeControl->setEnabled(false);
+        cbPipeControl->setGeometry(QRect(0, 0, 150, 20));
+        cbPipeControl->setStyleSheet(QLatin1String("\n"
+"QCheckBox::indicator {\n"
+"    width:20px;\n"
+"    height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox{\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
+"}\n"
+""));
+        cbPipeControl->setChecked(false);
+        cbPipe1 = new QCheckBox(pipeControl);
+        cbPipe1->setObjectName(QStringLiteral("cbPipe1"));
+        cbPipe1->setEnabled(false);
+        cbPipe1->setGeometry(QRect(0, 20, 150, 20));
+        cbPipe1->setStyleSheet(QLatin1String("\n"
+"QCheckBox::indicator {\n"
+"    width:20px;\n"
+"    height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox{\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
+"}\n"
+""));
+        cbPipe1->setChecked(false);
+        cbPipe5 = new QCheckBox(pipeControl);
+        cbPipe5->setObjectName(QStringLiteral("cbPipe5"));
+        cbPipe5->setEnabled(false);
+        cbPipe5->setGeometry(QRect(0, 100, 150, 20));
+        cbPipe5->setStyleSheet(QLatin1String("\n"
+"QCheckBox::indicator {\n"
+"    width:20px;\n"
+"    height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox{\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
+"}\n"
+""));
+        cbPipe5->setChecked(false);
+        cbPipe5_2 = new QCheckBox(pipeControl);
+        cbPipe5_2->setObjectName(QStringLiteral("cbPipe5_2"));
+        cbPipe5_2->setEnabled(false);
+        cbPipe5_2->setGeometry(QRect(0, 120, 150, 20));
+        cbPipe5_2->setStyleSheet(QLatin1String("\n"
+"QCheckBox::indicator {\n"
+"    width:20px;\n"
+"    height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox{\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
+"}\n"
+""));
+        cbPipe5_2->setChecked(false);
+        swSubWorks->addWidget(pipeControl);
         scaklik_ayar = new QWidget();
         scaklik_ayar->setObjectName(QStringLiteral("scaklik_ayar"));
         cB_tte_4 = new QCheckBox(scaklik_ayar);
@@ -2027,141 +2238,7 @@ public:
 "}\n"
 ""));
         cB_tte_4->setChecked(false);
-        sW_0->addWidget(scaklik_ayar);
-        basn_ayar = new QWidget();
-        basn_ayar->setObjectName(QStringLiteral("basn_ayar"));
-        cB_tte_11 = new QCheckBox(basn_ayar);
-        cB_tte_11->setObjectName(QStringLiteral("cB_tte_11"));
-        cB_tte_11->setGeometry(QRect(20, 80, 101, 21));
-        cB_tte_11->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
-"QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
-"}\n"
-""));
-        cB_tte_11->setChecked(false);
-        cB_tte_12 = new QCheckBox(basn_ayar);
-        cB_tte_12->setObjectName(QStringLiteral("cB_tte_12"));
-        cB_tte_12->setGeometry(QRect(20, 100, 91, 21));
-        cB_tte_12->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
-"QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
-"}\n"
-""));
-        cB_tte_12->setChecked(false);
-        cB_tte_10 = new QCheckBox(basn_ayar);
-        cB_tte_10->setObjectName(QStringLiteral("cB_tte_10"));
-        cB_tte_10->setGeometry(QRect(20, 60, 91, 21));
-        cB_tte_10->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
-"QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
-"}\n"
-""));
-        cB_tte_10->setChecked(false);
-        cB_tte_8 = new QCheckBox(basn_ayar);
-        cB_tte_8->setObjectName(QStringLiteral("cB_tte_8"));
-        cB_tte_8->setGeometry(QRect(10, 10, 143, 21));
-        cB_tte_8->setStyleSheet(QLatin1String("QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
-"QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
-"}\n"
-""));
-        cB_tte_8->setChecked(false);
-        cB_tte_9 = new QCheckBox(basn_ayar);
-        cB_tte_9->setObjectName(QStringLiteral("cB_tte_9"));
-        cB_tte_9->setGeometry(QRect(20, 40, 219, 21));
-        cB_tte_9->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
-"QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
-"}\n"
-""));
-        cB_tte_9->setChecked(false);
-        cB_tte_13 = new QCheckBox(basn_ayar);
-        cB_tte_13->setObjectName(QStringLiteral("cB_tte_13"));
-        cB_tte_13->setGeometry(QRect(20, 120, 91, 21));
-        cB_tte_13->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
-"QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
-"}\n"
-""));
-        cB_tte_13->setChecked(false);
-        sW_0->addWidget(basn_ayar);
+        swSubWorks->addWidget(scaklik_ayar);
         hortumkontrolu = new QWidget();
         hortumkontrolu->setObjectName(QStringLiteral("hortumkontrolu"));
         cB_tte_22 = new QCheckBox(hortumkontrolu);
@@ -2296,7 +2373,7 @@ public:
 "}\n"
 ""));
         cB_tte_33->setChecked(false);
-        sW_0->addWidget(hortumkontrolu);
+        swSubWorks->addWidget(hortumkontrolu);
         page_9 = new QWidget();
         page_9->setObjectName(QStringLiteral("page_9"));
         cB_tte_21 = new QCheckBox(page_9);
@@ -2453,7 +2530,7 @@ public:
 "}\n"
 ""));
         cB_tte_20->setChecked(false);
-        sW_0->addWidget(page_9);
+        swSubWorks->addWidget(page_9);
         page_11 = new QWidget();
         page_11->setObjectName(QStringLiteral("page_11"));
         cB_tte_26 = new QCheckBox(page_11);
@@ -2478,7 +2555,7 @@ public:
 "}\n"
 ""));
         cB_tte_26->setChecked(false);
-        sW_0->addWidget(page_11);
+        swSubWorks->addWidget(page_11);
         page_12 = new QWidget();
         page_12->setObjectName(QStringLiteral("page_12"));
         cB_tte_28 = new QCheckBox(page_12);
@@ -2525,7 +2602,7 @@ public:
 "}\n"
 ""));
         cB_tte_29->setChecked(false);
-        sW_0->addWidget(page_12);
+        swSubWorks->addWidget(page_12);
         page_13 = new QWidget();
         page_13->setObjectName(QStringLiteral("page_13"));
         cB_tte_30 = new QCheckBox(page_13);
@@ -2572,127 +2649,167 @@ public:
 "}\n"
 ""));
         cB_tte_31->setChecked(false);
-        sW_0->addWidget(page_13);
-        stackedWidget_2 = new QStackedWidget(detailsBottomInfo);
-        stackedWidget_2->setObjectName(QStringLiteral("stackedWidget_2"));
-        stackedWidget_2->setGeometry(QRect(50, 140, 231, 211));
+        swSubWorks->addWidget(page_13);
+        swMainWorks = new QStackedWidget(detailsBottomInfo);
+        swMainWorks->setObjectName(QStringLiteral("swMainWorks"));
+        swMainWorks->setGeometry(QRect(60, 160, 150, 191));
         page_5 = new QWidget();
         page_5->setObjectName(QStringLiteral("page_5"));
-        cB_tte_0 = new QCheckBox(page_5);
-        cB_tte_0->setObjectName(QStringLiteral("cB_tte_0"));
-        cB_tte_0->setGeometry(QRect(0, 0, 109, 31));
-        cB_tte_0->setStyleSheet(QLatin1String("\n"
+        cbTestMode = new QCheckBox(page_5);
+        cbTestMode->setObjectName(QStringLiteral("cbTestMode"));
+        cbTestMode->setEnabled(false);
+        cbTestMode->setGeometry(QRect(0, 0, 150, 20));
+        cbTestMode->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
 "    height: 20px;\n"
 "}\n"
 "\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
+"\n"
 "QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
 "}\n"
 ""));
-        cB_tte_0->setChecked(false);
-        cB_tte_1 = new QCheckBox(page_5);
-        cB_tte_1->setObjectName(QStringLiteral("cB_tte_1"));
-        cB_tte_1->setGeometry(QRect(40, 30, 111, 31));
-        cB_tte_1->setStyleSheet(QLatin1String("\n"
+        cbTestMode->setChecked(false);
+        cbTestPrepare = new QCheckBox(page_5);
+        cbTestPrepare->setObjectName(QStringLiteral("cbTestPrepare"));
+        cbTestPrepare->setEnabled(false);
+        cbTestPrepare->setGeometry(QRect(0, 20, 150, 20));
+        cbTestPrepare->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
 "    height: 20px;\n"
 "}\n"
 "\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
+"\n"
 "QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
 "}\n"
 ""));
-        cB_tte_1->setChecked(false);
-        cB_tte_2 = new QCheckBox(page_5);
-        cB_tte_2->setObjectName(QStringLiteral("cB_tte_2"));
-        cB_tte_2->setGeometry(QRect(40, 60, 111, 31));
-        cB_tte_2->setStyleSheet(QLatin1String("\n"
+        cbTestPrepare->setChecked(false);
+        cbTestActive = new QCheckBox(page_5);
+        cbTestActive->setObjectName(QStringLiteral("cbTestActive"));
+        cbTestActive->setEnabled(false);
+        cbTestActive->setGeometry(QRect(0, 40, 150, 20));
+        cbTestActive->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
 "    height: 20px;\n"
 "}\n"
 "\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
+"\n"
 "QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
 "}\n"
 ""));
-        cB_tte_2->setChecked(false);
-        cB_tte_3 = new QCheckBox(page_5);
-        cB_tte_3->setObjectName(QStringLiteral("cB_tte_3"));
-        cB_tte_3->setGeometry(QRect(40, 90, 161, 31));
-        cB_tte_3->setStyleSheet(QLatin1String("\n"
+        cbTestActive->setChecked(false);
+        cbTestComplete = new QCheckBox(page_5);
+        cbTestComplete->setObjectName(QStringLiteral("cbTestComplete"));
+        cbTestComplete->setEnabled(false);
+        cbTestComplete->setGeometry(QRect(0, 60, 150, 20));
+        cbTestComplete->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
 "    height: 20px;\n"
 "}\n"
 "\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
+"\n"
 "QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
 "}\n"
 ""));
-        cB_tte_3->setChecked(false);
-        cB_tte_14 = new QCheckBox(page_5);
-        cB_tte_14->setObjectName(QStringLiteral("cB_tte_14"));
-        cB_tte_14->setGeometry(QRect(0, 130, 171, 21));
-        cB_tte_14->setStyleSheet(QLatin1String("\n"
+        cbTestComplete->setChecked(false);
+        cbPumpActive = new QCheckBox(page_5);
+        cbPumpActive->setObjectName(QStringLiteral("cbPumpActive"));
+        cbPumpActive->setEnabled(false);
+        cbPumpActive->setGeometry(QRect(0, 80, 150, 20));
+        cbPumpActive->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
 "    height: 20px;\n"
 "}\n"
 "\n"
-"  QCheckBox::indicator:checked\n"
-"  {\n"
-"image: url(:/images/img/qt3.PNG);\n"
-"  }\n"
-"  QCheckBox::indicator:unchecked\n"
-"  {\n"
-"image: url(:/images/img/qt4.PNG);\n"
-"}\n"
+"\n"
 "QCheckBox{\n"
-"font: 12pt \"Gill Sans MT\";\n"
+"font: 12pt;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"\n"
+"}\n"
+"QCheckBox::disabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}\n"
+"QCheckBox::enabled{\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
 "}\n"
 ""));
-        cB_tte_14->setChecked(false);
-        cB_tte_6 = new QCheckBox(page_5);
-        cB_tte_6->setObjectName(QStringLiteral("cB_tte_6"));
-        cB_tte_6->setEnabled(false);
-        cB_tte_6->setGeometry(QRect(0, 150, 171, 21));
-        cB_tte_6->setStyleSheet(QLatin1String("\n"
+        cbPumpActive->setChecked(false);
+        cbResistanceActive = new QCheckBox(page_5);
+        cbResistanceActive->setObjectName(QStringLiteral("cbResistanceActive"));
+        cbResistanceActive->setEnabled(false);
+        cbResistanceActive->setGeometry(QRect(0, 100, 150, 20));
+        cbResistanceActive->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
 "    height: 20px;\n"
@@ -2718,13 +2835,13 @@ public:
 "}\n"
 "\n"
 ""));
-        cB_tte_6->setCheckable(false);
-        cB_tte_6->setChecked(false);
-        cB_tte_7 = new QCheckBox(page_5);
-        cB_tte_7->setObjectName(QStringLiteral("cB_tte_7"));
-        cB_tte_7->setEnabled(false);
-        cB_tte_7->setGeometry(QRect(0, 171, 171, 21));
-        cB_tte_7->setStyleSheet(QLatin1String("\n"
+        cbResistanceActive->setCheckable(false);
+        cbResistanceActive->setChecked(false);
+        cbFansActive = new QCheckBox(page_5);
+        cbFansActive->setObjectName(QStringLiteral("cbFansActive"));
+        cbFansActive->setEnabled(false);
+        cbFansActive->setGeometry(QRect(0, 120, 150, 20));
+        cbFansActive->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
 "    height: 20px;\n"
@@ -2748,11 +2865,11 @@ public:
 "radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
 "}\n"
 ""));
-        cB_tte_7->setChecked(false);
-        stackedWidget_2->addWidget(page_5);
+        cbFansActive->setChecked(false);
+        swMainWorks->addWidget(page_5);
         page_6 = new QWidget();
         page_6->setObjectName(QStringLiteral("page_6"));
-        stackedWidget_2->addWidget(page_6);
+        swMainWorks->addWidget(page_6);
         pb_testProgress_2 = new QProgressBar(detailsBottomInfo);
         pb_testProgress_2->setObjectName(QStringLiteral("pb_testProgress_2"));
         pb_testProgress_2->setGeometry(QRect(360, 70, 651, 50));
@@ -2918,7 +3035,7 @@ public:
         label_51->raise();
         laFault31 = new QLabel(detailsBottomTankLevels);
         laFault31->setObjectName(QStringLiteral("laFault31"));
-        laFault31->setGeometry(QRect(200, 230, 721, 81));
+        laFault31->setGeometry(QRect(200, 280, 721, 81));
         QFont font9;
         font9.setFamily(QStringLiteral("Arial Black"));
         font9.setPointSize(22);
@@ -3178,7 +3295,7 @@ public:
         laFault44->setAlignment(Qt::AlignCenter);
         laFault43 = new QLabel(detailsBottomHetar);
         laFault43->setObjectName(QStringLiteral("laFault43"));
-        laFault43->setGeometry(QRect(240, 270, 721, 81));
+        laFault43->setGeometry(QRect(240, 250, 721, 81));
         laFault43->setFont(font10);
         laFault43->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 0);\n"
 "color: rgb(255, 0, 0);\n"
@@ -3954,12 +4071,6 @@ public:
         tab_Details->setObjectName(QStringLiteral("tab_Details"));
         tab_Details->setAutoFillBackground(false);
         tab_Details->setStyleSheet(QStringLiteral(""));
-        cbSelectGraph = new QComboBox(tab_Details);
-        cbSelectGraph->setObjectName(QStringLiteral("cbSelectGraph"));
-        cbSelectGraph->setGeometry(QRect(10, 20, 221, 91));
-        cbSelectGraph->setMinimumSize(QSize(100, 45));
-        cbSelectGraph->setMaximumSize(QSize(250, 150));
-        cbSelectGraph->setFont(font4);
         tTestGraph = new QCustomPlot(tab_Details);
         tTestGraph->setObjectName(QStringLiteral("tTestGraph"));
         tTestGraph->setGeometry(QRect(150, 140, 1011, 551));
@@ -3974,11 +4085,6 @@ public:
 "font: 45 14pt \"Gill Sans MT\";\n"
 "}"));
         laTestName->setAlignment(Qt::AlignCenter);
-        pTestGraph = new QCustomPlot(tab_Details);
-        pTestGraph->setObjectName(QStringLiteral("pTestGraph"));
-        pTestGraph->setGeometry(QRect(150, 140, 1011, 551));
-        pTestGraph->setFont(font7);
-        pTestGraph->setAutoFillBackground(false);
         bScreenshot = new QPushButton(tab_Details);
         bScreenshot->setObjectName(QStringLiteral("bScreenshot"));
         bScreenshot->setGeometry(QRect(1020, 70, 131, 61));
@@ -4315,8 +4421,6 @@ public:
 "radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
 "}"));
         tabWidget->addTab(tab_Details, QString());
-        cbSelectGraph->raise();
-        pTestGraph->raise();
         bScreenshot->raise();
         layoutWidget->raise();
         layoutWidget->raise();
@@ -4578,179 +4682,9 @@ public:
         stackedWidget->addWidget(page_3);
         page_4 = new QWidget();
         page_4->setObjectName(QStringLiteral("page_4"));
-        b_pipe_1 = new QPushButton(page_4);
-        b_pipe_1->setObjectName(QStringLiteral("b_pipe_1"));
-        b_pipe_1->setGeometry(QRect(70, 630, 171, 61));
-        b_pipe_1->setMinimumSize(QSize(94, 50));
-        b_pipe_1->setFont(font2);
-        b_pipe_1->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}*/"));
-        b_pipe_1->setCheckable(true);
-        b_pipe_2 = new QPushButton(page_4);
-        b_pipe_2->setObjectName(QStringLiteral("b_pipe_2"));
-        b_pipe_2->setGeometry(QRect(360, 630, 171, 61));
-        b_pipe_2->setMinimumSize(QSize(94, 50));
-        b_pipe_2->setFont(font2);
-        b_pipe_2->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}*/"));
-        b_pipe_2->setCheckable(true);
-        b_pipe_3 = new QPushButton(page_4);
-        b_pipe_3->setObjectName(QStringLiteral("b_pipe_3"));
-        b_pipe_3->setGeometry(QRect(540, 630, 171, 61));
-        b_pipe_3->setMinimumSize(QSize(94, 50));
-        b_pipe_3->setFont(font2);
-        b_pipe_3->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}*/"));
-        b_pipe_3->setCheckable(true);
-        b_pipe_4 = new QPushButton(page_4);
-        b_pipe_4->setObjectName(QStringLiteral("b_pipe_4"));
-        b_pipe_4->setGeometry(QRect(720, 630, 171, 61));
-        b_pipe_4->setMinimumSize(QSize(94, 50));
-        b_pipe_4->setFont(font2);
-        b_pipe_4->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}*/"));
-        b_pipe_4->setCheckable(true);
-        b_pipe_5 = new QPushButton(page_4);
-        b_pipe_5->setObjectName(QStringLiteral("b_pipe_5"));
-        b_pipe_5->setGeometry(QRect(910, 630, 171, 61));
-        b_pipe_5->setMinimumSize(QSize(94, 50));
-        b_pipe_5->setFont(font2);
-        b_pipe_5->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}*/"));
-        b_pipe_5->setCheckable(true);
         b_basinc_tank_doldur = new QPushButton(page_4);
         b_basinc_tank_doldur->setObjectName(QStringLiteral("b_basinc_tank_doldur"));
-        b_basinc_tank_doldur->setGeometry(QRect(560, 550, 171, 61));
+        b_basinc_tank_doldur->setGeometry(QRect(460, 530, 171, 61));
         b_basinc_tank_doldur->setMinimumSize(QSize(94, 50));
         b_basinc_tank_doldur->setFont(font2);
         b_basinc_tank_doldur->setStyleSheet(QLatin1String("/*QPushButton {\n"
@@ -4784,7 +4718,7 @@ public:
         b_basinc_tank_doldur->setCheckable(true);
         b_temiz_tank_bosalt = new QPushButton(page_4);
         b_temiz_tank_bosalt->setObjectName(QStringLiteral("b_temiz_tank_bosalt"));
-        b_temiz_tank_bosalt->setGeometry(QRect(170, 550, 171, 61));
+        b_temiz_tank_bosalt->setGeometry(QRect(80, 530, 171, 61));
         b_temiz_tank_bosalt->setMinimumSize(QSize(94, 50));
         b_temiz_tank_bosalt->setFont(font2);
         b_temiz_tank_bosalt->setStyleSheet(QLatin1String("/*QPushButton {\n"
@@ -4818,7 +4752,7 @@ public:
         b_temiz_tank_bosalt->setCheckable(true);
         b_tum_tanklari_bosalt = new QPushButton(page_4);
         b_tum_tanklari_bosalt->setObjectName(QStringLiteral("b_tum_tanklari_bosalt"));
-        b_tum_tanklari_bosalt->setGeometry(QRect(360, 550, 171, 61));
+        b_tum_tanklari_bosalt->setGeometry(QRect(270, 530, 171, 61));
         b_tum_tanklari_bosalt->setMinimumSize(QSize(94, 50));
         b_tum_tanklari_bosalt->setFont(font2);
         b_tum_tanklari_bosalt->setStyleSheet(QLatin1String("/*QPushButton {\n"
@@ -5069,11 +5003,6 @@ public:
         label_63->setGeometry(QRect(915, 304, 172, 94));
         label_63->setStyleSheet(QStringLiteral("background-color: rgb(23, 177, 0);"));
         stackedWidget->addWidget(page_4);
-        b_pipe_1->raise();
-        b_pipe_2->raise();
-        b_pipe_3->raise();
-        b_pipe_4->raise();
-        b_pipe_5->raise();
         b_basinc_tank_doldur->raise();
         b_temiz_tank_bosalt->raise();
         b_tum_tanklari_bosalt->raise();
@@ -6085,13 +6014,12 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(bDoorControlActive, SIGNAL(clicked()), lineEdit, SLOT(selectAll()));
 
-        tabWidget->setCurrentIndex(1);
-        mainPage->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(4);
+        mainPage->setCurrentIndex(2);
         detailsPages->setCurrentIndex(0);
-        detailsBottomPages->setCurrentIndex(3);
-        sW_0->setCurrentIndex(3);
-        stackedWidget_2->setCurrentIndex(0);
-        cbSelectGraph->setCurrentIndex(0);
+        detailsBottomPages->setCurrentIndex(0);
+        swSubWorks->setCurrentIndex(1);
+        swMainWorks->setCurrentIndex(0);
         stackedWidget->setCurrentIndex(1);
         tWidget->setCurrentIndex(0);
 
@@ -6162,17 +6090,19 @@ public:
         bMainDoorInfo->setText(QApplication::translate("MainWindow", "Kapak ", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_Main), QApplication::translate("MainWindow", "Ana Sayfa", Q_NULLPTR));
         label_26->setText(QApplication::translate("MainWindow", "\304\260\305\237lenen Test Durumu", Q_NULLPTR));
+        pb_testProgress->setFormat(QApplication::translate("MainWindow", "%p%", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = warningTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Zaman", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = warningTable->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "A\303\247\304\261klama", Q_NULLPTR));
+        cbPipe3->setText(QApplication::translate("MainWindow", "3.Hortum", Q_NULLPTR));
+        cbPipe4->setText(QApplication::translate("MainWindow", "4.Hortum", Q_NULLPTR));
+        cbPipe2->setText(QApplication::translate("MainWindow", "2.Hortum", Q_NULLPTR));
+        cbPipeControl->setText(QApplication::translate("MainWindow", "Hortum Kontrol\303\274", Q_NULLPTR));
+        cbPipe1->setText(QApplication::translate("MainWindow", "1.Hortum", Q_NULLPTR));
+        cbPipe5->setText(QApplication::translate("MainWindow", "5.Hortum", Q_NULLPTR));
+        cbPipe5_2->setText(QString());
         cB_tte_4->setText(QApplication::translate("MainWindow", "S\304\261cakl\304\261k ayarlan\304\261yor ", Q_NULLPTR));
-        cB_tte_11->setText(QApplication::translate("MainWindow", "3.Hortum", Q_NULLPTR));
-        cB_tte_12->setText(QApplication::translate("MainWindow", "4.Hortum", Q_NULLPTR));
-        cB_tte_10->setText(QApplication::translate("MainWindow", "2.Hortum", Q_NULLPTR));
-        cB_tte_8->setText(QApplication::translate("MainWindow", "Hortum Kontrol\303\274", Q_NULLPTR));
-        cB_tte_9->setText(QApplication::translate("MainWindow", "1.Hortum", Q_NULLPTR));
-        cB_tte_13->setText(QApplication::translate("MainWindow", "5.Hortum", Q_NULLPTR));
         cB_tte_22->setText(QApplication::translate("MainWindow", "S\304\261v\304\261 Degi\305\237imi", Q_NULLPTR));
         cB_tte_23->setText(QApplication::translate("MainWindow", "S\304\261cakl\304\261k d\303\274\305\237\303\274r\303\274l\303\274yor", Q_NULLPTR));
         cB_tte_24->setText(QApplication::translate("MainWindow", "S\304\261v\304\261 degi\305\237imi yap\304\261l\304\261yor", Q_NULLPTR));
@@ -6194,13 +6124,13 @@ public:
         cB_tte_30->setText(QApplication::translate("MainWindow", "Kirli S\304\261v\304\261 Tank\304\261\n"
 "Bo\305\237alt\304\261l\304\261yor", Q_NULLPTR));
         cB_tte_31->setText(QApplication::translate("MainWindow", "Pompa \303\207al\304\261s\304\261yor", Q_NULLPTR));
-        cB_tte_0->setText(QApplication::translate("MainWindow", "1500h Mode", Q_NULLPTR));
-        cB_tte_1->setText(QApplication::translate("MainWindow", "Haz\304\261rl\304\261k ", Q_NULLPTR));
-        cB_tte_2->setText(QApplication::translate("MainWindow", "Test ", Q_NULLPTR));
-        cB_tte_3->setText(QApplication::translate("MainWindow", "Test Tamamland\304\261", Q_NULLPTR));
-        cB_tte_14->setText(QApplication::translate("MainWindow", "Pompa \303\207al\304\261s\304\261yor", Q_NULLPTR));
-        cB_tte_6->setText(QApplication::translate("MainWindow", "Rezistanslar aktif", Q_NULLPTR));
-        cB_tte_7->setText(QApplication::translate("MainWindow", "Fanlar cal\304\261\305\237\304\261yor", Q_NULLPTR));
+        cbTestMode->setText(QApplication::translate("MainWindow", "1500h Mode", Q_NULLPTR));
+        cbTestPrepare->setText(QApplication::translate("MainWindow", "Haz\304\261rl\304\261k ", Q_NULLPTR));
+        cbTestActive->setText(QApplication::translate("MainWindow", "Test ", Q_NULLPTR));
+        cbTestComplete->setText(QApplication::translate("MainWindow", "Test Tamamland\304\261", Q_NULLPTR));
+        cbPumpActive->setText(QApplication::translate("MainWindow", "Pompa \303\207al\304\261\305\237\304\261yor", Q_NULLPTR));
+        cbResistanceActive->setText(QApplication::translate("MainWindow", "Rezistanslar aktif", Q_NULLPTR));
+        cbFansActive->setText(QApplication::translate("MainWindow", "Fanlar cal\304\261\305\237\304\261yor", Q_NULLPTR));
         label_27->setText(QApplication::translate("MainWindow", "S\304\261v\304\261 De\304\237i\305\237im Periyodu", Q_NULLPTR));
         gb_KirliTankLevel->setTitle(QApplication::translate("MainWindow", "Kirli Tank\304\261", Q_NULLPTR));
         label_43->setText(QApplication::translate("MainWindow", " 60lt", Q_NULLPTR));
@@ -6311,11 +6241,6 @@ public:
         laDate_2->setText(QApplication::translate("MainWindow", "XX/XX/XX", Q_NULLPTR));
         bMinimize_2->setText(QApplication::translate("MainWindow", "_", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_setTemp), QApplication::translate("MainWindow", "Test Takip", Q_NULLPTR));
-        cbSelectGraph->clear();
-        cbSelectGraph->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Kabin S\304\261cakl\304\261g\304\261", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Boru Bas\304\261nc\304\261", Q_NULLPTR)
-        );
         laTestName->setText(QApplication::translate("MainWindow", "Recete Secilmedi  ", Q_NULLPTR));
         bScreenshot->setText(QApplication::translate("MainWindow", "Screenshot", Q_NULLPTR));
         ZoomInVer->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
@@ -6353,11 +6278,6 @@ public:
         label_113->setText(QApplication::translate("MainWindow", "Baslang\304\261\303\247 Ad\304\261m\304\261", Q_NULLPTR));
         label_122->setText(QApplication::translate("MainWindow", "Test Recetesi  Baslangic \n"
 "Zaman\304\261", Q_NULLPTR));
-        b_pipe_1->setText(QApplication::translate("MainWindow", "HAT 1", Q_NULLPTR));
-        b_pipe_2->setText(QApplication::translate("MainWindow", "HAT 2", Q_NULLPTR));
-        b_pipe_3->setText(QApplication::translate("MainWindow", "HAT 3", Q_NULLPTR));
-        b_pipe_4->setText(QApplication::translate("MainWindow", "HAT 4", Q_NULLPTR));
-        b_pipe_5->setText(QApplication::translate("MainWindow", "HAT 5", Q_NULLPTR));
         b_basinc_tank_doldur->setText(QApplication::translate("MainWindow", "Bas\304\261n\303\247 Tank\304\261na", Q_NULLPTR));
         b_temiz_tank_bosalt->setText(QApplication::translate("MainWindow", "Kirli Tank\304\261na", Q_NULLPTR));
         b_tum_tanklari_bosalt->setText(QApplication::translate("MainWindow", "Hatlar\304\261 Bo\305\237alt", Q_NULLPTR));

@@ -1,0 +1,90 @@
+Date: 25.12.2019	Time: 09.45.15	Info: inDetail started
+Date: 25.12.2019	Time: 09.45.18	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 10.40.19	Info: inDetail started
+Date: 25.12.2019	Time: 10.40.22	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 10.59.27	Info: inDetail started
+Date: 25.12.2019	Time: 10.59.30	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 11.03.19	Info: inDetail started
+Date: 25.12.2019	Time: 11.03.22	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 11.09.29	Info: inDetail started
+Date: 25.12.2019	Time: 11.09.32	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 11.12.36	Info: inDetail started
+Date: 25.12.2019	Time: 11.12.38	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 11.15.38	Info: inDetail started
+Date: 25.12.2019	Time: 11.15.41	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 11.17.16	Info: inDetail started
+Date: 25.12.2019	Time: 11.17.19	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 11.21.49	Info: inDetail started
+Date: 25.12.2019	Time: 11.21.52	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 11.33.11	Info: inDetail started
+Date: 25.12.2019	Time: 11.33.14	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 11.43.40	Info: inDetail started
+Date: 25.12.2019	Time: 11.43.43	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 12.33.53	Info: inDetail started
+Date: 25.12.2019	Time: 12.33.56	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 13.02.02	Info: inDetail started
+Date: 25.12.2019	Time: 13.02.05	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 13.14.26	Info: inDetail started
+Date: 25.12.2019	Time: 13.14.29	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 13.15.41	Info: inDetail started
+Date: 25.12.2019	Time: 13.15.44	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 13.16.55	Info: inDetail started
+Date: 25.12.2019	Time: 13.17.00	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 13.47.53	Info: inDetail started
+Date: 25.12.2019	Time: 13.47.56	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 13.48.23	Info: inDetail started
+Date: 25.12.2019	Time: 13.48.27	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 14.00.07	Info: inDetail started
+Date: 25.12.2019	Time: 14.00.10	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 14.01.49	Info: inDetail started
+Date: 25.12.2019	Time: 14.01.52	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 14.06.24	Info: inDetail started
+Date: 25.12.2019	Time: 14.06.27	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 14.56.26	Info: inDetail started
+Date: 25.12.2019	Time: 14.56.29	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 14.57.00	Info: inDetail started
+Date: 25.12.2019	Time: 14.57.04	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 15.08.36	Info: inDetail started
+Date: 25.12.2019	Time: 15.08.40	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 15.15.57	Info: inDetail started
+Date: 25.12.2019	Time: 15.16.01	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 15.16.19	Info: inDetail started
+Date: 25.12.2019	Time: 15.16.22	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 15.20.22	Info: inDetail started
+Date: 25.12.2019	Time: 15.20.26	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 15.25.30	Info: inDetail started
+Date: 25.12.2019	Time: 15.25.33	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 17.23.38	Info: inDetail started
+Date: 25.12.2019	Time: 17.23.41	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 17.27.35	Info: inDetail started
+Date: 25.12.2019	Time: 17.27.38	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 17.28.52	Info: inDetail started
+Date: 25.12.2019	Time: 17.28.56	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 17.32.34	Info: inDetail started
+Date: 25.12.2019	Time: 17.32.38	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 17.41.03	Info: inDetail started
+Date: 25.12.2019	Time: 17.41.06	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 17.41.33	Info: inDetail started
+Date: 25.12.2019	Time: 17.41.37	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 17.45.19	Info: inDetail started
+Date: 25.12.2019	Time: 17.45.22	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 18.00.19	Info: inDetail started
+Date: 25.12.2019	Time: 18.00.22	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 18.00.47	Info: inDetail started
+Date: 25.12.2019	Time: 18.00.51	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 22.37.09	Info: inDetail started
+Date: 25.12.2019	Time: 22.37.12	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 22.44.40	Info: inDetail started
+Date: 25.12.2019	Time: 22.44.43	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 22.46.37	Info: inDetail started
+Date: 25.12.2019	Time: 22.46.40	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 22.47.17	Info: inDetail started
+Date: 25.12.2019	Time: 22.47.21	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 23.20.00	Info: inDetail started
+Date: 25.12.2019	Time: 23.20.03	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 23.20.33	Info: inDetail started
+Date: 25.12.2019	Time: 23.20.37	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 23.22.56	Info: inDetail started
+Date: 25.12.2019	Time: 23.23.00	Info: Communication Status NOK.
+Date: 25.12.2019	Time: 23.34.26	Info: inDetail started
+Date: 25.12.2019	Time: 23.34.30	Info: Communication Status NOK.

@@ -1,0 +1,81 @@
+Date: 20.12.2019	Time: 12.52.01	Info: 1500h modu aktif
+Date: 20.12.2019	Time: 12.52.01	Info: Hortum hava alma kontrol.
+Date: 20.12.2019	Time: 12.52.01	Info: temiz tanktan basýnc tankýna sývý aktarýlýyor .
+Date: 20.12.2019	Time: 12.52.05	Info: temiz tanktan basýnc tankýna sývý aktarýldý .
+Date: 20.12.2019	Time: 12.52.05	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 12.53.09	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 12.53.13	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 12.54.13	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 12.54.21	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 12.55.21	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 12.55.29	Info: Test kontrol aktif.
+Date: 20.12.2019	Time: 12.55.29	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 12.55.29	Info: Hortum hava alma kontrol edildi.
+Date: 20.12.2019	Time: 12.57.49	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.04.57	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.05.25	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.05.29	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.06.29	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.06.41	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.08.05	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.10.25	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.10.37	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.10.41	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.10.45	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.10.49	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.11.13	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.11.33	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.11.45	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.12.01	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.12.05	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.12.13	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.12.49	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.12.53	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.12.57	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.13.05	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.13.09	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.16.13	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.16.29	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.16.41	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.16.45	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.16.49	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.16.53	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.17.21	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.17.33	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.17.45	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.17.53	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.18.21	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.18.37	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.18.41	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.19.13	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.19.17	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.19.21	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.24.43	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.24.49	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.25.04	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.26.16	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.26.21	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.26.25	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.26.29	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.26.41	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.26.49	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.26.53	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.27.05	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.27.09	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.27.17	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.27.21	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.28.25	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.28.45	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.28.57	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.29.53	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.29.57	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.30.28	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.30.33	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.30.49	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.30.56	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.31.33	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.33.37	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.33.53	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 13.34.01	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 13.38.33	Info: Test beklemede.
+Date: 20.12.2019	Time: 13.38.33	Info: Test kontrolu kapali.

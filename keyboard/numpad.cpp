@@ -34,7 +34,6 @@
  *
 */
 
-
 #include "numpad.h"
 #include "ui_numpad.h"
 #include <QtGui>

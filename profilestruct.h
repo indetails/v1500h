@@ -1,6 +1,7 @@
 #ifndef PROFILESTRUCT_H
 #define PROFILESTRUCT_H
 #include "QtCore"
+#include "teststruct.h"
 
 #define MaxProfile 20
 #define MaxStep 20
@@ -93,8 +94,10 @@ struct PLC
     bool cleanTankLow;
     bool    expansionTankHigh;
     //basınc state
-     bool pressureFixing;
-     bool pressureFixed;
+    bool pipeAirTake;
+    bool waitingSetTemp;
+    bool pressureFixing;
+    bool pressureFixed;
     //nem state
 
     // sogutma state
@@ -105,9 +108,19 @@ struct PLC
     bool vibrationTestCompleted;
     bool vibrationMotor1Stat;
     bool vibrationMotor2Stat;
-
     bool cabinDoorLock;
 
+    //step
+    quint8  tStep;
+    quint8  pStep;
+    quint8  vStep;
+
+    //repeats
+    quint32 pStepRepeat;
+    quint32 vStepRepeat;
+
+    Test    currentTest;
 };
+
 
 #endif // PROFILESTRUCT_H

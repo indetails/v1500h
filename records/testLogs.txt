@@ -1,0 +1,6 @@
+Date: 20.12.2019	Time: 12.48.31	Info: Test beklemede.
+Date: 20.12.2019	Time: 12.48.31	Info: Kapak kilidi aktif
+Date: 20.12.2019	Time: 12.48.31	Info: 1. hatta sýzýntý tespit edildi.
+Date: 20.12.2019	Time: 12.51.45	Info: Test beklemede.
+Date: 20.12.2019	Time: 12.51.45	Info: Kapak kilidi aktif
+Date: 20.12.2019	Time: 12.51.45	Info: 1. hatta sýzýntý tespit edildi.

@@ -3,55 +3,34 @@
 #include  "lookprofile.h"
 #include "keyboard/numpad.h"
 
+
+
 char appName[] = {'i', 'n', 'D', 'e', 't', 'a', 'i', 'l', ' ', 'V', '1', '5', '0','0'};
 profileStruct tProfileSave[MaxProfile];
-profileStruct pProfileSave[MaxProfile];
-profileStruct vProfileSave[MaxProfile];
-
 profileStruct tProfileEdit[MaxProfile];
-profileStruct pProfileEdit[MaxProfile];
-profileStruct vProfileEdit[MaxProfile];
-
 profileStruct tProfileLoad[MaxProfile];
-profileStruct pProfileLoad[MaxProfile];
-profileStruct vProfileLoad[MaxProfile];
 
-PLC myPLC;
+profileStruct pProfileSave[MaxProfile];
+profileStruct pProfileEdit[MaxProfile];
+profileStruct pProfileLoad[MaxProfile];
+
+profileStruct vProfileSave[MaxProfile];
+profileStruct vProfileEdit[MaxProfile];
+profileStruct vProfileLoad[MaxProfile];
 
 quint8 currentProfile = 0;
 quint8 currentTStep = 0;
-quint8 currentPStep = 0;
-quint8 currentVStep = 0;
-
 quint16 profileId = 0;
-
 double oldTValue = 0;
-double oldPValue = 0;
-double oldVValue = 0;
-
 int tempPeriod;
-int vibPeriod;
-int pressurePeriod;
-
-
 double tKey = 0;
 double tKeyElapsed = 0;
-double pKey = 0;
-double vKey = 0;
-
-
 float pipePressure1In;
 float pipe1Pressure;
 float setPressure;
-float pipe2Pressure;
-float pipe3Pressure;
-float pipe4Pressure;
-float pipe5Pressure;
-float pipe6Pressure;
 float ExpansionTankLevel;
 float CleanTankLevel;
 float DirtyTankLevel;
-
 float cabinBottomTemperatureIn;
 float cabinTopTemperatureIn;
 float cabinPIDTemperatureIn;
@@ -62,51 +41,26 @@ float cabinAverageTemp;
 float waterTankTemperature;
 bool  waterTankLiquidLevel;
 float pipeVibrationFrequency;
-
 bool commStatus;
-
-quint32 tElapsedSeconds;
-quint32 pElapsedSeconds;
-quint32 vElapsedSeconds;
 quint8  tStep;
-quint8  pStep;
-quint8  vStep;
-quint32 pStepRepeat;
-quint32 vStepRepeat;
 quint16 tCycle;
-quint16 pCycle;
-quint16 vCycle;
-
 quint32 totalTestDuration;
-
 quint8 askCounter = 1;
-
-QString testFolder;
 QString dataFilePath;
-bool startFromRecords = false;
-
+UpdateInfoBytes    updateVisuals;
+bool tempGraphStarted;
+GkTestManager testManagerMain;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
 
     this->setWindowTitle(appName);
 
-    //    QPixmap bkgnd("png\\background.jpg");
-    //    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-    //    QPalette palette;
-    //    palette.setBrush(QPalette::Background, bkgnd);
-    //    ui->tab_Main->setPalette(palette);
-    //    ui->tab_Details->setPalette(palette);
-    //    ui->tab_EditPro->setPalette(palette);
-    //    ui->tab_NewPro->setPalette(palette);
-    //    ui->tab_Manual->setPalette(palette);
-    //    ui->tab_Maintenance->setPalette(palette);
-
     lineEditkeyboard = new Numpad();
-
 
 
 #ifdef Q_OS_LINUX
@@ -140,22 +94,23 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 #endif
 
+    writeToLogText = new writeInfosToText() ;
     serial = new mySerial(this);
+
+    writeToLogText->machineInfosToText("inDetail started");
 
     connect(serial, &mySerial::messageSerial, this, &MainWindow::serialMessage);
 
     serial->startSerial();
+
     proc = new SerialProcess(this);
     connect(proc, &SerialProcess::write,serial, &mySerial::writeSerial);
     connect(proc, &SerialProcess::profileReady, this, &MainWindow::profileSent);
     connect(proc, &SerialProcess::commStatus, this, &MainWindow::commInfo);
 
     setupTGraph();
-    setupVGraph();
-    setupPGraphs();
     setupPreviewGraphs();
     setupVisuals();
-
     setupComboBoxes();
 
     timer1000 = new QTimer(this);
@@ -183,7 +138,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //myPLC.pipePressureStat = true;
 
     askSensorValues();
-
 }
 
 MainWindow::~MainWindow()
@@ -229,7 +183,7 @@ void MainWindow::profileSent()
     /// ve Test başlatma prosedürü devam ettirilir.   
 
 
-
+    writeToLogText->machineInfosToText("Profile Sent.");
     ui->bStartTest->setEnabled(true);
     ui->bStartTestManual->setEnabled(true);
     ui->bSetTemperatureStart->setEnabled(true);
@@ -246,13 +200,12 @@ void MainWindow::commInfo(bool status)
 
     if (status == true)
     {
-
         commStatus = true;
 
     }
     else
     {
-
+        writeToLogText->machineInfosToText("Communication Status NOK.");
         ui->tabWidget->setCurrentIndex(1);
         ui->detailsPages->setCurrentIndex(0);
         ui->detailsBottomPages->setCurrentIndex(4);
@@ -278,7 +231,7 @@ void MainWindow::setupTGraph()
     tTicker->setTickCount(15);
 
     QSharedPointer<QCPAxisTicker> pTicker(new QCPAxisTicker);
-        pTicker->setTickCount(9);
+    pTicker->setTickCount(9);
 
     // make temperature plot general settings
     ui->tTestGraph->addGraph(ui->tTestGraph->xAxis, ui->tTestGraph->yAxis);
@@ -298,7 +251,7 @@ void MainWindow::setupTGraph()
     //make visible right axes for pressure
 
      ui->tTestGraph->yAxis2->setTicker(pTicker);
-      ui->tTestGraph->yAxis2->setVisible(true);
+     ui->tTestGraph->yAxis2->setVisible(true);
 
     // make X axis as time ticker
     ui->tTestGraph->xAxis->setTicker(timeTicker);
@@ -307,45 +260,45 @@ void MainWindow::setupTGraph()
     ui->tTestGraph->xAxis->setLabel("Zaman (hh:mm:ss)");
     ui->tTestGraph->yAxis->setLabelFont(QFont(QFont().family(), 12));
     ui->tTestGraph->yAxis->setLabel("Kabin Sıcaklıgı (°C)");
-        ui->tTestGraph->yAxis2->setLabelFont(QFont(QFont().family(), 12));
-        ui->tTestGraph->yAxis2->setLabel("Boru Basıncı (bar)");
+    ui->tTestGraph->yAxis2->setLabelFont(QFont(QFont().family(), 12));
+    ui->tTestGraph->yAxis2->setLabel("Boru Basıncı (bar)");
     ui->tTestGraph->xAxis->setLabelColor(Qt::white);
     ui->tTestGraph->yAxis->setLabelColor(Qt::white);
-        ui->tTestGraph->yAxis2->setLabelColor(Qt::white);
+    ui->tTestGraph->yAxis2->setLabelColor(Qt::white);
     ui->tTestGraph->xAxis->setTickLabelFont(QFont(QFont().family(), 14));
     ui->tTestGraph->yAxis->setTickLabelFont(QFont(QFont().family(), 14));
-        ui->tTestGraph->yAxis2->setTickLabelFont(QFont(QFont().family(), 14));
-        ui->tTestGraph->yAxis2->setTickLabelColor(Qt::white);
+    ui->tTestGraph->yAxis2->setTickLabelFont(QFont(QFont().family(), 14));
+    ui->tTestGraph->yAxis2->setTickLabelColor(Qt::white);
     ui->tTestGraph->yAxis->setRange(0, 150.0);
-        ui->tTestGraph->yAxis2->setRange(0, 6);
+    ui->tTestGraph->yAxis2->setRange(0, 6);
 
     //Background Colour brush pens
     ui->tTestGraph->xAxis->setBasePen(QPen(Qt::white, 1));
     ui->tTestGraph->yAxis->setBasePen(QPen(Qt::white, 1));
-        ui->tTestGraph->yAxis2->setBasePen(QPen(Qt::white, 1));
+    ui->tTestGraph->yAxis2->setBasePen(QPen(Qt::white, 1));
     ui->tTestGraph->xAxis->setTickPen(QPen(Qt::white, 1));
     ui->tTestGraph->yAxis->setTickPen(QPen(Qt::white, 1));
-        ui->tTestGraph->yAxis2->setTickPen(QPen(Qt::white, 1));
+    ui->tTestGraph->yAxis2->setTickPen(QPen(Qt::white, 1));
     ui->tTestGraph->xAxis->setSubTickPen(QPen(Qt::white, 1));
     ui->tTestGraph->yAxis->setSubTickPen(QPen(Qt::white, 1));
-        ui->tTestGraph->yAxis2->setSubTickPen(QPen(Qt::white, 1));
+    ui->tTestGraph->yAxis2->setSubTickPen(QPen(Qt::white, 1));
     ui->tTestGraph->xAxis->setTickLabelColor(Qt::white);
     ui->tTestGraph->yAxis->setTickLabelColor(Qt::white);
-    ui->tTestGraph->xAxis->grid()->setPen(QPen(QColor(140, 140, 140), 1, Qt::DotLine));
-    ui->tTestGraph->yAxis->grid()->setPen(QPen(QColor(140, 140, 140), 1, Qt::DotLine));
-    ui->tTestGraph->xAxis->grid()->setSubGridPen(QPen(QColor(80, 80, 80), 1, Qt::DotLine));
-    ui->tTestGraph->yAxis->grid()->setSubGridPen(QPen(QColor(80, 80, 80), 1, Qt::DotLine));
+    ui->tTestGraph->xAxis->grid()->setPen(QPen(QColor(140, 140, 140), 1,
+    Qt::DotLine)); ui->tTestGraph->yAxis->grid()->setPen(QPen(QColor(140, 140,
+    140), 1, Qt::DotLine));
+    ui->tTestGraph->xAxis->grid()->setSubGridPen(QPen(QColor(80, 80, 80), 1,
+    Qt::DotLine)); ui->tTestGraph->yAxis->grid()->setSubGridPen(QPen(QColor(80,
+    80, 80), 1, Qt::DotLine));
     ui->tTestGraph->xAxis->grid()->setSubGridVisible(true);
     ui->tTestGraph->yAxis->grid()->setSubGridVisible(true);
     ui->tTestGraph->xAxis->grid()->setZeroLinePen(Qt::NoPen);
     ui->tTestGraph->yAxis->grid()->setZeroLinePen(Qt::NoPen);
     ui->tTestGraph->xAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
     ui->tTestGraph->yAxis->setUpperEnding(QCPLineEnding::esSpikeArrow);
-    QLinearGradient plotGradient;
-    plotGradient.setStart(0, 0);
-    plotGradient.setFinalStop(0, 350);
-    plotGradient.setColorAt(0, QColor(80, 80, 80));
-    plotGradient.setColorAt(1, QColor(50, 50, 50));
+    QLinearGradient plotGradient; plotGradient.setStart(0, 0);
+    plotGradient.setFinalStop(0, 350); plotGradient.setColorAt(0, QColor(80,
+    80, 80)); plotGradient.setColorAt(1, QColor(50, 50, 50));
     ui->tTestGraph->setBackground(plotGradient);
 
 
@@ -353,132 +306,6 @@ void MainWindow::setupTGraph()
     // make left and bottom axes transfer their ranges to right and top axes:
     connect(ui->tTestGraph, SIGNAL(mousePress(QMouseEvent*)), this, SLOT(mousePress()));
     connect(ui->tTestGraph, SIGNAL(mouseWheel(QWheelEvent*)), this, SLOT(mouseWheel()));
- //   connect(ui->tTestGraph->xAxis, SIGNAL(rangeChanged(QCPRange)), ui->tTestGraph->xAxis2, SLOT(setRange(QCPRange)));
- //   connect(ui->tTestGraph->yAxis, SIGNAL(rangeChanged(QCPRange)), ui->tTestGraph->yAxis2, SLOT(setRange(QCPRange)));
-/*if (startFromRecords){
-    QVector<double> x(180000), y(180000);
-        #ifdef Q_OS_WIN
-                // windows code goes here
-                QString filePath = dataFilePath;
-        #endif
-
-                QFile file(filePath);
-
-                if(!file.open(QIODevice::ReadOnly))
-                {
-
-                }
-                QTextStream xin (&file);
-                int rowcount = 0;
-                while (!xin.atEnd()) {
-                    //auto line =xin.readLine();
-                    //auto values =line.split(",");
-                    //x[rowcount] = values[0].toDouble();
-                   // y[rowcount]= values[1].toDouble();
-                    rowcount++;
-                }
-
-
-           ui->tTestGraph->graph(0)->setData(x, y);
-
-}
-*/
-
-
-
-              // exponentially decaying cosine
-
-
-          //  pKey = QTime::currentTime().msecsSinceStartOfDay()/1000;
-
-
-            // make key axis range scroll with the data (at a constant range size of 30):
-        //    ui->pTestGraph->xAxis->setRange(pKey, 60, Qt::AlignRight);
-
-
-            // rescale key (horizontal) axis to fit the current data:
-           // ui->pTestGraph->graph(0)->rescaleKeyAxis();
-
-
-            // replot the graph with the setdata
-
-
-}
-
-void MainWindow::setupPGraphs()
-{
-    // make a time ticker
-    QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
-    timeTicker->setTimeFormat("%h:%m:%s");
-
-    // make a vertical Ticker for pressure
-    QSharedPointer<QCPAxisTicker> pTicker(new QCPAxisTicker);
-    pTicker->setTickCount(10);
-
-    // make pressure plot general settings
-    ui->pTestGraph->addGraph();
-    ui->pTestGraph->graph(0)->setPen(QPen(Qt::darkGreen));
-    ui->pTestGraph->addGraph();
-    ui->pTestGraph->graph(1)->setPen(QPen(Qt::darkBlue));
-    ui->pTestGraph->addGraph();
-    ui->pTestGraph->graph(2)->setPen(QPen(Qt::darkYellow));
-    ui->pTestGraph->addGraph();
-    ui->pTestGraph->graph(3)->setPen(QPen(Qt::darkMagenta));
-    ui->pTestGraph->addGraph();
-    ui->pTestGraph->graph(4)->setPen(QPen(Qt::darkRed));
-    ui->pTestGraph->addGraph();
-    ui->pTestGraph->graph(5)->setPen(QPen(Qt::darkCyan));
-
-    ui->pTestGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
-    ui->pTestGraph->axisRect()->setRangeDrag(Qt::Horizontal);
-    ui->pTestGraph->axisRect()->setRangeZoom(Qt::Horizontal);
-
-    // make Y axis pressure ticker
-    ui->pTestGraph->yAxis->setTicker(pTicker);
-
-    // make X axis as time ticker
-    ui->pTestGraph->xAxis->setTicker(timeTicker);
-    ui->pTestGraph->axisRect()->setupFullAxesBox();
-    ui->pTestGraph->xAxis->setLabel("Time (hh:mm:ss)");
-    ui->pTestGraph->yAxis->setLabel("Pipe Pressure (bar)");
-    ui->pTestGraph->yAxis->setRange(0, 10.0);
-    ui->pTestGraph->setBackground(Qt::white);
-    // make left and bottom axes transfer their ranges to right and top axes:
-    connect(ui->pTestGraph->xAxis, SIGNAL(rangeChanged(QCPRange)), ui->pTestGraph->xAxis2, SLOT(setRange(QCPRange)));
-    connect(ui->pTestGraph->yAxis, SIGNAL(rangeChanged(QCPRange)), ui->pTestGraph->yAxis2, SLOT(setRange(QCPRange)));
-
-}
-
-void MainWindow::setupVGraph()
-{
-    // make a time ticker
-    QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
-    timeTicker->setTimeFormat("%h:%m:%s");
-
-    // make a vertical Ticker for vibration
-    QSharedPointer<QCPAxisTicker> vTicker(new QCPAxisTicker);
-    vTicker->setTickCount(12);
-
-    // make vibration plot general settings
-    //ui->vTestGraph->addGraph();
-    //ui->vTestGraph->graph(0)->setPen(QPen(Qt::yellow));
-    //ui->vTestGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
-    //ui->vTestGraph->axisRect()->setRangeDrag(Qt::Horizontal);
-    //ui->vTestGraph->axisRect()->setRangeZoom(Qt::Horizontal);
-
-    // make Y axis vibration ticker
-    //ui->vTestGraph->yAxis->setTicker(vTicker);
-
-    // make X axis as time ticker
-    //ui->vTestGraph->xAxis->setTicker(timeTicker);
-    //ui->vTestGraph->axisRect()->setupFullAxesBox();
-    //ui->vTestGraph->xAxis->setLabel("Time (hh:mm:ss)");
-    //ui->vTestGraph->yAxis->setLabel("Vibration Frequency (Hz)");
-    //ui->vTestGraph->yAxis->setRange(0, 60.0);
-    //ui->vTestGraph->setBackground(Qt::white);
-    // make left and bottom axes transfer their ranges to right and top axes:
-    //connect(ui->vTestGraph->xAxis, SIGNAL(rangeChanged(QCPRange)), ui->vTestGraph->xAxis2, SLOT(setRange(QCPRange)));
-    //connect(ui->vTestGraph->yAxis, SIGNAL(rangeChanged(QCPRange)), ui->vTestGraph->yAxis2, SLOT(setRange(QCPRange)));
 
 }
 
@@ -491,11 +318,8 @@ void MainWindow::setupPreviewGraphs()
 
 
     ///adım önizlemesi için tPreview alanına grafik ekle.
-    ui->tPreview->addGraph();
-    QPen tPen;
-    tPen.setWidth(3);
-    tPen.setColor(Qt::red);
-    tPen.setStyle(Qt::SolidLine);
+    ui->tPreview->addGraph(); QPen tPen; tPen.setWidth(3);
+    tPen.setColor(Qt::red); tPen.setStyle(Qt::SolidLine);
     ui->tPreview->graph(0)->setPen(tPen);
     ui->tPreview->xAxis2->setVisible(true);
     ui->tPreview->xAxis2->setTickLabels(false);
@@ -503,7 +327,8 @@ void MainWindow::setupPreviewGraphs()
     ui->tPreview->yAxis2->setTickLabels(false);
     ui->tPreview->yAxis->setLabel("Cabin Temperature (°C)");
     ui->tPreview->setBackground(Qt::white);
-    ui->tPreview->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
+    ui->tPreview->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom |
+    QCP::iSelectPlottables);
 
     ui->tPreview_2->addGraph();
     QPen tPen_2;
@@ -583,11 +408,7 @@ void MainWindow::setupVisuals()
 
     connect(ui->lineEdit,SIGNAL(selectionChanged()),this,SLOT(run_keyboard_lineEdit()));
 
-
-
-
     ui->tTestGraph->setVisible(false);
-    ui->pTestGraph->setVisible(false);
     ui->rectRecipe->setVisible(true);
     ui->rectFix->setVisible(false);
     ui->rect1500h->setVisible(false);
@@ -622,8 +443,6 @@ void MainWindow::setupVisuals()
     ui->label_40->setVisible(false);
     ui->label_38->setVisible(false);
 
-
-
     loadValueExhaustValve();
     loadValueTopTempSensorCalibration();
     loadValueBottomTempSensorCalibration();
@@ -637,8 +456,6 @@ void MainWindow::setupVisuals()
 
     ui->bMainDoorInfo->setEnabled(false);
     ui->mainPage->setCurrentIndex(2);
-
-
 }
 
 void MainWindow::serialMessage(uint command, QByteArray data)
@@ -657,25 +474,27 @@ void MainWindow::serialMessage(uint command, QByteArray data)
 
     case 0x0C:
 
-        updateInfo(1,data);
+        //updateInfo(1,data);
+        myPLC = updateVisuals.updateInfoByte(ui,1,data);
 
         break;
 
     case 0x0D:
 
-        updateInfo(2,data);
-
+        //updateInfo(2,data);
+        myPLC = updateVisuals.updateInfoByte(ui,2,data);
         break;
 
     case 0x0E:
 
-        updateInfo(3,data);
+        myPLC = updateVisuals.updateInfoByte(ui,3,data);
+        updateInfo();
 
         break;
 
     case 0x0F:
 
-        updateInfo(4,data);
+        myPLC = updateVisuals.updateInfoByte(ui,4,data);
 
         break;
 
@@ -696,14 +515,12 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         float vExpansionTankLevel;
         float vDirtyTankLevel;
 
-
         pipePressure1In = qint16(((data[1] & 0xff) << 8) | (data[0] & 0xff)) ;
 
         inpExpansionTankLevel = qint16(((data[3] & 0xff) << 8) | (data[2] & 0xff));
         inpCleanTankLevel = qint16(((data[5] & 0xff) << 8) | (data[4] & 0xff));
         inpDirtyTankLevel = qint16(((data[7] & 0xff) << 8) | (data[6] & 0xff));
         setPressure = qint16(((data[9] & 0xff) << 8) | (data[8] & 0xff));
-
 
         CalCleanTankCoeff = ui->leCalCleanTankCoeff->text().toDouble();
         CalCleanTankLevelErr = ui->leCalCleanTankLevelErr->text().toDouble();
@@ -712,8 +529,6 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         ui->pbCleanTankLevel->setMinimum(0);
         ui->pbCleanTankLevel->setValue(vCleanTankLevel);
 
-
-
         CalExpansionTankCoeff = ui->leCalExpansionTankCoeff->text().toDouble();
         CalExpansionTankErr = ui->leCalExpansionTankErr->text().toDouble();
         vExpansionTankLevel = ((CalExpansionTankCoeff * inpExpansionTankLevel) + CalExpansionTankErr );
@@ -721,12 +536,9 @@ void MainWindow::serialMessage(uint command, QByteArray data)
         ui->pbExpansionTankLevel->setMinimum(0);
         ui->pbExpansionTankLevel->setValue(vExpansionTankLevel);
 
-
-
         CalDirtyTankCoeff = ui->leCalDirtyTankCoeff->text().toDouble();
         CalDirtyTankErr = ui->leCalDirtyTankErr->text().toDouble();
         vDirtyTankLevel = ((CalDirtyTankCoeff * inpDirtyTankLevel) + CalDirtyTankErr);
-
 
         ui->pbDirtyTankLevel->setMaximum(32000);
         ui->pbDirtyTankLevel->setMinimum(0);
@@ -787,1752 +599,48 @@ void MainWindow::serialMessage(uint command, QByteArray data)
 void MainWindow::prepareTestTimers()
 {
     tempPeriod = 30000;
-    vibPeriod = 1000;
-    pressurePeriod = 30000;
 
     if (myPLC.temperatureTestActive)
     {
+        writeToLogText->machineInfosToText("Grafik kaydı başladı");
         timerTemp->start(tempPeriod);
-        timerScreen->start(300000);
+        timerScreen->start(36000000);
+        tempGraphStarted = 1;
     }
-
-    if (myPLC.temperatureTestActive)
+    else
     {
-        timerPressure->start(pressurePeriod);
+       tempGraphStarted = 0;
     }
 
 }
 
-void MainWindow::updateInfo(quint8 index, QByteArray data)
-{
-    if (index == 3)
-    {
-        if (profileId != data[6])
-        {
-            profileId = quint16(data[6]);
-            ui->cbSelectProfileMain->setCurrentIndex(profileId);
-        }
-        if (data[0] == char(0x01))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = (data[0]);
-
-                if (myPLC.deviceState)
-                {
-                    timerTemp->stop();
-                    timerPressure->stop();
-                    writeToLogTable("Cihaz Boşta");
-                    ui->cbSelectProfileMain->setCurrentIndex(0);
-                    ui->cbSelectProfileMain->setEnabled(true);
-                    ui->bStartTest->setEnabled(true);
-                    ui->bStopTest->setEnabled(false);
-                    ui->bPauseTest->setEnabled(false);
-                    ui->bStartTest1500h->setText("Başla");
-                    ui->bStartTest1500h->setEnabled (true);
-                    ui->bStopTest1500h->setEnabled (false);
-                    ui->bPauseTest1500h->setEnabled (false);
-                    ui->leTTotalCycle->setEnabled(true);
-                    ui->bSetTemperatureStop->setEnabled(false);
-
-
-                    ui->cbSelectProfileManual->setCurrentIndex(0);
-                    ui->cbSelectProfileManual->setEnabled(true);
-
-                    ui->bStartTestManual->setEnabled(true);
-                    ui->bStopTestManual->setEnabled(false);
-                    ui->bPauseTestManual->setEnabled(false);
-
-                    ui->sbTTotalCycleManual->setEnabled(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x02))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = (data[0]);
-
-                if (myPLC.deviceState)
-                {
-                    testFolder = ui->laSelectedProfileMain->text() + "-" +
-                            QDate::currentDate().toString("yy.MM.dd") + "-" +
-                            QTime::currentTime().toString("hh.mm.ss");
-#ifdef Q_OS_LINUX
-                    //linux code goes here
-                    if (!QDir("/home/pi/InDetail/records/" + testFolder).exists())
-                    {
-                        QDir().mkdir("/home/pi/InDetail/records/" + testFolder);
-                    }
-#endif
-#ifdef Q_OS_WIN
-                    // windows code goes here
-                    if (!QDir("records\\" + testFolder).exists())
-                    {
-                        QDir().mkdir("records\\" + testFolder);
-                    }
-#endif
-
-                    writeToLogTable("Test Başladı.");
-
-                    ui->cbSelectProfileMain->setEnabled(false);
-                    ui->bStartTest->setEnabled(false);
-                    ui->bStopTest->setEnabled(true);
-                    ui->bPauseTest->setEnabled(true);
-
-             //       ui->sbTTotalCycle->setEnabled(false);
-                    ui->leTTotalCycle->setEnabled(false);
-
-                    ui->cbSelectProfileManual->setEnabled(false);
-                    ui->bStartTestManual->setEnabled(false);
-                    ui->bStopTestManual->setEnabled(true);
-                    ui->bPauseTestManual->setEnabled(true);
-
-                    ui->bStartTest1500h->setEnabled(false);
-
-                    ui->bResetFault->setVisible(false);
-                    ui->sbTTotalCycleManual->setEnabled(false);
-                    //    ui->sbPTotalCycleManual->setEnabled(false);
-                    //    ui->sbVTotalCycleManual->setEnabled(false);
-                    //    ui->dsbTankTempSetManual->setEnabled(false);
-                    //    ui->chbEllipticalVibrationSetManual->setEnabled(false);
-                }
-            }
-        }
-        else if (data[0] == char(0x03))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    timerTemp->stop();
-                    /*  timerVib->stop();*/
-                    timerPressure->stop();
-
-                    writeToLogTable("Test beklemede.");
-
-                    ui->bPauseTestManual->setEnabled(false);
-                    ui->bPauseTest->setEnabled(false);
-
-                    ui->bStartTest->setEnabled(true);
-                    ui->bStartTestManual->setEnabled(true);
-
-                    ui->bStartTest1500h->setText("Devam");
-                    ui->bStartTest1500h->setEnabled(true);
-                    ui->bPauseTest1500h->setEnabled(false);
-
-                    ui->bManualPressureLinesStart->setEnabled(true);
-                    ui->bManualEvacLines->setEnabled(true);
-                    ui->bManualPrepareLines->setEnabled(true);
-
-                }
-            }
-        }
-        else if (data[0] == char(0x04))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    writeToLogTable("Bakım modu aktif");
-                    ui->bManualPressureLinesStart->setEnabled(true);
-                    ui->bManualEvacLines->setEnabled(true);
-                    ui->bManualPrepareLines->setEnabled(true);
-
-                }
-            }
-        }
-        else if (data[0] == char(0x05))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    writeToLogTable("Sıcaklık sabitleme modu aktif");
-                    ui->bSetTemperatureStart->setEnabled(false);
-                    ui->bSetTemperatureStop->setEnabled(true);
-                    ui->bStartTest->setEnabled(false);
-                    ui->bStopTest->setEnabled(true);
-                    ui->bPauseTest->setEnabled(false);
-                    ui->bResetFault->setVisible(false);
-                    ui->bManualPressureLinesStart->setEnabled(false);
-                }
-            }
-        }
-        else if (data[0] == char(0x06))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-
-                if (myPLC.deviceState)
-                {
-                    testFolder =
-                            QDate::currentDate().toString("dd.MM.yy") ;
-#ifdef Q_OS_LINUX
-                    //linux code goes here
-                    if (!QDir("/home/pi/InDetail/records/" + testFolder).exists())
-                    {
-                        QDir().mkdir("/home/pi/InDetail/records/" + testFolder);
-                    }
-#endif
-#ifdef Q_OS_WIN
-                    // windows code goes here
-                    if (!QDir("records\\" + testFolder).exists())
-                    {
-                        QDir().mkdir("records\\" + testFolder);
-                    }
-#endif
-                    writeToLogTable("1500h modu aktif");
-                    ui->bStartTest1500h->setEnabled(false);
-                    ui->bPauseTest1500h->setEnabled(true);
-                    ui->bStopTest1500h->setEnabled(true);
-                    ui->bSetTemperatureStart->setEnabled(false);
-                    ui->bSetTemperatureStop->setEnabled(true);
-                    ui->bStartTest->setEnabled(false);
-                    ui->bStopTest->setEnabled(true);
-                    ui->bPauseTest->setEnabled(true);
-                    ui->bResetFault->setVisible(false);
-
-                    ui->bManualPressureLinesStart->setEnabled(false);
-                    ui->bManualPressureLinesStop->setEnabled(false);
-                    ui->bManualEvacLines->setEnabled(false);
-                    ui->bManualPrepareLines->setEnabled(false);
-                }
-            }
-        }
-        else if (data[0] == char(0x0B))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(5);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault11->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x0C))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(5);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault12->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x0D))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->bManualPressureLinesStart->setEnabled(true);
-                    ui->bManualPrepareLines->setEnabled(true);
-                    ui->bManualPressureLinesStop->setEnabled(true);
-                    ui->bManualEvacLines->setEnabled(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x15))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(2);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault21->setVisible(true);
-                    ui->Hortum1->setChecked(false);
-                }
-            }
-        }
-        else if (data[0] == char(0x16))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(2);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault22->setVisible(true);
-                    ui->Hortum2->setChecked(false);
-                }
-            }
-        }
-        else if (data[0] == char(0x17))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(2);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault23->setVisible(true);
-                    ui->Hortum3->setChecked(false);
-                }
-            }
-        }
-        else if (data[0] == char(0x18))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(2);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault24->setVisible(true);
-                    ui->Hortum4->setChecked(false);
-                }
-            }
-        }
-        else if (data[0] == char(0x19))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(2);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault25->setVisible(true);
-                    ui->Hortum5->setChecked(false);
-                }
-            }
-        }
-        else if (data[0] == char(0x1F))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(1);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault31->setVisible(true);
-                    ui->gb_CleanTankLevel->setStyleSheet("background-color: rgb(255, 0, 0);");
-                }
-            }
-        }
-        else if (data[0] == char(0x20))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(1);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault32->setVisible(true);
-                   ui->gb_KirliTankLevel->setStyleSheet("background-color: rgb(255, 0, 0);");
-                }
-            }
-        }
-        else if (data[0] == char(0x21))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(1);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault33->setVisible(true);
-                    ui->gb_basincTankLevel->setStyleSheet("background-color: rgb(255, 0, 0);");
-                }
-            }
-        }
-        else if (data[0] == char(0x22))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(1);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault34->setVisible(true);
-                    ui->gb_basincTankLevel->setStyleSheet("background-color: rgb(255, 0, 0);");
-                }
-            }
-        }
-        else if (data[0] == char(0x29))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(4);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault41->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x2A))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(3);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault42->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x2B))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(3);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault43->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x2C))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(3);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault44->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x2D))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(4);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault45->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x2E))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(3);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault46->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x2F))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(4);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault47->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x30))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(4);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault48->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x31))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(4);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault49->setVisible(true);
-                }
-            }
-        }
-        else if (data[0] == char(0x32))
-        {
-            if (myPLC.deviceState == (data[0]))
-            {
-
-            }
-            else
-            {
-                myPLC.deviceState = data[0];
-                if (myPLC.deviceState)
-                {
-                    ui->tabWidget->setCurrentIndex(1);
-                    ui->detailsPages->setCurrentIndex(0);
-                    ui->detailsBottomPages->setCurrentIndex(4);
-                    ui->bResetFault->setVisible(true);
-                    ui->laFault4A->setVisible(true);
-                }
-            }
-        }
-
-        if (myPLC.resistancesActive == (data[1] & 0b00000001))
-        {
-
-        }
-        else
-        {
-            myPLC.resistancesActive = (data[1] & 0b00000001);
-
-            if (myPLC.resistancesActive)
-            {
-               // ui->sW_0->setCurrentIndex(0);
-                ui->cB_tte_6->setEnabled(true);
-            }
-            else
-            {
-                ui->cB_tte_6->setEnabled(false);
-            }
-        }
-
-        if (myPLC.fansActive == (data[1] & 0b00000010) >> 1)
-        {
-
-        }
-        else
-        {
-            myPLC.fansActive = (data[1] & 0b00000010) >> 1;
-
-            if (myPLC.fansActive)
-            {
-
-                ui->cB_tte_7->setEnabled(true);
-            }
-            else
-            {
-
-                ui->cB_tte_7->setEnabled(false);
-            }
-        }
-
-        if (myPLC.liquidChangeActive == (data[1] & 0b00000100) >> 2)
-        {
-
-        }
-        else
-        {
-            myPLC.liquidChangeActive = (data[1] & 0b00000100) >> 2;
-
-            if (myPLC.liquidChangeActive)
-            {
-                writeToLogTable("Sıvı degişimi yapılıyor.");
-                ui->cB_tte_22->setEnabled(true);
-            }
-            else
-            {
-                ui->cB_tte_22->setEnabled(false);
-                writeToLogTable("sıvı degişimi tamamlandı.");
-
-            }
-        }
-
-        if (myPLC.liquidChangeCoolingActive == (data[1] & 0b00001000) >> 3)
-        {
-
-        }
-        else
-        {
-            myPLC.liquidChangeCoolingActive = (data[1] & 0b00001000) >> 3;
-
-            if (myPLC.liquidChangeCoolingActive)
-            {
-                ui->cB_tte_23->setCheckState(Qt::CheckState(true));
-                writeToLogTable("sıcaklık düşürülüyor.");
-            }
-            else
-            {
-               ui->cB_tte_23->setCheckState(Qt::CheckState(true));
-               writeToLogTable("sıcaklık düşürme tamamlandı.");
-            }
-        }
-
-        if (myPLC.temperatureTestActive == (data[1] & 0b00010000) >> 4)
-        {
-
-        }
-        else
-        {
-            myPLC.temperatureTestActive = (data[1] & 0b00010000) >> 4;
-
-            if (myPLC.temperatureTestActive)
-            {
-
-                ui->cB_tte_33->setCheckState(Qt::CheckState(true));
-                writeToLogTable("sıcaklık kontrol aktif.");
-                myPLC.temperatureTestActive = true;    
-                prepareTestTimers();
-
-            }
-            else
-            {
-                ui->cB_tte_33->setCheckState(Qt::CheckState(false));
-                myPLC.temperatureTestActive = false;
-                writeToLogTable("sıcaklık kontrol kapalı.");
-            }
-        }
-
-        if (myPLC.temperaturePrepActive == (data[1] & 0b00100000) >> 5)
-        {
-
-        }
-        else
-        {
-            myPLC.temperaturePrepActive = (data[1] & 0b00100000) >> 5;
-
-            if (myPLC.temperaturePrepActive)
-            {
-                writeToLogTable("sıcaklık ayarlanıyor.");
-                ui-> laDurum2->setVisible(true);
-
-            }
-            else
-            {
-                writeToLogTable("sıcaklık ayarlama yapıldı.");
-                ui-> laDurum2->setVisible(false);
-            }
-        }
-
-
-        if (myPLC.temperatureFixing == (data[1] & 0b01000000) >> 6)
-        {
-
-        }
-        else
-        {
-            myPLC.temperatureFixing = (data[1] & 0b01000000) >> 6;
-
-            if (myPLC.temperatureFixing)
-            {
-                writeToLogTable("sıcaklık ayarlanıyor.");
-                ui-> laDurum2->setVisible(true);
-
-            }
-            else
-            {
-                writeToLogTable("sıcaklık ayarlama yapıldı.");
-                ui-> laDurum2->setVisible(false);
-            }
-        }
-
-
-        if (myPLC.temperatureFixed == (data[1] & 0b10000000) >> 7)
-        {
-
-        }
-        else
-        {
-            myPLC.temperatureFixed = (data[1] & 0b10000000) >> 7;
-
-            if (not myPLC.temperatureFixed )
-            {
-                ui-> laDurum2_2->setVisible(true);
-
-            }
-            else
-            {
-                ui-> laDurum2_2->setVisible(false);
-            }
-        }
-
-
-
-        if (myPLC.pipe1Control == (data[2] & 0b00000001) )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe1Control = (data[2] & 0b00000001) ;
-
-            if (myPLC.pipe1Control)
-            {
-                writeToLogTable("hortum 1 kontrol.");
-                ui->control_hortum_1->setVisible(true);
-            }
-            else
-            {
-               writeToLogTable("hortum1 kontrol edildi.");
-               ui->control_hortum_1->setVisible(false);
-            }
-        }
-
-        if (myPLC.pipe2Control == (data[2] & 0b00000010) >> 1)
-        {
-
-        }
-        else
-        {
-            myPLC.pipe2Control = (data[2] & 0b00000010) >> 1 ;
-
-            if (myPLC.pipe2Control)
-            {
-                writeToLogTable("hortum 2 kontrol.");
-                ui->control_hortum_2->setVisible(true);
-            }
-            else
-            {
-
-                    writeToLogTable("hortum 2 kontrol edildi.");
-                    ui->control_hortum_2->setVisible(false);
-
-            }
-        }
-
-        if (myPLC.pipe3Control == (data[2] & 0b00000100) >> 2 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe3Control = (data[2] & 0b00000100) >> 2 ;
-
-            if (myPLC.pipe3Control)
-            {
-                writeToLogTable("hortum 3 kontrol.");
-                ui->control_hortum_3->setVisible(true);
-            }
-            else
-            {
-
-                    writeToLogTable("hortum 3 kontrol edildi.");
-                    ui->control_hortum_3->setVisible(false);
-
-            }
-        }
-
-        if (myPLC.pipe4Control == (data[2] & 0b00001000) >> 3 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe4Control = (data[2] & 0b00001000) >> 3 ;
-
-            if (myPLC.pipe4Control)
-            {
-                writeToLogTable("hortum 4 kontrol.");
-                ui->control_hortum_4->setVisible(true);
-            }
-            else
-            {
-                    ui->control_hortum_4->setVisible(false);
-                    writeToLogTable("hortum 4 kontrol edildi.");
-
-            }
-        }
-
-        if (myPLC.pipe5Control == (data[2] & 0b00010000) >> 4 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe5Control = (data[2] & 0b00010000) >> 4 ;
-
-            if (myPLC.pipe5Control)
-            {
-                writeToLogTable("hortum 5 kontrol.");
-                ui->control_hortum_5->setVisible(true);
-            }
-            else
-            {
-                writeToLogTable("hortum 5 kontrol edildi.");
-                ui->control_hortum_5->setVisible(false);
-            }
-        }
-
-        if (myPLC.pipePrepareActive == (data[2] & 0b00100000) >> 5 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipePrepareActive = (data[2] & 0b00100000) >> 5 ;
-
-            if (myPLC.pipePrepareActive)
-            {
-                  writeToLogTable("hortum hava alma kontrol.");
-                   ui->laDurum1->setVisible(true);
-            }
-            else
-            {
-
-                    writeToLogTable("hortum hava alma kontrol edildi.");
-                     ui->laDurum1->setVisible(false);
-
-            }
-        }
-
-        if (myPLC.pipePressureStat == (data[2] & 0b01000000) >> 6 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipePressureStat = (data[2] & 0b01000000) >> 6 ;
-
-            if (myPLC.pipePressureStat)
-            {
-                writeToLogTable("hortum kontrol");
-                ui->tabWidget->setCurrentIndex(1);
-                ui->detailsBottomPages->setCurrentIndex(2);               
-                ui->laFault4A_2->setVisible(true);
-                ui->bResetFault->setVisible(true);
-            }
-
-            else
-            {
-
-                    writeToLogTable("hortum kontrol edildi.");
-                    ui->laFault4A_2->setVisible(false);
-            }
-        }
-
-        if (myPLC.manualPressureLine == (data[2] & 0b10000000) >> 7 )
-        {
-
-        }
-        else
-        {
-            myPLC.manualPressureLine = (data[2] & 0b10000000) >> 7 ;
-
-            if (myPLC.manualPressureLine)
-            {
-                writeToLogTable("hortum manuel basınçlandırılıyor");
-                ui->detailsBottomPages->setCurrentIndex(2);
-                ui->bManualPressureLinesStop->setEnabled(true);
-
-            }
-            else
-            {
-
-                    writeToLogTable("hortum manuel basınçlandırma tamamlandı.");
-
-            }
-        }
-
-        if (myPLC.expansion_tank_exhaust_to_dirty_tank_active == (data[3] & 0b00000001)  )
-        {
-
-        }
-        else
-        {
-            myPLC.expansion_tank_exhaust_to_dirty_tank_active = (data[3] & 0b00000001) ;
-
-            if (myPLC.expansion_tank_exhaust_to_dirty_tank_active)
-            {
-                writeToLogTable("temiz tanktan basınc tankına sıvı aktarılıyor .");
-            }
-            else
-            {
-                writeToLogTable("temiz tanktan basınc tankına sıvı aktarıldı .");
-
-            }
-        }
-
-        if (myPLC.workPumpCleanToExpansion == (data[3] & 0b00000010) >> 1 )
-        {
-
-        }
-        else
-        {
-            myPLC.workPumpCleanToExpansion = (data[3] & 0b00000010) >> 1 ;
-
-            if (myPLC.workPumpCleanToExpansion)
-            {
-                writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor.");
-            }
-            else
-            {
-                writeToLogTable("temiz tanktan kirli tankına sıvı aktarılıyor.");
-            }
-        }
-
-        if (myPLC.clean_tank_exhaust_to_dirty_tank_active == (data[3] & 0b00000100) >> 2 )
-        {
-
-        }
-        else
-        {
-            myPLC.clean_tank_exhaust_to_dirty_tank_active = (data[3] & 0b00000100) >> 2 ;
-
-            if (myPLC.clean_tank_exhaust_to_dirty_tank_active)
-            {
-                writeToLogTable("hatlardaki sıvı boşaltılıyor");
-            }
-            else
-            {
-                writeToLogTable("hatlardaki sıvı boşaltıldı.");
-            }
-        }
-
-        if (myPLC.circulationPumpActive == (data[3] & 0b00001000) >> 3 )
-        {
-
-        }
-        else
-        {
-            myPLC.circulationPumpActive = (data[3] & 0b00001000) >> 3 ;
-
-            if (myPLC.circulationPumpActive)
-            {
-                writeToLogTable("Sirkülasyon Pompası Çalışıyor");
-            }
-            else
-            {
-               writeToLogTable("Sirkülasyon Pompası durdu. ");
-            }
-        }
-
-        if (myPLC.cleanTankLow == (data[3] & 0b00010000) >> 4 )
-        {
-
-        }
-        else
-        {
-            myPLC.cleanTankLow = (data[3] & 0b00010000) >> 4 ;
-
-            if (myPLC.cleanTankLow)
-            {
-                ui->laFault31->setVisible(true);
-                writeToLogTable("Temiz tank seviyesi çok düşük.");
-                ui->tabWidget->setCurrentIndex(1);
-                ui->detailsBottomPages->setCurrentIndex(1);
-            }
-            else
-            {
-                ui->laFault31->setVisible(false);
-               writeToLogTable("Temiz tank seviyesi normal");
-            }
-        }
-
-        if (myPLC.expansionTankHigh == (data[3] & 0b00100000) >> 5 )
-        {
-
-        }
-        else
-        {
-            myPLC.expansionTankHigh = (data[3] & 0b00100000) >> 5 ;
-
-            if (myPLC.expansionTankHigh)
-            {
-                writeToLogTable("basınç tankı sıvı seviyesi yüksek");
-            }
-            else
-            {
-               writeToLogTable("basınç tankı sıvı seviyesi normale döndü.");
-            }
-        }
-        if (myPLC.cabinDoorLock == (data[3] & 0b01000000) >> 6 )
-        {
-
-        }
-        else
-        {
-            myPLC.cabinDoorLock = (data[3] & 0b01000000) >> 6 ;
-
-            if (myPLC.cabinDoorLock)
-            {
-                writeToLogTable("Kapak kilidi aktif");
-                ui->bMainDoorInfo->setEnabled(true);
-            }
-            else
-            {
-               writeToLogTable("Kapak kilidi kullanım dışı");
-               ui->bMainDoorInfo->setEnabled(false);
-            }
-        }
-
-
-        if (myPLC.pipe1LeakageDetected == (data[4] & 0b00000001)  )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe1LeakageDetected = (data[4] & 0b00000001) ;
-
-            if (myPLC.pipe1LeakageDetected)
-            {
-                writeToLogTable("1. hatta sızıntı tespit edildi.");
-                ui->laFault21->setVisible(true);
-                ui->Hortum1_2->setChecked(false);
-                ui->Hortum1->setChecked(true);
-            }
-            else
-            {
-                ui->Hortum1_2->setChecked(true);
-                ui->Hortum1->setChecked(false);
-
-
-            }
-        }
-
-        if (myPLC.pipe2LeakageDetected == (data[4] & 0b00000010) >> 1 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe2LeakageDetected = (data[4] & 0b00000010) >> 1 ;
-
-            if (myPLC.pipe2LeakageDetected)
-            {
-                writeToLogTable("2. hatta sızıntı tespit edildi.");
-                ui->laFault22->setVisible(true);
-                ui->Hortum2_2->setChecked(false);
-                ui->Hortum2->setChecked(true);
-            }
-            else
-            {
-                ui->Hortum2_2->setChecked(true);
-                ui->Hortum2->setChecked(false);
-
-            }
-        }
-
-        if (myPLC.pipe3LeakageDetected == (data[4] & 0b00000100) >> 2 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe3LeakageDetected = (data[4] & 0b00000100) >> 2 ;
-
-            if (myPLC.pipe3LeakageDetected)
-            {
-                writeToLogTable("3.hatta sızıntı tespit edildi.");
-                ui->laFault23->setVisible(true);
-                ui->Hortum3_2->setChecked(false);
-                ui->Hortum3->setChecked(true);
-            }
-            else
-            {
-                ui->Hortum3_2->setChecked(true);
-                ui->Hortum3->setChecked(false);
-            }
-        }
-
-        if (myPLC.pipe4LeakageDetected== (data[4] & 0b00001000) >> 3 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe4LeakageDetected = (data[4] & 0b00001000) >> 3 ;
-
-            if (myPLC.pipe4LeakageDetected)
-            {
-                writeToLogTable("4.hatta sızıntı tespit edildi.");
-                ui->laFault24->setVisible(true);
-                ui->Hortum4_2->setChecked(false);
-                ui->Hortum4->setChecked(true);
-            }
-            else
-            {
-                ui->Hortum4_2->setChecked(true);
-                ui->Hortum4->setChecked(false);
-            }
-        }
-
-        if (myPLC.pipe5LeakageDetected == (data[4] & 0b00010000) >> 4 )
-        {
-
-        }
-        else
-        {
-            myPLC.pipe5LeakageDetected = (data[4] & 0b00010000) >> 4 ;
-
-            if (myPLC.pipe5LeakageDetected)
-            {
-                writeToLogTable("5.hatta sızıntı tespit edildi.");
-                ui->laFault25->setVisible(true);
-                ui->Hortum5_2->setChecked(false);
-                ui->Hortum5->setChecked(true);
-            }
-            else
-            {
-                ui->Hortum5_2->setChecked(true);
-                ui->Hortum5->setChecked(false);
-            }
-        }
-
-        if (myPLC.ManualPrepareLinesFixing == (data[4] & 0b00100000) >> 5 )
-        {
-
-        }
-        else
-        {
-            myPLC.ManualPrepareLinesFixing = (data[4] & 0b00100000) >> 5 ;
-
-            if (myPLC.ManualPrepareLinesFixing)
-            {
-                // Manuel hava alma işlemi
-                ui->label_62->setVisible(true);
-
-
-            }
-            else
-            {
-              ui->label_62->setVisible(true);
-            }
-        }
-
-        if (myPLC.ManualEvacLinesFixing == (data[4] & 0b01000000) >> 6 )
-        {
-
-        }
-        else
-        {
-            myPLC.ManualEvacLinesFixing = (data[4] & 0b01000000) >> 6 ;
-
-            if (myPLC.ManualEvacLinesFixing)
-            {
-                ui->label_63->setVisible(true);
-            }
-            else
-            {
-                ui->label_63->setVisible(false);
-            }
-        }
-
-        if (myPLC.pressureFixing == (data[5] & 0b00000001) )
-        {
-
-        }
-        else
-        {
-            myPLC.pressureFixing = (data[5] & 0b00000001)  ;
-
-            if (myPLC.pressureFixing)
-            {
-
-                ui->laDurum3->setVisible(true);
-
-
-            }
-            else
-            {
-                ui->laDurum3->setVisible(false);
-            }
-        }
-
-        if (myPLC.pressureFixed == (data[5] & 0b00000010 >> 1 ) )
-        {
-
-        }
-        else
-        {
-            myPLC.pressureFixed = (data[5] & 0b00000010 >> 1) ;
-
-            if (myPLC.pressureFixed)
-            {
-
-                ui->laDurum3_2->setVisible(true);
-
-
-            }
-            else
-            {
-                ui->laDurum3_2->setVisible(false);
-            }
-        }
-
-
-        /*
-        if (myPLC.pressurePrepActive == (data[1] & 0b00001000) >> 3)
-        {
-
-        }
-        else
-        {
-            myPLC.pressurePrepActive = (data[1] & 0b00001000) >> 3;
-
-            if (myPLC.pressurePrepActive)
-            {
-                writeToLogTable("Basınç Hazırlık Adımı Başladı.");
-            }
-            else
-            {
-                writeToLogTable("Basınç Hazırlık Adımı Tamamlandı.");
-            }
-        }
-
-        if (myPLC.pressureTestCompleted == (data[1] & 0b00100000) >> 5)
-        {
-
-        }
-        else
-        {
-            myPLC.pressureTestCompleted = (data[1] & 0b00100000) >> 5;
-
-            if (myPLC.pressureTestCompleted)
-            {
-                writeToLogTable("Basınç testi tamamlandı.");
-            }
-            else
-            {
-
-            }
-        }
-
-        if (myPLC.pressureTestActive == (data[1] & 0b00010000) >> 4)
-        {
-
-        }
-        else
-        {
-            myPLC.pressureTestActive = (data[1] & 0b00010000) >> 4;
-
-            if (myPLC.pressureTestActive)
-            {
-                writeToLogTable("Basıç testi aktif.");
-            }
-            else
-            {
-                if (myPLC.pressureTestCompleted)
-                {
-
-                }
-                else
-                {
-                    writeToLogTable("Basınç testi iptal edildi");
-                }
-            }
-        }
-
-        if (myPLC.vibrationPrepActive == (data[1] & 0b01000000) >> 6)
-        {
-
-        }
-        else
-        {
-            myPLC.vibrationPrepActive = (data[1] & 0b01000000) >> 6;
-
-            if (myPLC.vibrationPrepActive)
-            {
-                writeToLogTable("Vibration prep. started.");
-            }
-            else
-            {
-                writeToLogTable("Vibration prep. completed.");
-            }
-        }
-
-        if (myPLC.vibrationTestCompleted == (data[2] & 0b00000001))
-        {
-
-        }
-        else
-        {
-            myPLC.vibrationTestCompleted = (data[2] & 0b00000001);
-
-            if (myPLC.vibrationTestCompleted)
-            {
-                writeToLogTable("Vibration test completed.");
-            }
-            else
-            {
-
-            }
-        }
-
-        if (myPLC.vibrationTestActive == (data[1] & 0b10000000) >> 7)
-        {
-
-        }
-        else
-        {
-            myPLC.vibrationTestActive = (data[1] & 0b10000000) >> 7;
-
-            if (myPLC.vibrationTestActive)
-            {
-                writeToLogTable("Vibration test started.");
-            }
-            else
-            {
-                if (myPLC.vibrationTestCompleted)
-                {
-
-                }
-                else
-                {
-                    writeToLogTable("Vibration test canceled.");
-                }
-            }
-        }
-
-        if (myPLC.temperaturePrepActive == (data[1] & 0b00000001))
-        {
-
-        }
-        else
-        {
-            myPLC.temperaturePrepActive = (data[1] & 0b00000001);
-
-            if (myPLC.temperaturePrepActive)
-            {
-                writeToLogTable("Sıcaklık hazırlığı başladı.");
-            }
-            else
-            {
-                writeToLogTable("Sicaklik hazirligi tamamlandi.");
-            }
-        }
-
-        if (myPLC.temperatureTestCompleted == (data[1] & 0b00000100) >> 2)
-        {
-
-        }
-        else
-        {
-            myPLC.temperatureTestCompleted = (data[1] & 0b00000100) >> 2;
-
-            if (myPLC.temperatureTestCompleted)
-            {
-                writeToLogTable("sicaklik testi tamamlandi.");
-            }
-            else
-            {
-
-            }
-        }
-
-        if (myPLC.temperatureTestActive == (data[1] & 0b00000010) >> 1)
-        {
-
-        }
-        else
-        {
-            myPLC.temperatureTestActive = (data[1] & 0b00000010) >> 1;
-
-            if (myPLC.temperatureTestActive)
-            {
-                writeToLogTable("Sicaklik testi basladi.");
-            }
-            else
-            {
-                if (myPLC.temperatureTestCompleted)
-                {
-
-                }
-                else
-                {
-                    writeToLogTable("Sicaklik testi iptal edildi.");
-                }
-            }
-        }
-
-        if (myPLC.profileActive == (data[2] & 0b00000010) >> 1)
-        {
-
-        }
-        else
-        {
-            myPLC.profileActive = (data[2] & 0b00000010) >> 1;
-
-            if (myPLC.profileActive)
-            {
-                writeToLogTable("Profil basladi.");
-                prepareTestTimers();
-            }
-            else
-            {
-
-            }
-        }
-
-        if (myPLC.cabinTemperatureStat == (data[2] & 0b00000100) >> 2)
-        {
-
-        }
-        else
-        {
-            myPLC.cabinTemperatureStat = (data[2] & 0b00000100) >> 2;
-
-
-        }
-
-        if (myPLC.tankTemperatureStat == (data[2] & 0b00001000) >> 3)
-        {
-
-        }
-        else
-        {
-            myPLC.tankTemperatureStat = (data[2] & 0b00001000) >> 3;
-
-
-        }
-
-        if (myPLC.pipePressureStat == (data[2] & 0b00010000) >> 4)
-        {
-
-        }
-        else
-        {
-            myPLC.pipePressureStat = (data[2] & 0b00010000) >> 4;
-
-
-        }
-
-        if (myPLC.vibrationMotor1Stat == (data[2] & 0b00100000) >> 5)
-        {
-
-        }
-        else
-        {
-            myPLC.vibrationMotor1Stat = (data[2] & 0b00100000) >> 5;
-
-
-        }
-
-        if (myPLC.vibrationMotor2Stat == (data[2] & 0b01000000) >> 6)
-        {
-
-        }
-        else
-        {
-
-        }
-*/
-/*
-        if (profileId != data[7])
-        {
-            profileId = quint16(data[7]);
-            ui->cbSelectProfileMain->setCurrentIndex(profileId);
-        }
-*/
-        /*     if ( pCycle != quint16(((data[6] & 0xff) << 8) | (data[5] & 0xff)) )
-        {
-
-            pCycle = quint16(((data[6] & 0xff) << 8) | (data[5] & 0xff));
-
-            if (pCycle != 0)
-            {
-                pKey = 0;
-                ui->pTestGraph->clearPlottables();
-                setupPGraphs();
-            }
-        }
-        if ( vCycle != quint16(((data[8] & 0xff) << 8) | (data[7] & 0xff)) )
-        {
-            vCycle = quint16(((data[8] & 0xff) << 8) | (data[7] & 0xff));
-
-            if (vCycle != 0)
-            {
-                vKey = 0;
-                //ui->vTestGraph->clearPlottables();
-                //setupVGraph();
-            }
-        }
-        */
-
-        if ( myPLC.deviceState == char(0x02) )
-        {
-#ifdef Q_OS_LINUX
-            //linux code goes here
-            QString filePath = "/home/pi/InDetail/records/" + testFolder + "/" + "testProgress.txt";
-#endif
-#ifdef Q_OS_WIN
-            // windows code goes here
-            QString filePath = "records\\" + testFolder + "\\" + "testProgress.txt";
-#endif
-
-            QFile file(filePath);
-
-            if (file.open(QFile::WriteOnly|QFile::Truncate))
-            {
-                QTextStream stream(&file);
-                stream << "Temperature Elapsed Seconds: " << tElapsedSeconds << "\n"
-                       << "Pressure Elapsed Seconds: " << pElapsedSeconds << "\n"
-                       << "Vibration Elapsed Seconds: " << vElapsedSeconds << "\n"
-                       << "Temperature Step: " << tStep << "\n"
-                       << "Pressure Step: " << pStep << "\t" << "Pressure Step Repeat: " << pStepRepeat << "\n"
-                       << "Vibration Step: " << vStep << "\t" << "Vibration Step Repeat: " << vStepRepeat << "\n"
-                       << "Temperature Cycle: " << tCycle << "\n"
-                       << "Pressure Cycle: " << pCycle << "\n"
-                       << "Vibration Cycle: " << vCycle << "\n";
-                file.close();
-            }
-        }
+void MainWindow::updateInfo(){
+    if (myPLC.deviceState == 1){
+        tempGraphStarted = 0;
     }
-    else if (index == 2)
+
+    else if ((myPLC.deviceState == 2) || (myPLC.deviceState == 5)|| (myPLC.deviceState == 6))
     {
-        tStep = data[0];
-        pStep = data[1];
-        vStep = data[2];
-        pStepRepeat = (data[3] & 0xFF) | ((data[4] & 0xFF) <<  8) |
-                ((data[5] & 0xFF) << 16);
-        vStepRepeat = (data[6] & 0xFF) | ((data[7] & 0xFF) <<  8) |
-                ((data[8] & 0xFF) << 16);
-
-        //   ui->laCurrentTStepMain->setText(QString::number(tStep));
-
+        if (myPLC.temperatureTestActive == true && tempGraphStarted ==false){
+            prepareTestTimers();
+        }
 
     }
-    else if (index == 1)
-    {
-        tElapsedSeconds = (data[0] & 0xFF) | ((data[1] & 0xFF) <<  8) |
-                ((data[2] & 0xFF) << 16);
-        pElapsedSeconds = (data[3] & 0xFF) | ((data[4] & 0xFF) <<  8) |
-                ((data[5] & 0xFF) << 16);
-        vElapsedSeconds = (data[6] & 0xFF) | ((data[7] & 0xFF) <<  8) |
-                ((data[8] & 0xFF) << 16);
- //       ui->laTTestElepsedSecond->setText(QString::number(tElapsedSeconds));
 
-    }
-    else if(index == 4){
-        if (tCycle != quint16(((data[1] & 0xff) << 8) | (data[0] & 0xff)))
-        {
-            tCycle = quint16(((data[1] & 0xff) << 8) | (data[0] & 0xff));
-          //           ui->laTTotalCycleMain->setText(QString::number(tCycle));
-         /*   if (tCycle != 0)
-            {
-                tKey = 0;
-                ui->tTestGraph->clearPlottables();
-                setupTGraph();
-            }*/
-        }
+    else if (myPLC.deviceState == 3){
+        timerTemp->stop();
+        timerPressure->stop();
+        tempGraphStarted = 0;
     }
 }
 
 void MainWindow::writeToLogTable(QString info)
 {
-   ui->warningTable->insertRow(0);
+    ui->warningTable->insertRow(0);
     ui->warningTable->setItem(0, 0, new QTableWidgetItem(info));
     ui->warningTable->setItem(0, 1, new QTableWidgetItem(
                                   QDate::currentDate().toString(Qt::SystemLocaleShortDate) + "/" +
                                   QTime::currentTime().toString("hh.mm.ss")));
-    if ( myPLC.deviceState == char(0x02) )
-    {
-#ifdef Q_OS_LINUX
-        //linux code goes here
-        QString filePath = "/home/pi/InDetail/records/" + testFolder + "/" + "testLogs.txt";
-#endif
-#ifdef Q_OS_WIN
-        // windows code goes here
-        QString filePath = "records\\" + testFolder + "\\" + "testLogs.txt";
-#endif
-
-        QFile file(filePath);
-
-        if (file.open(QFile::WriteOnly|QFile::Append))
-        {
-            QTextStream stream(&file);
-            stream << "Date: " << QDate::currentDate().toString(Qt::SystemLocaleShortDate)
-                   << "\t" << "Time: " << QTime::currentTime().toString("hh.mm.ss")
-                   << "\t" << "Info: " << info << "\n";
-            file.close();
-        }
-    }
-}
-
-void MainWindow::on_cbSelectGraph_currentIndexChanged(int index)
-{
-
-    if (index == 0)
-    {
-        ui->tTestGraph->setVisible(false);
-        ui->pTestGraph->setVisible(false);
-        ui->tTestGraph->setVisible(true);
-
-    }
-    else if (index == 1)
-    {
-        ui->pTestGraph->setVisible(false);
-        ui->tTestGraph->setVisible(false);
-        ui->pTestGraph->setVisible(true);
-
-    }
 }
 
 void MainWindow::on_bEditPro_clicked()
@@ -2547,8 +655,7 @@ void MainWindow::on_bEditPro_clicked()
     clearProfileSlot('s', 'v', currentProfile);
 
     currentTStep = 0;
-    currentPStep = 0;
-    currentVStep = 0;
+
 
     ui->tabWidget->setTabEnabled(0, false);
     ui->tabWidget->setTabEnabled(1, false);
@@ -2601,8 +708,7 @@ void MainWindow::on_bClearPro_clicked()
     ui->tPreview->clearPlottables();
 
     currentTStep = 0;
-    currentPStep = 0;
-    currentVStep = 0;
+
 
     ui->tabWidget->setTabEnabled(0, true);
     ui->tabWidget->setTabEnabled(1, true);
@@ -2822,7 +928,6 @@ void MainWindow::updateTPreview()
         ui->tPreview->xAxis->setLabel("Time (days)");
         ui->tPreview_2->xAxis->setLabel("Time (days)");
     }
-
 
     float delta = 0;
     float duration = tProfileSave[currentProfile].step[currentTStep].lDuration;
@@ -3500,54 +1605,20 @@ void MainWindow::on_bSavePro_clicked()
     ui->cbSelectProfileMain->setItemText(currentProfile + 1, name);
     ui->cbSelectProfile->setItemText(currentProfile + 1, name);
     ui->cbSelectProfileManual->setItemText(currentProfile + 1, name);
-
     ui->cbSelectProfile->setCurrentIndex(0);
     ui->cbSelectProfile->setEnabled(true);
-
     ui->leProfileName->setText("");
     ui->leProfileName->setEnabled(false);
-
     ui->leStartValue->setText("0");
     ui->leStartValue->setEnabled(false);
-    //  ui->dsbPStartValue->setValue(0);
-    //  ui->dsbPStartValue->setEnabled(false);
-    //  ui->dsbVStartValue->setValue(0);
-    //  ui->dsbVStartValue->setEnabled(false);
-
     ui->laTTotalStep->setText("0");
-    //  ui->laPTotalStep->setText("0");
-    //  ui->laVTotalStep->setText("0");
-
     ui->tWidget->setCurrentIndex(0);
-    //  ui->pWidget->setCurrentIndex(0);
-    //  ui->vWidget->setCurrentIndex(0);
-
     ui->cbTSelectSUnit->setEnabled(false);
-    //  ui->cbPSelectSUnit->setEnabled(false);
-    //  ui->cbVSelectSUnit->setEnabled(false);
-    //ui->cbTSelectSType->setEnabled(false);
-    //  ui->cbPSelectSType->setEnabled(false);
-    //  ui->cbVSelectSType->setEnabled(false);
-
     ui->tPreview->graph(0)->data().clear();
-    //    ui->tPreview->clearPlottables();
-    //    ui->tPreview->clearGraphs();
-    //    ui->tPreview->clearItems();
     ui->tPreview->replot();
-
     ui->tPreview_2->graph(0)->data().clear();
-    //    ui->tPreview_2->clearPlottables();
-    //    ui->tPreview_2->clearGraphs();
-    //    ui->tPreview_2->clearItems();
     ui->tPreview_2->replot();
-
-
-    //  ui->pPreview->clearPlottables();
-    //  ui->vPreview->clearPlottables();
-
     currentTStep = 0;
-    currentPStep = 0;
-    currentVStep = 0;
 
     if(!file.open(QIODevice::WriteOnly))
     {
@@ -3997,28 +2068,8 @@ void MainWindow::on_bStartTest_clicked()
     else
     {
         tKey = 0;
-        pKey = 0;
-        vKey = 0;
-
-        //    ui->tTestGraph->graph(0)->data().clear();
-        //    ui->pTestGraph->graph(0)->data().clear();
-        //    ui->pTestGraph->graph(1)->data().clear();
-        //    ui->pTestGraph->graph(2)->data().clear();
-        //    ui->pTestGraph->graph(3)->data().clear();
-        //    ui->pTestGraph->graph(4)->data().clear();
-        //    ui->pTestGraph->graph(5)->data().clear();
-        //    ui->vTestGraph->graph(0)->data().clear();
-        //    ui->tTestGraph->replot();
-        //    ui->pTestGraph->replot();
-        //    ui->vTestGraph->replot();
-
         ui->tTestGraph->clearPlottables();
-        ui->pTestGraph->clearPlottables();
-        //ui->vTestGraph->clearPlottables();
-
         setupTGraph();
-        setupPGraphs();
-        setupVGraph();
     }
 
     QByteArray cantTouchThis;
@@ -4095,8 +2146,7 @@ void MainWindow::getCurrentDateTime()
 
 void MainWindow::updateTPlot()
 {
-    int tKeyHour;
-    tKeyElapsed = tElapsedSeconds + (double(tempPeriod)/1000.0) ;
+
    // tKey = tElapsedSeconds + (double(tempPeriod)/1000.0) ;
     //tKey = QTime::currentTime().msecsSinceStartOfDay()/1000;
     tKey = tKey + (double(tempPeriod)/1000.0);
@@ -4108,9 +2158,6 @@ void MainWindow::updateTPlot()
     // replot the graph with the added data
     ui->tTestGraph->replot();
 
-    tKeyHour= tElapsedSeconds / 3600;
-    ui->pb_testProgress->setValue(tKeyHour);
-
 #ifdef Q_OS_LINUX
     //linux code goes here
     QString filePath = "/home/pi/InDetail/records/" + testFolder + "/" + "temperature.csv";
@@ -4118,12 +2165,9 @@ void MainWindow::updateTPlot()
 #ifdef Q_OS_WIN
     // windows code goes here
     QString filePath;
-    if (startFromRecords){
-     filePath = dataFilePath;
-    }
-    else{
-    filePath = "records\\" + testFolder + "\\" + "temperature.csv";
-    }
+
+    filePath = "records\\" + myPLC.currentTest.name + "\\" + "temperature.csv";
+
     QString filePathLast ="lastTestName.txt";
 #endif
 
@@ -4134,64 +2178,17 @@ void MainWindow::updateTPlot()
         QTextStream stream(&file);
         stream << QDate::currentDate().toString(Qt::SystemLocaleShortDate)<<";"
                << QTime::currentTime().toString()<< ";"
-               << tKeyElapsed << ";" << QString::number(cabinAverageTemp) << ";"
+               << tKey << ";"
+               << QString::number(cabinAverageTemp) << ";"
                << QString::number(pipe1Pressure) << "\n";
         file.close();
-
     }
 
     QFile file2(filePathLast);
-
     if (file2.open(QFile::WriteOnly|QFile::Text)){
          QTextStream stream2(&file2);
-
          stream2<<QString::number(currentProfile)<< "\n"<<QString::number(tKey);
          file2.close();
-    }
-
-}
-
-void MainWindow::updatePPlots()
-{
-    pKey = pKey + (double(pressurePeriod)/1000.0);
-
-  //  pKey = QTime::currentTime().msecsSinceStartOfDay()/1000;
-    ui->pTestGraph->graph(0)->addData(pKey, pipe1Pressure);
-    ui->pTestGraph->graph(1)->addData(pKey, pipe2Pressure);
-    ui->pTestGraph->graph(2)->addData(pKey, pipe3Pressure);
-    ui->pTestGraph->graph(3)->addData(pKey, pipe4Pressure);
-    ui->pTestGraph->graph(4)->addData(pKey, pipe5Pressure);
-    ui->pTestGraph->graph(5)->addData(pKey, pipe6Pressure);
-
-    // make key axis range scroll with the data (at a constant range size of 30):
-//    ui->pTestGraph->xAxis->setRange(pKey, 60, Qt::AlignRight);
-
-
-    // rescale key (horizontal) axis to fit the current data:
-   // ui->pTestGraph->graph(0)->rescaleKeyAxis();
-
-    ui->pTestGraph->xAxis->setRangeUpper(pKey);
-    ui->pTestGraph->xAxis->setRangeLower(pKey-30);
-    // replot the graph with the added data
-    ui->pTestGraph->replot();
-
-#ifdef Q_OS_LINUX
-    //linux code goes here
-    QString filePath = "/home/pi/InDetail/records/" + testFolder + "/" + "pressure.csv";
-#endif
-#ifdef Q_OS_WIN
-    // windows code goes here
-    QString filePath = "records\\" + testFolder + "\\" + "pressure.csv";
-#endif
-
-    QFile file(filePath);
-
-    if (file.open(QFile::WriteOnly|QFile::Append))
-    {
-        QTextStream stream(&file);
-        stream << pKey << "," << pipe1Pressure << "," << pipe2Pressure << "," << pipe3Pressure << "," <<
-                  pipe4Pressure << "," << pipe5Pressure << "," << pipe6Pressure << "\n";
-        file.close();
     }
 
 }
@@ -4899,10 +2896,6 @@ void MainWindow::on_tabWidget_currentChanged(int index)
     }
     else if (index == 2)
     {
-        ui->cbSelectGraph->setCurrentIndex(0);
-        ui->tTestGraph->setVisible(false);
-        ui->pTestGraph->setVisible(false);
-        //ui->vTestGraph->setVisible(false);
         ui->tTestGraph->setVisible(true);
         qApp->processEvents();
     }
@@ -4958,28 +2951,8 @@ void MainWindow::on_bStartTestManual_clicked()
     else
     {
         tKey = 0;
-        pKey = 0;
-        vKey = 0;
-
-        //    ui->tTestGraph->graph(0)->data().clear();
-        //    ui->pTestGraph->graph(0)->data().clear();
-        //    ui->pTestGraph->graph(1)->data().clear();
-        //    ui->pTestGraph->graph(2)->data().clear();
-        //    ui->pTestGraph->graph(3)->data().clear();
-        //    ui->pTestGraph->graph(4)->data().clear();
-        //    ui->pTestGraph->graph(5)->data().clear();
-        //    ui->vTestGraph->graph(0)->data().clear();
-        //    ui->tTestGraph->replot();
-        //    ui->pTestGraph->replot();
-        //    ui->vTestGraph->replot();
-
         ui->tTestGraph->clearPlottables();
-        ui->pTestGraph->clearPlottables();
-        //ui->vTestGraph->clearPlottables();
-
         setupTGraph();
-        setupPGraphs();
-        setupVGraph();
     }
 
     QByteArray cantTouchThis;
@@ -5021,7 +2994,6 @@ void MainWindow::on_bSendProfileManual_clicked()
 void MainWindow::on_bPauseTestManual_clicked()
 {
     timerTemp->stop();
-    //   timerVib->stop();
     timerPressure->stop();
 
     proc->stop();
@@ -5076,7 +3048,7 @@ void MainWindow::mouseWheel()
         ui->tTestGraph->axisRect()->setRangeZoom(Qt::Horizontal|Qt::Vertical);
 
     }
-    if (ui->tTestGraph->yAxis2->range().upper > 10 || ui->pTestGraph->yAxis2->range().upper < 0 )
+    if (ui->tTestGraph->yAxis2->range().upper > 10 || ui->tTestGraph->yAxis2->range().upper < 0  )
     {
 
          ui->tTestGraph->yAxis2->setRange(0,10);
@@ -5117,11 +3089,6 @@ void MainWindow::on_ZoomInVer_clicked()
     ui->tTestGraph->yAxis->scaleRange(.85, ui->tTestGraph->yAxis->range().center());
     ui->tTestGraph->yAxis->range().bounded(-50,220);
 
-
-    ui->pTestGraph->yAxis->scaleRange(.85, ui->pTestGraph->yAxis->range().center());
-    ui->pTestGraph->yAxis->setRangeLower(0);
-    ui->pTestGraph->replot();
-
     ui->tTestGraph->yAxis2->scaleRange(.85, ui->tTestGraph->yAxis2->range().center());
     ui->tTestGraph->yAxis2->setRangeLower(0);
     ui->tTestGraph->replot();
@@ -5137,22 +3104,11 @@ void MainWindow::on_ZoomOutVer_clicked()
          ui->tTestGraph->replot();
     }
 
-    ui->pTestGraph->yAxis->scaleRange(1.15, ui->pTestGraph->yAxis->range().center());
-    ui->pTestGraph->yAxis->setRangeLower(0);
-    ui->pTestGraph->replot();
-    if (ui->pTestGraph->yAxis->range().upper > 10 || ui->pTestGraph->yAxis->range().upper < 0 )
-    {
-         ui->pTestGraph->yAxis->setRange(0,10);
-
-         ui->pTestGraph->replot();
-    }
-
     ui->tTestGraph->yAxis2->scaleRange(1.15, ui->tTestGraph->yAxis2->range().center());
     ui->tTestGraph->yAxis2->setRangeLower(0);
     if (ui->tTestGraph->yAxis2->range().upper > 10 || ui->tTestGraph->yAxis2->range().upper < 0 )
     {
          ui->tTestGraph->yAxis2->setRange(0,10);
-
          ui->tTestGraph->replot();
     }
 }
@@ -5197,28 +3153,8 @@ void MainWindow::on_bSetTemperatureStart_clicked()
         else
         {
             tKey = 0;
-            pKey = 0;
-            vKey = 0;
-
-            //    ui->tTestGraph->graph(0)->data().clear();
-            //    ui->pTestGraph->graph(0)->data().clear();
-            //    ui->pTestGraph->graph(1)->data().clear();
-            //    ui->pTestGraph->graph(2)->data().clear();
-            //    ui->pTestGraph->graph(3)->data().clear();
-            //    ui->pTestGraph->graph(4)->data().clear();
-            //    ui->pTestGraph->graph(5)->data().clear();
-            //    ui->vTestGraph->graph(0)->data().clear();
-            //    ui->tTestGraph->replot();
-            //    ui->pTestGraph->replot();
-            //    ui->vTestGraph->replot();
-
             ui->tTestGraph->clearPlottables();
-            ui->pTestGraph->clearPlottables();
-            //ui->vTestGraph->clearPlottables();
-
             setupTGraph();
-            setupPGraphs();
-            setupVGraph();
         }
 
         QByteArray cantTouchThis;
@@ -5243,7 +3179,7 @@ void MainWindow::on_bSetTemperatureStop_clicked()
 
 void MainWindow::on_cbTSelectSUnit_currentIndexChanged(int index)
 {
-    if (index =! 0)
+    if (index != 0)
     {
         ui->bNewTStep->setEnabled(true);
     }
@@ -5255,10 +3191,6 @@ void MainWindow::on_cbTSelectSUnit_currentIndexChanged(int index)
 
 void MainWindow::on_ZoomCenter_clicked()
 {
-    ui->pTestGraph->xAxis->setRange(pKey, 60, Qt::AlignRight);
-    ui->pTestGraph->yAxis->setRange(0,10);
-    ui->pTestGraph->yAxis->range().bounded(0,10);
-    ui->pTestGraph->replot();
 
     ui->tTestGraph->graph(0)->rescaleKeyAxis();
     ui->tTestGraph->yAxis->setRange(0,150);
@@ -5822,17 +3754,9 @@ void MainWindow::on_bStartTest1500h_clicked()
     else
     {
         tKey = 0;
-        pKey = 0;
-        vKey = 0;
-
-
-
         ui->tTestGraph->clearPlottables();
-        ui->pTestGraph->clearPlottables();
-
         setupTGraph();
-        setupPGraphs();
-        setupVGraph();
+
     }
 
     QByteArray cantTouchThis;
@@ -5844,7 +3768,7 @@ void MainWindow::on_bStartTest1500h_clicked()
 
 bool MainWindow::on_bSendProfile1500h_clicked()
 {
-    char activePipes;
+    char activePipes=0;
 
     if(on_checkBox_stateChanged()){
         activePipes |= 1 << 0;
@@ -5917,9 +3841,14 @@ bool MainWindow::on_bSendProfile1500h_clicked()
 
     proc->setProfile();
 
-    ui->pb_testProgress->setMaximum(totalDuration);
+    ui->pb_testProgress->setMaximum(totalDuration*3600);
     ui->pb_testProgress->setMinimum(0);
     ui->pb_testProgress->setValue(0);
+
+    ui->pb_testProgress_2->setMaximum(changePeriod*3600);
+    ui->pb_testProgress_2->setMinimum(0);
+    ui->pb_testProgress_2->setValue(0);
+
 
 
     return true;
@@ -5997,7 +3926,6 @@ void MainWindow::on_bStopTest1500h_clicked()
     cantTouchThis.clear();
     cantTouchThis.append(0x01);
     proc->insertCommandMessage(mySerial::makeMessage(0x0A,cantTouchThis));
-    startFromRecords = false;
 }
 
 void MainWindow::on_bPauseTest1500h_clicked()
@@ -6012,96 +3940,6 @@ void MainWindow::on_bPauseTest1500h_clicked()
     cantTouchThis.clear();
     cantTouchThis.append(0x03);
     proc->insertCommandMessage(mySerial::makeMessage(0x0A,cantTouchThis));
-}
-
-void MainWindow::on_b_pipe_1_clicked()
-{
-    if (ui->b_pipe_1->isChecked())
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(0x01);
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-    else
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(char(0x00));
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-}
-
-void MainWindow::on_b_pipe_2_clicked()
-{
-    if (ui->b_pipe_2->isChecked())
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(0x01);
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-    else
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(char(0x00));
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-}
-
-void MainWindow::on_b_pipe_3_clicked()
-{
-    if (ui->b_pipe_3->isChecked())
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(0x01);
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-    else
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(char(0x00));
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-}
-
-void MainWindow::on_b_pipe_4_clicked()
-{
-    if (ui->b_pipe_4->isChecked())
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(0x01);
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-    else
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(char(0x00));
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-}
-
-void MainWindow::on_b_pipe_5_clicked()
-{
-    if (ui->b_pipe_5->isChecked())
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(0x01);
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
-    else
-    {
-        QByteArray cantTouchThis;
-        cantTouchThis.clear();
-        cantTouchThis.append(char(0x00));
-        proc->insertCommandMessage(mySerial::makeMessage(0x91,cantTouchThis));
-    }
 }
 
 void MainWindow::on_b_basinc_tank_doldur_clicked()
@@ -6173,6 +4011,11 @@ void MainWindow::on_bResetFault_clicked()
     if (resetBtn == QMessageBox::Yes)
     {
         resetFault();
+        proc->stop();
+        QByteArray cantTouchThis;
+        cantTouchThis.clear();
+        cantTouchThis.append(0x03);
+        proc->insertCommandMessage(mySerial::makeMessage(0x0A,cantTouchThis));
     }
 
     else
@@ -6185,17 +4028,12 @@ void MainWindow::on_bResetFault_clicked()
 }
 
 void MainWindow::resetFault(){
-    proc->stop();
 
-    QByteArray cantTouchThis;
-    cantTouchThis.clear();
-    cantTouchThis.append(0x03);
-    proc->insertCommandMessage(mySerial::makeMessage(0x0A,cantTouchThis));
     ui->tabWidget->setCurrentIndex(0);
-
 
     // yazı kısmının resetlenmesi
     ui->laFault11->setVisible(false);
+    ui->laFault11_2->setVisible(false);
     ui->laFault12->setVisible(false);
     ui->laFault21->setVisible(false);
     ui->laFault22->setVisible(false);
@@ -6218,9 +4056,6 @@ void MainWindow::resetFault(){
     ui->laFault4A->setVisible(false);
     ui->laFault4A_2->setVisible(false);
 
-
-
-
     // tank kısmını resetleme
      ui->gb_basincTankLevel->setStyleSheet(" ");
      ui->gb_CleanTankLevel->setStyleSheet(" ");
@@ -6233,10 +4068,18 @@ void MainWindow::resetFault(){
      ui->Hortum5->setChecked(false);
 }
 
-
 void MainWindow::on_bChooseData_clicked()
 {
 
+    chooseTestData chooseTestData;
+    chooseTestData.setModal(true);
+    if(chooseTestData.exec() == chooseTestData::Accepted){
+        setTestDatasToGraph(chooseTestData.CurrentTest);
+        setTestPaused();
+        defineHalfTest(chooseTestData.CurrentTest);
+    }
+
+/*
     dataFilePath = QFileDialog::getOpenFileName(
                 this,
                 tr("Open File"),
@@ -6244,14 +4087,13 @@ void MainWindow::on_bChooseData_clicked()
                 "CSV file (*.csv);;All files (*.*)"
                 );
     if (!dataFilePath.isNull()){
-          startFromRecords = true;
           setupTGraph();
           ui->tabWidget->setCurrentIndex(2);
     }
     else{
-       startFromRecords = false;
-    }
 
+    }
+*/
 }
 
 void MainWindow::on_btnDetailsPipes_clicked()
@@ -6271,10 +4113,10 @@ void MainWindow::on_bDoorControlActive_clicked()
 
 }
 
-void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+void MainWindow::on_lineEdit_textChanged()
 {
     if(ui->lineEdit->text() == "11"){
-        writeToLogTable("Kapı kilidi şifresi onaylandı.");
+        writeToLogText->machineInfosToText("Kapı kilidi şifresi onaylandı.");
         activateCabinDoorLock();
     }
 
@@ -6351,7 +4193,7 @@ bool MainWindow::on_Hortum5_stateChanged()
 
 void MainWindow::on_bManualPressureLinesStart_clicked()
 {
-    char activePipes;
+    char activePipes = 0;
 
     if(on_Hortum1_stateChanged()){
         activePipes |= 1 << 0;
@@ -6393,7 +4235,7 @@ void MainWindow::on_bManualPressureLinesStart_clicked()
     }
     QByteArray cantTouchThis;
     cantTouchThis.clear();
-    writeToLogTable("Manual hortum kontrolu başlatıldı.");
+    writeToLogText->machineInfosToText("Manual hortum kontrolu başlatıldı.");
     cantTouchThis.append(activePipes);
     cantTouchThis.append(char(0x01));
     cantTouchThis.append(char(0x00));
@@ -6404,7 +4246,7 @@ void MainWindow::on_bManualPressureLinesStart_clicked()
 
 void MainWindow::on_bManualPressureLinesStop_clicked()
 {
-    char activePipes;
+    char activePipes = 0;
 
     if(on_Hortum1_stateChanged()){
         activePipes |= 1 << 0;
@@ -6447,7 +4289,7 @@ void MainWindow::on_bManualPressureLinesStop_clicked()
     QByteArray cantTouchThis;
     cantTouchThis.clear();
 
-    writeToLogTable("Manual hortum kontrolleri durduruldu.");
+    writeToLogText->machineInfosToText("Manual hortum kontrolleri durduruldu.");
     cantTouchThis.append(activePipes);
     cantTouchThis.append(char(0x00));
     cantTouchThis.append(char(0x00));
@@ -6458,7 +4300,7 @@ void MainWindow::on_bManualPressureLinesStop_clicked()
 
 void MainWindow::on_bManualEvacLines_clicked()
 {
-    char activePipes;
+    char activePipes = 0;
 
     if(on_Hortum1_stateChanged()){
         activePipes |= 1 << 0;
@@ -6501,7 +4343,7 @@ void MainWindow::on_bManualEvacLines_clicked()
     QByteArray cantTouchThis;
     cantTouchThis.clear();
 
-    writeToLogTable("Manual hat boşaltma çalışıyor.");
+    writeToLogText->machineInfosToText("Manual hat boşaltma çalışıyor.");
     cantTouchThis.append(activePipes);
     cantTouchThis.append(char(0x00));
     cantTouchThis.append(char(0x01));
@@ -6513,7 +4355,7 @@ void MainWindow::on_bManualEvacLines_clicked()
 void MainWindow::on_bManualPrepareLines_clicked()
 {
 
-    char activePipes;
+    char activePipes = 0;
 
     if(on_Hortum1_stateChanged()){
         activePipes |= 1 << 0;
@@ -6556,7 +4398,7 @@ void MainWindow::on_bManualPrepareLines_clicked()
     QByteArray cantTouchThis;
     cantTouchThis.clear();
 
-    writeToLogTable("Manual hortum hava alma yapılıyor");
+    writeToLogText->machineInfosToText("Manual hortum hava alma yapılıyor");
     cantTouchThis.append(activePipes);
     cantTouchThis.append(char(0x00));
     cantTouchThis.append(char(0x00));
@@ -6567,10 +4409,49 @@ void MainWindow::on_bManualPrepareLines_clicked()
 
 void MainWindow::on_bBuzzerReset_clicked()
 {
-
-
     QByteArray cantTouchThis;
     cantTouchThis.clear();
     cantTouchThis.append(0x01);
     proc->insertCommandMessage(mySerial::makeMessage(0xA2,cantTouchThis));
 }
+
+void MainWindow::setTestDatasToGraph(quint32 testID){
+    ui->tTestGraph->graph(0)->setData(testManagerMain.getTestDatas(testID).x,
+                                      testManagerMain.getTestDatas(testID).y);
+    ui->tTestGraph->graph(0)->rescaleKeyAxis();
+    ui->tTestGraph->yAxis->setRange(0,150);
+    ui->tTestGraph->yAxis->range().bounded(0,150);
+    ui->tTestGraph->replot();
+}
+
+void MainWindow::setTestPaused(){
+    timerTemp->stop();
+    timerPressure->stop();
+    proc->stop();
+
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+    cantTouchThis.append(0x03);
+    proc->insertCommandMessage(mySerial::makeMessage(0x0A,cantTouchThis));
+}
+
+void MainWindow::defineHalfTest(quint32 testID){
+    proc->stop();
+    quint32 testSeconds = static_cast<quint32>(testManagerMain.getTestDatas(testID).x.last());
+    QByteArray cantTouchThis;
+    cantTouchThis.clear();
+    cantTouchThis.append(0x01);
+    cantTouchThis.append( (testSeconds) & 0xFF );
+    cantTouchThis.append( ((testSeconds) >> 8) & 0xFF );
+    cantTouchThis.append( ((testSeconds) >> 16) & 0xFF );
+    cantTouchThis.append( (testManagerMain.getTestInfos(testID).split(";")[5].toInt()) & 0x00FF);
+    cantTouchThis.append( (testManagerMain.getTestInfos(testID).split(";")[5].toInt()) >> 8);
+    cantTouchThis.append( (testManagerMain.getTestInfos(testID).split(";")[2].toInt()) & 0x00FF);
+    cantTouchThis.append( (testManagerMain.getTestInfos(testID).split(";")[2].toInt()) >> 8);
+
+    proc->insertProfileMessage(mySerial::makeMessage(0x6D,cantTouchThis));
+    tKey = testManagerMain.getTestDatas(testID).x.last();
+}
+
+
+

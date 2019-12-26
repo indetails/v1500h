@@ -1,0 +1,65 @@
+Date: 21.12.2019	Time: 01.43.03	Info: inDetail started
+Date: 21.12.2019	Time: 01.43.06	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 01.43.38	Info: inDetail started
+Date: 21.12.2019	Time: 01.43.41	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 01.55.22	Info: inDetail started
+Date: 21.12.2019	Time: 01.55.25	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 03.24.27	Info: inDetail started
+Date: 21.12.2019	Time: 03.24.30	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 05.07.52	Info: inDetail started
+Date: 21.12.2019	Time: 05.07.55	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 05.14.54	Info: inDetail started
+Date: 21.12.2019	Time: 05.14.57	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 05.15.35	Info: inDetail started
+Date: 21.12.2019	Time: 05.15.38	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 05.22.20	Info: inDetail started
+Date: 21.12.2019	Time: 05.22.22	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 08.57.35	Info: inDetail started
+Date: 21.12.2019	Time: 08.57.38	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 09.07.49	Info: inDetail started
+Date: 21.12.2019	Time: 09.07.52	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 09.59.30	Info: inDetail started
+Date: 21.12.2019	Time: 09.59.33	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 10.18.17	Info: inDetail started
+Date: 21.12.2019	Time: 10.18.19	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 10.34.17	Info: inDetail started
+Date: 21.12.2019	Time: 10.34.20	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 11.00.21	Info: inDetail started
+Date: 21.12.2019	Time: 11.00.24	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 11.42.40	Info: inDetail started
+Date: 21.12.2019	Time: 11.42.43	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 11.44.34	Info: inDetail started
+Date: 21.12.2019	Time: 11.44.37	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 11.51.26	Info: inDetail started
+Date: 21.12.2019	Time: 11.51.29	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 12.50.50	Info: inDetail started
+Date: 21.12.2019	Time: 12.50.53	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 13.02.23	Info: inDetail started
+Date: 21.12.2019	Time: 13.02.26	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 13.05.40	Info: inDetail started
+Date: 21.12.2019	Time: 13.05.43	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 13.41.32	Info: inDetail started
+Date: 21.12.2019	Time: 13.41.35	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 13.45.13	Info: inDetail started
+Date: 21.12.2019	Time: 13.45.15	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 13.52.58	Info: inDetail started
+Date: 21.12.2019	Time: 13.53.01	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 14.09.54	Info: inDetail started
+Date: 21.12.2019	Time: 14.09.57	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 14.24.49	Info: inDetail started
+Date: 21.12.2019	Time: 14.24.53	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 15.56.24	Info: inDetail started
+Date: 21.12.2019	Time: 15.56.27	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 16.02.25	Info: inDetail started
+Date: 21.12.2019	Time: 16.02.28	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 16.17.05	Info: inDetail started
+Date: 21.12.2019	Time: 16.17.08	Info: Communication Status NOK.
+Date: 21.12.2019	Time: 16.20.40	Info: inDetail started
+Date: 21.12.2019	Time: 16.20.40	Info: Connected to COM51: 57600bps, 8Data, NoParity, 1Stop, NoFlow
+Date: 21.12.2019	Time: 16.20.41	Info: Recete Testi Baþladý.
+Date: 21.12.2019	Time: 16.20.41	Info: hortum 2 kontrol.
+Date: 21.12.2019	Time: 16.20.41	Info: hortum 3 kontrol.
+Date: 21.12.2019	Time: 16.20.41	Info: hortum 4 kontrol.
+Date: 21.12.2019	Time: 16.20.41	Info: hortum 5 kontrol.
+Date: 21.12.2019	Time: 16.20.41	Info: Grafik kaydý baþladý
+Date: 21.12.2019	Time: 17.06.39	Info: Communication Status NOK.

@@ -6,6 +6,12 @@ INPUT(
 ./debug\serialprocess.o
 ./debug\lookprofile.o
 ./debug\numpad.o
+./debug\messages.o
+./debug\writeinfostotext.o
+./debug\GkTestManager.o
+./debug\GkTestDal.o
+./debug\GkProfileManager.o
+./debug\choosetestdata.o
 ./debug\qrc_src.o
 ./debug\moc_mainwindow.o
 ./debug\moc_qcustomplot.o
@@ -13,4 +19,6 @@ INPUT(
 ./debug\moc_serialprocess.o
 ./debug\moc_lookprofile.o
 ./debug\moc_numpad.o
+./debug\moc_writeinfostotext.o
+./debug\moc_choosetestdata.o
 );

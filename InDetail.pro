@@ -8,6 +8,7 @@ QT       += core gui
 
 QT       += widgets
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport serialport
 
 
@@ -32,7 +33,13 @@ SOURCES += main.cpp\
     myserial.cpp \
     serialprocess.cpp \
     lookprofile.cpp \
-    keyboard/numpad.cpp
+    keyboard/numpad.cpp \
+    messages.cpp \
+    writeinfostotext.cpp \
+    GkTestManager.cpp \
+    GkTestDal.cpp \
+    GkProfileManager.cpp \
+    choosetestdata.cpp
 
 HEADERS  += mainwindow.h \
     qcustomplot.h \
@@ -42,12 +49,19 @@ HEADERS  += mainwindow.h \
     commands.h \
     lookprofile.h \
     keyboard/ui_numpad.h \
-    keyboard/numpad.h
+    keyboard/numpad.h \
+    writeinfostotext.h \
+    teststruct.h \
+    GkTestManager.h \
+    GkTestDal.h \
+    GkProfileManager.h \
+    choosetestdata.h
 
 FORMS    += mainwindow.ui \
     lookprofile.ui \
     keyboard/keyboard_copy.ui \
-    keyboard/numpad.ui
+    keyboard/numpad.ui \
+    choosetestdata.ui
 
 RESOURCES += src.qrc
 

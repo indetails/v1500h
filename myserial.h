@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QTimer>
 #include <QTime>
+#include  "writeinfostotext.h"
+
 class mySerial : public QObject
 {
     Q_OBJECT
@@ -26,6 +28,7 @@ private slots:
 
 private:
     QSerialPort *serial;
+    writeInfosToText *writeToLogTable;
 
 
 signals:

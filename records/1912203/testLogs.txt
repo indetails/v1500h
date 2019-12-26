@@ -1,0 +1,16 @@
+Date: 20.12.2019	Time: 13.41.49	Info: 1500h modu aktif
+Date: 20.12.2019	Time: 13.41.49	Info: Hortum hava alma kontrol.
+Date: 20.12.2019	Time: 13.41.49	Info: temiz tanktan basýnc tankýna sývý aktarýlýyor .
+Date: 20.12.2019	Time: 13.41.53	Info: temiz tanktan basýnc tankýna sývý aktarýldý .
+Date: 20.12.2019	Time: 13.41.57	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 13.42.57	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 13.43.01	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 13.43.41	Info: Hortum 2 kontrol.
+Date: 20.12.2019	Time: 13.43.41	Info: Hortum 5 kontrol.
+Date: 20.12.2019	Time: 13.44.00	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 13.44.09	Info: Hortum 2 kontrol edildi.
+Date: 20.12.2019	Time: 13.44.09	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 13.45.09	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 13.45.17	Info: Test kontrol aktif.
+Date: 20.12.2019	Time: 13.45.17	Info: Hortum 5 kontrol edildi.
+Date: 20.12.2019	Time: 13.45.17	Info: Hortum hava alma kontrol edildi.

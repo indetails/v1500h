@@ -1,0 +1,6 @@
+Date: 20.12.2019	Time: 12.46.57	Info: 1500h modu aktif
+Date: 20.12.2019	Time: 12.46.57	Info: Test kontrol aktif.
+Date: 20.12.2019	Time: 12.46.57	Info: Kapak kilidi aktif
+Date: 20.12.2019	Time: 12.46.57	Info: 1. hatta sýzýntý tespit edildi.
+Date: 20.12.2019	Time: 12.47.05	Info: Test beklemede.
+Date: 20.12.2019	Time: 12.47.05	Info: Test kontrolu kapali.

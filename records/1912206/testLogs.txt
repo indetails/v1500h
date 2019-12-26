@@ -1,0 +1,41 @@
+Date: 20.12.2019	Time: 14.33.57	Info: 1500h modu aktif
+Date: 20.12.2019	Time: 14.33.57	Info: hortum 1 kontrol.
+Date: 20.12.2019	Time: 14.33.57	Info: Hortum 2 kontrol.
+Date: 20.12.2019	Time: 14.33.57	Info: Hortum hava alma kontrol.
+Date: 20.12.2019	Time: 14.33.57	Info: temiz tanktan basýnc tankýna sývý aktarýlýyor .
+Date: 20.12.2019	Time: 14.34.01	Info: Hortum 2 kontrol edildi.
+Date: 20.12.2019	Time: 14.34.01	Info: temiz tanktan basýnc tankýna sývý aktarýldý .
+Date: 20.12.2019	Time: 14.34.05	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 14.35.05	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 14.35.09	Info: hortum1 kontrol edildi.
+Date: 20.12.2019	Time: 14.35.09	Info: Hortum 2 kontrol.
+Date: 20.12.2019	Time: 14.35.09	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 14.36.09	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 14.36.17	Info: Hortum 2 kontrol edildi.
+Date: 20.12.2019	Time: 14.36.17	Info: Hortum 5 kontrol.
+Date: 20.12.2019	Time: 14.36.17	Info: Sirkülasyon Pompasý Çalýþýyor
+Date: 20.12.2019	Time: 14.37.17	Info: Sirkülasyon Pompasý durdu. 
+Date: 20.12.2019	Time: 14.37.25	Info: Test kontrol aktif.
+Date: 20.12.2019	Time: 14.37.25	Info: Hortum 5 kontrol edildi.
+Date: 20.12.2019	Time: 14.37.25	Info: Hortum hava alma kontrol edildi.
+Date: 20.12.2019	Time: 14.40.01	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.46.57	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.47.17	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.47.37	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.48.25	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.48.29	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.48.33	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.50.41	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.50.45	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.51.45	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.52.29	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.54.25	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.54.37	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.54.53	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.54.57	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.55.01	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.55.13	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.55.37	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.55.41	Info: sýcaklýk ayarlama yapýldý.
+Date: 20.12.2019	Time: 14.55.53	Info: sýcaklýk ayarlanýyor.
+Date: 20.12.2019	Time: 14.55.57	Info: sýcaklýk ayarlama yapýldý.

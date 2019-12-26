@@ -1,0 +1,9 @@
+Date: 19.12.2019	Time: 01.09.10	Info: Test Baþladý.
+Date: 19.12.2019	Time: 01.09.16	Info: sýcaklýk kontrol aktif.
+Date: 19.12.2019	Time: 01.09.21	Info: hortum 2 kontrol.
+Date: 19.12.2019	Time: 01.09.23	Info: hortum 3 kontrol.
+Date: 19.12.2019	Time: 01.09.25	Info: hortum 4 kontrol.
+Date: 19.12.2019	Time: 01.09.40	Info: hortum 5 kontrol.
+Date: 19.12.2019	Time: 01.09.42	Info: hortum hava alma kontrol.
+Date: 19.12.2019	Time: 01.10.04	Info: hortum kontrol
+Date: 19.12.2019	Time: 01.10.04	Info: temiz tanktan basýnc tankýna sývý aktarýlýyor .
